@@ -1,0 +1,48 @@
+/* a .router-link-exact-active {
+    background: #bbb;
+  }
+
+     */
+     /* @import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap"); */
+   
+
+     /* ayaw lang ni ilising nasa ubos, hehe*/
+     .contentBody{
+      background: #EFEFEF !important;
+      font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      
+      
+     }
+     *{
+      /* background: #EFEFEF !important; */
+      font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      
+      
+     }
+     .bgNEh{
+      background: #d31515 !important;
+     }
+     .imagesCenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+      height: 40%;
+    }
+    .schoolName{
+      font-size: xx-large;
+     /* background: #4766f0 !important;*/
+      color: #0062FF !important;
+      justify-content: center;
+      /* font-family: "Ibarra Real Nova", serif !important; */
+      font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+     }
+     .fonTs{
+      /* font-family: "Ibarra Real Nova", serif !important; */
+      font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+     }
+     .clorNE{
+      background-color: #0062FF !important;
+     }
+
+     
