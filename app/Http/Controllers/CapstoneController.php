@@ -245,6 +245,7 @@ class CapstoneController extends Controller
         if ($capstoneid1) {
 
             $capstone1 = new Capstone1();
+            $capstone1->id = $id;
             $capstone1->capstone_id = $id;
             $capstone1->status = $status1;
             $capstone1->xf1 = $xf1;
@@ -254,6 +255,7 @@ class CapstoneController extends Controller
         if ($capstoneid2) {
 
             $capstone2 = new Capstone2();
+            $capstone2->id = $id;
             $capstone2->status = $status2;
             $capstone2->capstone_id = $id;
             $capstone2->xf1 = $xf1;
@@ -263,6 +265,7 @@ class CapstoneController extends Controller
         if ($capstoneid3) {
 
             $capstone3 = new Capstone3();
+            $capstone3->id = $id;
             $capstone3->capstone_id = $id;
             $capstone3->status = $status3;
             $capstone3->xf1 = $xf1;

@@ -426,7 +426,9 @@ const ssAccept = () => {
 const rateddd = async () => {
   let idd = getIDfromURL();
   let response = await axios.get("/api/panel_rate_check/" + idd);
+  console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
   rated.value = response.data.userCaps;
+  console.warn("TYTRTYTRYTRYTRY", rated.value.id);
   if (rated.value.id == 1) {
     axios
       .post("/api/create_rate/" + idd)

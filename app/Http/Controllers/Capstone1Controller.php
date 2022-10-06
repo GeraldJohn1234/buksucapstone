@@ -39,6 +39,7 @@ class Capstone1Controller extends Controller
         $count = 0;
 
         $idAuth = Auth::user()->id;
+        
 
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
         ->where('capstone_id', $id)->pluck('user_id')->first();

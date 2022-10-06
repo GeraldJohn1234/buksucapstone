@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Capstone1 extends Model
 {
     use HasFactory;
+    public $incrementing = false;
  
 
-    protected $fillable = [
-        'status',
-        'capstone_file',
-        'capstone_ocr'   
-    ];
+    // protected $fillable = [
+    //     'status',
+    //     'capstone_file',
+    //     'capstone_ocr'   
+    // ];
 
     public function capstone(){
         return $this->belongsTo(Capstone::class);
