@@ -218,7 +218,7 @@ const props = defineProps({
 });
 
 const getPhoto = () => {
-  let photo = "/upload/archiver.png";
+  let photo = "/upload/leader.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;
@@ -246,10 +246,6 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/myprofile/");
   form.value = response.data.userrs;
   console.warn("userrs", form.value);
-
-  // console.warn(test);
-
-  // test = ("userrs", form.value.name);
 };
 
 const updateUser = () => {
@@ -265,10 +261,9 @@ const updateUser = () => {
 
   formData.append("gender", form.value.gender);
   formData.append("photo", form.value.photo);
-  // ${form.value.id}
 
   axios
-    .post("/api/myprofile_update/", formData)
+    .post("/api/myprofile_update", formData)
 
     .then((response) => {
       (form.value.uid = ""),
@@ -280,9 +275,9 @@ const updateUser = () => {
         (form.value.year = ""),
         (form.value.gender = ""),
         (form.value.photo = ""),
-        // router.push("/api/myprofile");
-
-        getsingleUser();
+        // router.push("/profile");
+        window.location.reload();
+      getsingleUser();
       toast.fire({
         icon: "success",
         title: "User Update Successfully",

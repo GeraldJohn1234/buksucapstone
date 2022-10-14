@@ -1500,10 +1500,8 @@ import { useRouter } from "vue-router";
 import { ref } from "vue";
 import axios from "axios";
 
-
 let status;
 let rate;
-
 
 let caps1rate = ref({
   background: "",
@@ -1557,10 +1555,10 @@ const approved = () => {
     caps1rate.value.attire != null &&
     caps1rate.value.resp != null
   ) {
-    toast.fire({
-      icon: "success",
-      title: "GOOD",
-    });
+    // toast.fire({
+    //   icon: "success",
+    //   title: "GOOD",
+    // });
     saveRatinggFinal();
   } else {
     toast.fire({
@@ -1706,16 +1704,13 @@ const saveRatinggFinal = () => {
     // .catch((error = {}));
     .catch(function (error) {
       console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
 
       toast.fire({
         icon: "warning",
         title: "Rate Unsuccessful",
       });
       // (error = {}));
-      console.log("ERRRR:: ", error.response.data);
     });
-  console.log("ERRRR:: ", error.response.data);
 };
 
 const saveRatingg = () => {
@@ -1813,18 +1808,14 @@ const saveRatingg = () => {
     // .catch((error = {}));
     .catch(function (error) {
       console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
 
       toast.fire({
         icon: "warning",
         title: "Rate Unsuccessful",
       });
       // (error = {}));
-      console.log("ERRRR:: ", error.response.data);
     });
-  console.log("ERRRR:: ", error.response.data);
 };
-
 
 const getStoreRatingRate3 = async () => {
   let capsID = window.location.pathname.split("/")[2];
@@ -1849,7 +1840,6 @@ const getStoreRatingRate3 = async () => {
     })
     .catch(function (error) {
       console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
 
       toast.fire({
         icon: "warning",

@@ -296,7 +296,7 @@
 </template>
 
 <script setup>
-import router from "../../../routers/facultyRouter";
+import router from "../../../routers/archiverRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
 

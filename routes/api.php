@@ -52,9 +52,10 @@ Route::post('/add_capstone', [CapstoneController::class,'add_capstone']);
 
 Route::get('/get_all_capstone', [CapstoneController::class,'get_all_capstone']);
 Route::get('/get_all_capstonesort', [CapstoneController::class,'get_all_capstonesort']);
+Route::get('/get_all', [CapstoneController::class,'get_all']);
 Route::get('/get_all_capstone/{id}', [CapstoneController::class,'get_all_capstone']);
 
-Route::post('/store_dashboard', [CapstonedashboardController::class,'store_dashboard']);//this is for the dash board  store_dashboard 
+Route::post('/store_dashboard', [CapstonedashboardController::class,'store_dashboard']);//this is for the dash board  store_dashboard  
 Route::get('/get_dashboard', [CapstonedashboardController::class,'get_dashboard']);
 
 Route::get('/get_pie_unimplement', [CapstoneController::class,'get_pie_unimplement']);
@@ -88,14 +89,20 @@ Route::get('/get_capstone2link/{id}', [Capstone2Controller::class,'get_capstone2
 Route::post('/update_capstone/{id}', [CapstoneController::class,'update_capstone']);
 
 
+Route::get('/get_capstone_inst/{id}', [CapstoneController::class,'get_capstone_inst']);
+
+
 Route::post('/add_capstonee1', [Capstone1Controller::class,'add_capstonee1']);
 Route::get('/get_capstonee1', [Capstone1Controller::class,'get_capstonee1']);
 Route::get('/panel_rate_check/{id}', [Capstone1Controller::class,'panel_rate_check']);
-// Route::get('/add_new_capstonee111/{id}', [Capstone1Controller::class,'add_new_capstonee111']);
+// Route::get('/add_new_capstonee111/{id}', [Capstone1Controller::class,'add_new_capstonee111']); getcaps2
 
 Route::post('/addcapstone1/{id}', [Capstone1Controller::class,'addcapstone1']);
 Route::get('/getcapstone1/{id}', [Capstone1Controller::class,'getcapstone1']);
 Route::get('/getcaps123/{id}', [Capstone1Controller::class,'getcaps123']); 
+
+Route::get('/getcaps2/{id}', [Capstone1Controller::class,'getcaps2']); 
+Route::get('/getcaps3/{id}', [Capstone1Controller::class,'getcaps3']); 
 
 Route::get('/getcaps2/{id}', [Capstone2Controller::class,'getcaps2']);
 

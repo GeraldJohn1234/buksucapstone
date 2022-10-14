@@ -3,11 +3,11 @@
     <div class="">
       <div class="forInline capsList">TOPIC AND SUGGESTIONS LIST</div>
 
-      <div class="forInline float-end mtop">
+      <!-- <div class="forInline float-end mtop">
         <button class="nav_link" to="/createsuggestion">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </button>
-      </div>
+      </div> -->
     </div>
     <hr />
 

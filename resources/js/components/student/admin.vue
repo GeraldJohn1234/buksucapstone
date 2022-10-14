@@ -1,7 +1,7 @@
 <template>
   <div class="contentOfThePage rounded bg-light">
     <div class="">
-      <div class="forInline capsList">STUDENT LIST</div>
+      <div class="forInline capsList">ADMINISTRATOR LIST</div>
 
       <div class="forInline float-end mtop">
         <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->

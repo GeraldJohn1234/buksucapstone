@@ -3,10 +3,10 @@
     <div class="">
       <div class="forInline capsList">TOPIC AND SUGGESTIONS LIST</div>
 
-      <div class="forInline float-end mtop">
-        <router-link class="nav_link" to="/createsuggestion">
+      <div class="forInline float-end mtop p-2">
+        <button class="nav_link" @click="createsuggest()">
           <button type="button" class="btn btn-primary box1">CREATE</button>
-        </router-link>
+        </button>
       </div>
     </div>
     <hr />
@@ -52,320 +52,180 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
           <td>2</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
-          <td>Taken</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
+          <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>3</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>4</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>5</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>6</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>7</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>8</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/update">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
-                  </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Clark</td>
-          <td>Kent</td>
-          <td>clarkkent@mail.com</td>
+          <td>9</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
           <td>available</td>
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/view">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
                     VIEW
                   </button>
-                </router-link>
+                </button>
               </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Monkey D. Luffy</td>
+          <td>Monkey D. Dragon</td>
+          <td>Document Management System</td>
+          <td>available</td>
+          <td class="">
+            <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/update">
+                <button class="nav_link" @click="taketopic()">
                   <button type="button" class="btn btn-outline-primary button1">
-                    UPDATE
+                    VIEW
                   </button>
-                </router-link>
-              </li>
-              <li class="col">
-                <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link>
+                </button>
               </li>
             </ul>
           </td>
@@ -392,7 +252,18 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import router from "../../routers/facultyRouter";
+
+const taketopic = () => {
+  router.push("/taketopic");
+};
+const createsuggest = () => {
+  router.push("/createsuggestion");
+};
+// @click="taketopic()"
+//
+</script>
 
 <style>
 td {

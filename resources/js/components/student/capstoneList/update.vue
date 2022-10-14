@@ -113,13 +113,14 @@
       </div>
 
       <div class="col-2">
-        <label for="lastname" class="form-label">Year</label>
+        <label for="lastname" class="form-label">Year (Students)</label>
         <input
           type="text"
           class="form-control"
           placeholder="LAST NAME"
           aria-label="Last name"
           v-model="form.year"
+          disabled
         />
       </div>
 

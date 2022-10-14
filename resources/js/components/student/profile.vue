@@ -218,7 +218,7 @@ const props = defineProps({
 });
 
 const getPhoto = () => {
-  let photo = "/upload/archiver.png";
+  let photo = "/upload/leader.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;

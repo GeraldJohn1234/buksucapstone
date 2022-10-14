@@ -1,7 +1,7 @@
 <template>
   <div class="contentOfThePage rounded bg-light">
     <div class="">
-      <div class="forInline capsList">STUDENT LIST</div>
+      <div class="forInline capsList">ARCHIVER LIST</div>
 
       <div class="forInline float-end mtop">
         <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
@@ -49,7 +49,6 @@
           <th>Avatar</th>
           <th>I.D</th>
           <th>FULLNAME</th>
-          <th>GROUP NAME</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -68,7 +67,6 @@
           </td>
           <td>{{ item.uid }}</td>
           <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
-          <td>Buksu Archiving and Monitoring System</td>
           <td class="">
             <ul class="nav row">
               <li class="col">

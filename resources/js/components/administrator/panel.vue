@@ -1,15 +1,14 @@
-<template >
+<template>
   <div class="contentOfThePage rounded bg-light">
     <div class="">
-      <div class="forInline capsList">STUDENT LIST</div>
+      <div class="forInline capsList">PANEL LIST</div>
 
       <div class="forInline float-end mtop">
-       <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
+        <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
 
         <router-link class="nav_link" to="/create">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
-
       </div>
     </div>
     <hr />
@@ -41,7 +40,9 @@
     </div>
 
     <br />
-    <table class="table table--items users_list_item table-hover table-bordered table-striped text-center"  >
+    <table
+      class="table table--items users_list_item table-hover table-bordered table-striped text-center"
+    >
       <thead>
         <tr>
           <th>#</th>
@@ -51,31 +52,43 @@
           <th>Action</th>
         </tr>
       </thead>
-      <tbody  >
+      <tbody>
         <tr v-for="(item, index) in users" :key="item.id">
           <!-- <td>1</td> -->
           <td>{{ index + 1 }}</td>
 
-          
           <td class="text-center">
-            <img class="avatarImage1" :src=ourImage(item.photo) alt="a" v-if="item.photo" />
+            <img
+              class="avatarImage1"
+              :src="ourImage(item.photo)"
+              alt="a"
+              v-if="item.photo"
+            />
           </td>
-          <td> {{item.uid }}</td>
-          <td>{{item.name }} {{item.mname }} {{item.lname }}  </td>
+          <td>{{ item.uid }}</td>
+          <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
           <td class="">
-            <ul class="nav row ">
+            <ul class="nav row">
               <li class="col">
                 <!-- <router-link class="nav_link" to="/view"> -->
-                  <button type="button" class="btn btn-outline-primary button1 m-1 " @click="onView(item.id)">
-                    VIEW
-                  </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary button1 m-1"
+                  @click="onView(item.id)"
+                >
+                  VIEW
+                </button>
                 <!-- </router-link> -->
               </li>
               <li class="col">
                 <!-- <router-link class="nav_link" to="/update"> -->
-                  <button type="button" class="btn btn-outline-primary button1 m-1" @click="onEdith(item.id)">
-                    UPDATE
-                  </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary button1 m-1"
+                  @click="onEdith(item.id)"
+                >
+                  UPDATE
+                </button>
                 <!-- </router-link> -->
               </li>
               <li class="col">
@@ -84,14 +97,17 @@
                     DELETE
                   </button>
                 </router-link> -->
-                <button type="button" class="btn btn-outline-primary button1 m-1" @click="deleteUser(item.id)">
-                    DELETE
-                  </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary button1 m-1"
+                  @click="deleteUser(item.id)"
+                >
+                  DELETE
+                </button>
               </li>
             </ul>
           </td>
         </tr>
-        
       </tbody>
     </table>
     <!-- <div v-else></div> -->
@@ -118,7 +134,7 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
- import router from "../../routers/administratorRouter";
+import router from "../../routers/administratorRouter";
 //import {useRouter} from 'vue-router'
 
 //const router = useRouter
@@ -134,47 +150,42 @@ onMounted(async () => {
 // }
 
 const getUsers = async () => {
-
- let response = await axios.get("/api/get_all_panel_user");
-  users.value = response.data.panels
+  let response = await axios.get("/api/get_all_panel_user");
+  users.value = response.data.panels;
 };
 
-const ourImage =(img) =>{
-  return "/upload/"+img
-}
-const onEdith =(id) =>{
-  router.push('/update/'+id)
-}
-const onView =(id) =>{
-  router.push('/view/'+id)
-}
-const deleteUser = (id) =>{
+const ourImage = (img) => {
+  return "/upload/" + img;
+};
+const onEdith = (id) => {
+  router.push("/update/" + id);
+};
+const onView = (id) => {
+  router.push("/view/" + id);
+};
+const deleteUser = (id) => {
   Swal.fire({
-    title:'Are You Sure?',
-    text:"You can't go back!",
-    icon:"warning",
-    showCancelButton:true,
-    confirmButtonColor:'#3085d6',
-    cancelButtonText:'No!',
-    confirmButtonText:'Yes, delete it!',
-  })
-  .then((result)=>{
-    if(result.value){
-      axios.get('/api/delete_user/'+id)
-        .then(()=>{
-          Swal.fire(
-            'Delete',
-            'Account delete successfully',
-            'success'
-          )
-          getUsers()
-        }).catch(()=>{
-          Swal.fire("Failed!","There was Something Wrong.","Warning")
+    title: "Are You Sure?",
+    text: "You can't go back!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonText: "No!",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.value) {
+      axios
+        .get("/api/delete_user/" + id)
+        .then(() => {
+          Swal.fire("Delete", "Account delete successfully", "success");
+          getUsers();
         })
+        .catch(() => {
+          Swal.fire("Failed!", "There was Something Wrong.", "Warning");
+        });
     }
-  })
-}
-
+  });
+};
 </script>
 
 <style>
@@ -242,7 +253,7 @@ a:hover {
   margin-top: 5px;
   font-weight: bolder;
 }
-.avatarImage1{
+.avatarImage1 {
   height: 30px;
   width: 30px;
   border-radius: 50%;

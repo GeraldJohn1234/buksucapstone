@@ -196,17 +196,9 @@ const rateddd = async () => {
   let response = await axios.get("/api/project_check");
   let checkdata = response.data.ans;
 
-  if (checkdata == 1) {
+  if (checkdata != 0) {
     router.push("/editcap/" + checkdata);
-    // toast.fire({
-    //   icon: "success",
-    //   title: "good" + checkdata,
-    // });
   } else {
-    // toast.fire({
-    //   icon: "success",
-    //   title: "bad" + checkdata,
-    // });
     router.push("/noproject");
   }
 
@@ -223,7 +215,7 @@ const rateddd = async () => {
 };
 
 const getPhoto = () => {
-  let photo = "/upload/myAvatar.png";
+  let photo = "/upload/leader.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;

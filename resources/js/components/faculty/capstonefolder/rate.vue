@@ -1797,16 +1797,16 @@ const saveRatinggFinal = () => {
     // .catch((error = {}));
     .catch(function (error) {
       console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
+      console.log("ERRRR:: ", error.response);
 
       toast.fire({
         icon: "warning",
         title: "Rate Unsuccessful",
       });
       // (error = {}));
-      console.log("ERRRR:: ", error.response.data);
+      console.log("ERRRR:: ", error.response);
     });
-  console.log("ERRRR:: ", error.response.data);
+  // console.log("ERRRR:: ", error.response.data);
 };
 
 const saveRatingg = () => {
@@ -1904,16 +1904,16 @@ const saveRatingg = () => {
     // .catch((error = {}));
     .catch(function (error) {
       console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
+      console.log("ERRRR:: ", error.response);
 
       toast.fire({
         icon: "warning",
         title: "Rate Unsuccessful",
       });
       // (error = {}));
-      console.log("ERRRR:: ", error.response.data);
+      console.log("ERRRR:: ", error.response);
     });
-  console.log("ERRRR:: ", error.response.data);
+  // console.log("ERRRR:: ", error.response.data);
 };
 </script>
 

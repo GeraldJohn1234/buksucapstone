@@ -40,18 +40,30 @@
           required
         ></textarea>
       </div>
-      <div class="col">
+      <!-- <div class="col">
         <label for="instructor" class="form-label">Instructor</label>
         <label for="" class="float-end colorText"
           >{{ instructor.name }} {{ instructor.mname }} {{ instructor.lname }}</label
         >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.instructor">
-            <!-- <option value="0">Select instructor</option> -->
+           
             <option selected>Open this select menu</option>
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
+          </select>
+        </div>
+      </div> -->
+
+      <div class="col">
+        <label for="lastname" class="form-label">Choose Year</label>
+        <div class="input-group mb-3">
+          <select class="form-select inputColor" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="3rd year">3rd year</option>
+            <option value="4th year">4th year</option>
+            <option value="5th year">5th year</option>
           </select>
         </div>
       </div>
@@ -59,9 +71,9 @@
     <div class="row">
       <div class="col">
         <label for="adviser" class="form-label">Adviser</label>
-        <!-- <label for="" class="float-end colorText"
+        <label for="" class="float-end colorText"
           >{{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}</label
-        > -->
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.adviser">
             <!-- <option value="0">Select instructor</option> -->
@@ -73,6 +85,9 @@
       </div>
       <div class="col">
         <label for="coAdviser" class="form-label">Co-Adviser</label>
+        <label for="" class="float-end colorText"
+          >{{ coAdviser.name }} {{ coAdviser.mname }} {{ coAdviser.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.coAdviser">
             <!-- <option value="0">Select instructor</option> -->
@@ -86,6 +101,9 @@
     <div class="row">
       <div class="col">
         <label for="panel1" class="form-label">Panel 1</label>
+        <label for="" class="float-end colorText"
+          >{{ panels1.name }} {{ panels1.mname }} {{ panels1.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels1">
             <!-- <option value="0">Select instructor</option> -->
@@ -98,6 +116,9 @@
 
       <div class="col">
         <label for="panel2" class="form-label">Panel 2</label>
+        <label for="" class="float-end colorText"
+          >{{ panels2.name }} {{ panels2.mname }} {{ panels2.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels2">
             <!-- <option value="0">Select instructor</option> -->
@@ -110,6 +131,9 @@
 
       <div class="col">
         <label for="panel3" class="form-label">Panel 3</label>
+        <label for="" class="float-end colorText"
+          >{{ panels3.name }} {{ panels3.mname }} {{ panels3.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels3">
             <!-- <option value="0">Select instructor</option> -->
@@ -122,6 +146,9 @@
 
       <div class="col">
         <label for="secretary" class="form-label">Secretary</label>
+        <label for="" class="float-end colorText"
+          >{{ secretary.name }} {{ secretary.mname }} {{ secretary.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.secretarys">
             <option v-for="item in secretarys" :key="item.id" :value="item.id">
@@ -135,6 +162,9 @@
     <div class="row">
       <div class="col">
         <label for="students" class="form-label">Proponet 1</label>
+        <label for="" class="float-end colorText"
+          >{{ student1.name }} {{ student1.mname }} {{ student1.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students1">
             <!-- <option value="0">Select instructor</option> -->
@@ -146,6 +176,9 @@
       </div>
       <div class="col">
         <label for="students" class="form-label">Proponet 2</label>
+        <label for="" class="float-end colorText"
+          >{{ student2.name }} {{ student2.mname }} {{ student2.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students2">
             <!-- <option value="0">Select instructor</option> -->
@@ -157,6 +190,9 @@
       </div>
       <div class="col">
         <label for="students" class="form-label">Proponet 3</label>
+        <label for="" class="float-end colorText"
+          >{{ student3.name }} {{ student3.mname }} {{ student3.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students3">
             <!-- <option value="0">Select instructor</option> -->
@@ -168,6 +204,9 @@
       </div>
       <div class="col">
         <label for="students" class="form-label">Proponet 4{{ GenCaps.students4 }}</label>
+        <label for="" class="float-end colorText"
+          >{{ student4.name }} {{ student4.mname }} {{ student4.lname }}</label
+        >
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students4">
             <!-- <option selected disabled>Select instructor</option> -->
@@ -178,6 +217,7 @@
         </div>
       </div>
     </div>
+    <hr />
 
     <div class="row paddingSide mt-3">
       <div class="col row mx-2 contentOfThePage text-center">
@@ -229,7 +269,26 @@
         </div>
       </div>
     </div>
-    <br />
+    <hr />
+
+    <!-- <div class="row contentOfThePage mx-1">
+      <label for="button" class="fw-bold"
+        >For Uploading Documentation through OCR</label
+      > -->
+    <!-- <div class="row">
+      <div class="col">
+        <button
+          type="button"
+          class="m-1 btnSize btn btn-primary fw-bold"
+          @click="onOCR()"
+        >
+          Uploading Documentation through Octical Character Recognition
+        </button>
+      </div>
+    </div> -->
+
+    <!-- </div> -->
+
     <div class="row">
       <div class="col">
         <button type="button" class="m-1 btnSize btn btn-primary" @click="saveCapstone()">
@@ -249,6 +308,7 @@ let students = ref({});
 let panels = ref({});
 let advisers = ref({});
 let instructors = ref({});
+let secretarys = ref({});
 
 let GenCapData = ref({
   title: "",
@@ -305,10 +365,13 @@ let instructor = ref({
   mname: "",
   lname: "",
 });
-let secretarys = ref({
+let secretary = ref({
   name: "",
   mname: "",
   lname: "",
+});
+let caps1Instructor = ref({
+  instructor: "",
 });
 
 let GenCaps = ref({
@@ -324,7 +387,6 @@ let GenCaps = ref({
   panels3: "",
   adviser: "",
   coAdviser: "",
-  instructor: "",
   secretarys: "",
 });
 
@@ -347,6 +409,7 @@ onMounted(async () => {
   getAdviser();
   getInstructor();
 });
+
 const gettIdfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
@@ -356,6 +419,10 @@ const props = defineProps({
     default: "",
   },
 });
+const onOCR = (id) => {
+  let capstoneid = gettIdfromURL();
+  router.push("/ocrpages/" + capstoneid);
+};
 const saveCapstone = () => {
   let capstoneid = gettIdfromURL();
   // if (
@@ -407,12 +474,13 @@ const saveCapstone = () => {
 
   formData.append("adviser", GenCaps.value.adviser);
   formData.append("coAdviser", GenCaps.value.coAdviser);
-  formData.append("instructor", GenCaps.value.instructor);
+  // formData.append("instructor", GenCaps.value.instructor);
   formData.append("secretarys", GenCaps.value.secretarys);
 
   axios
     .post("/api/update_capstone/" + capstoneid, formData)
     .then((response) => {
+      // caps2Inst();
       (GenCapData.value.title = ""),
         (GenCapData.value.abstract = ""),
         (GenCapData.value.groupname = ""),
@@ -425,7 +493,7 @@ const saveCapstone = () => {
         (GenCaps.value.panels3 = ""),
         (GenCaps.value.adviser = ""),
         (GenCaps.value.coAdviser = ""),
-        (GenCaps.value.instructor = ""),
+        // (GenCaps.value.instructor = ""),
         (GenCaps.value.secretarys = ""),
         router.push("/capslist");
 
@@ -461,8 +529,6 @@ const saveCapstone = () => {
           GenCaps.value.adviser +
           "coAd" +
           GenCaps.value.coAdviser +
-          "ins" +
-          GenCaps.value.instructor +
           "sec" +
           GenCaps.value.secretarys,
         // title: capstoneid,
@@ -527,7 +593,7 @@ const getsingleUser9 = async () => {
 };
 const getsingleUser10 = async () => {
   let response = await axios.get("/api/get_capstone_secretarys/" + props.id);
-  secretarys.value = response.data.userCaps;
+  secretary.value = response.data.userCaps;
 };
 
 const getSecretary = async () => {
@@ -558,19 +624,19 @@ const getInstructor = async () => {
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
-const onView1 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone1/" + id);
-};
+// const onView1 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone1/" + id);
+// };
 
-const onView2 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone2/" + id);
-};
-const onView3 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone3/" + id);
-};
+// const onView2 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone2/" + id);
+// };
+// const onView3 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone3/" + id);
+// };
 const onUpdate1 = () => {
   let id = getIDfromURL();
   router.push("/caps1edit/" + id);
@@ -583,6 +649,113 @@ const onUpdate3 = () => {
   let id = getIDfromURL();
   router.push("/caps3edit/" + id);
 };
+
+const onView1 = () => {
+  let id = getIDfromURL();
+  router.push("/capstone1/" + id);
+};
+const onView2 = () => {
+  let id = getIDfromURL();
+  router.push("/capstone2/" + id);
+};
+const onView3 = () => {
+  let id = getIDfromURL();
+  router.push("/capstone3/" + id);
+};
+
+// const onView1 = async () => {
+//   let idd = getIDfromURL();
+//   let response = await axios.get("/api/panel_rate_check/" + idd);
+//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+//   rated.value = response.data.userCaps;
+//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+//   if (rated.value.id == 1) {
+//     axios
+//       .post("/api/create_rate/" + idd)
+//       .then((response) => {
+//         // router.push("/rate/" + idd);
+//         router.push("/capstone1/" + id);
+//       })
+//       // router.push("/rate/" + idd);
+
+//       .catch(function (error) {
+//         console.log(error.response.data.errors);
+//         console.log("ERRRR:: ", error.response.data);
+
+//         toast.fire({
+//           icon: "warning",
+//           title: "SOMETHING WRONG",
+//         });
+//       });
+//   } else {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Sorry, You're not one of the Panelist",
+//     });
+//   }
+// };
+// const onView2 = async () => {
+//   let idd = getIDfromURL();
+//   let response = await axios.get("/api/panel_rate_check/" + idd);
+//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+//   rated.value = response.data.userCaps;
+//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+//   if (rated.value.id == 1) {
+//     axios
+//       .post("/api/create_rate/" + idd)
+//       .then((response) => {
+//         // router.push("/rate/" + idd);
+//         router.push("/capstone2/" + id);
+//       })
+//       // router.push("/rate/" + idd);
+
+//       .catch(function (error) {
+//         console.log(error.response.data.errors);
+//         console.log("ERRRR:: ", error.response.data);
+
+//         toast.fire({
+//           icon: "warning",
+//           title: "SOMETHING WRONG",
+//         });
+//       });
+//   } else {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Sorry, You're not one of the Panelist",
+//     });
+//   }
+// };
+// const onView3 = async () => {
+//   let idd = getIDfromURL();
+//   let response = await axios.get("/api/panel_rate_check/" + idd);
+//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+//   rated.value = response.data.userCaps;
+//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+//   if (rated.value.id == 1) {
+//     axios
+//       .post("/api/create_rate/" + idd)
+//       .then((response) => {
+//         // router.push("/rate/" + idd);
+//         router.push("/capstone3/" + id);
+//       })
+//       // router.push("/rate/" + idd);
+
+//       .catch(function (error) {
+//         console.log(error.response.data.errors);
+//         console.log("ERRRR:: ", error.response.data);
+
+//         toast.fire({
+//           icon: "warning",
+//           title: "SOMETHING WRONG",
+//         });
+//       });
+//   } else {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Sorry, You're not one of the Panelist",
+//     });
+//   }
+// };
 </script>
 
 <style>

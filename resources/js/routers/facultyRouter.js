@@ -64,12 +64,19 @@ import Rate2 from "../components/faculty/capstonefolder/rate2.vue";
 import Rate3 from "../components/faculty/capstonefolder/rate3.vue";
 
 import Createsuggestion from "../components/faculty/topicsuggest/createsuggestion.vue";
+import Taketopic from "../components/faculty/topicsuggest/taketopic.vue";
+
 
 const routes = [
   {
     path: "/createsuggestion",
     name: "Createsuggestion",
     component: Createsuggestion,
+  },
+  {
+    path: "/taketopic",
+    name: "Taketopic",
+    component: Taketopic,
   },
  
 

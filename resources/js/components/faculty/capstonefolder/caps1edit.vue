@@ -25,9 +25,7 @@
           allowfullscreen
         ></iframe> -->
       </section>
-      <h5 class="text-left boldThese text-center">
-        Pitch Video of Archiving Management System
-      </h5>
+      <h5 class="text-left boldThese text-center">HOW TO GET EMBED LINK ON YOUTUBE</h5>
       <h5 class="text-left boldThese ml-2">Guide to Add link</h5>
       <div class="contentOfThePage">
         <p>1. Upload Your pitch video of capstone 2 in YouTube.</p>
@@ -42,65 +40,65 @@
         </p>
         <p>4. COPY that embed link then PASTE in text box above.</p>
       </div>
-      <hr />
-      <div class="col">
-        <h5 for="status" class="form-label">Status</h5>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="status"
-          aria-label="status"
-          v-model="formcaps1.status"
-        />
-      </div>
 
-      <div class="col">
-        <label for="status" class="form-label">Choose Status</label>
-        <div class="input-group mb-3">
-          <select class="form-select" id="inputGroupSelect01" v-model="formcaps1.status">
-            <!-- <option selected>Choose...</option> -->
-            <option value="Working Chapter 1,2,3">Working Chapter 1,2,3</option>
-            <option value="Under-Revision">Under-Revision Revise</option>
-            <option value="Done-Approved">Done-Approved</option>
-          </select>
-        </div>
-      </div>
-      <div class="col">
-        <h5 for="date" class="form-label">Date Approved</h5>
-        <input type="date" v-model="formcaps1.propose_date" />
-      </div>
       <hr />
-
-      <br />
-      <div class="col text-center">
-        <button type="button" class="btn btnW btn-primary" @click="saveCapstone1()">
-          SAVE
-        </button>
-      </div>
-      <!-- <br />
-      <h5 class="text-left boldThese text-center">Abstract</h5>
+      <section>
+        <!-- <iframe
+          alt="Video"
+          class="sizeVideo"
+          :src="embedSource()"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe> -->
+        <iframe
+          class="sizeVideo"
+          src="https://www.youtube.com/embed/zgBN0bx4Hak?start=182"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <!-- <iframe
+         class="sizeVideo"
+          src="https://www.youtube.com/embed/VrxrzH3V4vE"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe> -->
+      </section>
+      <h5 class="text-left boldThese text-zzyycenter">
+        HOW TO GET EMBED LINK ON GOOGLE DRIVE
+      </h5>
+      <h5 class="text-left boldThese ml-2">Guide to Add link</h5>
       <div class="contentOfThePage">
-        <textarea
-          class="form-control"
-          placeholder="Add Abstract Or Summary Here!"
-          id="floatingTextarea2"
-          style="height: 150px"
-          v-model="formcaps1.video_description"
-        ></textarea>
-      </div> -->
-    </div>
-    <div class="col contentOfThePage">
-      <div class="row contentOfThePage mx-1">
-        <label for="button" class="fw-bold"
-          >For Uploading Documentation through OCR</label
-        >
-        <button type="button" class="btn btn-primary col mt-1" @click="onOCR()">
-          Octical Character Recognition
-        </button>
+        <p>1. Upload Your Documents to Google drive.</p>
+        <p>2. Tap File in navbar then hover share and tap publish to web.</p>
+        <p>3. Tap publish and also tap the Embed</p>
+        <p>
+          &lt;iframe src="
+          <span class="colorLink"
+            >https://docs.google.com/document/d/e/2PACX-1vQcbThqknMjD53cvBretnA-55e3XQbnz-E5d8SUWDYvgSNPJZRbSHKImH6RP68kJw/pub?embedded=true</span
+          >" &gt;&lt;/iframe &gt;
+
+          <!-- &lt;iframe width="560" height="315" '\n' src="
+          <span class="colorLink">https://www.youtube.com/embed/AbBk5r_i9WQ</span>"
+          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+          clipboard-wr ite; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen &gt;&lt;/iframe &gt; -->
+        </p>
+        <p>4. COPY the embed link that highlight above.</p>
       </div>
       <hr />
+    </div>
+
+    <div class="col contentOfThePage">
+      <!-- <hr /> -->
 
       <h5 class="text-left boldThese ml-2">EMBED LINKS:</h5>
+      <hr />
       <div class="form-floating col">
         <textarea
           class="form-control inputColor"
@@ -245,7 +243,67 @@
         <br />
       </div>
 
+      <hr />
+
+      <div class="row">
+        <div class="col">
+          <h5 for="date" class="form-label">Date Approved</h5>
+          <input type="date" class="col-12 inputColor" v-model="formcaps1.propose_date" />
+        </div>
+        <div class="col">
+          <label for="secretary" class="form-label">Instructor</label>
+          <div class="input-group mb-3">
+            <select
+              class="form-control inputColor"
+              required
+              v-model="caps1Instructor.instruct"
+            >
+              <option selected disabled>Choose Instructor for capstone 1</option>
+              <option v-for="item in instructors" :key="item.id" :value="item.id">
+                {{ item.name }} {{ item.mname }} {{ item.lname }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <!-- <h5 class="text-left boldThese ml-2">STATUS</h5> -->
+        <!-- <hr /> -->
+        <label for="status" class="form-label">Choose Status</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select inputColor"
+            id="inputGroupSelect01"
+            v-model="formcaps1.status"
+          >
+            <!-- <option selected>Choose...</option> -->
+            <option value="Working Chapter 1,2,3">Working Chapter 1,2,3</option>
+            <option value="Under-Revision">Under-Revision</option>
+            <option value="Done-Approved">Done-Approved</option>
+          </select>
+        </div>
+      </div>
+      <!-- class="col-12 inputColor" -->
+
+      <div class="col">
+        <h5 for="status" class="form-label">Status</h5>
+        <input
+          type="text"
+          class="form-control inputColor"
+          placeholder="status"
+          aria-label="status"
+          disabled
+          v-model="formcaps1.status"
+        />
+      </div>
+
       <br />
+      <div class="col text-center">
+        <button type="button" class="btn btnW btn-primary" @click="saveCapstone1()">
+          SAVE
+        </button>
+        <!-- <button type="button" class="btn btnW btn-primary" @click="touch()">TOUCH</button> -->
+      </div>
     </div>
   </div>
 </template>
@@ -273,6 +331,116 @@ let formcaps1 = ref({
 //   date: "",
 // });
 
+let caps1Instructor = ref({
+  instruct: "",
+});
+// const caps2Inst = () => {
+//   let capstoneid = getIDfromURL();
+
+//   const formData = new FormData();
+
+//   formData.append("instructor", caps1Instructor.value.instruct);
+
+//   axios
+//     .post("/api/capstone_instructor1/" + capstoneid, formData)
+//     .then((response) => {
+//       (caps1Instructor.value.instruct = ""),
+//         toast.fire({
+//           icon: "success",
+//           title: "User Add Successfully",
+//         });
+//     })
+//     // .catch((error = {}));
+//     .catch(function (error) {
+//       console.log(error.response.data.errors);
+//       console.log("ERRRR:: ", error.response.data);
+
+//       toast.fire({
+//         icon: "warning",
+//         title: caps1Instructor.value.instruct,
+//         // title: capstoneid,
+//       });
+//     });
+// };
+
+let instructor = ref({
+  name: "",
+  mname: "",
+  lname: "",
+});
+
+const touch = async () => {
+  let capstoneid = getIDfromURL();
+  let idd = caps1Instructor.value.instruct;
+  let response = await axios.get("/api/get_capstone_inst/" + idd);
+
+  // console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+  instructor.value = response.data.userCaps;
+  let fullname =
+    instructor.value.name + " " + instructor.value.mname + " " + instructor.value.lname;
+
+  const formData = new FormData();
+
+  formData.append("instructor", fullname);
+
+  axios
+    .post("/api/capstone_instructor1/" + capstoneid, formData)
+    .then((response) => {
+      (caps1Instructor.value.instruct = ""),
+        toast.fire({
+          icon: "success",
+          title: "User Add Successfully",
+        });
+    })
+    // .catch((error = {}));
+    .catch(function (error) {
+      console.log(error.response.data.errors);
+      console.log("ERRRR:: ", error.response.data);
+
+      toast.fire({
+        icon: "warning",
+        title: caps1Instructor.value.instruct,
+        // title: capstoneid,
+      });
+    });
+};
+// toast.fire({
+//   icon: "warning",
+//   title: fullname,
+// });
+// console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+// if (rated.value.id == 1) {
+//   axios
+//     .post("/api/create_rate/" + idd)
+//     .then((response) => {
+//       // router.push("/rate/" + idd);
+//       router.push("/capstone2/" + id);
+//     })
+//     // router.push("/rate/" + idd);
+
+//     .catch(function (error) {
+//       console.log(error.response.data.errors);
+//       console.log("ERRRR:: ", error.response.data);
+
+//       toast.fire({
+//         icon: "warning",
+//         title: "SOMETHING WRONG",
+//       });
+//     });
+// } else {
+//   toast.fire({
+//     icon: "warning",
+//     title: "Sorry, You're not one of the Panelist",
+//   });
+// }
+
+const getInstructor = async () => {
+  let response = await axios.get("/api/get_all_instructor_user");
+  instructors.value = response.data.instructors;
+};
+
+let instructors = ref({});
+
 const router = useRouter();
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
@@ -284,11 +452,12 @@ const onOCR = (id) => {
 
 onMounted(async () => {
   getCapston1Data();
+  getInstructor();
 });
 
 const getCapston1Data = async () => {
   let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_capstonee1/" + capstoneid);
+  let response = await axios.get("/api/get_capstonee111/" + capstoneid);
   formcaps1.value = response.data.capstone11111;
   console.warn("CAPSTON 1", formcaps1.value);
 };
@@ -336,6 +505,8 @@ const saveCapstone1 = () => {
         (capstoneid = ""),
         // router.push("/create");
         getCapston1Data();
+      // caps2Inst();
+      touch();
 
       toast.fire({
         icon: "success",

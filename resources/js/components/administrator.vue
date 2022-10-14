@@ -103,6 +103,7 @@
               />
             </i>
 
+            <!-- faFileCirclePlus -->
             <span id="label">STUDENT</span>
           </router-link>
         </li>
@@ -302,7 +303,7 @@ const storeDashoard = () => {
 };
 
 const getPhoto = () => {
-  let photo = "/upload/myAvatar.png";
+  let photo = "/upload/leader.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;

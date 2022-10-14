@@ -1,12 +1,12 @@
 <template>
   <div class="row">
     <div class="contentOfThePage caps1Side col-8">
-      <h5 class="text-left boldThese">CAPSTONE 1</h5>
+      <h5 class="text-left boldThese">CAPSTONE 3</h5>
 
       <div class="" id="titleSize">
-        <h5 class="pt-2 text-uppercase">{{ GenCapData.title }}</h5>
+        <h5 class="pt-2 text-uppercase boldThese">{{ GenCapData.title }}</h5>
         <hr class="toTop" />
-        <p class="toTopp boldThese">TITLE</p>
+        <p class="toTopp">TITLE</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
       <div class="form-floating col">
@@ -24,8 +24,17 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Revised Manuscript of Chapter 1-5</p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="GenCadocu123.final_docu === null || GenCadocu123.final_docu === 'null'"
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="onView3()"
           >
             OPEN
@@ -33,8 +42,19 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Action Done Matrix for Capstone 3</p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="
+              GenCadocu123.proto_matrix === null || GenCadocu123.proto_matrix === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="done3()"
           >
             OPEN
@@ -42,8 +62,19 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Minutes of the Proposal Defense</p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="
+              GenCadocu123.proto_minutes === null || GenCadocu123.proto_minutes === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="minutes3()"
           >
             OPEN
@@ -51,8 +82,17 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Capstone 3 Powerpoint Presentation</p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="GenCadocu123.ppt === null || GenCadocu123.ppt === 'null'"
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="ppt3()"
           >
             OPEN
@@ -63,8 +103,19 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Software Demo</p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="
+              GenCadocu123.software_demo === null || GenCadocu123.software_demo === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="recordProposal3()"
           >
             OPEN
@@ -72,8 +123,17 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Source code GitHub Link</p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="GenCadocu123.githublink === null || GenCadocu123.githublink === 'null'"
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="gitHub()"
           >
             OPEN
@@ -84,8 +144,19 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>File Containing the Screenshots of the gcash payment to the panel</p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="
+              GenCadocu123.gcash_payment === null || GenCadocu123.gcash_payment === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="ssPayment3()"
           >
             OPEN
@@ -96,8 +167,19 @@
             File Containing the Screenshot of the acceptance of the panel to the revision
             done to chapter 1-5
           </p>
+
           <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            v-if="
+              GenCadocu123.acceptance_ss === null || GenCadocu123.acceptance_ss === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="ssAccept3()"
           >
             OPEN
@@ -114,9 +196,25 @@
           </p>
           <p class="fw-bold">{{ ratee1.total }} %</p>
           <br />
-          <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+          <!-- <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
             {{ ratee1.xf1 }}
-          </button>
+          </button> -->
+
+          <div v-if="ratee1.xf1 === 'PENDING'">
+            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
+              {{ ratee1.xf1 }}
+            </button>
+          </div>
+          <div v-else-if="ratee1.xf1 === 'APPROVED'">
+            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
+              {{ ratee1.xf1 }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+              {{ ratee1.xf1 }}
+            </button>
+          </div>
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p class="text-uppercase panelH">
@@ -124,9 +222,24 @@
           </p>
           <p class="fw-bold">{{ ratee2.total }} %</p>
           <br />
-          <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+          <!-- <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
             {{ ratee2.xf1 }}
-          </button>
+          </button> -->
+          <div v-if="ratee2.xf1 === 'PENDING'">
+            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
+              {{ ratee2.xf1 }}
+            </button>
+          </div>
+          <div v-else-if="ratee2.xf1 === 'APPROVED'">
+            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
+              {{ ratee2.xf1 }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+              {{ ratee2.xf1 }}
+            </button>
+          </div>
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p class="text-uppercase panelH">
@@ -134,50 +247,68 @@
           </p>
           <p class="fw-bold">{{ ratee3.total }} %</p>
           <br />
-          <button class="btn w-100 btn-primary position-absolute bottom-0 start-0">
+          <!-- <button class="btn w-100 btn-primary position-absolute bottom-0 start-0">
             {{ ratee3.xf1 }}
-          </button>
+          </button> -->
+          <div v-if="ratee3.xf1 === 'PENDING'">
+            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
+              {{ ratee3.xf1 }}
+            </button>
+          </div>
+          <div v-else-if="ratee3.xf1 === 'APPROVED'">
+            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
+              {{ ratee3.xf1 }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+              {{ ratee3.xf1 }}
+            </button>
+          </div>
         </div>
       </div>
 
       <div class="" id="titleSize">
-        <p class="pt-2 text-uppercase">{{ GenCadocu123.xf2 }}: {{ GenCadocu123.xf1 }} %</p>
+        <p class="pt-2 text-uppercase boldThese">
+          {{ GenCadocu123.xf2 }}: {{ GenCadocu123.xf1 }} %
+        </p>
         <hr class="toTop" />
-        <p class="toTopp boldThese">RATE STATUS</p>
+        <p class="toTopp">RATING STATUS</p>
       </div>
       <button class="btn btn-primary rateButton fw-bold" @click="rateddd()">RATE</button>
       <hr />
       <br />
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercase boldThese">
             {{ GenCapData.groupname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Group Name</p>
+          <p class="toTopp">Group Name</p>
         </div>
         <br />
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
-            {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }}
+          <p class="pt-2 text-uppercase boldThese">
+            <!-- {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }} -->
+            {{ GenCadocu123.xf3 }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Instructor</p>
+          <p class="toTopp">Instructor</p>
         </div>
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercase boldThese">
             {{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Adviser</p>
+          <p class="toTopp">Adviser</p>
         </div>
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercase boldThese">
             {{ formcaps3.final_date }}
             <!-- April 25, 2022 -->
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Final Defense Date</p>
+          <p class="toTopp">Final Defense Date</p>
         </div>
       </div>
       <br /><br />
@@ -186,10 +317,9 @@
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercase boldThese">{{ formcaps3.status }}</p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">STATUS</p>
+          <p class="toTopp">STATUS</p>
         </div>
       </div>
-
 
       <!-- <h5 class="text-left boldThese ml-2">STATUS</h5> -->
 
@@ -212,7 +342,6 @@
 import router from "../../../routers/administratorRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
-
 
 let panels1 = ref({
   name: "",
@@ -245,10 +374,16 @@ let ratee3 = ref({
 let GenCadocu123 = ref({
   xf1: "",
   xf2: "",
+  xf3: "",
+  final_docu: "",
+  proto_minutes: "",
+  proto_matrix: "",
+  ppt: "",
+  software_demo: "",
+  gcash_payment: "",
+  acceptance_ss: "",
+  githublink: "",
 });
-
-
-
 
 let GenCapData = ref({
   title: "",
@@ -274,12 +409,11 @@ let rated = ref({
 });
 
 onMounted(async () => {
-  getIsstructor1();
+  // getIsstructor1();
   getsingleUser();
   getsingleUser7();
 
   getCapston1Data();
-
 
   getsingleUser4();
   getsingleUser5();
@@ -290,17 +424,16 @@ onMounted(async () => {
   getcaps123();
 });
 
-let instruct = ref({
-  name: "",
-  mname: "",
-  lname: "",
-});
-const getIsstructor1 = async () => {
-  let capstoneid =getIDfromURL();
-  let response = await axios.get("/api/get_capstone_instructor2/" + capstoneid);
-  instruct.value = response.data.instruct;
-
-};
+// let instruct = ref({
+//   name: "",
+//   mname: "",
+//   lname: "",
+// });
+// const getIsstructor1 = async () => {
+//   let capstoneid = getIDfromURL();
+//   let response = await axios.get("/api/get_capstone_instructor2/" + capstoneid);
+//   instruct.value = response.data.instruct;
+// };
 
 const getsingleUser4 = async () => {
   let capstoneid = getIDfromURL();
@@ -317,7 +450,6 @@ const getsingleUser6 = async () => {
   let response = await axios.get("/api/get_capstone_panels3/" + capstoneid);
   panels3.value = response.data.userCaps;
 };
-
 
 const panelrates1 = async () => {
   let capstoneid = getIDfromURL();
@@ -343,11 +475,8 @@ const getcaps123 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstonee3/" + capstoneid);
   GenCadocu123.value = response.data.capstone33333;
-  console.warn("12345678",  GenCadocu123.value);
+  console.warn("12345678", GenCadocu123.value);
 };
-
-
-
 
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
@@ -399,13 +528,14 @@ const ssPayment3 = () => {
   let id = getIDfromURL();
   router.push("/ssfile3/" + id);
 };
+
 const ssAccept3 = () => {
   let id = getIDfromURL();
   router.push("/ssacept3/" + id);
 };
 const gitHub = () => {
   let id = getIDfromURL();
-  router.push("/ssfile3/" + id);
+  router.push("/gitlink/" + id);
 };
 const rateddd = async () => {
   let idd = getIDfromURL();

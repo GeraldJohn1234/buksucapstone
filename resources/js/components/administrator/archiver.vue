@@ -1,7 +1,7 @@
-<template >
+<template>
   <div class="contentOfThePage rounded bg-light">
     <div class="">
-      <div class="forInline capsList">STUDENT LIST</div>
+      <div class="forInline capsList">ARCHIVER LIST</div>
 
       <div class="forInline float-end mtop">
         <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
@@ -29,11 +29,11 @@
           <span class="inline-block botM" for="">Sort by: </span>
           <select class="form-select inline-block box1" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">FIRST YEAR</option>
-            <option value="2">SECOND YEAR</option>
-            <option value="3">THIRD YEAR</option>
+            <option value="1">FIRST NAME</option>
+            <option value="2">LAST NAME</option>
+            <!-- <option value="3">THIRD YEAR</option>
             <option value="4">FOURTH YEAR</option>
-            <option value="5">FIFTH YEAR</option>
+            <option value="5">FIFTH YEAR</option> -->
           </select>
         </div>
       </div>
@@ -41,12 +41,7 @@
 
     <br />
     <table
-      class="
-        table table--items
-        users_list_item
-        table-hover table-bordered table-striped
-        text-center
-      "
+      class="table table--items users_list_item table-hover table-bordered table-striped text-center"
     >
       <thead>
         <tr>
@@ -54,7 +49,6 @@
           <th>Avatar</th>
           <th>I.D</th>
           <th>FULLNAME</th>
-          <th>GROUP NAME</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -73,7 +67,7 @@
           </td>
           <td>{{ item.uid }}</td>
           <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
-          <td>Buksu Archiving and Monitoring System</td>
+          <!-- <td>Buksu Archiving and Monitoring System</td> -->
           <td class="">
             <ul class="nav row">
               <li class="col">

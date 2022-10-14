@@ -20,14 +20,14 @@
         class="centerDocu"
         width="800"
         height="800"
-        :src="GenCadocu123.gcash_ss_file"
+        :src="GenCadocu123.gcash_payment"
       ></iframe>
     </div>
   </div>
 </template>
 
 <script setup>
-import router from "../../../../routers/facultyRouter";
+import router from "../../../../routers/archiverRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
 
@@ -37,7 +37,15 @@ let GenCapData = ref({
   groupname: "",
 });
 let GenCadocu123 = ref({
-  gcash_ss_file: "",
+  action_done: "",
+  final_docu: "",
+  proto_minutes: "",
+  proto_matrix: "",
+  ppt: "",
+  software_demo: "",
+  gcash_payment: "",
+  acceptance_ss: "",
+  githublink: "",
 });
 
 onMounted(async () => {
@@ -59,7 +67,7 @@ const getsingleUser = async () => {
 
 const getcaps123 = async () => {
   let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/getcaps123/" + capstoneid);
+  let response = await axios.get("/api/getcaps3/" + capstoneid);
   GenCadocu123.value = response.data.capstonee1;
 
   // GenCaps.value = response.data.userCaps;

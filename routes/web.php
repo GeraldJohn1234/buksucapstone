@@ -82,8 +82,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/noproject', [DashboardController::class, 'whatRole']);
 
 
-
-
+    Route::get('/gitlink/{pathMatch}', [DashboardController::class, 'whatRole']);
+//
    
 });
 

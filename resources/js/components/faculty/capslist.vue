@@ -2,12 +2,12 @@
   <div class="contentOfThePage rounded bg-light">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
-
+      <!-- 
       <div class="forInline float-end mtop">
         <router-link class="nav_link" to="/project">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
-      </div>
+      </div> -->
     </div>
     <hr />
 
@@ -49,10 +49,10 @@
         <tr>
           <th class="">#</th>
           <th class="col-4">TITLE</th>
-          <th class="col-3">GROUP NAME</th>
+          <th class="col-2">GROUP NAME</th>
           <th class="col">YEAR</th>
-          <th class="col-2">DATE STARTED</th>
-          <th class="col-2">Action</th>
+          <th class="col">DATE STARTED</th>
+          <th class="col-3">Action</th>
         </tr>
       </thead>
 
@@ -97,8 +97,8 @@
                 
                   UPDATE
                 </button>
-              </li> -->
-              <!-- <li class="col">
+              </li>
+              <li class="col">
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -136,6 +136,8 @@
 <script setup>
 import router from "../../routers/facultyRouter";
 import { onMounted, reactive, ref, watch } from "vue";
+
+// import { reactive, ref, watch } from "vue";
 
 let projects = ref([]);
 

@@ -59,11 +59,15 @@
       <div class="col">
         <label for="lastname" class="form-label">Choose Year</label>
         <div class="input-group mb-3">
-          <select class="form-select inputColor" id="inputGroupSelect01">
+          <select
+            class="form-select inputColor"
+            v-model="GenCapData.xf1"
+            id="inputGroupSelect01"
+          >
             <option selected>Choose...</option>
-            <option value="3rd year">3rd year</option>
-            <option value="4th year">4th year</option>
-            <option value="5th year">5th year</option>
+            <option value="Third year">Third year</option>
+            <option value="Fourth year">Fourth year</option>
+            <option value="Fifth year">Fifth year</option>
           </select>
         </div>
       </div>
@@ -300,7 +304,7 @@
 </template>
 
 <script setup>
-import router from "../../../routers/facultyRouter";
+import router from "../../../routers/archiverRouter";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
@@ -314,6 +318,7 @@ let GenCapData = ref({
   title: "",
   abstract: "",
   groupname: "",
+  xf1: "",
 });
 let student1 = ref({
   name: "",
@@ -462,6 +467,7 @@ const saveCapstone = () => {
   formData.append("title", GenCapData.value.title);
   formData.append("abstract", GenCapData.value.abstract);
   formData.append("groupname", GenCapData.value.groupname);
+  formData.append("xf1", GenCapData.value.xf1);
 
   formData.append("students1", GenCaps.value.students1);
   formData.append("students2", GenCaps.value.students2);
@@ -484,6 +490,7 @@ const saveCapstone = () => {
       (GenCapData.value.title = ""),
         (GenCapData.value.abstract = ""),
         (GenCapData.value.groupname = ""),
+        (GenCapData.value.xf1 = ""),
         (GenCaps.value.students1 = ""),
         (GenCaps.value.students2 = ""),
         (GenCaps.value.students3 = ""),
@@ -509,29 +516,7 @@ const saveCapstone = () => {
 
       toast.fire({
         icon: "warning",
-        title:
-          "Capstone Save Unsuccessful" +
-          "s1" +
-          GenCaps.value.students1 +
-          "s2" +
-          GenCaps.value.students2 +
-          "s3" +
-          GenCaps.value.students3 +
-          "s4" +
-          GenCaps.value.students4 +
-          "p1" +
-          GenCaps.value.panels1 +
-          "p2" +
-          GenCaps.value.panels2 +
-          "p3" +
-          GenCaps.value.panels3 +
-          "adv" +
-          GenCaps.value.adviser +
-          "coAd" +
-          GenCaps.value.coAdviser +
-          "sec" +
-          GenCaps.value.secretarys,
-        // title: capstoneid,
+        title: "Please fill all field, CHOOSE TEMPORARY IF NONE",
       });
       // (error = {}));
       // console.log("ERRRR:: ",error.response.data);
@@ -624,19 +609,19 @@ const getInstructor = async () => {
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
-const onView1 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone1/" + id);
-};
+// const onView1 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone1/" + id);
+// };
 
-const onView2 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone2/" + id);
-};
-const onView3 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone3/" + id);
-};
+// const onView2 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone2/" + id);
+// };
+// const onView3 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone3/" + id);
+// };
 const onUpdate1 = () => {
   let id = getIDfromURL();
   router.push("/caps1edit/" + id);
@@ -649,6 +634,113 @@ const onUpdate3 = () => {
   let id = getIDfromURL();
   router.push("/caps3edit/" + id);
 };
+
+const onView1 = () => {
+  let id = getIDfromURL();
+  router.push("/capstone1/" + id);
+};
+const onView2 = () => {
+  let id = getIDfromURL();
+  router.push("/capstone2/" + id);
+};
+const onView3 = () => {
+  let id = getIDfromURL();
+  router.push("/capstone3/" + id);
+};
+
+// const onView1 = async () => {
+//   let idd = getIDfromURL();
+//   let response = await axios.get("/api/panel_rate_check/" + idd);
+//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+//   rated.value = response.data.userCaps;
+//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+//   if (rated.value.id == 1) {
+//     axios
+//       .post("/api/create_rate/" + idd)
+//       .then((response) => {
+//         // router.push("/rate/" + idd);
+//         router.push("/capstone1/" + id);
+//       })
+//       // router.push("/rate/" + idd);
+
+//       .catch(function (error) {
+//         console.log(error.response.data.errors);
+//         console.log("ERRRR:: ", error.response.data);
+
+//         toast.fire({
+//           icon: "warning",
+//           title: "SOMETHING WRONG",
+//         });
+//       });
+//   } else {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Sorry, You're not one of the Panelist",
+//     });
+//   }
+// };
+// const onView2 = async () => {
+//   let idd = getIDfromURL();
+//   let response = await axios.get("/api/panel_rate_check/" + idd);
+//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+//   rated.value = response.data.userCaps;
+//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+//   if (rated.value.id == 1) {
+//     axios
+//       .post("/api/create_rate/" + idd)
+//       .then((response) => {
+//         // router.push("/rate/" + idd);
+//         router.push("/capstone2/" + id);
+//       })
+//       // router.push("/rate/" + idd);
+
+//       .catch(function (error) {
+//         console.log(error.response.data.errors);
+//         console.log("ERRRR:: ", error.response.data);
+
+//         toast.fire({
+//           icon: "warning",
+//           title: "SOMETHING WRONG",
+//         });
+//       });
+//   } else {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Sorry, You're not one of the Panelist",
+//     });
+//   }
+// };
+// const onView3 = async () => {
+//   let idd = getIDfromURL();
+//   let response = await axios.get("/api/panel_rate_check/" + idd);
+//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+//   rated.value = response.data.userCaps;
+//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+//   if (rated.value.id == 1) {
+//     axios
+//       .post("/api/create_rate/" + idd)
+//       .then((response) => {
+//         // router.push("/rate/" + idd);
+//         router.push("/capstone3/" + id);
+//       })
+//       // router.push("/rate/" + idd);
+
+//       .catch(function (error) {
+//         console.log(error.response.data.errors);
+//         console.log("ERRRR:: ", error.response.data);
+
+//         toast.fire({
+//           icon: "warning",
+//           title: "SOMETHING WRONG",
+//         });
+//       });
+//   } else {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Sorry, You're not one of the Panelist",
+//     });
+//   }
+// };
 </script>
 
 <style>
@@ -671,7 +763,7 @@ const onUpdate3 = () => {
   width: 80%;
 }
 .colorText {
-  color: #0062ff;
+  color: #9ba7ff;
 }
 </style>
 

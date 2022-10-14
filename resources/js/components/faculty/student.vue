@@ -29,11 +29,10 @@
           <span class="inline-block botM" for="">Sort by: </span>
           <select class="form-select inline-block box1" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">FIRST YEAR</option>
-            <option value="2">SECOND YEAR</option>
-            <option value="3">THIRD YEAR</option>
-            <option value="4">FOURTH YEAR</option>
-            <option value="5">FIFTH YEAR</option>
+            <option value="1">NAME</option>
+            <option value="2">LAST NAME</option>
+            <option value="3">YEAR</option>
+            <option value="3">GROUPNAME</option>
           </select>
         </div>
       </div>
@@ -50,12 +49,13 @@
           <th>I.D</th>
           <th>FULLNAME</th>
           <th>YEAR</th>
-          <th>GROUP NAME</th>
+          <!-- <th>GROUP NAME</th> -->
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item, index) in users" :key="item.id">
+          <!-- let capst = ref([]); -->
           <!-- <td>1</td> -->
           <td>{{ index + 1 }}</td>
 
@@ -70,7 +70,9 @@
           <td>{{ item.uid }}</td>
           <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
           <td>{{ item.year }}</td>
-          <td>Buksu Archiving and Monitoring System</td>
+          <!-- <td>
+            {{ item.groupname }}
+          </td> -->
           <td class="">
             <ul class="nav row">
               <li class="col">
@@ -83,31 +85,6 @@
                   VIEW
                 </button>
                 <!-- </router-link> -->
-              </li>
-              <li class="col">
-                <!-- <router-link class="nav_link" to="/update"> -->
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 m-1"
-                  @click="onEdith(item.id)"
-                >
-                  UPDATE
-                </button>
-                <!-- </router-link> -->
-              </li>
-              <li class="col">
-                <!-- <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link> -->
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 m-1"
-                  @click="deleteUser(item.id)"
-                >
-                  DELETE
-                </button>
               </li>
             </ul>
           </td>
@@ -144,9 +121,11 @@ import router from "../../routers/facultyRouter";
 //const router = useRouter
 
 let users = ref([]);
+let capst = ref([]);
 
 onMounted(async () => {
   getUsers();
+  getCapstone();
 });
 
 // const create = () => {
@@ -158,7 +137,17 @@ const getUsers = async () => {
   users.value = response.data.students;
   // console.log("users", users.value);
 };
+const getCapstone = async () => {
+  let response = await axios.get("/api/get_all");
+  capst.value = response.data.capstone;
+  // console.log("users", users.value);
+};
 
+const trry = (id) => {
+  {
+    Swal.fire("Delete", "Student account, delete successfully" + id, "success");
+  }
+};
 const ourImage = (img) => {
   return "/upload/" + img;
 };

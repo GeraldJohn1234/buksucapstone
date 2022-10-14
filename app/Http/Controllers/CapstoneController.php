@@ -94,6 +94,7 @@ class CapstoneController extends Controller
         $capstone->title = $request->title;
 
         $capstone->abstract = $request->abstract;
+        $capstone->xf1 = $request->xf1;
 
         //  $capstone->user()->update([
         //     'user_id'=>$request->students1,
@@ -237,6 +238,7 @@ class CapstoneController extends Controller
         $status3 = "Pre-Documentation";
         $xf1 = 0;
         $xf2 = "PENDING";
+        $xf3 = "NOT YET, SET";
         // $status1 = "PENDING";
         $total  = 0;
 
@@ -248,8 +250,10 @@ class CapstoneController extends Controller
             $capstone1->id = $id;
             $capstone1->capstone_id = $id;
             $capstone1->status = $status1;
+            // $capstone1->propose_date = 0;
             $capstone1->xf1 = $xf1;
             $capstone1->xf2 = $xf2;
+            $capstone1->xf3 = $xf3;
             $capstone1->save();
         }
         if ($capstoneid2) {
@@ -258,8 +262,10 @@ class CapstoneController extends Controller
             $capstone2->id = $id;
             $capstone2->status = $status2;
             $capstone2->capstone_id = $id;
+            // $capstone2->prototype_date = 0;
             $capstone2->xf1 = $xf1;
             $capstone2->xf2 = $xf2;
+            $capstone2->xf3 = $xf3;
             $capstone2->save();
         }
         if ($capstoneid3) {
@@ -268,108 +274,110 @@ class CapstoneController extends Controller
             $capstone3->id = $id;
             $capstone3->capstone_id = $id;
             $capstone3->status = $status3;
+            // $capstone3->final_date = 0;
             $capstone3->xf1 = $xf1;
             $capstone3->xf2 = $xf2;
+            $capstone3->xf3 = $xf3;
             $capstone3->save();
 
            
         }
 
 
-        // if ($check1) {
-        //     $idauth1 = $panel1;
+        if ($check1) {
+            $idauth1 = $panel1;
 
-        //     $ratecaps1 = new Caps1rating();
-        //     $ratecaps1->capstone1_id = $id;
-        //     $ratecaps1->user_id = $idauth1;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
-        //     $ratecaps1->save();
-        // }
-        // if ($check2) {
-        //     $idauth2 = $panel2;
+            $ratecaps1 = new Caps1rating();
+            $ratecaps1->capstone1_id = $id;
+            $ratecaps1->user_id = $idauth1;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
+            $ratecaps1->save();
+        }
+        if ($check2) {
+            $idauth2 = $panel2;
 
-        //     $ratecaps1 = new Caps1rating();
-        //     $ratecaps1->capstone1_id = $id;
-        //     $ratecaps1->user_id = $idauth2;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
-        //     $ratecaps1->save();
-        // }
-        // if ($check3) {
-        //     $idauth3 = $panel3;
+            $ratecaps1 = new Caps1rating();
+            $ratecaps1->capstone1_id = $id;
+            $ratecaps1->user_id = $idauth2;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
+            $ratecaps1->save();
+        }
+        if ($check3) {
+            $idauth3 = $panel3;
 
-        //     $ratecaps1 = new Caps1rating();
-        //     $ratecaps1->capstone1_id = $id;
-        //     $ratecaps1->user_id = $idauth3;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
-        //     $ratecaps1->save();
-        // }
-        // if ($check12) {
-        //     $idauth12 = $panel1;
+            $ratecaps1 = new Caps1rating();
+            $ratecaps1->capstone1_id = $id;
+            $ratecaps1->user_id = $idauth3;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
+            $ratecaps1->save();
+        }
+        if ($check12) {
+            $idauth12 = $panel1;
 
-        //     $ratecaps1 = new Caps2rating();
-        //     $ratecaps1->capstone2_id = $id;
-        //     $ratecaps1->user_id = $idauth12;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
+            $ratecaps1 = new Caps2rating();
+            $ratecaps1->capstone2_id = $id;
+            $ratecaps1->user_id = $idauth12;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
 
-        //     $ratecaps1->save();
-        // }
-        // if ($check22) {
-        //     $idauth22 = $panel2;
+            $ratecaps1->save();
+        }
+        if ($check22) {
+            $idauth22 = $panel2;
 
-        //     $ratecaps1 = new Caps2rating();
-        //     $ratecaps1->capstone2_id = $id;
-        //     $ratecaps1->user_id = $idauth22;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
+            $ratecaps1 = new Caps2rating();
+            $ratecaps1->capstone2_id = $id;
+            $ratecaps1->user_id = $idauth22;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
 
-        //     $ratecaps1->save();
-        // }
-        // if ($check32) {
-        //     $idauth13 = $panel3;
+            $ratecaps1->save();
+        }
+        if ($check32) {
+            $idauth13 = $panel3;
 
-        //     $ratecaps1 = new Caps2rating();
-        //     $ratecaps1->capstone2_id = $id;
-        //     $ratecaps1->user_id = $idauth13;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
+            $ratecaps1 = new Caps2rating();
+            $ratecaps1->capstone2_id = $id;
+            $ratecaps1->user_id = $idauth13;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
 
-        //     $ratecaps1->save();
-        // }
+            $ratecaps1->save();
+        }
 
-        // if ($check13) {
-        //     $idauth13 = $panel1;
+        if ($check13) {
+            $idauth13 = $panel1;
 
-        //     $ratecaps1 = new Caps3rating();
-        //     $ratecaps1->capstone3_id = $id;
-        //     $ratecaps1->user_id = $idauth13;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
-        //     $ratecaps1->save();
-        // }
-        // if ($check23) {
-        //     $idauth23 = $panel2;
+            $ratecaps1 = new Caps3rating();
+            $ratecaps1->capstone3_id = $id;
+            $ratecaps1->user_id = $idauth13;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
+            $ratecaps1->save();
+        }
+        if ($check23) {
+            $idauth23 = $panel2;
 
-        //     $ratecaps1 = new Caps3rating();
-        //     $ratecaps1->capstone3_id = $id;
-        //     $ratecaps1->user_id = $idauth23;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
-        //     $ratecaps1->save();
-        // }
-        // if ($check33) {
-        //     $idauth33 = $panel3;
+            $ratecaps1 = new Caps3rating();
+            $ratecaps1->capstone3_id = $id;
+            $ratecaps1->user_id = $idauth23;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
+            $ratecaps1->save();
+        }
+        if ($check33) {
+            $idauth33 = $panel3;
 
-        //     $ratecaps1 = new Caps3rating();
-        //     $ratecaps1->capstone3_id = $id;
-        //     $ratecaps1->user_id = $idauth33;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->total = $total;
-        //     $ratecaps1->save();
-        // }
+            $ratecaps1 = new Caps3rating();
+            $ratecaps1->capstone3_id = $id;
+            $ratecaps1->user_id = $idauth33;
+            $ratecaps1->xf1 = $xf2;
+            $ratecaps1->total = $total;
+            $ratecaps1->save();
+        }
     }
 
     public function get_all_capstone(Request $request)
@@ -387,6 +395,16 @@ class CapstoneController extends Controller
                 200
             );
         }
+        $capstone = Capstone::all();
+        return response()->json(
+            [
+                'capstones'  => $capstone,
+            ],
+            200
+        );
+    }
+    public function get_all(Request $request)
+    {
         $capstone = Capstone::all();
         return response()->json(
             [
@@ -528,6 +546,27 @@ class CapstoneController extends Controller
 
         ], 200);
     }
+
+
+
+    
+    public function get_capstone_inst(Request $request, $id)
+    {
+
+
+        $userrole = User::find($id);
+        return response()->json([
+
+            'userCaps'  => $userrole,
+
+        ], 200);
+    }
+
+
+
+
+
+
     public function get_capstone_panels1(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'panels1')

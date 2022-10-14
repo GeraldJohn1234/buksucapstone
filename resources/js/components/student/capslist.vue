@@ -1,13 +1,13 @@
 <template>
-  <div class="contentOfThePage rounded bg-light">
+  <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
 
-      <div class="forInline float-end mtop">
+      <!-- <div class="forInline float-end mtop">
         <router-link class="nav_link" to="/project">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
-      </div>
+      </div> -->
     </div>
     <hr />
 
@@ -49,10 +49,10 @@
         <tr>
           <th class="">#</th>
           <th class="col-4">TITLE</th>
-          <th class="col-3">GROUP NAME</th>
+          <th class="col-2">GROUP NAME</th>
           <th class="col">YEAR</th>
           <th class="col">DATE STARTED</th>
-          <th class="col-1">Action</th>
+          <th class="col-3">Action</th>
         </tr>
       </thead>
 
@@ -97,8 +97,8 @@
                 
                   UPDATE
                 </button>
-              </li>
-              <li class="col">
+              </li> -->
+              <!-- <li class="col">
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -289,7 +289,7 @@ const deleteCapstone = (id) => {
   border-top: 3px solid #0062ff !important;
   box-shadow: 2px 1px 10px #5f5c5c;
   border-radius: 10px !important;
-  padding: 10px !important;
+  padding: 10px;
 }
 .botM {
   padding: 10px;

@@ -283,29 +283,71 @@ let capstone2data = ref({
   acceptance_ss: "",
   prototype_date: "",
 });
+// let instructor = ref({
+//   name: "",
+//   mname: "",
+//   lname: "",
+// });
+let caps1Instructor = ref({
+  instruct: "",
+});
+// const caps2Inst = () => {
+//   let capstoneid = getIDfromURL();
+
+//   const formData = new FormData();
+
+//   formData.append("instructor", caps1Instructor.value.instruct);
+
+//   axios
+//     .post("/api/capstone_instructor2/" + capstoneid, formData)
+//     .then((response) => {
+//       (caps1Instructor.value.instruct = ""),
+//         toast.fire({
+//           icon: "success",
+//           title: "User Add Successfully",
+//         });
+//     })
+//     // .catch((error = {}));
+//     .catch(function (error) {
+//       console.log(error.response.data.errors);
+//       console.log("ERRRR:: ", error.response.data);
+
+//       toast.fire({
+//         icon: "warning",
+//         title: caps1Instructor.value.instructor,
+//         // title: capstoneid,
+//       });
+//     });
+// };
+
 let instructor = ref({
   name: "",
   mname: "",
   lname: "",
 });
-let caps1Instructor = ref({
-  instruct: "",
-});
-const caps2Inst = () => {
+
+const touch = async () => {
   let capstoneid = getIDfromURL();
+  let idd = caps1Instructor.value.instruct;
+  let response = await axios.get("/api/get_capstone_inst/" + idd);
+
+  // console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+  instructor.value = response.data.userCaps;
+  let fullname =
+    instructor.value.name + " " + instructor.value.mname + " " + instructor.value.lname;
 
   const formData = new FormData();
 
-  formData.append("instructor", caps1Instructor.value.instruct);
+  formData.append("instructor", fullname);
 
   axios
     .post("/api/capstone_instructor2/" + capstoneid, formData)
     .then((response) => {
-      (caps1Instructor.value.instruct = ""),
-        toast.fire({
-          icon: "success",
-          title: "User Add Successfully",
-        });
+      caps1Instructor.value.instruct = "";
+      // toast.fire({
+      //   icon: "success",
+      //   title: "User Add Successfully",
+      // });
     })
     // .catch((error = {}));
     .catch(function (error) {
@@ -314,7 +356,7 @@ const caps2Inst = () => {
 
       toast.fire({
         icon: "warning",
-        title: caps1Instructor.value.instructor,
+        title: caps1Instructor.value.instruct,
         // title: capstoneid,
       });
     });
@@ -375,11 +417,11 @@ const saveCapstone2 = () => {
         (capstoneid = ""),
         // router.push("/create");
         getCapston2Data();
-      caps2Inst();
+      touch();
 
       toast.fire({
         icon: "success",
-        title: "User Add Successfully",
+        title: "Capstone Embed links, Add Successfully",
       });
     })
     // .catch((error = {}));

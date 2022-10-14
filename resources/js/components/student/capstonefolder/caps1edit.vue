@@ -302,6 +302,7 @@
         <button type="button" class="btn btnW btn-primary" @click="saveCapstone1()">
           SAVE
         </button>
+        <!-- <button type="button" class="btn btnW btn-primary" @click="touch()">TOUCH</button> -->
       </div>
     </div>
   </div>
@@ -329,29 +330,63 @@ let formcaps1 = ref({
 // const date = ref({
 //   date: "",
 // });
+
+let caps1Instructor = ref({
+  instruct: "",
+});
+// const caps2Inst = () => {
+//   let capstoneid = getIDfromURL();
+
+//   const formData = new FormData();
+
+//   formData.append("instructor", caps1Instructor.value.instruct);
+
+//   axios
+//     .post("/api/capstone_instructor1/" + capstoneid, formData)
+//     .then((response) => {
+//       (caps1Instructor.value.instruct = ""),
+//         toast.fire({
+//           icon: "success",
+//           title: "User Add Successfully",
+//         });
+//     })
+//     // .catch((error = {}));
+//     .catch(function (error) {
+//       console.log(error.response.data.errors);
+//       console.log("ERRRR:: ", error.response.data);
+
+//       toast.fire({
+//         icon: "warning",
+//         title: caps1Instructor.value.instruct,
+//         // title: capstoneid,
+//       });
+//     });
+// };
+
 let instructor = ref({
   name: "",
   mname: "",
   lname: "",
 });
-let caps1Instructor = ref({
-  instruct: "",
-});
-const caps2Inst = () => {
+
+const touch = async () => {
   let capstoneid = getIDfromURL();
+  let idd = caps1Instructor.value.instruct;
+  let response = await axios.get("/api/get_capstone_inst/" + idd);
+
+  // console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+  instructor.value = response.data.userCaps;
+  let fullname =
+    instructor.value.name + " " + instructor.value.mname + " " + instructor.value.lname;
 
   const formData = new FormData();
 
-  formData.append("instructor", caps1Instructor.value.instruct);
+  formData.append("instructor", fullname);
 
   axios
     .post("/api/capstone_instructor1/" + capstoneid, formData)
     .then((response) => {
-      (caps1Instructor.value.instruct = ""),
-        toast.fire({
-          icon: "success",
-          title: "User Add Successfully",
-        });
+      caps1Instructor.value.instruct = "";
     })
     // .catch((error = {}));
     .catch(function (error) {
@@ -360,11 +395,41 @@ const caps2Inst = () => {
 
       toast.fire({
         icon: "warning",
-        title: caps1Instructor.value.instructor,
+        title: caps1Instructor.value.instruct,
         // title: capstoneid,
       });
     });
 };
+// toast.fire({
+//   icon: "warning",
+//   title: fullname,
+// });
+// console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+// if (rated.value.id == 1) {
+//   axios
+//     .post("/api/create_rate/" + idd)
+//     .then((response) => {
+//       // router.push("/rate/" + idd);
+//       router.push("/capstone2/" + id);
+//     })
+//     // router.push("/rate/" + idd);
+
+//     .catch(function (error) {
+//       console.log(error.response.data.errors);
+//       console.log("ERRRR:: ", error.response.data);
+
+//       toast.fire({
+//         icon: "warning",
+//         title: "SOMETHING WRONG",
+//       });
+//     });
+// } else {
+//   toast.fire({
+//     icon: "warning",
+//     title: "Sorry, You're not one of the Panelist",
+//   });
+// }
+
 const getInstructor = async () => {
   let response = await axios.get("/api/get_all_instructor_user");
   instructors.value = response.data.instructors;
@@ -436,11 +501,12 @@ const saveCapstone1 = () => {
         (capstoneid = ""),
         // router.push("/create");
         getCapston1Data();
-      caps2Inst();
+      // caps2Inst();
+      touch();
 
       toast.fire({
         icon: "success",
-        title: "User Add Successfully",
+        title: "Capstone Embed links, Add Successfully",
       });
     })
     // .catch((error = {}));

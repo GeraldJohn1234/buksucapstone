@@ -134,7 +134,7 @@
 </template>
 
 <script setup>
-import router from "../../routers/facultyRouter";
+import router from "../../routers/archiverRouter";
 import { onMounted, reactive, ref, watch } from "vue";
 
 // import { reactive, ref, watch } from "vue";

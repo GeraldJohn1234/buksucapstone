@@ -18,7 +18,22 @@ class DatabaseSeeder extends Seeder
         $this->call(LaratrustSeeder::class);
         $this->call(AdminData::class);
         $this->call(DashboardSeeder::class);
-        $this->call(Partialstorage::class);
+        $this->call(Partialdata::class);
+
+        $this->call(UserSeeder::class);
+        $this->call(UserSeeder1::class);
+        $this->call(UserSeeder2::class);
+        $this->call(UserSeeder3::class);
+        $this->call(UserSeeder4::class);
+
+        $this->call(FacultySeeder1::class);
+        $this->call(FacultySeeder2::class);
+        $this->call(FacultySeeder3::class);
+        $this->call(FacultySeeder4::class);
+        $this->call(FacultySeeder5::class);
+        $this->call(FacultySeeder6::class);
+        $this->call(FacultySeeder7::class);
+        $this->call(FacultySeeder8::class);
 
     }
 }

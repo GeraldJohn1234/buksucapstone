@@ -79,15 +79,28 @@ class Capstone1Controller extends Controller
 
     public function getcaps123($id)
     {
-
-        // $capston1manuscript = DB::table('capstone1s')
-        //     ->where('capstone_id', $id)->pluck('revise_manuscript');
-        // return response()->json([
-
-        //     'capstone123'  => $capston1manuscript,
-
-        // ], 200);
         $capston1manuscript = Capstone::find($id)->capstone1;
+        return response()->json([
+
+            'capstonee1'  => $capston1manuscript,
+
+        ], 200);
+    }
+
+    public function getcaps2($id)
+    {
+        $capston1manuscript = Capstone::find($id)->capstone2;
+        return response()->json([
+
+            'capstonee1'  => $capston1manuscript,
+
+        ], 200);
+    }
+
+
+    public function getcaps3($id)
+    {
+        $capston1manuscript = Capstone::find($id)->capstone3;
         return response()->json([
 
             'capstonee1'  => $capston1manuscript,
@@ -154,10 +167,10 @@ class Capstone1Controller extends Controller
         ->where('capstone_id', $id)->pluck('xf3')->first();
 
 
-        $capstone = User::find($instructor_no);
+        // $capstone = User::find($instructor_no);
         return response()->json([
 
-            'instruct'  => $capstone,
+            'instruct'  => $instructor_no,
 
         ], 200);
     }
@@ -168,10 +181,10 @@ class Capstone1Controller extends Controller
         ->where('capstone_id', $id)->pluck('xf3')->first();
 
 
-        $capstone = User::find($instructor_no);
+        // $capstone = User::find($instructor_no);
         return response()->json([
 
-            'instruct'  => $capstone,
+            'instruct'  => $instructor_no,
 
         ], 200);
     }
@@ -182,10 +195,10 @@ class Capstone1Controller extends Controller
         ->where('capstone_id', $id)->pluck('xf3')->first();
 
 
-        $capstone = User::find($instructor_no);
+        // $capstone = User::find($instructor_no);
         return response()->json([
 
-            'instruct'  => $capstone,
+            'instruct'  => $instructor_no,
 
         ], 200);
     }

@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import router from "../../../../routers/facultyRouter";
+import router from "../../../../routers/archiverRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
 
@@ -37,7 +37,13 @@ let GenCapData = ref({
   groupname: "",
 });
 let GenCadocu123 = ref({
+  proto_matrix: "",
+  capstone_link: "",
+  proto_minutes: "",
+  proto_matrix: "",
+  ad_appointment_form: "",
   gcash_payment: "",
+  acceptance_ss: "",
 });
 
 onMounted(async () => {

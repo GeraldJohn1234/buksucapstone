@@ -3,19 +3,7 @@
     <!-- <button type="button" class="m-1 btnSize btn btn-primary fw-bold" @click="tryy()">
       Save
     </button> -->
-    <h5 class="text-left boldThese">Title</h5>
-    <div class="form-floating col">
-      <textarea
-        v-model="GenCaps.title"
-        class="form-control inputColor"
-        placeholder="Leave a comment here"
-        id="floatingTextarea2"
-        style="height: 100px"
-        required
-      ></textarea>
-      <label class="ps-4" for="floatingTextarea2">Title</label>
-      <br />
-    </div>
+
     <h5 class="text-left boldThese">Optical Character Recognition for ABSTRACT</h5>
     <div class="row">
       <div class="col row contentOfThePage me-1 ms-3">
@@ -71,13 +59,26 @@
       <button
         type="button"
         class="m-1 btnSize btn btn-primary W-100 fw-bold"
-        @click="saveCapstonee1()"
+        @click="saveCapstonee2()"
       >
         SAVE ABSTRACT
       </button>
     </div>
     <hr />
     <P class="text-left boldThese">GENERAL INFORMATION</P>
+    <h5 class="text-left boldThese">Title</h5>
+    <div class="form-floating col">
+      <textarea
+        v-model="GenCaps.title"
+        class="form-control inputColor"
+        placeholder="Leave a comment here"
+        id="floatingTextarea2"
+        style="height: 100px"
+        required
+      ></textarea>
+      <label class="ps-4" for="floatingTextarea2">Title</label>
+      <br />
+    </div>
     <div class="row">
       <div class="form-group col">
         <label for="exampleFormControlTextarea1" id="">Group Name</label>
@@ -142,7 +143,7 @@
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.panels1">
             <!-- <option value="0">Select instructor</option> -->
-            <option v-for="item in panels" :key="item.id" :value="item.id">
+            <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
@@ -154,7 +155,7 @@
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.panels2">
             <!-- <option value="0">Select instructor</option> -->
-            <option v-for="item in panels" :key="item.id" :value="item.id">
+            <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
@@ -166,7 +167,7 @@
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.panels3">
             <!-- <option value="0">Select instructor</option> -->
-            <option v-for="item in panels" :key="item.id" :value="item.id">
+            <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
@@ -178,7 +179,7 @@
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.secretarys">
             <!-- <option value="0">Select instructor</option> -->
-            <option v-for="item in secretarys" :key="item.id" :value="item.id">
+            <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
@@ -238,7 +239,7 @@
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.adviser">
             <!-- <option value="0">Select instructor</option> -->
-            <option v-for="item in advisers" :key="item.id" :value="item.id">
+            <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
@@ -249,7 +250,7 @@
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.coAdviser">
             <!-- <option value="0">Select instructor</option> -->
-            <option v-for="item in advisers" :key="item.id" :value="item.id">
+            <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
@@ -332,7 +333,7 @@ onMounted(async () => {
   getPanel();
   getAdviser();
   getInstructor();
-  // datato();
+  datato();
 });
 // const tryy = () => {
 //   axios.get("/api/get_capstonee1").then((response) => {
@@ -347,251 +348,246 @@ onMounted(async () => {
 //   });
 // };
 
+const datato = async () => {
+  let response = await axios.get("/api/get_capstonee1");
+  caps.value = response.data.capstone11111;
+};
+
 const saveCaps = () => {
-  if (
-    GenCaps.value.students1 == GenCaps.value.students2 &&
-    GenCaps.value.students1 != 0
-  ) {
+  if (GenCaps.value.students1 == null || GenCaps.value.students1 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field students1 and students2",
+      title: "Invalid, Please fill on Proponet 1 field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.students1 == GenCaps.value.students3 &&
-    GenCaps.value.students1 != 0
-  ) {
+  } else if (GenCaps.value.title == null || GenCaps.value.title == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field students1 and students3",
+      title: "Invalid, Please fill on title field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.students1 == GenCaps.value.students4 &&
-    GenCaps.value.students1 != 0
-  ) {
+  } else if (GenCaps.value.groupname == null || GenCaps.value.groupname == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field students1 and students4",
+      title: "Invalid, Please fill on groupname field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.students2 == GenCaps.value.students3 &&
-    GenCaps.value.students2 != 0
-  ) {
+  } else if (GenCaps.value.start_date == null || GenCaps.value.start_date == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field students2 and students3",
+      title: "Invalid, Please fill on start_date field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.students2 == GenCaps.value.students4 &&
-    GenCaps.value.students2 != 0
-  ) {
+  } else if (GenCaps.value.students2 == null || GenCaps.value.students2 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field students2 and students4",
+      title: "Invalid, Please fill on Proponet 2 field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.students3 == GenCaps.value.students4 &&
-    GenCaps.value.students3 != 0
-  ) {
+  } else if (GenCaps.value.students3 == null || GenCaps.value.students3 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field students3 and students4",
+      title: "Invalid, Please fill on Proponet 3 field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels1 == GenCaps.value.panels2 &&
-    GenCaps.value.panels1 != 0
-  ) {
+  } else if (GenCaps.value.students4 == null || GenCaps.value.students4 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field panels1 and panels2",
+      title: "Invalid, Please fill on Proponet 4 field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels1 == GenCaps.value.panels3 &&
-    GenCaps.value.panels1 != 0
-  ) {
+  } else if (GenCaps.value.panels1 == null || GenCaps.value.panels1 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field panels1 and panels3",
+      title: "Invalid, Please fill on panel 1 field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels1 == GenCaps.value.adviser &&
-    GenCaps.value.panels1 != 0
-  ) {
+  } else if (GenCaps.value.panels2 == null || GenCaps.value.panels2 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field panels1 and adviser",
+      title: "Invalid, Please fill on panel 2 field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels1 == GenCaps.value.coAdviser &&
-    GenCaps.value.panels1 != 0
-  ) {
+  } else if (GenCaps.value.panels3 == null || GenCaps.value.panels3 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field panels1 and coAdviser",
+      title: "Invalid, Please fill on panel 3 field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels1 == GenCaps.value.instructor &&
-    GenCaps.value.panels1 != 0
-  ) {
+  } else if (GenCaps.value.adviser == null || GenCaps.value.adviser == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field panels1 and instructor",
+      title: "Invalid, Please fill on adviser field",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels1 == GenCaps.value.secretarys &&
-    GenCaps.value.panels1 != 0
-  ) {
+  } else if (GenCaps.value.coAdviser == null || GenCaps.value.coAdviser == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field panels1 and secretarys",
+      title: "Invalid, Please fill on Co-Adviser field, if none repeat the Adviser",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels2 == GenCaps.value.panels3 &&
-    GenCaps.value.panels2 != 0
-  ) {
+  } else if (GenCaps.value.secretarys == null || GenCaps.value.secretarys == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, duplicate role for field panels2 and panels3",
+      title: "Invalid, Please fill on secretarys fieldr",
       // title: GenCaps.value.panels1,
     });
-  } else if (
-    GenCaps.value.panels2 == GenCaps.value.adviser &&
-    GenCaps.value.panels2 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels2 and adviser",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.panels2 == GenCaps.value.coAdviser &&
-    GenCaps.value.panels2 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels2 and coAdviser",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.panels2 == GenCaps.value.instructor &&
-    GenCaps.value.panels2 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels2 and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.panels2 == GenCaps.value.secretarys &&
-    GenCaps.value.panels2 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels2 and secretarys",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.panels3 == GenCaps.value.adviser &&
-    GenCaps.value.panels3 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels3 and adviser",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.panels3 == GenCaps.value.coAdviser &&
-    GenCaps.value.panels3 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels3 and coAdviser",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.panels3 == GenCaps.value.instructor &&
-    GenCaps.value.panels3 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels3 and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.panels3 == GenCaps.value.secretarys &&
-    GenCaps.value.panels3 != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels3 and secretarys",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.adviser == GenCaps.value.coAdviser &&
-    GenCaps.value.adviser != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field adviser and coAdviser",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.adviser == GenCaps.value.instructor &&
-    GenCaps.value.adviser != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field adviser and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.adviser == GenCaps.value.secretarys &&
-    GenCaps.value.adviser != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field adviser and secretarys",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.coAdviser == GenCaps.value.instructor &&
-    GenCaps.value.coAdviser != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field coAdviser and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.coAdviser == GenCaps.value.secretarys &&
-    GenCaps.value.coAdviser != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field coAdviser and secretarys",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (
-    GenCaps.value.instructor == GenCaps.value.secretarys &&
-    GenCaps.value.instructor != 0
-  ) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field instructor and secretarys",
-      // title: GenCaps.value.panels1,
-    });
-  } else {
+  }
+  // else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels1 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels1 and secretarys",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels2 and panels3",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels2 and adviser",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels2 and coAdviser",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels2 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels2 and secretarys",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels3 and adviser",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels3 and coAdviser",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels3 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels3 and secretarys",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field adviser and coAdviser",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field adviser and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field adviser and secretarys",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field coAdviser and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field coAdviser and secretarys",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // } else if (
+  //   GenCaps.value.students1 == null ||
+  //   GenCaps.value.students1 == 0
+  // ) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field instructor and secretarys",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else {
     axios.get("/api/get_capstonee1").then((response) => {
       caps.value = response.data.capstone11111;
     });
@@ -700,6 +696,360 @@ const saveCaps = () => {
     // console.log("ERRRR:: ",error.response.data);
   }
 };
+
+// const saveCaps = () => {
+//   if (
+//     GenCaps.value.students1 == GenCaps.value.students2 &&
+//     GenCaps.value.students1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field students1 and students2",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.students1 == GenCaps.value.students3 &&
+//     GenCaps.value.students1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field students1 and students3",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.students1 == GenCaps.value.students4 &&
+//     GenCaps.value.students1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field students1 and students4",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.students2 == GenCaps.value.students3 &&
+//     GenCaps.value.students2 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field students2 and students3",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.students2 == GenCaps.value.students4 &&
+//     GenCaps.value.students2 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field students2 and students4",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.students3 == GenCaps.value.students4 &&
+//     GenCaps.value.students3 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field students3 and students4",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels1 == GenCaps.value.panels2 &&
+//     GenCaps.value.panels1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels1 and panels2",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels1 == GenCaps.value.panels3 &&
+//     GenCaps.value.panels1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels1 and panels3",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels1 == GenCaps.value.adviser &&
+//     GenCaps.value.panels1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels1 and adviser",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels1 == GenCaps.value.coAdviser &&
+//     GenCaps.value.panels1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels1 and coAdviser",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels1 == GenCaps.value.instructor &&
+//     GenCaps.value.panels1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels1 and instructor",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels1 == GenCaps.value.secretarys &&
+//     GenCaps.value.panels1 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels1 and secretarys",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels2 == GenCaps.value.panels3 &&
+//     GenCaps.value.panels2 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels2 and panels3",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels2 == GenCaps.value.adviser &&
+//     GenCaps.value.panels2 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels2 and adviser",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels2 == GenCaps.value.coAdviser &&
+//     GenCaps.value.panels2 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels2 and coAdviser",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels2 == GenCaps.value.instructor &&
+//     GenCaps.value.panels2 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels2 and instructor",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels2 == GenCaps.value.secretarys &&
+//     GenCaps.value.panels2 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels2 and secretarys",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels3 == GenCaps.value.adviser &&
+//     GenCaps.value.panels3 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels3 and adviser",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels3 == GenCaps.value.coAdviser &&
+//     GenCaps.value.panels3 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels3 and coAdviser",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels3 == GenCaps.value.instructor &&
+//     GenCaps.value.panels3 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels3 and instructor",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.panels3 == GenCaps.value.secretarys &&
+//     GenCaps.value.panels3 != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field panels3 and secretarys",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.adviser == GenCaps.value.coAdviser &&
+//     GenCaps.value.adviser != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field adviser and coAdviser",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.adviser == GenCaps.value.instructor &&
+//     GenCaps.value.adviser != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field adviser and instructor",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.adviser == GenCaps.value.secretarys &&
+//     GenCaps.value.adviser != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field adviser and secretarys",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.coAdviser == GenCaps.value.instructor &&
+//     GenCaps.value.coAdviser != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field coAdviser and instructor",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.coAdviser == GenCaps.value.secretarys &&
+//     GenCaps.value.coAdviser != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field coAdviser and secretarys",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else if (
+//     GenCaps.value.instructor == GenCaps.value.secretarys &&
+//     GenCaps.value.instructor != 0
+//   ) {
+//     toast.fire({
+//       icon: "warning",
+//       title: "Invalid, duplicate role for field instructor and secretarys",
+//       // title: GenCaps.value.panels1,
+//     });
+//   } else {
+//     axios.get("/api/get_capstonee1").then((response) => {
+//       caps.value = response.data.capstone11111;
+//     });
+//     // caps.value.ocr;
+
+//     // toast.fire({
+//     //   icon: "warning",
+//     //   title: caps.value.ocr,
+//     //   // title: GenCaps.value.panels1,
+//     // });
+
+//     const formData = new FormData();
+//     formData.append("title", GenCaps.value.title);
+//     formData.append("abstract", caps.value.ocr);
+//     formData.append("groupname", GenCaps.value.groupname);
+
+//     formData.append("students1", GenCaps.value.students1);
+//     formData.append("students2", GenCaps.value.students2);
+//     formData.append("students3", GenCaps.value.students3);
+//     formData.append("students4", GenCaps.value.students4);
+
+//     formData.append("panels1", GenCaps.value.panels1);
+//     formData.append("panels2", GenCaps.value.panels2);
+//     formData.append("panels3", GenCaps.value.panels3);
+
+//     formData.append("adviser", GenCaps.value.adviser);
+//     formData.append("coAdviser", GenCaps.value.coAdviser);
+
+//     formData.append("instructor", GenCaps.value.instructor);
+
+//     formData.append("secretarys", GenCaps.value.secretarys);
+//     formData.append("xf1", GenCaps.value.xf1);
+//     formData.append("xf2", GenCaps.value.xf2);
+//     formData.append("start_date", GenCaps.value.start_date);
+
+//     axios
+//       .post("/api/add_capstone", formData)
+//       .then((response) => {
+//         const removeData = new FormData();
+//         removeData.append("texttext", ".");
+//         axios
+//           .post("/api/add_capstonee1", removeData)
+
+//           .then((response) => {
+//             (GenCaps.value.title = ""),
+//               (caps.value.ocr = ""),
+//               (GenCaps.value.groupname = ""),
+//               (GenCaps.value.students1 = ""),
+//               (GenCaps.value.students2 = ""),
+//               (GenCaps.value.students3 = ""),
+//               (GenCaps.value.students4 = ""),
+//               (GenCaps.value.panels1 = ""),
+//               (GenCaps.value.panels2 = ""),
+//               (GenCaps.value.panels3 = ""),
+//               (GenCaps.value.adviser = ""),
+//               (GenCaps.value.coAdviser = ""),
+//               (GenCaps.value.instructor = ""),
+//               (GenCaps.value.secretarys = ""),
+//               (GenCaps.value.xf1 = ""),
+//               (GenCaps.value.xf2 = ""),
+//               (GenCaps.value.start_date = ""),
+//               router.push("/capslist");
+
+//             toast.fire({
+//               icon: "success",
+//               title: "Capstone Create Successfully",
+//             });
+//           });
+
+//         (GenCaps.value.title = ""),
+//           (caps.value.ocr = ""),
+//           (GenCaps.value.groupname = ""),
+//           (GenCaps.value.students1 = ""),
+//           (GenCaps.value.students2 = ""),
+//           (GenCaps.value.students3 = ""),
+//           (GenCaps.value.students4 = ""),
+//           (GenCaps.value.panels1 = ""),
+//           (GenCaps.value.panels2 = ""),
+//           (GenCaps.value.panels3 = ""),
+//           (GenCaps.value.adviser = ""),
+//           (GenCaps.value.coAdviser = ""),
+//           (GenCaps.value.instructor = ""),
+//           (GenCaps.value.secretarys = ""),
+//           (GenCaps.value.xf1 = ""),
+//           (GenCaps.value.xf2 = ""),
+//           (GenCaps.value.start_date = ""),
+//           router.push("/capslist");
+
+//         toast.fire({
+//           icon: "success",
+//           title: "User Add Successfully",
+//         });
+//       })
+//       // .catch((error = {}));
+//       .catch(function (error) {
+//         console.log(error.response.data.errors);
+//         console.log("ERRRR:: ", error.response.data);
+
+//         toast.fire({
+//           icon: "warning",
+//           title: "User Add Unsuccessful",
+//         });
+//         // (error = {}));
+//         // console.log("ERRRR:: ",error.response.data);
+//       });
+//     // console.log("ERRRR:: ",error.response.data);
+//   }
+// };
 
 const getSecretary = async () => {
   let response = await axios.get("/api/get_all_secretary_user");
@@ -869,9 +1219,25 @@ export default defineComponent({
         .then((response) => {
           toast.fire({
             icon: "success",
-            title: "User Capstone Successfully",
+            title: "Succesfully Added",
           });
-          this.getCapstone();
+          location.reload();
+          // this.getCapstone();
+          // $("#success").html(response.data.message);
+        });
+    },
+    saveCapstonee2() {
+      axios
+        .post("/api/add_capstonee1", {
+          texttext: this.getCapstoneData(),
+        })
+        .then((response) => {
+          toast.fire({
+            icon: "success",
+            title: "Abstract Save Successfully",
+          });
+          // location.reload();
+          // this.getCapstone();
           // $("#success").html(response.data.message);
         });
     },

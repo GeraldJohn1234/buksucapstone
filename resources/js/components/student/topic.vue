@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light">
+  <div class="contentOfThePage rounded p-2 bg-light">
     <div class="">
       <div class="forInline capsList">TOPIC AND SUGGESTIONS LIST</div>
 

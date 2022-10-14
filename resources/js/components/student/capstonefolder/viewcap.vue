@@ -407,17 +407,111 @@ const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
 
-const onView1 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone1/" + id);
+// const onView1 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone1/" + id);
+// };
+// const onView2 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone2/" + id);
+// };
+// const onView3 = () => {
+//   let id = getIDfromURL();
+//   router.push("/capstone3/" + id);
+// };
+
+const onView1 = async () => {
+  let idd = getIDfromURL();
+  let response = await axios.get("/api/panel_rate_check/" + idd);
+  console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+  rated.value = response.data.userCaps;
+  console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+  if (rated.value.id == 1) {
+    axios
+      .post("/api/create_rate/" + idd)
+      .then((response) => {
+        // router.push("/rate/" + idd);
+        router.push("/capstone1/" + id);
+      })
+      // router.push("/rate/" + idd);
+
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
+
+        toast.fire({
+          icon: "warning",
+          title: "SOMETHING WRONG",
+        });
+      });
+  } else {
+    toast.fire({
+      icon: "warning",
+      title: "Sorry, You're not one of the Panelist",
+    });
+  }
 };
-const onView2 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone2/" + id);
+const onView2 = async () => {
+  let idd = getIDfromURL();
+  let response = await axios.get("/api/panel_rate_check/" + idd);
+  console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+  rated.value = response.data.userCaps;
+  console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+  if (rated.value.id == 1) {
+    axios
+      .post("/api/create_rate/" + idd)
+      .then((response) => {
+        // router.push("/rate/" + idd);
+        router.push("/capstone2/" + id);
+      })
+      // router.push("/rate/" + idd);
+
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
+
+        toast.fire({
+          icon: "warning",
+          title: "SOMETHING WRONG",
+        });
+      });
+  } else {
+    toast.fire({
+      icon: "warning",
+      title: "Sorry, You're not one of the Panelist",
+    });
+  }
 };
-const onView3 = () => {
-  let id = getIDfromURL();
-  router.push("/capstone3/" + id);
+const onView3 = async () => {
+  let idd = getIDfromURL();
+  let response = await axios.get("/api/panel_rate_check/" + idd);
+  console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
+  rated.value = response.data.userCaps;
+  console.warn("TYTRTYTRYTRYTRY", rated.value.id);
+  if (rated.value.id == 1) {
+    axios
+      .post("/api/create_rate/" + idd)
+      .then((response) => {
+        // router.push("/rate/" + idd);
+        router.push("/capstone3/" + id);
+      })
+      // router.push("/rate/" + idd);
+
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
+
+        toast.fire({
+          icon: "warning",
+          title: "SOMETHING WRONG",
+        });
+      });
+  } else {
+    toast.fire({
+      icon: "warning",
+      title: "Sorry, You're not one of the Panelist",
+    });
+  }
 };
 
 const viewOcr = () => {

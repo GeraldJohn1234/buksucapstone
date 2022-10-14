@@ -15,7 +15,7 @@
 
       <ul>
         <li>
-          <router-link class="a active nav_link" to="/dashboard">
+          <router-link class="a active nav_link" @click="storeDashoard()" to="/dashboard">
             <i>
               <!-- <font-awesome-icon icon="fa-solid fa-grid-horizontal" size="2x"/> -->
               <font-awesome-icon
@@ -76,6 +76,24 @@
           </router-link>
         </li>
 
+        <!-- <div class="listOfUser pt-3">
+          <a id="listOfUser" href="#">
+            <span id="label">LIST OF USERS</span>
+          </a>
+        </div>
+        <li>
+          <router-link class="a nav_link" to="/admin">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-user-pen"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">ADMINISTRATOR</span>
+          </router-link>
+        </li> -->
+
         <li>
           <router-link class="a nav_link" to="/student">
             <i>
@@ -85,9 +103,74 @@
               />
             </i>
 
+            <!-- faFileCirclePlus -->
             <span id="label">STUDENT</span>
           </router-link>
         </li>
+
+        <!-- <li>
+          <router-link class="a nav_link" to="/instructor">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-chalkboard-teacher"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">FACULTY</span>
+          </router-link>
+        </li> -->
+
+        <!-- <li>
+          <router-link class="a nav_link" to="/adviser">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-user"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">ADVISER</span>
+          </router-link>
+        </li> -->
+
+        <!-- <li>
+          <router-link class="a nav_link" to="/panel">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-users-rectangle"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">PANEL</span>
+          </router-link>
+        </li> -->
+        <!-- 
+        <li>
+          <router-link class="a nav_link" to="/secretary">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-user-pen"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">SECRETARY</span>
+          </router-link>
+        </li> -->
+        <!-- <li>
+          <router-link class="a nav_link" to="/archiver">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-user-pen"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">ARCHIVER</span>
+          </router-link>
+        </li> -->
 
         <li id="logout">
           <a href="#" @click="logout">
@@ -97,6 +180,7 @@
                 style="width: 24px; height: 24px"
               />
             </i>
+
             <span id="label">LOGOUT</span>
           </a>
         </li>
@@ -151,6 +235,33 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 
+// let dashboard = ref({
+//   instructor1: 0,
+//   instructor2: 0,
+//   instructor3: 0,
+//   panelist: 0,
+//   students: 0,
+//   adviser: 0,
+//   co_adviser: 0,
+//   archiver: 0,
+//   secretary: 0,
+//   under_develop: 0,
+//   deploy: 0,
+//   unimplemented: 0,
+//   no_group1: 0,
+//   no_propose_def: 0,
+//   under_revision_1: 0,
+//   approved_panels_1: 0,
+//   no_group2: 0,
+//   no_prototype_def: 0,
+//   under_revision_2: 0,
+//   approved_panels_2: 0,
+//   no_group3: 0,
+//   no_final_def: 0,
+//   under_revision_3: 0,
+//   approved_panels_3: 0,
+// });
+
 let form = ref({
   userId: "",
   id: "",
@@ -164,12 +275,35 @@ let form = ref({
   gender: "",
   photo: "",
 });
+
 onMounted(async () => {
   getsingleUser();
   getPhoto();
+  // storeDashoard();
 });
+
+const storeDashoard = () => {
+  axios
+    .post("/api/store_dashboard")
+    .then((response) => {
+      // toast.fire({
+      //   icon: "warning",
+      //   title: "SOMETHING GOOD in Dashboard",
+      // });
+    })
+
+    .catch(function (error) {
+      // console.log(error.response.data.errors);
+      // console.log("ERRRR:: ", error.response.data);
+      // toast.fire({
+      //   icon: "warning",
+      //   title: "SOMETHING WRONG",
+      // });
+    });
+};
+
 const getPhoto = () => {
-  let photo = "/upload/myAvatar.png";
+  let photo = "/upload/leader.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;
@@ -421,4 +555,3 @@ const logout = () => {
   margin-top: 10px;
 }
 </style>
->

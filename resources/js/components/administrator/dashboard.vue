@@ -44,7 +44,7 @@
   </div>
   <br />
   <h5 class="rowLeftHH">CAPSTONE PROJECT STATUS</h5>
-  <div class="row pieChartbox">
+  <div class="row pieChartbox p-2">
     <table class="table table-borderless rounded bg-light col">
       <tr class="pt-3">
         <td class="fontSize pt-3">UNDER DEVELOPMENT</td>
@@ -88,13 +88,13 @@
         <tr>
           <td>In-Progress::</td>
           <td class="bgData">
-            {{ ((dashboard.under_revision_1 / dashboard.no_group1) * 100).toFixed(2) }} %
+            {{ ((dashboard.no_propose_def / dashboard.no_group1) * 100).toFixed(2) }} %
           </td>
         </tr>
         <tr>
           <td>Proposal defense:</td>
           <td class="bgData">
-            {{ ((dashboard.no_propose_def / dashboard.no_group1) * 100).toFixed(2) }} %
+            {{ ((dashboard.under_revision_1 / dashboard.no_group1) * 100).toFixed(2) }} %
           </td>
         </tr>
 
@@ -121,13 +121,13 @@
         <tr>
           <td>System-Development:</td>
           <td class="bgData">
-            {{ ((dashboard.under_revision_2 / dashboard.no_group2) * 100).toFixed(2) }} %
+            {{ ((dashboard.no_prototype_def / dashboard.no_group2) * 100).toFixed(2) }} %
           </td>
         </tr>
         <tr>
           <td>Prptotype defense:</td>
           <td class="bgData">
-            {{ ((dashboard.no_prototype_def / dashboard.no_group2) * 100).toFixed(2) }} %
+            {{ ((dashboard.under_revision_2 / dashboard.no_group2) * 100).toFixed(2) }} %
           </td>
         </tr>
 
@@ -154,13 +154,13 @@
         <tr>
           <td>In-Progress:</td>
           <td class="bgData">
-            {{ ((dashboard.under_revision_3 / dashboard.no_group3) * 100).toFixed(2) }} %
+            {{ ((dashboard.no_final_def / dashboard.no_group3) * 100).toFixed(2) }} %
           </td>
         </tr>
         <tr>
           <td>Final defense:</td>
           <td class="bgData">
-            {{ ((dashboard.no_final_def / dashboard.no_group3) * 100).toFixed(2) }} %
+            {{ ((dashboard.under_revision_3 / dashboard.no_group3) * 100).toFixed(2) }} %
           </td>
         </tr>
 
@@ -245,19 +245,19 @@ export default {
     // let data1 = this.dashboards.instructor1;
 
     const data = {
-      labels: ["UNIMPLEMENTED", "DEPLOYED", "UNDER-DEVELOPMENT"],
+      labels: ["UNDER-DEVELOPMENT", "DEPLOYED", "UNIMPLEMENTED"],
       datasets: [
         {
           label: "My First Dataset",
           data: [
             this.dashboard.under_develop,
             this.dashboard.deploy,
-            this.dashboard.instructor1,
+            this.dashboard.unimplemented,
           ],
           backgroundColor: [
-            "rgb(255, 99, 132)",
-            "rgb(54, 162, 235)",
             "rgb(255, 205, 86)",
+            "rgb(54, 162, 235)",
+            "rgb(255, 99, 132)",
           ],
           hoverOffset: 4,
         },

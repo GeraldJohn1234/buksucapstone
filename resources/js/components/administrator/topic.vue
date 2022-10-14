@@ -3,8 +3,8 @@
     <div class="">
       <div class="forInline capsList">TOPIC AND SUGGESTIONS LIST</div>
 
-      <div class="forInline float-end mtop">
-        <button class="nav_link" to="/createsuggestion">
+      <div class="forInline float-end mtop p-2">
+        <button class="nav_link" @click="createsuggest()">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </button>
       </div>
@@ -257,6 +257,9 @@ import router from "../../routers/administratorRouter";
 
 const taketopic = () => {
   router.push("/taketopic");
+};
+const createsuggest = () => {
+  router.push("/createsuggestion");
 };
 // @click="taketopic()"
 //

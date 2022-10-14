@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper container-fluid">
-    <div class="sidebar" id="scrollAble" @mouseover="HoverIn()" @mouseout="HoverOut()">
+    <div class="sidebar" id="scrollAble">
       <!-- <img class="avatarImg" src="/images/buksu.png" alt="User Avatar">
       <h2 class="">SideBar</h2> -->
 
@@ -14,10 +14,10 @@
       </div>
 
       <ul>
-        <li>
-          <router-link class="a active nav_link" to="/dashboard">
+        <!-- <li>
+          <router-link class="a active nav_link" @click="storeDashoard()" to="/dashboard">
             <i>
-              <!-- <font-awesome-icon icon="fa-solid fa-grid-horizontal" size="2x"/> -->
+              <font-awesome-icon icon="fa-solid fa-grid-horizontal" size="2x"/>
               <font-awesome-icon
                 icon="fa-solid fa-dashboard"
                 style="width: 24px; height: 24px"
@@ -25,7 +25,7 @@
             </i>
             <span id="label">DASHBOARD</span>
           </router-link>
-        </li>
+        </li> -->
         <li>
           <router-link class="a nav_link" to="/profile">
             <i>
@@ -37,6 +37,18 @@
             <span id="label">PROFILE</span>
           </router-link>
         </li>
+        <!-- <li>
+          <router-link class="a nav_link" to="/project">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-file"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">CREATE PROJECT</span>
+          </router-link>
+        </li> -->
 
         <li>
           <router-link class="a nav_link" to="/capslist">
@@ -63,40 +75,9 @@
             <span id="label">TOPIC SUGGESTION</span>
           </router-link>
         </li>
+        <!--  -->
 
-        <!-- <div class="listOfUser pt-3">
-          <a id="listOfUser" href="#">
-            <span id="label">LIST OF USERS</span>
-          </a>
-        </div>
-
-        <li>
-          <router-link class="a nav_link" to="/student">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-users"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">STUDENT</span>
-          </router-link>
-        </li>
-
-        <li>
-          <router-link class="a nav_link" to="/instructor">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-chalkboard-teacher"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">INSTRUCTOR</span>
-          </router-link>
-        </li>
-
-        <li>
+        <!-- <li>
           <router-link class="a nav_link" to="/adviser">
             <i>
               <font-awesome-icon
@@ -107,9 +88,9 @@
 
             <span id="label">ADVISER</span>
           </router-link>
-        </li>
+        </li> -->
 
-        <li>
+        <!-- <li>
           <router-link class="a nav_link" to="/panel">
             <i>
               <font-awesome-icon
@@ -120,8 +101,8 @@
 
             <span id="label">PANEL</span>
           </router-link>
-        </li>
-
+        </li> -->
+        <!-- 
         <li>
           <router-link class="a nav_link" to="/secretary">
             <i>
@@ -132,6 +113,18 @@
             </i>
 
             <span id="label">SECRETARY</span>
+          </router-link>
+        </li> -->
+        <!-- <li>
+          <router-link class="a nav_link" to="/archiver">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-user-pen"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <span id="label">ARCHIVER</span>
           </router-link>
         </li> -->
 
@@ -151,18 +144,34 @@
     </div>
     <div class="main_content">
       <div class="header">
-        <div class="headerL">Capstone Project Monitoring and Archiving System</div>
+        <div class="headerL">
+          Capstone Project Monitoring and Archiving System
+          <!-- {{ authUser.id }} -->
+
+          <!-- <h5 > {{form.name}} {{form.mname}} {{form.lname}}</h5> -->
+        </div>
         <div class="headerR row">
           <div class="footer content">
-            <img
+            <!-- <img
               class="avatarUser rounded-circle border border-dark"
               src="/images/myAvatar.png"
+            /> -->
+            <img
+              id=""
+              class="avatarUser mt-3 rounded-circle border border-dark"
+              :src="getPhoto()"
+              alt="img"
             />
             <div class="p">
-              <span class="topA" id="labelAvatar"> Gerald John S. Hiponia </span> <br />
+              <span class="topA ms-1" id="labelAvatar">
+                <!-- Gerald John S. Hiponia -->
+                {{ form.name }} {{ form.mname }} {{ form.lname }}
+              </span>
+              <br />
 
               <!-- <span> Administrator </span> -->
             </div>
+            <p class="roleAvatar ms-5 me-2">ARCHIVER</p>
           </div>
         </div>
       </div>
@@ -177,43 +186,142 @@
   </div>
 </template>
 
-<script>
-export default {
-  mounted() {
-    console.log("Component mounted.");
+<script setup>
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { ref } from "vue";
+
+// let dashboard = ref({
+//   instructor1: 0,
+//   instructor2: 0,
+//   instructor3: 0,
+//   panelist: 0,
+//   students: 0,
+//   adviser: 0,
+//   co_adviser: 0,
+//   archiver: 0,
+//   secretary: 0,
+//   under_develop: 0,
+//   deploy: 0,
+//   unimplemented: 0,
+//   no_group1: 0,
+//   no_propose_def: 0,
+//   under_revision_1: 0,
+//   approved_panels_1: 0,
+//   no_group2: 0,
+//   no_prototype_def: 0,
+//   under_revision_2: 0,
+//   approved_panels_2: 0,
+//   no_group3: 0,
+//   no_final_def: 0,
+//   under_revision_3: 0,
+//   approved_panels_3: 0,
+// });
+
+let form = ref({
+  userId: "",
+  id: "",
+  uid: "",
+  email: "",
+  password: "",
+  name: "",
+  mname: "",
+  lname: "",
+  year: "",
+  gender: "",
+  photo: "",
+});
+
+onMounted(async () => {
+  getsingleUser();
+  getPhoto();
+  // storeDashoard();
+});
+
+const storeDashoard = () => {
+  axios
+    .post("/api/store_dashboard")
+    .then((response) => {
+      // toast.fire({
+      //   icon: "warning",
+      //   title: "SOMETHING GOOD in Dashboard",
+      // });
+    })
+
+    .catch(function (error) {
+      // console.log(error.response.data.errors);
+      // console.log("ERRRR:: ", error.response.data);
+      // toast.fire({
+      //   icon: "warning",
+      //   title: "SOMETHING WRONG",
+      // });
+    });
+};
+
+const getPhoto = () => {
+  let photo = "/upload/leader.jpg";
+  if (form.value.photo) {
+    if (form.value.photo.indexOf("base64") != -1) {
+      photo = form.value.photo;
+    } else {
+      photo = "/upload/" + form.value.photo;
+    }
+  }
+  return photo;
+};
+const props = defineProps({
+  userId: {
+    type: String,
+    default: "",
   },
-  data() {
-    return {};
-  },
-  methods: {
-    logout() {
-      axios
-        .post("/logout", {})
-        .then((res) => {
-          location.href = "/";
-        })
-        .catch((err) => {});
-    },
-  },
+});
+const getsingleUser = async () => {
+  let response = await axios.get("/api/myprofile");
+  form.value = response.data.userrs;
+  console.warn("userrs", form.value);
+
+  // console.warn(test);
+
+  // test = ("userrs", form.value.name);
+};
+// export default {
+//   mounted() {
+//     console.log("Component mounted.");
+//   },
+//   data() {
+//     return {};
+//   },
+//   methods: {
+//     logout() {
+//       axios
+//         .post("/logout", {})
+//         .then((res) => {
+//           location.href = "/";
+//         })
+//         .catch((err) => {});
+//     },
+//   },
+const logout = () => {
+  axios
+    .post("/logout", {})
+    .then((res) => {
+      location.href = "/";
+    })
+    .catch((err) => {});
 };
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap");
-
-* {
-  /* background: #EFEFEF !important;font-family: "Ibarra Real Nova", serif; */
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue",
-    Helvetica, Arial, sans-serif !important;
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-}
 
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue",
+    Helvetica, Arial, sans-serif !important;
+}
 .wrapper {
   display: flex;
   position: relative;
@@ -228,9 +336,13 @@ export default {
     padding: 3px;
     padding-left: 15px;
   }
+  .roleAvatar {
+    font-size: 18px;
+    margin-top: -23px;
+    text-align: center;
+  }
   .wrapper .sidebar {
     position: fixed;
-
     width: 230px;
     height: 100%;
     background: #fff;
@@ -290,6 +402,7 @@ export default {
 
 .wrapper .sidebar .row .row1 h2 {
   text-transform: uppercase;
+  font-weight: bold;
   margin-bottom: 15px;
   margin-top: 15px;
   padding-left: 2px;
@@ -357,8 +470,8 @@ export default {
 }
 .footer.content > img {
   display: inline-block;
-  width: 28px;
-  height: 28px;
+  width: 35px;
+  height: 35px;
 }
 .p {
   display: inline-block;

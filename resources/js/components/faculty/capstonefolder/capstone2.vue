@@ -24,8 +24,26 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Capstone Adviser Appointment Form</p>
-          <button
+          <!-- <button
             class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            @click="appForm()"
+          >
+            OPEN
+          </button> -->
+
+          <button
+            v-if="
+              GenCadocu123.ad_appointment_form === null ||
+              GenCadocu123.ad_appointment_form === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="appForm()"
           >
             OPEN
@@ -33,8 +51,24 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Minutes of the Propotype Defense</p>
-          <button
+          <!-- <button
             class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            @click="minutes()"
+          >
+            OPEN
+          </button> -->
+          <button
+            v-if="
+              GenCadocu123.proto_minutes === null || GenCadocu123.proto_minutes === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="minutes()"
           >
             OPEN
@@ -42,8 +76,24 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Action Done Matrix of Prototype Defense</p>
-          <button
+          <!-- <button
             class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            @click="done()"
+          >
+            OPEN
+          </button> -->
+          <button
+            v-if="
+              GenCadocu123.proto_matrix === null || GenCadocu123.proto_matrix === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="done()"
           >
             OPEN
@@ -55,8 +105,25 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>System Demo Recorded Video/ Recording of the Live Demo during defense</p>
-          <button
+          <!-- <button
             class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            @click="recordProposal()"
+          >
+            OPEN
+          </button> -->
+
+          <button
+            v-if="
+              GenCadocu123.capstone_link === null || GenCadocu123.capstone_link === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="recordProposal()"
           >
             OPEN
@@ -66,8 +133,25 @@
           <p>
             Capstone 2 File Containing the Screenshot of the gcash payment to the panel
           </p>
-          <button
+          <!-- <button
             class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            @click="ssPayment()"
+          >
+            OPEN
+          </button> -->
+
+          <button
+            v-if="
+              GenCadocu123.gcash_payment === null || GenCadocu123.gcash_payment === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="ssPayment()"
           >
             OPEN
@@ -78,8 +162,24 @@
             File Containing the Screenshot of the acceptance of the panel to the revision
             done to the system
           </p>
-          <button
+          <!-- <button
             class="btn btn-primary w-100 position-absolute bottom-0 start-0"
+            @click="ssAccept()"
+          >
+            OPEN
+          </button> -->
+          <button
+            v-if="
+              GenCadocu123.acceptance_ss === null || GenCadocu123.acceptance_ss === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
             @click="ssAccept()"
           >
             OPEN
@@ -97,36 +197,86 @@
           </p>
           <p class="fw-bold">{{ ratee1.total }} %</p>
           <br />
-          <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+          <!-- <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
             {{ ratee1.xf1 }}
-          </button>
+          </button> -->
+
+          <div v-if="ratee1.xf1 === 'PENDING'">
+            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
+              {{ ratee1.xf1 }}
+            </button>
+          </div>
+          <div v-else-if="ratee1.xf1 === 'APPROVED'">
+            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
+              {{ ratee1.xf1 }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+              {{ ratee1.xf1 }}
+            </button>
+          </div>
         </div>
+
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p class="text-uppercase panelH">
             {{ panels2.name }} {{ panels2.mname }} {{ panels2.lname }}
           </p>
           <p class="fw-bold">{{ ratee2.total }} %</p>
           <br />
-          <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+          <!-- <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
             {{ ratee2.xf1 }}
-          </button>
+          </button> -->
+          <div v-if="ratee2.xf1 === 'PENDING'">
+            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
+              {{ ratee2.xf1 }}
+            </button>
+          </div>
+          <div v-else-if="ratee2.xf1 === 'APPROVED'">
+            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
+              {{ ratee2.xf1 }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+              {{ ratee2.xf1 }}
+            </button>
+          </div>
         </div>
+
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p class="text-uppercase panelH">
             {{ panels3.name }} {{ panels3.mname }} {{ panels3.lname }}
           </p>
           <p class="fw-bold">{{ ratee3.total }} %</p>
           <br />
-          <button class="btn w-100 btn-primary position-absolute bottom-0 start-0">
+          <!-- <button class="btn w-100 btn-primary position-absolute bottom-0 start-0">
             {{ ratee3.xf1 }}
-          </button>
+          </button> -->
+          <div v-if="ratee3.xf1 === 'PENDING'">
+            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
+              {{ ratee3.xf1 }}
+            </button>
+          </div>
+          <div v-else-if="ratee3.xf1 === 'APPROVED'">
+            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
+              {{ ratee3.xf1 }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
+              {{ ratee3.xf1 }}
+            </button>
+          </div>
         </div>
       </div>
 
       <div class="" id="titleSize">
-        <p class="pt-2 text-uppercase">{{ GenCadocu123.xf2 }}: {{ GenCadocu123.xf1 }} %</p>
+        <p class="pt-2 text-uppercase boldThese">
+          {{ GenCadocu123.xf2 }}: {{ parseFloat(GenCadocu123.xf1).toFixed(2) }} %
+        </p>
         <hr class="toTop" />
-        <p class="toTopp boldThese">RATE STATUS</p>
+        <p class="toTopp">RATING STATUS</p>
       </div>
 
       <button class="btn btn-primary rateButton fw-bold" @click="rateddd()">RATE</button>
@@ -134,40 +284,36 @@
       <br />
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercase boldThese">
             {{ GenCapData.groupname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Group Name</p>
+          <p class="toTopp">Group Name</p>
         </div>
         <br />
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
-            Temporary
-            <!-- {{ instructor.name }} {{ instructor.mname }} {{ instructor.lname }} -->
+          <p class="pt-2 text-uppercase boldThese">
+            <!-- {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }} -->
+            {{ GenCadocu123.xf3 }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Instructor</p>
+          <p class="toTopp">Instructor</p>
         </div>
 
-
-
-
-
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercase boldThese">
             {{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Adviser</p>
+          <p class="toTopp">Adviser</p>
         </div>
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercase boldThese">
             {{ capstone2data.prototype_date }}
             <!-- April 25, 2022 -->
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Prototype defense Date</p>
+          <p class="toTopp">Prototype defense Date</p>
         </div>
       </div>
       <br /><br />
@@ -176,7 +322,7 @@
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercase boldThese">{{ capstone2data.status }}</p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">STATUS</p>
+          <p class="toTopp">STATUS</p>
         </div>
       </div>
     </div>
@@ -187,7 +333,6 @@
 import router from "../../../routers/facultyRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
-
 
 let panels1 = ref({
   name: "",
@@ -220,12 +365,14 @@ let ratee3 = ref({
 let GenCadocu123 = ref({
   xf1: "",
   xf2: "",
+  xf3: "",
+  capstone_link: "",
+  proto_minutes: "",
+  proto_matrix: "",
+  ad_appointment_form: "",
+  gcash_payment: "",
+  acceptance_ss: "",
 });
-
-
-
-
-
 
 let GenCapData = ref({
   title: "",
@@ -251,9 +398,10 @@ let rated = ref({
 });
 
 onMounted(async () => {
+  // getIsstructor1();
+
   getsingleUser();
   getsingleUser7();
-  getsingleUser9();
   getCapston2Data();
 
   getsingleUser4();
@@ -265,6 +413,16 @@ onMounted(async () => {
   getcaps123();
 });
 
+// let instruct = ref({
+//   name: "",
+//   mname: "",
+//   lname: "",
+// });
+// const getIsstructor1 = async () => {
+//   let capstoneid = getIDfromURL();
+//   let response = await axios.get("/api/get_capstone_instructor2/" + capstoneid);
+//   instruct.value = response.data.instruct;
+// };
 
 const getsingleUser4 = async () => {
   let capstoneid = getIDfromURL();
@@ -281,7 +439,6 @@ const getsingleUser6 = async () => {
   let response = await axios.get("/api/get_capstone_panels3/" + capstoneid);
   panels3.value = response.data.userCaps;
 };
-
 
 const panelrates1 = async () => {
   let capstoneid = getIDfromURL();
@@ -310,12 +467,6 @@ const getcaps123 = async () => {
   // console.warn("3333333333333333333",  GenCadocu123.value);
 };
 
-
-
-
-
-
-
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
@@ -334,11 +485,7 @@ const getsingleUser7 = async () => {
   let response = await axios.get("/api/get_capstone_adviser/" + capstoneid);
   adviser.value = response.data.userCaps;
 };
-const getsingleUser9 = async () => {
-  let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_capstone_instructor/" + capstoneid);
-  instructor.value = response.data.userCaps;
-};
+
 const getCapston2Data = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstonee2/" + capstoneid);
@@ -398,6 +545,12 @@ const rateddd = async () => {
       title: "Sorry, You're not one of the Panelist",
     });
   }
+};
+const pending = () => {
+  toast.fire({
+    icon: "warning",
+    title: "Student, did not submit yet!",
+  });
 };
 </script>
 <style>

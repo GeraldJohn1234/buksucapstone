@@ -38,6 +38,14 @@ let GenCapData = ref({
 });
 let GenCadocu123 = ref({
   action_done: "",
+  final_docu: "",
+  proto_minutes: "",
+  proto_matrix: "",
+  ppt: "",
+  software_demo: "",
+  gcash_payment: "",
+  acceptance_ss: "",
+  githublink: "",
 });
 
 onMounted(async () => {
@@ -59,7 +67,7 @@ const getsingleUser = async () => {
 
 const getcaps123 = async () => {
   let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/getcaps123/" + capstoneid);
+  let response = await axios.get("/api/getcaps3/" + capstoneid);
   GenCadocu123.value = response.data.capstonee1;
 
   // GenCaps.value = response.data.userCaps;

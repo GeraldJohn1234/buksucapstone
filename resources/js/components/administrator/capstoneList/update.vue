@@ -51,8 +51,6 @@
           <input
             :type="type"
             class="form-control"
-            placeholder="Recipient's username"
-            aria-label="Recipient's username"
             aria-describedby="button-addon2"
             v-model="form.password"
           />

@@ -20,15 +20,20 @@ return new class extends Migration
 
 
 
-            
-
             $table->string('capstone_link')->nullable();
-
             $table->string('proto_minutes')->nullable();
             $table->string('proto_matrix')->nullable();
             $table->string('ad_appointment_form')->nullable();
             $table->string('gcash_payment')->nullable();
             $table->string('acceptance_ss')->nullable();
+
+            // capstone_link
+            // proto_minutes
+            // proto_matrix
+            // ad_appointment_form
+            // gcash_payment
+            // acceptance_ss
+
 
             $table->string('status')->nullable();
             $table->date('prototype_date')->nullable(); 
