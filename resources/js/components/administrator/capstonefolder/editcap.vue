@@ -64,10 +64,11 @@
             v-model="GenCapData.xf1"
             id="inputGroupSelect01"
           >
-            <option selected>Choose...</option>
-            <option value="Third year">Third year</option>
-            <option value="Fourth year">Fourth year</option>
-            <option value="Fifth year">Fifth year</option>
+            <option selected disabled>Choose...</option>
+            <option value="3rd year">3rd year</option>
+            <option value="4th year">4th year</option>
+            <option value="5th year">5th year</option>
+            <option value="Graduated">Graduated</option>
           </select>
         </div>
       </div>

@@ -63,7 +63,7 @@
           </router-link>
         </li>
 
-        <li>
+        <!-- <li>
           <router-link class="a nav_link" to="/topic">
             <i>
               <font-awesome-icon
@@ -74,7 +74,7 @@
 
             <span id="label">TOPIC SUGGESTION</span>
           </router-link>
-        </li>
+        </li> -->
         <!--  -->
 
         <!-- <li>
@@ -157,7 +157,7 @@
               src="/images/myAvatar.png"
             /> -->
             <img
-              id=""
+              id="rizal"
               class="avatarUser mt-3 rounded-circle border border-dark"
               :src="getPhoto()"
               alt="img"
@@ -328,8 +328,13 @@ const logout = () => {
 }
 
 /* this is a comment */
+@media screen and (max-width: 731px) {
+  #rizal {
+    display: none;
+  }
+}
 
-@media screen and (min-width: 811px) {
+@media screen and (max-width: 1019px) {
   .logoHeader {
     border-bottom: 1px solid #000;
     box-shadow: 2px 1px 10px #888888;
@@ -366,7 +371,8 @@ const logout = () => {
 }
 
 @media screen and (max-width: 810px) {
-  #labelAvatar {
+  #labelAvatar,
+  .roleAvatar {
     display: none;
   }
 

@@ -201,8 +201,8 @@
               src="/images/myAvatar.png"
             /> -->
             <img
-              id=""
               class="avatarUser mt-3 rounded-circle border border-dark"
+              id="rizal"
               :src="getPhoto()"
               alt="img"
             />
@@ -409,8 +409,9 @@ const logout = () => {
   }
 }
 
-@media screen and (max-width: 810px) {
-  #labelAvatar {
+@media screen and (max-width: 1019px) {
+  #labelAvatar,
+  .roleAvatar {
     display: none;
   }
 
@@ -441,6 +442,12 @@ const logout = () => {
   .wrapper .main_content {
     width: 100%;
     margin-left: 80px;
+  }
+}
+
+@media screen and (max-width: 731px) {
+  #rizal {
+    display: none;
   }
 }
 

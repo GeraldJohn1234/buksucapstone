@@ -7,8 +7,8 @@
       <hr class="toTop" />
       <p class="toTopp boldThese">TITLE</p>
     </div>
-    <p class="text-left boldThese">PROJECT DESCRIPTION</p>
-    <div class="form-floating col">
+
+    <!-- <div class="form-floating col">
       <textarea
         class="form-control inputColor"
         placeholder="Leave a comment here"
@@ -18,8 +18,13 @@
       ></textarea>
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
       <br />
-    </div>
+    </div> -->
     <!-- <P class="text-left boldThese">INFORMATION</P> -->
+    <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
+
+    <p class="contentOfThePage bg-light p-2">
+      {{ GenCapData.abstract }}
+    </p>
     <br />
     <div class="row">
       <div class="form-floating mb-3 col">

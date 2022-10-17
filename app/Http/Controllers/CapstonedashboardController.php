@@ -31,6 +31,8 @@ class CapstonedashboardController extends Controller
         $unimplemented = DB::table('capstones')->where('xf2', "UNIMPLEMENTED")->count();
         $deploy = DB::table('capstones')->where('xf2', "DEPLOYED")->count();
 
+        $done_capstone = $unimplemented +  $deploy;
+
         $approve1 = DB::table('capstone1s')->where('xf2', "APPROVED")->count();
         $approve2 = DB::table('capstone2s')->where('xf2', "APPROVED")->count();
         $approve3 = DB::table('capstone3s')->where('xf2', "APPROVED")->count();
@@ -39,14 +41,15 @@ class CapstonedashboardController extends Controller
         $defense2 = DB::table('capstone2s')->where('status', "Under-Revision")->count();
         $defense3 = DB::table('capstone3s')->where('status', "Under-Revision")->count();
 
-        $no__capstone = Capstone::count();
+        
+
+        
+        $allcaps = Capstone::count();
+        $no__capstone = $allcaps-$done_capstone;
 
         $working1= $no__capstone - $approve1 - $defense1;
         $working2= $no__capstone - $approve2 - $defense2;
         $working3= $no__capstone - $approve3 - $defense3;
-
-
-
 
 
 

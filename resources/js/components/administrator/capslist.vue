@@ -191,7 +191,6 @@ const dataCapstonesort = async () => {
     });
 };
 
-
 const edithCap = (id) => {
   axios
     .post("/api/create_capstone_proj/" + id)
@@ -227,7 +226,6 @@ const viewCap = (id) => {
       });
     });
 };
-
 
 onMounted(async () => {
   // getCapstone();

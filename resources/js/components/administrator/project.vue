@@ -128,6 +128,7 @@
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
             <option value="5th year">5th year</option>
+            <option value="Graduated">Graduated</option>
           </select>
         </div>
       </div>
@@ -357,7 +358,7 @@ const saveCaps = () => {
   if (GenCaps.value.students1 == null || GenCaps.value.students1 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 1 field",
+      title: "Invalid, Please fill on Proponet 1 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.title == null || GenCaps.value.title == 0) {
@@ -381,55 +382,56 @@ const saveCaps = () => {
   } else if (GenCaps.value.students2 == null || GenCaps.value.students2 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 2 field",
+      title: "Invalid, Please fill on Proponet 2 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students3 == null || GenCaps.value.students3 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 3 field",
+      title: "Invalid, Please fill on Proponet 3 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students4 == null || GenCaps.value.students4 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 4 field",
+      title: "Invalid, Please fill on Proponet 4 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels1 == null || GenCaps.value.panels1 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on panel 1 field",
+      title: "Invalid, Please fill on panel 1 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels2 == null || GenCaps.value.panels2 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on panel 2 field",
+      title: "Invalid, Please fill on panel 2 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels3 == null || GenCaps.value.panels3 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on panel 3 field",
+      title: "Invalid, Please fill on panel 3 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.adviser == null || GenCaps.value.adviser == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on adviser field",
+      title: "Invalid, Please fill on adviser field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.coAdviser == null || GenCaps.value.coAdviser == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Co-Adviser field, if none repeat the Adviser",
+      title:
+        "Invalid, Please fill on Co-Adviser field, if none repeat the Adviser, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.secretarys == null || GenCaps.value.secretarys == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on secretarys fieldr",
+      title: "Invalid, Please fill on secretarys field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   }
@@ -676,10 +678,10 @@ const saveCaps = () => {
           (GenCaps.value.start_date = ""),
           router.push("/capslist");
 
-        toast.fire({
-          icon: "success",
-          title: "User Add Successfully",
-        });
+        // toast.fire({
+        //   icon: "success",
+        //   title: "User Add Successfully",
+        // });
       })
       // .catch((error = {}));
       .catch(function (error) {
