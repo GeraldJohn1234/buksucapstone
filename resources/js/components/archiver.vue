@@ -328,13 +328,8 @@ const logout = () => {
 }
 
 /* this is a comment */
-@media screen and (max-width: 731px) {
-  #rizal {
-    display: none;
-  }
-}
 
-@media screen and (max-width: 1019px) {
+@media screen and (min-width: 811px) {
   .logoHeader {
     border-bottom: 1px solid #000;
     box-shadow: 2px 1px 10px #888888;
@@ -370,7 +365,7 @@ const logout = () => {
   }
 }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 1019px) {
   #labelAvatar,
   .roleAvatar {
     display: none;
@@ -403,6 +398,12 @@ const logout = () => {
   .wrapper .main_content {
     width: 100%;
     margin-left: 80px;
+  }
+}
+
+@media screen and (max-width: 731px) {
+  #rizal {
+    display: none;
   }
 }
 
@@ -517,4 +518,3 @@ const logout = () => {
   margin-top: 10px;
 }
 </style>
->

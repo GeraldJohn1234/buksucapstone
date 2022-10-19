@@ -9,18 +9,8 @@
         <p class="toTopp boldThese">TITLE</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="form-floating col">
-        <textarea
-          class="form-control inputColor"
-          placeholder="Leave a comment here"
-          id="floatingTextarea2"
-          style="height: 200px"
-          v-model="GenCapData.abstract"
-        ></textarea>
-        <label class="ps-4" for="floatingTextarea2">Abstract</label>
-        <br />
-      </div>
-      <hr />
+      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <br />
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Capstone Adviser Appointment Form</p>
@@ -58,25 +48,21 @@
             OPEN
           </button> -->
           <button
-          v-if="
-            GenCadocu123.proto_minutes === null ||
-            GenCadocu123.proto_minutes === 'null'
-          "
-          class="btn btn-warning w-100 position-absolute bottom-0 start-0"
-          @click="pending()"
-        >
-          PENDING
-        </button>
-        <button
-          v-else
-          class="btn btn-success w-100 position-absolute bottom-0 start-0"
-          @click="minutes()"
-        >
-          OPEN
-        </button>
-
-
-
+            v-if="
+              GenCadocu123.proto_minutes === null || GenCadocu123.proto_minutes === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
+            @click="minutes()"
+          >
+            OPEN
+          </button>
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Action Done Matrix of Prototype Defense</p>
@@ -88,8 +74,7 @@
           </button> -->
           <button
             v-if="
-              GenCadocu123.proto_matrix === null ||
-              GenCadocu123.proto_matrix === 'null'
+              GenCadocu123.proto_matrix === null || GenCadocu123.proto_matrix === 'null'
             "
             class="btn btn-warning w-100 position-absolute bottom-0 start-0"
             @click="pending()"
@@ -103,8 +88,6 @@
           >
             OPEN
           </button>
-
-
         </div>
       </div>
       <br />
@@ -120,25 +103,21 @@
           </button> -->
 
           <button
-          v-if="
-            GenCadocu123.capstone_link === null ||
-            GenCadocu123.capstone_link === 'null'
-          "
-          class="btn btn-warning w-100 position-absolute bottom-0 start-0"
-          @click="pending()"
-        >
-          PENDING
-        </button>
-        <button
-          v-else
-          class="btn btn-success w-100 position-absolute bottom-0 start-0"
-          @click="recordProposal()"
-        >
-          OPEN
-        </button>
-
-
-
+            v-if="
+              GenCadocu123.capstone_link === null || GenCadocu123.capstone_link === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
+            @click="recordProposal()"
+          >
+            OPEN
+          </button>
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>
@@ -152,25 +131,21 @@
           </button> -->
 
           <button
-          v-if="
-            GenCadocu123.gcash_payment === null ||
-            GenCadocu123.gcash_payment === 'null'
-          "
-          class="btn btn-warning w-100 position-absolute bottom-0 start-0"
-          @click="pending()"
-        >
-          PENDING
-        </button>
-        <button
-          v-else
-          class="btn btn-success w-100 position-absolute bottom-0 start-0"
-          @click="ssPayment()"
-        >
-          OPEN
-        </button>
-
-
-
+            v-if="
+              GenCadocu123.gcash_payment === null || GenCadocu123.gcash_payment === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
+            @click="ssPayment()"
+          >
+            OPEN
+          </button>
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>
@@ -184,25 +159,21 @@
             OPEN
           </button> -->
           <button
-          v-if="
-            GenCadocu123.acceptance_ss === null ||
-            GenCadocu123.acceptance_ss === 'null'
-          "
-          class="btn btn-warning w-100 position-absolute bottom-0 start-0"
-          @click="pending()"
-        >
-          PENDING
-        </button>
-        <button
-          v-else
-          class="btn btn-success w-100 position-absolute bottom-0 start-0"
-          @click="ssAccept()"
-        >
-          OPEN
-        </button>
-
-
-
+            v-if="
+              GenCadocu123.acceptance_ss === null || GenCadocu123.acceptance_ss === 'null'
+            "
+            class="btn btn-warning w-100 position-absolute bottom-0 start-0"
+            @click="pending()"
+          >
+            PENDING
+          </button>
+          <button
+            v-else
+            class="btn btn-success w-100 position-absolute bottom-0 start-0"
+            @click="ssAccept()"
+          >
+            OPEN
+          </button>
         </div>
       </div>
     </div>

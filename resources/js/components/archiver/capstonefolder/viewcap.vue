@@ -9,7 +9,7 @@
     </div>
     <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
 
-    <p class="contentOfThePage bg-light p-2">
+    <p class="contentOfThePage bg-light p-2 text-justify">
       {{ GenCapData.abstract }}
     </p>
     <!-- <P class="text-left boldThese">INFORMATION</P> -->

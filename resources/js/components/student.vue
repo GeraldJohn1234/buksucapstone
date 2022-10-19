@@ -197,10 +197,43 @@ const rateddd = async () => {
   let checkdata = response.data.ans;
 
   if (checkdata != 0) {
-    router.push("/editcap/" + checkdata);
+    axios
+      .post("/api/create_capstone_proj/" + checkdata)
+      .then((response) => {
+        router.push("/editcap/" + checkdata);
+      })
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
+
+        toast.fire({
+          icon: "warning",
+          title: "SOMETHING WRONG",
+        });
+      });
+
+    // router.push("/editcap/" + checkdata);
   } else {
     router.push("/noproject");
   }
+
+  //   const edithCap = (id) => {
+  //   axios
+  //     .post("/api/create_capstone_proj/" + id)
+  //     .then((response) => {
+  //       router.push("/editcap/" + id);
+  //     })
+
+  //     .catch(function (error) {
+  //       console.log(error.response.data.errors);
+  //       console.log("ERRRR:: ", error.response.data);
+
+  //       toast.fire({
+  //         icon: "warning",
+  //         title: "SOMETHING WRONG",
+  //       });
+  //     });
+  // };
 
   // toast.fire({
   //   icon: "success",
@@ -267,7 +300,7 @@ const logout = () => {
 };
 </script>
 
-<style scoped>
+<style>
 * {
   margin: 0;
   padding: 0;

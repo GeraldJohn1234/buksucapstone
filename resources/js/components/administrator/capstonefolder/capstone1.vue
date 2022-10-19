@@ -6,10 +6,11 @@
       <div class="" id="titleSize">
         <h5 class="pt-2 text-uppercase boldThese">{{ GenCapData.title }}</h5>
         <hr class="toTop" />
-        <p class="toTopp ">Title</p>
+        <p class="toTopp">Title</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="form-floating col">
+      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <!-- <div class="form-floating col">
         <textarea
           class="form-control inputColor"
           placeholder="Leave a comment here"
@@ -19,7 +20,7 @@
         ></textarea>
         <label class="ps-4" for="floatingTextarea2">Abstract</label>
         <br />
-      </div>
+      </div> -->
       <br />
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">

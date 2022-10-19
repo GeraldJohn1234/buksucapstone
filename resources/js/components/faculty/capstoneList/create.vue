@@ -88,9 +88,11 @@
         <!--  -->
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
       <div class="col">
-        <label for="college" class="form-label">College (disabled)</label>
+        <label for="college" class="form-label"
+          >College <span id="colorspan">(disabled)</span></label
+        >
         <input
           type="text"
           class="form-control"
@@ -101,13 +103,15 @@
       </div>
 
       <div class="col">
-        <label for="lastname" class="form-label">Year</label>
+        <label for="lastname" class="form-label"
+          >Year <span id="colorspan">(Student)</span>
+        </label>
         <div class="input-group mb-3">
           <select class="form-select" id="inputGroupSelect01" v-model="form.year">
             <option selected>Choose...</option>
-            <option value="THIRD YEAR">THIRD YEAR</option>
-            <option value="FOURTH YEAR">FOURTH YEAR</option>
-            <option value="FIFTH YEAR">FIFTH YEAR</option>
+            <option value="3rd year">3rd year</option>
+            <option value="4th year">4th year</option>
+            <option value="5th year">5th year</option>
           </select>
         </div>
       </div>
@@ -321,5 +325,8 @@ const showPassword = () => {
 }
 .paddingRimg {
   float: right;
+}
+#colorspan {
+  color: #6b7179;
 }
 </style>

@@ -9,17 +9,8 @@
         <p class="toTopp">TITLE</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="form-floating col">
-        <textarea
-          class="form-control inputColor"
-          placeholder="Leave a comment here"
-          id="floatingTextarea2"
-          style="height: 200px"
-          v-model="GenCapData.abstract"
-        ></textarea>
-        <label class="ps-4" for="floatingTextarea2">Abstract</label>
-        <br />
-      </div>
+      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <br />
 
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
