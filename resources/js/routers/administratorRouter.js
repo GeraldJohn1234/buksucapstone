@@ -62,6 +62,7 @@ import Ocrdocuments from "../components/administrator/capstonefolder/ocrdocument
 
 import Createsuggestion from "../components/administrator/topicsuggest/createsuggestion.vue";
 import Taketopic from "../components/administrator/topicsuggest/taketopic.vue";
+import Updatetopic from "../components/administrator/topicsuggest/updatetopic.vue";
 
 
 const routes = [
@@ -70,12 +71,18 @@ const routes = [
     name: "Createsuggestion",
     component: Createsuggestion,
   },
+
   {
-    path: "/taketopic",
+    path: "/taketopic/:id",
     name: "Taketopic",
     component: Taketopic,
+    props:true
   },
-
+  {
+    path: "/updatetopic/:id",
+    name: "Updatetopic",
+    component: Updatetopic,
+  },
 
   {
     path: "/dashboard",
@@ -143,6 +150,7 @@ const routes = [
     name: "Create",
     component: Create,
   },
+
   {
     path: "/view/:id",
     name: "View",

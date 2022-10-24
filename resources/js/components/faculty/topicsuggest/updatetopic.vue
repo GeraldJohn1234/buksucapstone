@@ -83,7 +83,7 @@
     <div class="row">
       <div class="col">
         <button type="button" class="m-1 btnSize btn btn-primary" @click="saveTopic()">
-          CREATE TOPIC
+          UPDATE TOPIC
         </button>
       </div>
     </div>
@@ -103,12 +103,15 @@ let Topic = ref({
   client_company: "",
   xf1: "",
 });
-
-const toTopic = () => {
-  router.push("/topic");
-};
+onMounted(async () => {
+  getTopic();
+});
 
 const saveTopic = () => {
+  //   let capstoneid = window.location.pathname.split("/")[2];
+  let capstoneid = getIDfromURL() - 0;
+  //   let capstoneidd = capstoneid + 0;
+
   const formData = new FormData();
   formData.append("title", Topic.value.title);
   formData.append("abstract", Topic.value.abstract);
@@ -116,9 +119,10 @@ const saveTopic = () => {
   formData.append("client_location", Topic.value.client_location);
   formData.append("client_company", Topic.value.client_company);
   formData.append("xf1", Topic.value.xf1);
+  formData.append("id", capstoneid);
 
   axios
-    .post("/api/add_topic", formData)
+    .post("/api/update_topic/" + capstoneid, formData)
     .then((response) => {
       (Topic.value.title = ""),
         (Topic.value.abstract = ""),
@@ -127,12 +131,12 @@ const saveTopic = () => {
         (Topic.value.client_company = ""),
         (Topic.value.xf1 = ""),
         // router.push("/create");
+        getTopic();
 
-        toast.fire({
-          icon: "success",
-          title: "Topic Successfully, Added! ",
-        });
-      toTopic();
+      toast.fire({
+        icon: "success",
+        title: "Topic Successfully, Updated! ",
+      });
     })
     .catch(function (error) {
       console.log(error.response.data.errors);
@@ -140,12 +144,24 @@ const saveTopic = () => {
 
       toast.fire({
         icon: "warning",
-        title: "Topic Add, Unsuccessful",
+        title: "Topic Add, Unsuccessful" + capstoneid,
       });
       // (error = {}));
       // console.log("ERRRR:: ",error.response.data);
     });
   // console.log("ERRRR:: ",error.response.data);
+};
+
+const getTopic = async () => {
+  let capstoneid = getIDfromURL();
+  //   let capstoneid = window.location.pathname.split("/")[2];
+  let response = await axios.get("/api/get_topic/" + capstoneid);
+  Topic.value = response.data.topic;
+  //   console.warn("CAPSTON 1", formcaps1.value);
+};
+
+const getIDfromURL = () => {
+  return window.location.pathname.split("/")[2];
 };
 </script>
 

@@ -690,7 +690,7 @@ const saveCaps = () => {
 
         toast.fire({
           icon: "warning",
-          title: "User Add Unsuccessful",
+          title: "Capstone Create Unsuccessful",
         });
         // (error = {}));
         // console.log("ERRRR:: ",error.response.data);

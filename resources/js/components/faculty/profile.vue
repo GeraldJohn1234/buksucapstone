@@ -99,8 +99,8 @@
           disabled
         />
       </div>
-      <!-- 
-      <div class="col-2">
+
+      <!-- <div class="col-2">
         <label for="lastname" class="form-label">Year</label>
         <input
           type="text"
@@ -109,9 +109,9 @@
           aria-label="Last name"
           v-model="form.year"
         />
-      </div>
+      </div> -->
 
-      <div class="col-2">
+      <div class="col-4">
         <label for="lastname" class="form-label">Choose Year</label>
         <div class="input-group mb-3">
           <select class="form-select" id="inputGroupSelect01" v-model="form.year">
@@ -121,8 +121,8 @@
             <option value="5th year">5th year</option>
           </select>
         </div>
-      </div> -->
-      <div class="col-2">
+      </div>
+      <!-- <div class="col-2">
         <label for="gender" class="form-label">Gender</label>
         <input
           type="text"
@@ -130,9 +130,9 @@
           aria-label="Gender"
           v-model="form.gender"
         />
-      </div>
+      </div> -->
 
-      <div class="col-2 pt-4">
+      <div class="col">
         <div class="form-check twoSides">
           <input
             class="form-check-input"
@@ -145,7 +145,7 @@
           <label class="form-check-label" for="flexRadioDefault1"> Male </label>
         </div>
 
-        <div class="form-check twoSides">
+        <div class="form-check twoSides col-4">
           <input
             class="form-check-input"
             type="radio"
@@ -158,7 +158,7 @@
         </div>
       </div>
 
-      <div class="col">
+      <div class="row">
         <li>
           <img id="imgPhoto" :src="getPhoto()" alt="img" />
         </li>
@@ -246,10 +246,6 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/myprofile/");
   form.value = response.data.userrs;
   console.warn("userrs", form.value);
-
-  // console.warn(test);
-
-  // test = ("userrs", form.value.name);
 };
 
 const updateUser = () => {
@@ -265,10 +261,9 @@ const updateUser = () => {
 
   formData.append("gender", form.value.gender);
   formData.append("photo", form.value.photo);
-  // ${form.value.id}
 
   axios
-    .post("/api/myprofile_update/", formData)
+    .post("/api/myprofile_update", formData)
 
     .then((response) => {
       (form.value.uid = ""),
@@ -280,9 +275,9 @@ const updateUser = () => {
         (form.value.year = ""),
         (form.value.gender = ""),
         (form.value.photo = ""),
-        // router.push("/api/myprofile");
-
-        getsingleUser();
+        // router.push("/profile");
+        window.location.reload();
+      getsingleUser();
       toast.fire({
         icon: "success",
         title: "User Update Successfully",

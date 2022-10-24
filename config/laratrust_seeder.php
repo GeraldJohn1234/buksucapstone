@@ -18,15 +18,19 @@ return [
             'capstone' => 'c,r,u,d',
         ],
         'adviser' => [
+            'users' => 'c,r,u',
             'capstone' => 'c,r,u,d',
         ],
         'instructor' => [
+            'users' => 'c,r,u',
             'capstone' => 'c,r,u,d',
         ],
         'panel' => [
+            'users' => 'c,r,u',
             'capstone' => 'c,r,u,d',
         ],
         'secretary' => [
+            'users' => 'c,r,u',
             'capstone' => 'c,r,u,d',
         ],
         'student' => [
@@ -35,9 +39,11 @@ return [
 
         ],
         'archiver' => [
+            'users' => 'c,r,u',
             'capstone' => 'c,r,u,d',
         ],
         'faculty' => [
+            'users' => 'c,r,u',
             'capstone' => 'c,r,u,d',
         ],
 

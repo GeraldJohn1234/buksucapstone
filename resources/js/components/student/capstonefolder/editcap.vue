@@ -313,7 +313,7 @@ import { onMounted, ref } from "vue";
 let students = ref({});
 let panels = ref({});
 let advisers = ref({});
-let instructors = ref({});
+// let instructors = ref({});
 let secretarys = ref({});
 
 let GenCapData = ref({
@@ -367,19 +367,19 @@ let coAdviser = ref({
   mname: "",
   lname: "",
 });
-let instructor = ref({
-  name: "",
-  mname: "",
-  lname: "",
-});
+// let instructor = ref({
+//   name: "",
+//   mname: "",
+//   lname: "",
+// });
 let secretary = ref({
   name: "",
   mname: "",
   lname: "",
 });
-let caps1Instructor = ref({
-  instructor: "",
-});
+// let caps1Instructor = ref({
+//   instructor: "",
+// });
 
 let GenCaps = ref({
   // title: "",
@@ -408,13 +408,13 @@ onMounted(async () => {
   getsingleUser6();
   getsingleUser7();
   getsingleUser8();
-  getsingleUser9();
+  // getsingleUser9();
   getsingleUser10();
   getSecretary();
   getStudent();
   getPanel();
   getAdviser();
-  getInstructor();
+  // getInstructor();
 });
 
 const gettIdfromURL = () => {
@@ -574,10 +574,10 @@ const getsingleUser8 = async () => {
   let response = await axios.get("/api/get_capstone_coAdviser/" + props.id);
   coAdviser.value = response.data.userCaps;
 };
-const getsingleUser9 = async () => {
-  let response = await axios.get("/api/get_capstone_instructor/" + props.id);
-  instructor.value = response.data.userCaps;
-};
+// const getsingleUser9 = async () => {
+//   let response = await axios.get("/api/get_capstone_instructor/" + props.id);
+//   instructor.value = response.data.userCaps;
+// };
 const getsingleUser10 = async () => {
   let response = await axios.get("/api/get_capstone_secretarys/" + props.id);
   secretary.value = response.data.userCaps;
@@ -603,10 +603,10 @@ const getAdviser = async () => {
   advisers.value = response.data.advisers;
 };
 
-const getInstructor = async () => {
-  let response = await axios.get("/api/get_all_instructor_user");
-  instructors.value = response.data.instructors;
-};
+// const getInstructor = async () => {
+//   let response = await axios.get("/api/get_all_instructor_user");
+//   instructors.value = response.data.instructors;
+// };
 
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];

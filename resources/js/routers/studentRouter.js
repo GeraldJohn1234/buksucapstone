@@ -64,16 +64,22 @@ import Ocrdocuments from "../components/student/capstonefolder/ocrdocuments.vue"
 import Taketopic from "../components/student/topicsuggest/taketopic.vue";
 
 
+// import Createsuggestion from "../components/student/topicsuggest/createsuggestion.vue";
+// import Taketopic from "../components/student/topicsuggest/taketopic.vue";
+// import Updatetopic from "../components/student/topicsuggest/updatetopic.vue";
+
+
 const routes = [
+  {
+    path: "/taketopic/:id",
+    name: "Taketopic",
+    component: Taketopic,
+    props:true
+  },
   {
     path: "/noproject",
     name: "Noproject",
     component: Noproject,
-  },
-  {
-    path: "/taketopic",
-    name: "Taketopic",
-    component: Taketopic,
   },
   {
     path: "/dashboard",

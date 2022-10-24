@@ -1,10 +1,10 @@
 <template>
-  <div class="contentOfThePage rounded p-2 bg-light">
+  <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
-      <div class="forInline capsList">TOPIC AND SUGGESTIONS LIST</div>
-
-      <!-- <div class="forInline float-end mtop">
-        <router-link class="nav_link" to="/create">
+      <div class="forInline capsList">TOPIC SUGGESTIONS LIST</div>
+      <!-- 
+      <div class="forInline float-end mtop">
+        <router-link class="nav_link" to="/createsuggestion">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
       </div> -->
@@ -14,24 +14,30 @@
     <div class="">
       <div class="input-group">
         <input
+          class="inputColor"
           type="search"
           placeholder="Search"
           aria-label="Search"
           aria-describedby="search-addon"
+          v-model="capslistt.searching"
         />
-        <button type="button" class="btn btn-outline-primary">search</button>
+
+        <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
       </div>
 
       <div class="float-end topM">
         <div class="input-group mb-3 inline-block">
           <span class="inline-block botM" for="">Sort by: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
+          <select
+            class="form-select inline-block box1 inputColor"
+            id="inputGroupSelect01"
+            v-model="capslisttsort.sorting"
+          >
             <option selected>Choose...</option>
-            <option value="1">FIRST YEAR</option>
-            <option value="2">SECOND YEAR</option>
-            <option value="3">THIRD YEAR</option>
-            <option value="4">FOURTH YEAR</option>
-            <option value="5">FIFTH YEAR</option>
+            <option value="client_name">CLIENT NAME</option>
+            <option value="title">TITLE</option>
+            <option value="created_at">DATE CREATED</option>
+            <option value="status">STATUS</option>
           </select>
         </div>
       </div>
@@ -39,199 +45,50 @@
 
     <br />
     <table class="table table-hover table-bordered table-striped text-center">
-      <thead>
+      <thead class="colorNeh">
         <tr>
-          <th>#</th>
-          <th>UPLOADER NAME</th>
-          <th>CLIENT NAME</th>
-          <th>TITLE</th>
-          <th>STATUS</th>
-          <th>Action</th>
+          <th class="">#</th>
+          <th class="col-4">TITLE</th>
+          <th class="col">DATE CREATED</th>
+          <th class="col-3">STATUS</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
+
+      <tbody class="colorNeh">
+        <tr v-for="(item, index) in projects" :key="item.id">
+          <td>{{ index + 1 }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.created_at }}</td>
+          <td>{{ item.status }}</td>
+
+          <!-- <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
+          <td>{{ item.year }}</td> -->
+          <!-- <img
+              class="avatarImage1"
+              :src="ourImage(item.photo)"
+              alt="a"
+              v-if="item.photo"
+            /> -->
+          <!-- <td>Buksu Archiving and Monitoring System</td> -->
+
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monkey D. Luffy</td>
-          <td>Monkey D. Dragon</td>
-          <td>Document Management System</td>
-          <td>available</td>
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <router-link class="nav_link" to="/taketopic">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    VIEW
-                  </button>
-                </router-link>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary button1 m-1"
+                  @click="taketopic(item.id)"
+                >
+                  <!-- @click="viewCap(item.id)" -->
+                  VIEW
+                </button>
               </li>
             </ul>
           </td>
         </tr>
       </tbody>
     </table>
+    <hr class="topHi" />
     <div class="">
       <a href="#" class="previous">&laquo; Previous</a>
       <a href="#" class="next">Next &raquo;</a>
@@ -253,19 +110,126 @@
 </template>
 
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
 import router from "../../routers/studentRouter";
-// taketopic
-const onView1 = () => {
-  router.push("/taketopic");
+import { onMounted, reactive, ref, watch } from "vue";
+
+// import { reactive, ref, watch } from "vue";
+
+let projects = ref([]);
+
+const capslistt = reactive({ searching: null });
+const capslisttsort = reactive({ sorting: null });
+
+watch(capslistt, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstone();
+  // dataCapstonesort();
+});
+watch(capslisttsort, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstonesort();
+});
+
+const dataCapstone = async () => {
+  let response = await axios
+    .get("/api/get_all_topic", {
+      params: { searching: capslistt.searching },
+    })
+
+    .then((response) => {
+      projects.value = response.data.capstones;
+      // toast.fire({
+      //   icon: "success",
+      //   title: "SOMETHING WRONG",
+      // });
+    })
+
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+const dataCapstonesort = async () => {
+  let response = await axios
+    .get("/api/get_all_topicsort", {
+      params: { sorting: capslisttsort.sorting },
+    })
+
+    .then((response) => {
+      projects.value = response.data.capstones;
+      // toast.fire({
+      //   icon: "success",
+      //   title: "SOMETHING WRONG",
+      // });
+    })
+
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+const edithtopic = (id) => {
+  // axios
+  //   .post("/api/create_capstone_proj/" + id)
+  //   .then((response) => {
+  router.push("/updatetopic/" + id);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error.response.data.errors);
+  //     console.log("ERRRR:: ", error.response.data);
+  //     toast.fire({
+  //       icon: "warning",
+  //       title: "SOMETHING WRONG",
+  //     });
+  //   });
+};
+
+const taketopic = (id) => {
+  // axios
+  //   .post("/api/create_capstone_proj/" + id)
+  //   .then((response) => {
+  router.push("/taketopic/" + id);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error.response.data.errors);
+  //     console.log("ERRRR:: ", error.response.data);
+  //     toast.fire({
+  //       icon: "warning",
+  //       title: "SOMETHING WRONG",
+  //     });
+  //   });
+};
+
+onMounted(async () => {
+  dataCapstone();
+});
+
+const deletetopic = (id) => {
+  Swal.fire({
+    title: "Are You Sure?",
+    text: "You can't go back!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonText: "No!",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.value) {
+      axios
+        .get("/api/delete_topic/" + id)
+        .then(() => {
+          Swal.fire("Delete", "Capstone delete successfully", "success");
+          // getCapstone();
+          dataCapstone();
+        })
+        .catch(() => {
+          Swal.fire("Failed!", "There was Something Wrong.", "Warning");
+        });
+    }
+  });
 };
 </script>
 
 <style>
-td {
-  font-size: small;
-}
 .forInline {
   display: inline-block;
 }
@@ -275,7 +239,9 @@ td {
 
 .contentOfThePage {
   border: 0.3px solid #0062ff;
-  box-shadow: 2px 1px 10px #888888;
+  border-top: 3px solid #0062ff !important;
+  box-shadow: 2px 1px 10px #5f5c5c;
+  border-radius: 10px !important;
   padding: 10px;
 }
 .botM {
@@ -317,7 +283,6 @@ a:hover {
 }
 .button1 {
   padding: 5px 24px;
-  font-size: 0.6rem;
   margin-top: -15px;
   margin-bottom: -15px;
   margin-left: -55px;
@@ -329,6 +294,9 @@ a:hover {
 }
 .capsList {
   margin-top: 5px;
-  font-weight: bolder;
+}
+
+.topHi {
+  margin-top: -15px;
 }
 </style>

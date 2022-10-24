@@ -29,26 +29,13 @@ class CapstoneController extends Controller
                 'ans'  => $users,
     
             ], 200);
-
         }else{
             return response()->json([
 
                 'ans'  => 0,
     
             ], 200);
-
         }
-        // return response()->json([
-
-        //     'ans'  => $id,
-
-        // ], 200);
-
-        
-        // $users = DB::table('capstone_user')->where('user_id', '$id')->pluck('capstone_id')->first();
-
-        // $userrole = User::find($users);
-  
     }
 
 
@@ -149,9 +136,9 @@ class CapstoneController extends Controller
             'user_id' => $request->coAdviser,
         ]);
 
-        $capstone->user()->where('role_person', 'instructor')->update([
-            'user_id' => $request->instructor,
-        ]);
+        // $capstone->user()->where('role_person', 'instructor')->update([
+        //     'user_id' => $request->instructor,
+        // ]);
         $capstone->user()->where('role_person', 'secretarys')->update([
             'user_id' => $request->secretarys,
         ]);

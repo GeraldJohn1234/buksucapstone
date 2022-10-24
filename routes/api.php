@@ -11,6 +11,7 @@ use App\Http\Controllers\Capstone1Controller;
 use App\Http\Controllers\Capstone2Controller;
 use App\Http\Controllers\Capstone3Controller;
 use App\Http\Controllers\CapstonedashboardController;
+use App\Http\Controllers\TopicController;
 use App\Models\Caps1rating;
 
 /*
@@ -50,12 +51,14 @@ Route::get('/get_all_instructor_user', [UserController::class,'get_all_instructo
 
 Route::post('/add_capstone', [CapstoneController::class,'add_capstone']); 
 
+
+
 Route::get('/get_all_capstone', [CapstoneController::class,'get_all_capstone']);
 Route::get('/get_all_capstonesort', [CapstoneController::class,'get_all_capstonesort']);
 Route::get('/get_all', [CapstoneController::class,'get_all']);
 Route::get('/get_all_capstone/{id}', [CapstoneController::class,'get_all_capstone']);
 
-Route::post('/store_dashboard', [CapstonedashboardController::class,'store_dashboard']);//this is for the dash board  store_dashboard  
+Route::post('/store_dashboard', [CapstonedashboardController::class,'store_dashboard']);//this is for the dash board  store_dashboard     
 Route::get('/get_dashboard', [CapstonedashboardController::class,'get_dashboard']);
 
 Route::get('/get_pie_unimplement', [CapstoneController::class,'get_pie_unimplement']);
@@ -165,6 +168,18 @@ Route::get('/get_rate_panel33/{id}', [CapstonedashboardController::class,'get_ra
 
 Route::get('/project_check', [CapstoneController::class,'project_check']);
 
+Route::post('/add_topic', [TopicController::class,'add_topic']);
+Route::post('/update_topic/{id}', [TopicController::class,'update_topic']);
+Route::get('/get_all_topicsort', [TopicController::class,'get_all_topicsort']);
+Route::get('/get_all_topic', [TopicController::class,'get_all_topic']);
+Route::get('/delete_topic/{id}', [TopicController::class,'delete_topic']);
+Route::get('/get_topic/{id}', [TopicController::class,'get_topic']);
+Route::get('/get_capstone_topic/{id}', [TopicController::class,'get_capstone_topic']);
+Route::post('/add_capstonetopic', [TopicController::class,'add_capstonetopic']); 
+Route::post('/take_topic/{id}', [TopicController::class,'take_topic']); 
+
 
 Route::get('/tryy/{id}', [Capstone2Controller::class,'tryy']);       
 Route::get('/testrate/{id}', [CapstoneController::class,'testrate']);
+
+// get_topic  get_capstone_topic take_topic

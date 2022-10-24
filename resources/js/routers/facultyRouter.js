@@ -64,6 +64,7 @@ import Rate2 from "../components/faculty/capstonefolder/rate2.vue";
 import Rate3 from "../components/faculty/capstonefolder/rate3.vue";
 
 import Createsuggestion from "../components/faculty/topicsuggest/createsuggestion.vue";
+import Updatetopic from "../components/faculty/topicsuggest/updatetopic.vue";
 import Taketopic from "../components/faculty/topicsuggest/taketopic.vue";
 
 
@@ -74,13 +75,16 @@ const routes = [
     component: Createsuggestion,
   },
   {
-    path: "/taketopic",
+    path: "/taketopic/:id",
     name: "Taketopic",
     component: Taketopic,
+    props:true
   },
- 
-
-
+  {
+    path: "/updatetopic/:id",
+    name: "Updatetopic",
+    component: Updatetopic,
+  },
   {
     path: "/dashboard",
     name: "Dashboard",
