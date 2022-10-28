@@ -1,108 +1,42 @@
 <template>
-  <div class="contentOfThePage rounded bg-light">
+  <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
-      <div class="forInline capsList">STUDENT LIST</div>
-
-      <div class="forInline float-end mtop">
-        <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
-
-        <router-link class="nav_link" to="/create">
-          <button type="button" class="btn btn-primary box1">CREATE</button>
-        </router-link>
-      </div>
+      <div class="forInline capsList">CAPSTONE ADVISEE LIST</div>
     </div>
     <hr />
 
-    <div class="">
-      <div class="input-group">
-        <input
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          aria-describedby="search-addon"
-        />
-        <button type="button" class="btn btn-outline-primary">search</button>
-      </div>
-
-      <div class="float-end topM">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Sort by: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">FIRST YEAR</option>
-            <option value="2">SECOND YEAR</option>
-            <option value="3">THIRD YEAR</option>
-            <option value="4">FOURTH YEAR</option>
-            <option value="5">FIFTH YEAR</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
     <br />
-    <table
-      class="table table--items users_list_item table-hover table-bordered table-striped text-center"
-    >
-      <thead>
+    <table class="table table-hover table-bordered table-striped text-center">
+      <thead class="colorNeh">
         <tr>
-          <th>#</th>
-          <th>Avatar</th>
-          <th>I.D</th>
-          <th>FULLNAME</th>
-          <th>Action</th>
+          <th class="">#</th>
+          <th class="col-4">TITLE</th>
+          <th class="col-2">GROUP NAME</th>
+          <th class="col">YEAR</th>
+          <th class="col">DATE STARTED</th>
+          <th class="col-1">ACTION</th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="(item, index) in users" :key="item.id">
-          <!-- <td>1</td> -->
-          <td>{{ index + 1 }}</td>
 
+      <tbody class="colorNeh">
+        <tr v-for="(item, index) in projects" :key="item.id">
+          <td>{{ index + 1 }}</td>
+          <td>{{ item.title }}</td>
           <td class="text-center">
-            <img
-              class="avatarImage1"
-              :src="ourImage(item.photo)"
-              alt="a"
-              v-if="item.photo"
-            />
+            {{ item.groupname }}
           </td>
-          <td>{{ item.uid }}</td>
-          <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
+          <td>{{ item.xf1 }}</td>
+          <td>{{ item.start_date }}</td>
+
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view"> -->
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
-                  @click="onView(item.id)"
+                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
+                  @click="viewCap(item.id)"
                 >
                   VIEW
-                </button>
-                <!-- </router-link> -->
-              </li>
-              <li class="col">
-                <!-- <router-link class="nav_link" to="/update"> -->
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 m-1"
-                  @click="onEdith(item.id)"
-                >
-                  UPDATE
-                </button>
-                <!-- </router-link> -->
-              </li>
-              <li class="col">
-                <!-- <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link> -->
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 m-1"
-                  @click="deleteUser(item.id)"
-                >
-                  DELETE
                 </button>
               </li>
             </ul>
@@ -110,63 +44,109 @@
         </tr>
       </tbody>
     </table>
-    <!-- <div v-else></div> -->
-    <div class="">
-      <a href="#" class="previous">&laquo; Previous</a>
-      <a href="#" class="next">Next &raquo;</a>
-
-      <div class="float-end">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Row visible: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </div>
-      </div>
-    </div>
+    <hr class="topHi" />
   </div>
 </template>
 
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
 import router from "../../routers/facultyRouter";
-//import {useRouter} from 'vue-router'
+import { onMounted, reactive, ref, watch } from "vue";
 
-//const router = useRouter
+// import { reactive, ref, watch } from "vue";
 
-let users = ref([]);
+let projects = ref([]);
 
-onMounted(async () => {
-  getUsers();
+const capslistt = reactive({ searching: null });
+const capslisttsort = reactive({ sorting: null });
+
+watch(capslistt, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstone();
+  // dataCapstonesort();
+});
+watch(capslisttsort, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstonesort();
 });
 
-// const create = () => {
-//   router.push('/create')
-// }
+const dataCapstone = async () => {
+  let response = await axios
+    .get("/api/get_all_capstone_panel", {
+      params: { searching: capslistt.searching },
+    })
 
-const getUsers = async () => {
-  // let response = await axios.get("/api/get_all_user");
+    .then((response) => {
+      projects.value = response.data.capstones;
+      // toast.fire({
+      //   icon: "success",
+      //   title: "SOMETHING WRONG",
+      // });
+    })
 
-  let response = await axios.get("/api/get_all_instructor_user");
-  // get_all_student_user
-  users.value = response.data.instructors;
-  // console.log("users", users.value);
+    .catch(function (error) {
+      console.log(error);
+    });
 };
-const ourImage = (img) => {
-  return "/upload/" + img;
+const dataCapstonesort = async () => {
+  let response = await axios
+    .get("/api/getadviseesort", {
+      params: { sorting: capslisttsort.sorting },
+    })
+
+    .then((response) => {
+      projects.value = response.data.capstones;
+      // toast.fire({
+      //   icon: "success",
+      //   title: "SOMETHING WRONG",
+      // });
+    })
+
+    .catch(function (error) {
+      console.log(error);
+    });
 };
-const onEdith = (id) => {
-  router.push("/update/" + id);
+
+// const edithCap = (id) => {
+//   axios
+//     .post("/api/create_capstone_proj/" + id)
+//     .then((response) => {
+//       router.push("/editcap/" + id);
+//     })
+
+//     .catch(function (error) {
+//       console.log(error.response.data.errors);
+//       console.log("ERRRR:: ", error.response.data);
+
+//       toast.fire({
+//         icon: "warning",
+//         title: "SOMETHING WRONG",
+//       });
+//     });
+// };
+
+const viewCap = (id) => {
+  axios
+    .post("/api/create_capstone_proj/" + id)
+    .then((response) => {
+      router.push("/viewcap/" + id);
+    })
+
+    .catch(function (error) {
+      console.log(error.response.data.errors);
+      console.log("ERRRR:: ", error.response.data);
+
+      toast.fire({
+        icon: "warning",
+        title: "SOMETHING WRONG",
+      });
+    });
 };
-const onView = (id) => {
-  router.push("/view/" + id);
-};
-const deleteUser = (id) => {
+
+onMounted(async () => {
+  dataCapstone();
+});
+
+const deleteCapstone = (id) => {
   Swal.fire({
     title: "Are You Sure?",
     text: "You can't go back!",
@@ -178,13 +158,13 @@ const deleteUser = (id) => {
   }).then((result) => {
     if (result.value) {
       axios
-        .get("/api/delete_user/" + id)
+        .get("/api/delete_capstone/" + id)
         .then(() => {
-          Swal.fire("Delete", "Account delete successfully", "success");
-          getUsers();
+          Swal.fire("Delete", "Capstone delete successfully", "success");
+          dataCapstone();
         })
         .catch(() => {
-          Swal.fire("Failed!", "There was Something Wrong.", "Warning");
+          Swal.fire("Failed!", "There was Something Wrongcdcdcdcdcdcdc.", "Warning");
         });
     }
   });
@@ -201,7 +181,9 @@ const deleteUser = (id) => {
 
 .contentOfThePage {
   border: 0.3px solid #0062ff;
-  box-shadow: 2px 1px 10px #888888;
+  border-top: 3px solid #0062ff !important;
+  box-shadow: 2px 1px 10px #5f5c5c;
+  border-radius: 10px !important;
   padding: 10px;
 }
 .botM {
@@ -254,12 +236,9 @@ a:hover {
 }
 .capsList {
   margin-top: 5px;
-  font-weight: bolder;
 }
-.avatarImage1 {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  margin: auto;
+
+.topHi {
+  margin-top: -15px;
 }
 </style>

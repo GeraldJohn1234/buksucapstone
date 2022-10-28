@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light">
+  <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
       <!-- 
@@ -52,7 +52,7 @@
           <th class="col-2">GROUP NAME</th>
           <th class="col">YEAR</th>
           <th class="col">DATE STARTED</th>
-          <th class="col-3">Action</th>
+          <th class="col-1">ACTION</th>
         </tr>
       </thead>
 
@@ -81,7 +81,7 @@
               <li class="col">
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
                   @click="viewCap(item.id)"
                 >
                   <!-- @click="onView(item.id)" -->
@@ -113,7 +113,7 @@
       </tbody>
     </table>
     <hr class="topHi" />
-    <div class="">
+    <!-- <div class="">
       <a href="#" class="previous">&laquo; Previous</a>
       <a href="#" class="next">Next &raquo;</a>
 
@@ -129,7 +129,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -13,6 +13,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\Capstone3;
 use App\Models\Capstonedashboard;
+use App\Models\instructor;
 use Illuminate\Support\Facades\Auth;
 
 class CapstoneController extends Controller
@@ -189,6 +190,114 @@ class CapstoneController extends Controller
         return response()->json(
             [
                 'capstones'  => $check1,
+            ],
+            200
+        );
+    }
+
+    public function  getadviseesort(Request $request)
+    {
+
+        $panel1 = DB::table('capstone_user')->where('role_person', 'adviser')
+            ->where('user_id', 14)->pluck('capstone_id');
+
+        $data = $request->searching;
+        $sortdata = $request->sorting;
+        if (($sortdata == "groupname" || $sortdata == "start_date" || $sortdata == "title" || $sortdata == "xf1")) {
+            $capstone = Capstone::find($panel1)->orderBy($sortdata, "asc")->get();
+            return response()->json(
+                [
+                    'capstones'  => $capstone,
+                ],
+                200
+            );
+        } else {
+            // $capstone = Capstone::all();
+            $capstone = Capstone::find($panel1);
+            return response()->json(
+                [
+                    'capstones'  => $capstone,
+                ],
+                200
+            );
+        }
+    }
+
+
+    // Partialstorage::create([
+    //     'id' => 1,
+    //     'ocr' => " ",
+    //     'xf1' => "",
+    //     'xf2' => 0,
+    //     'xf3' => 0,
+    //     'xf4' => 0,
+    //     'xf5' => "",
+    //     'xf6' => "",
+   
+    // ]);
+
+    public function save_instructor(Request $request)
+    {
+        $capstone = new instructor();
+
+        $capstone->id = $request->capstone_id;
+        $capstone->capstone_id = $request->capstone_id;
+        $capstone->user_id = $request->user_id;
+
+        $capstone->save();
+ 
+    }
+
+    public function get_all_capstone_advisee(Request $request)
+    {
+        $id = Auth::user()->id;
+        $panel1 = DB::table('capstone_user')->where('role_person', 'adviser')
+        ->where('user_id', $id)->pluck('capstone_id');
+
+
+
+
+        $data = $request->searching;
+        $sortdata = $request->sorting;
+        // if (Capstone::search($data)->get() != null && Capstone::search($data)->get() != "") {
+        //     // if (true) {
+        //     // $capstone1 = Capstone::search($data)->get();
+        //     $capstone1 = Capstone::find($panel1);
+        //     // $capstone1 = Capstone::find($panel1)->search($data)->get();
+        //     return response()->json(
+        //         [
+        //             'capstones'  => $capstone1,
+        //         ],
+        //         200
+        //     );
+        // }
+         $capstone = Capstone::find($panel1);
+        return response()->json(
+            [
+                'capstones'  => $capstone,
+            ],
+            200
+        );
+    }
+
+    public function get_all_capstone_panel(Request $request)
+    {
+        $id = Auth::user()->id;
+
+
+        $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
+        ->where('user_id', $id)->pluck('capstone_id');
+        $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
+        ->where('user_id', $id)->pluck('capstone_id');
+        $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
+        ->where('user_id', $id)->pluck('capstone_id');
+
+$all = $panel1->merge($panel2);
+$alll = $panel3->merge($all);
+         $capstone = Capstone::find($alll);
+        return response()->json(
+            [
+                'capstones'  => $capstone,
             ],
             200
         );
@@ -548,7 +657,7 @@ class CapstoneController extends Controller
 
         ], 200);
     }
-
+    // save_instructor
 
 
 

@@ -47,9 +47,9 @@ class CapstonedashboardController extends Controller
         $allcaps = Capstone::count();
         $no__capstone = $allcaps-$done_capstone;
 
-        $working1= $no__capstone - $approve1 - $defense1;
-        $working2= $no__capstone - $approve2 - $defense2;
-        $working3= $no__capstone - $approve3 - $defense3;
+        $working1= $no__capstone - $approve1;
+        $working2= $no__capstone - $approve2;
+        $working3= $no__capstone - $approve3;
 
 
 

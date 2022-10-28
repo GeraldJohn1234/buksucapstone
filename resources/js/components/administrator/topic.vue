@@ -50,7 +50,8 @@
           <th class="">#</th>
           <th class="col-4">TITLE</th>
           <th class="col">DATE CREATED</th>
-          <th class="col-3">STATUS</th>
+          <th class="col-2">STATUS</th>
+          <th class="col-4">ACTION</th>
         </tr>
       </thead>
 
@@ -88,7 +89,7 @@
               <li class="col">
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-success fw-bold button1 my-1"
                   @click="taketopic(item.id)"
                 >
                   <!-- @click="viewCap(item.id)" -->
@@ -98,7 +99,7 @@
               <li class="col">
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-primary fw-bold button1 my-1"
                   @click="edithtopic(item.id)"
                 >
                   UPDATE
@@ -107,7 +108,7 @@
               <li class="col">
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-warning fw-bold button1 my-1"
                   @click="deletetopic(item.id)"
                 >
                   DELETE

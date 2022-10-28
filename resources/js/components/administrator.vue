@@ -4,7 +4,7 @@
       <!-- <img class="avatarImg" src="/images/buksu.png" alt="User Avatar">
       <h2 class="">SideBar</h2> -->
 
-      <div class="row logoHeader">
+      <div class="row logoHeader point" @click="dash()">
         <div class="col-md-4 avatarImg">
           <img src="/images/buksu.png" alt="logo" />
         </div>
@@ -234,6 +234,17 @@
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+import router from "../routers/facultyRouter";
+
+const dash = () => {
+  router.push("/dashboard");
+  // location.reload();
+  // router.push("/dashboard");
+};
+// const reload = () => {
+//   location.reload();
+
+// };
 
 // let dashboard = ref({
 //   instructor1: 0,
@@ -356,6 +367,10 @@ const logout = () => {
 </script>
 
 <style scoped>
+.point {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;

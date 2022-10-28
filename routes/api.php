@@ -178,8 +178,16 @@ Route::get('/get_capstone_topic/{id}', [TopicController::class,'get_capstone_top
 Route::post('/add_capstonetopic', [TopicController::class,'add_capstonetopic']); 
 Route::post('/take_topic/{id}', [TopicController::class,'take_topic']); 
 
+Route::get('/getadviseesort', [CapstoneController::class,'getadviseesort']);
+Route::get('/get_all_capstone_advisee', [CapstoneController::class,'get_all_capstone_advisee']);
+Route::get('/get_all_capstone_panel', [CapstoneController::class,'get_all_capstone_panel']);
+Route::get('/get_all_capstone_instructo', [CapstoneController::class,'get_all_capstone_instructo']);
+Route::post('/save_instructor', [CapstoneController::class,'save_instructor']);
+
 
 Route::get('/tryy/{id}', [Capstone2Controller::class,'tryy']);       
 Route::get('/testrate/{id}', [CapstoneController::class,'testrate']);
 
-// get_topic  get_capstone_topic take_topic
+
+Route::get('/getadvisee', [CapstoneController::class,'getadvisee']);
+// get_topic  get_capstone_topic take_topic    get_all_capstone_advisee get_all_capstone_panel  

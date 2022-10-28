@@ -1,6 +1,6 @@
 <template>
   <div class="rowLeft">
-    <h5 class="rowLeftHHH">USERS</h5>
+    <h5 class="rowLeftHHH rowTOP">USERS</h5>
     <div class="row">
       <div class="col box text-center">
         <img class="userImages" src="/images/student.jpg" alt="Student" />
@@ -43,7 +43,7 @@
     </div>
   </div>
   <br />
-  <h5 class="rowLeftHH">CAPSTONE PROJECT STATUS</h5>
+  <h5 class="rowLeftHH rowTOP">CAPSTONE PROJECT STATUS</h5>
   <div class="row pieChartbox p-2">
     <table class="table table-borderless rounded bg-light col">
       <tr class="pt-3">
@@ -65,13 +65,13 @@
         </td>
       </tr>
     </table>
-    <div class="col-4 pieChartbox2 center pt-3">
+    <div class="col-4 pieChartbox2 center pt-2">
       <canvas class="pieChart" id="myChart"></canvas>
     </div>
   </div>
 
   <br />
-  <h5 class="rowLeftHH">CAPSTONE PHASE STATUS SUMMARY</h5>
+  <h5 class="rowLeftHH rowTOP">CAPSTONE PHASE STATUS SUMMARY</h5>
   <div class="row pRigthStatus">
     <table class="table table-hover text-center col boxStatus table-borderless">
       <thead>
@@ -278,7 +278,7 @@ export default {
 </script>
 <style>
 .pieChartbox {
-  height: 300px;
+  height: 310px;
   margin-right: -0.5rem;
   margin-left: 5px;
   background: #fff;
@@ -338,6 +338,9 @@ export default {
 .rowLeftHHH {
   font-weight: bold;
   margin-left: -6px;
+}
+.rowTOP {
+  margin-top: -2px;
 }
 
 .userImages {

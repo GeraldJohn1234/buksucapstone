@@ -386,11 +386,21 @@ const touch = async () => {
   axios
     .post("/api/capstone_instructor1/" + capstoneid, formData)
     .then((response) => {
-      (caps1Instructor.value.instruct = ""),
+      const saveInstructor = new FormData();
+      saveInstructor.append("capstone_id", capstoneid);
+      saveInstructor.append("user_id", idd);
+      axios.post(
+        "/api/save_instructor",
+        saveInstructor
+      ).then((response) => {
+        ((caps1Instructor.value.instruct = "")),
         toast.fire({
           icon: "success",
           title: "User Add Successfully",
         });
+
+      })
+    
     })
     // .catch((error = {}));
     .catch(function (error) {

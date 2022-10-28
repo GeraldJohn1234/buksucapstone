@@ -50,7 +50,7 @@
           <th>FULLNAME</th>
           <th>YEAR</th>
           <!-- <th>GROUP NAME</th> -->
-          <th>Action</th>
+          <th class="col-4">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -79,7 +79,7 @@
                 <!-- <router-link class="nav_link" to="/view"> -->
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-success button1 fw-bold button1 my-1"
                   @click="onView(item.id)"
                 >
                   VIEW
@@ -90,7 +90,7 @@
                 <!-- <router-link class="nav_link" to="/update"> -->
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
                   @click="onEdith(item.id)"
                 >
                   UPDATE
@@ -105,7 +105,7 @@
                 </router-link> -->
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-warning button1 fw-bold button1 my-1"
                   @click="deleteUser(item.id)"
                 >
                   DELETE

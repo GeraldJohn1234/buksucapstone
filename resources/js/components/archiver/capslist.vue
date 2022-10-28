@@ -81,7 +81,7 @@
               <li class="col">
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-success button1 fw-bold button1 my-1"
                   @click="viewCap(item.id)"
                 >
                   <!-- @click="onView(item.id)" -->
@@ -91,7 +91,7 @@
               <li class="col">
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
                   @click="edithCap(item.id)"
                 >
                   <!-- @click="onEdith(item.id)" -->

@@ -50,7 +50,7 @@
           <th>FULLNAME</th>
           <th>YEAR</th>
           <!-- <th>GROUP NAME</th> -->
-          <th>Action</th>
+          <th class="col-2">ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -79,7 +79,7 @@
                 <!-- <router-link class="nav_link" to="/view"> -->
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
                   @click="onView(item.id)"
                 >
                   VIEW
@@ -92,7 +92,7 @@
       </tbody>
     </table>
     <!-- <div v-else></div> -->
-    <div class="">
+    <!-- <div class="">
       <a href="#" class="previous">&laquo; Previous</a>
       <a href="#" class="next">Next &raquo;</a>
 
@@ -108,7 +108,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

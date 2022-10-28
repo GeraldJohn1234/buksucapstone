@@ -85,8 +85,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/gitlink/{pathMatch}', [DashboardController::class, 'whatRole']);
     Route::get('/updatetopic/{pathMatch}', [DashboardController::class, 'whatRole']);
     Route::get('/taketopic/{pathMatch}', [DashboardController::class, 'whatRole']);
+
+    Route::get('/advisee', [DashboardController::class, 'whatRole']);
     // Route::get('/take_topic/{pathMatch}', [DashboardController::class, 'whatRole']);
-//updatetopic  taketopic  take_topic
+//updatetopic  taketopic  take_topic advisee
    
 });
 

@@ -4,7 +4,7 @@
       <!-- <img class="avatarImg" src="/images/buksu.png" alt="User Avatar">
       <h2 class="">SideBar</h2> -->
 
-      <div class="row logoHeader">
+      <div class="row logoHeader point" @click="dash()">
         <div class="col-md-4 avatarImg">
           <img src="/images/buksu.png" alt="logo" />
         </div>
@@ -12,6 +12,15 @@
           <h2><span id="label">BukSU</span></h2>
         </div>
       </div>
+      <!-- <router-link class="a nav_link" to="/profile">
+        <i>
+          <font-awesome-icon
+            icon="fa-solid fa-address-card"
+            style="width: 24px; height: 24px"
+          />
+        </i>
+        <span id="label">PROFILE</span>
+      </router-link> -->
 
       <ul>
         <li>
@@ -76,6 +85,24 @@
           </router-link>
         </li>
 
+        <li>
+          <router-link class="a nav_link" to="/student">
+            <i>
+              <font-awesome-icon
+                icon="fa-solid fa-users"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <!-- faFileCirclePlus -->
+            <span id="label">STUDENT</span>
+          </router-link>
+        </li>
+        <div class="listOfUser pt-3">
+          <a id="listOfUser">
+            <span id="label">CAPSTONE ROLE</span>
+          </a>
+        </div>
         <!-- <div class="listOfUser pt-3">
           <a id="listOfUser" href="#">
             <span id="label">LIST OF USERS</span>
@@ -95,21 +122,7 @@
         </li> -->
 
         <li>
-          <router-link class="a nav_link" to="/student">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-users"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <!-- faFileCirclePlus -->
-            <span id="label">STUDENT</span>
-          </router-link>
-        </li>
-
-        <!-- <li>
-          <router-link class="a nav_link" to="/instructor">
+          <router-link class="a nav_link" to="/advisee">
             <i>
               <font-awesome-icon
                 icon="fa-solid fa-chalkboard-teacher"
@@ -117,12 +130,12 @@
               />
             </i>
 
-            <span id="label">FACULTY</span>
+            <span id="label">ADVISEE</span>
           </router-link>
-        </li> -->
+        </li>
 
-        <!-- <li>
-          <router-link class="a nav_link" to="/adviser">
+        <li>
+          <router-link class="a nav_link" to="/instructor">
             <i>
               <font-awesome-icon
                 icon="fa-solid fa-user"
@@ -130,11 +143,11 @@
               />
             </i>
 
-            <span id="label">ADVISER</span>
+            <span id="label">INSTRUCTOR</span>
           </router-link>
-        </li> -->
+        </li>
 
-        <!-- <li>
+        <li>
           <router-link class="a nav_link" to="/panel">
             <i>
               <font-awesome-icon
@@ -145,9 +158,9 @@
 
             <span id="label">PANEL</span>
           </router-link>
-        </li> -->
-        <!-- 
-        <li>
+        </li>
+
+        <!-- <li>
           <router-link class="a nav_link" to="/secretary">
             <i>
               <font-awesome-icon
@@ -232,9 +245,20 @@
 
 <script setup>
 import { onMounted } from "vue";
-import { useRouter } from "vue-router";
+// import { useRouter } from "vue-router";
 import { ref } from "vue";
+import router from "../routers/facultyRouter";
 
+const dash = () => {
+  router.push("/dashboard");
+  // reload();
+  // router.push("/dashboard");
+};
+// const reload = () => {
+//   // router.push("/dashboard");
+//   location.reload();
+//   // router.push("/dashboard");
+// };
 // let dashboard = ref({
 //   instructor1: 0,
 //   instructor2: 0,
@@ -365,6 +389,9 @@ const logout = () => {
 
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue",
     Helvetica, Arial, sans-serif !important;
+}
+.point {
+  cursor: pointer;
 }
 .wrapper {
   display: flex;

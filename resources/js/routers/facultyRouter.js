@@ -67,13 +67,21 @@ import Createsuggestion from "../components/faculty/topicsuggest/createsuggestio
 import Updatetopic from "../components/faculty/topicsuggest/updatetopic.vue";
 import Taketopic from "../components/faculty/topicsuggest/taketopic.vue";
 
+import Advisee from "../components/faculty/advisee.vue";
+
 
 const routes = [
+  {
+    path: "/advisee",
+    name: "Advisee",
+    component: Advisee,
+  },
   {
     path: "/createsuggestion",
     name: "Createsuggestion",
     component: Createsuggestion,
   },
+
   {
     path: "/taketopic/:id",
     name: "Taketopic",

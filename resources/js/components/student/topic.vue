@@ -2,8 +2,8 @@
   <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
       <div class="forInline capsList">TOPIC SUGGESTIONS LIST</div>
-      <!-- 
-      <div class="forInline float-end mtop">
+
+      <!-- <div class="forInline float-end mtop">
         <router-link class="nav_link" to="/createsuggestion">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
@@ -50,7 +50,8 @@
           <th class="">#</th>
           <th class="col-4">TITLE</th>
           <th class="col">DATE CREATED</th>
-          <th class="col-3">STATUS</th>
+          <th class="col-2">STATUS</th>
+          <th class="col-1">ACTION</th>
         </tr>
       </thead>
 
@@ -59,7 +60,19 @@
           <td>{{ index + 1 }}</td>
           <td>{{ item.title }}</td>
           <td>{{ item.created_at }}</td>
-          <td>{{ item.status }}</td>
+          <td>
+            <!-- {{ item.status }} -->
+            <p v-if="item.status === 'Available'" class="text-success fw-bold">
+              {{ item.status }}
+            </p>
+            <p v-else class="text-warning fw-bold">{{ item.status }}</p>
+          </td>
+
+          <!-- 
+          v-if="
+          GenCadocu123.revise_manuscript === null ||
+          GenCadocu123.revise_manuscript === 'null'
+        " -->
 
           <!-- <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
           <td>{{ item.year }}</td> -->
@@ -76,13 +89,31 @@
               <li class="col">
                 <button
                   type="button"
-                  class="btn btn-outline-primary button1 m-1"
+                  class="btn btn-outline-primary fw-bold button1 my-1"
                   @click="taketopic(item.id)"
                 >
                   <!-- @click="viewCap(item.id)" -->
                   VIEW
                 </button>
               </li>
+              <!-- <li class="col">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary fw-bold button1 my-1"
+                  @click="edithtopic(item.id)"
+                >
+                  UPDATE
+                </button>
+              </li>
+              <li class="col">
+                <button
+                  type="button"
+                  class="btn btn-outline-warning fw-bold button1 my-1"
+                  @click="deletetopic(item.id)"
+                >
+                  DELETE
+                </button>
+              </li> -->
             </ul>
           </td>
         </tr>
