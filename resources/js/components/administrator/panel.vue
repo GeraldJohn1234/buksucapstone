@@ -110,8 +110,9 @@
         </tr>
       </tbody>
     </table>
+    <hr class="topHi" />
     <!-- <div v-else></div> -->
-    <div class="">
+    <!-- <div class="">
       <a href="#" class="previous">&laquo; Previous</a>
       <a href="#" class="next">Next &raquo;</a>
 
@@ -127,7 +128,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

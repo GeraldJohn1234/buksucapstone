@@ -23,7 +23,27 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // return redirect(RouteServiceProvider::DASH);
+
+                if(Auth::user()->hasRole('student')){
+                    // return view('studentDashboard');
+                    return redirect(RouteServiceProvider::HOME);
+          
+                }
+                elseif(Auth::user()->hasRole('archiver')){
+                    // return view('archiverDashboard');
+                    return redirect(RouteServiceProvider::HOME);
+          
+                }elseif(Auth::user()->hasRole('faculty')){
+                    
+                    // return view('facultyDashboard');
+                    return redirect(RouteServiceProvider::DASH);
+          
+                }elseif(Auth::user()->hasRole('administrator')){
+                    // return view('administratorDashboard');
+                    return redirect(RouteServiceProvider::DASH);
+          
+                }
             }
         }
 

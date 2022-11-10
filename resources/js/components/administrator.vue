@@ -14,89 +14,100 @@
       </div>
 
       <ul>
-        <li>
-          <router-link class="a active nav_link" @click="storeDashoard()" to="/dashboard">
-            <i>
-              <!-- <font-awesome-icon icon="fa-solid fa-grid-horizontal" size="2x"/> -->
+        <!-- <li>
+          <router-link class="a nav_link row" @click="storeDashoard()" to="/dashboard">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-dashboard"
                 style="width: 24px; height: 24px"
               />
             </i>
-            <span id="label">DASHBOARD</span>
+            <div class="col-md-8" id="label">DASHBOARD</span>
           </router-link>
+        </li> -->
+
+        <li class="pt-4" @click="active1()">
+          <div class="a nav_link row" :class="activehead1">
+            <i class="col-md-3">
+              <font-awesome-icon
+                icon="fa-solid fa-dashboard"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+            <div class="col-md-8" id="label">DASHBOARD</div>
+          </div>
         </li>
-        <li>
-          <router-link class="a nav_link" to="/profile">
-            <i>
+        <li class="" @click="active2()">
+          <div class="a nav_link row" :class="activehead2">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-address-card"
                 style="width: 24px; height: 24px"
               />
             </i>
-            <span id="label">PROFILE</span>
-          </router-link>
+            <div class="col-md-8" id="label">PROFILE</div>
+          </div>
         </li>
         <!-- <li>
-          <router-link class="a nav_link" to="/project">
-            <i>
+          <router-link class="a nav_link row" to="/project">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-file"
                 style="width: 24px; height: 24px"
               />
             </i>
 
-            <span id="label">CREATE PROJECT</span>
+            <div class="col-md-8" id="label">CREATE PROJECT</span>
           </router-link>
         </li> -->
 
-        <li>
-          <router-link class="a nav_link" to="/capslist">
-            <i>
+        <li @click="active3()">
+          <div class="a nav_link row" :class="activehead3">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-file"
                 style="width: 24px; height: 24px"
               />
             </i>
 
-            <span id="label">CAPSTONE LIST</span>
-          </router-link>
+            <div class="col-md-8" id="label">CAPSTONE LIST</div>
+          </div>
         </li>
 
-        <li>
-          <router-link class="a nav_link" to="/topic">
-            <i>
+        <li @click="active4()">
+          <div class="a nav_link row" :class="activehead4">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-lightbulb"
                 style="width: 24px; height: 24px"
               />
             </i>
 
-            <span id="label">TOPIC SUGGESTION</span>
-          </router-link>
+            <div class="col-md-8" id="label">TOPIC SUGGESTION</div>
+          </div>
         </li>
 
-        <div class="listOfUser pt-3">
-          <a id="listOfUser" href="#">
-            <span id="label">LIST OF USERS</span>
+        <div class="listOfUser pt-3 ps-2">
+          <a id="listOfUser">
+            <div class="" id="label">LIST OF USERS</div>
           </a>
         </div>
-        <li>
-          <router-link class="a nav_link" to="/admin">
-            <i>
+        <li class="pt-3" @click="active5()">
+          <div class="a nav_link row" :class="activehead5">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-user-pen"
                 style="width: 24px; height: 24px"
               />
             </i>
 
-            <span id="label">ADMINISTRATOR</span>
-          </router-link>
+            <div class="col-md-8" id="label">ADMINISTRATOR</div>
+          </div>
         </li>
 
-        <li>
-          <router-link class="a nav_link" to="/student">
-            <i>
+        <li @click="active6()">
+          <div class="a nav_link row" :class="activehead6">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-users"
                 style="width: 24px; height: 24px"
@@ -104,118 +115,56 @@
             </i>
 
             <!-- faFileCirclePlus -->
-            <span id="label">STUDENT</span>
-          </router-link>
+            <div class="col-md-8" id="label">STUDENT</div>
+          </div>
         </li>
 
-        <li>
-          <router-link class="a nav_link" to="/instructor">
-            <i>
+        <li @click="active7()">
+          <div class="a nav_link row" :class="activehead7">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-chalkboard-teacher"
                 style="width: 24px; height: 24px"
               />
             </i>
 
-            <span id="label">FACULTY</span>
-          </router-link>
+            <div class="col-md-8" id="label">FACULTY</div>
+          </div>
         </li>
 
-        <!-- <li>
-          <router-link class="a nav_link" to="/adviser">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-user"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">ADVISER</span>
-          </router-link>
-        </li> -->
-
-        <!-- <li>
-          <router-link class="a nav_link" to="/panel">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-users-rectangle"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">PANEL</span>
-          </router-link>
-        </li> -->
-        <!-- 
-        <li>
-          <router-link class="a nav_link" to="/secretary">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-user-pen"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">SECRETARY</span>
-          </router-link>
-        </li> -->
-        <li>
-          <router-link class="a nav_link" to="/archiver">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-user-pen"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">ARCHIVER</span>
-          </router-link>
-        </li>
-
-        <li id="logout">
-          <a href="#" @click="logout">
-            <i>
+        <li id="logout" @click="logout">
+          <div class="row a nav_link">
+            <i class="col-md-3">
               <font-awesome-icon
                 icon="fa-solid fa-right-from-bracket"
                 style="width: 24px; height: 24px"
               />
             </i>
 
-            <span id="label">LOGOUT</span>
-          </a>
+            <div class="col-md-8" id="label">LOGOUT</div>
+          </div>
         </li>
       </ul>
     </div>
     <div class="main_content">
-      <div class="header">
-        <div class="headerL">
-          Capstone Project Monitoring and Archiving System
-          <!-- {{ authUser.id }} -->
+      <div class="header topHeader">
+        <div class="headerL">Capstone Archiving Management System</div>
 
-          <!-- <h5 > {{form.name}} {{form.mname}} {{form.lname}}</h5> -->
-        </div>
-        <div class="headerR row">
-          <div class="footer content">
-            <!-- <img
-              class="avatarUser rounded-circle border border-dark"
-              src="/images/myAvatar.png"
-            /> -->
-            <img
-              class="avatarUser mt-3 rounded-circle border border-dark"
-              id="rizal"
-              :src="getPhoto()"
-              alt="img"
-            />
-            <div class="p">
-              <span class="topA ms-1" id="labelAvatar">
-                <!-- Gerald John S. Hiponia -->
-                {{ form.name }} {{ form.mname }} {{ form.lname }}
-              </span>
-              <br />
+        <div class="headerR rheadertop footer content bg-light row">
+          <img
+            @click="active2()"
+            class="avatarUser mt-3 rounded-circle border bg-info col point"
+            id="rizal"
+            :src="getPhoto()"
+            alt="img"
+          />
 
-              <!-- <span> Administrator </span> -->
-            </div>
-            <p class="roleAvatar ms-5 me-2">ADMINISTRATOR</p>
+          <div class="col text-center mx-2 mt-2">
+            <span class="topA" id="labelAvatar">
+              {{ form.name }} {{ form.mname }} {{ form.lname }}
+            </span>
+            <br />
+            <p class="roleAvatar mt-1 mx-2">ADMINISTRATOR</p>
           </div>
         </div>
       </div>
@@ -234,13 +183,146 @@
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import router from "../routers/facultyRouter";
-
+import router from "../routers/administratorRouter";
+let activehead1 = ref({
+  activeStyle1: false,
+});
+let activehead2 = ref({
+  activeStyle1: false,
+});
+let activehead3 = ref({
+  activeStyle1: false,
+});
+let activehead4 = ref({
+  activeStyle1: false,
+});
+let activehead5 = ref({
+  activeStyle1: false,
+});
+let activehead6 = ref({
+  activeStyle1: false,
+});
+let activehead7 = ref({
+  activeStyle1: false,
+});
+let activehead8 = ref({
+  activeStyle1: false,
+});
+const active1 = () => {
+  activehead1.value.activeStyle1 = true;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = false;
+  storeDashoard();
+};
+const active2 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = true;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = false;
+  profile();
+};
+const active3 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = true;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = false;
+  capslist();
+};
+const active4 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = true;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = false;
+  topic();
+};
+const active5 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = true;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = false;
+  admin();
+};
+const active6 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = true;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = false;
+  student();
+};
+const active7 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = true;
+  activehead8.value.activeStyle1 = false;
+  instructor();
+};
+const active8 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = true;
+};
 const dash = () => {
   router.push("/dashboard");
-  // location.reload();
-  // router.push("/dashboard");
 };
+const profile = () => {
+  router.push("/profile");
+};
+const capslist = () => {
+  router.push("/capslist");
+};
+const topic = () => {
+  router.push("/topic");
+};
+const admin = () => {
+  router.push("/admin");
+};
+const student = () => {
+  router.push("/student");
+};
+const instructor = () => {
+  router.push("/instructor");
+};
+const logoutt = () => {
+  router.push("/logout");
+};
+// const capslist = () => {
+//   router.push("/capslist");
+// };
+
 // const reload = () => {
 //   location.reload();
 
@@ -297,6 +379,7 @@ const storeDashoard = () => {
   axios
     .post("/api/store_dashboard")
     .then((response) => {
+      dash();
       // toast.fire({
       //   icon: "warning",
       //   title: "SOMETHING GOOD in Dashboard",
@@ -314,7 +397,7 @@ const storeDashoard = () => {
 };
 
 const getPhoto = () => {
-  let photo = "/upload/leader.jpg";
+  let photo = "/images/chair.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;
@@ -356,6 +439,7 @@ const getsingleUser = async () => {
 //         .catch((err) => {});
 //     },
 //   },
+// <!-- border-bottom: 1px solid rgba(0, 0, 0, 0.05) -->
 const logout = () => {
   axios
     .post("/logout", {})
@@ -367,6 +451,17 @@ const logout = () => {
 </script>
 
 <style scoped>
+.activeStyle1 {
+  background: #0062ff;
+
+  letter-spacing: 1px;
+  color: #fff !important;
+
+  padding-top: 10px;
+  padding-bottom: 4px;
+  font-weight: bolder;
+  border-radius: 5px 50px 50px 5px;
+}
 .point {
   cursor: pointer;
 }
@@ -402,7 +497,7 @@ const logout = () => {
   }
   .wrapper .sidebar {
     position: fixed;
-    width: 230px;
+    width: 250px;
     height: 100%;
     background: #fff;
     padding: 0px 0;
@@ -412,14 +507,15 @@ const logout = () => {
 
   .wrapper .main_content {
     width: 100%;
-    margin-left: 230px;
+    margin-left: 250px;
     margin-right: 1px;
   }
   #logout {
+    padding-top: 28px;
     position: absolute;
     bottom: 8px;
-    left: 0px;
-    width: 230px;
+
+    width: 248px;
     border-top: 1px solid #d6d2d2;
   }
 }
@@ -471,6 +567,7 @@ const logout = () => {
   font-weight: bold;
   margin-bottom: 15px;
   margin-top: 15px;
+
   padding-left: 2px;
   padding-top: 18;
   padding-bottom: 18;
@@ -479,18 +576,22 @@ const logout = () => {
 }
 .wrapper .sidebar ul li {
   padding: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  cursor: pointer;
+
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   border-top: 1px solid rgba(225, 225, 225, 0.05);
+  background: rgb(255, 255, 255);
 }
-.wrapper .sidebar ul li a {
-  color: #000000;
-  display: block;
-  font-size: 12px;
-  justify-content: center;
+
+.a div {
+  font-size: 13px;
+  margin-top: 4px;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue",
+    Helvetica, Arial, sans-serif !important;
 }
-.wrapper .sidebar ul li a i {
+.wrapper .sidebar ul li .a i {
   color: #000;
   padding-left: 12px;
   padding-right: 10px;
@@ -499,9 +600,9 @@ const logout = () => {
 .wrapper .sidebar ul li:hover {
   background: #e1e1e2;
 }
-.wrapper .sidebar ul li:hover a {
+.wrapper .sidebar ul li:hover .a {
   color: rgb(0, 0, 0);
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .info {
@@ -539,6 +640,7 @@ const logout = () => {
   width: 35px;
   height: 35px;
 }
+
 .p {
   display: inline-block;
   margin-left: 5px;
@@ -550,6 +652,14 @@ const logout = () => {
   font-size: 12px;
   font-weight: bolder;
 }
+.toTop {
+  top: 100px;
+}
+.centerThis {
+  margin: auto;
+  text-align: center;
+}
+
 #listOfUser {
   font-weight: bolder;
   color: rgb(0, 0, 0);
@@ -569,6 +679,20 @@ const logout = () => {
 .router-link-active i {
   color: #fff !important;
 }
+
+div .active {
+  background: #0062ff;
+  letter-spacing: 1px;
+  color: #fff !important;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-weight: bolder;
+  border-radius: 5px 50px 50px 5px;
+}
+div .activeStyle1 i {
+  color: #fff !important;
+}
+
 .avatarImg {
   width: 40px;
   height: 40px;
@@ -577,4 +701,3 @@ const logout = () => {
   margin-top: 10px;
 }
 </style>
->

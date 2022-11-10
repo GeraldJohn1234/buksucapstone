@@ -15,40 +15,54 @@ use App\Models\Capstone3;
 use App\Models\Capstonedashboard;
 use App\Models\instructor;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CapstoneController extends Controller
 {
+    //     public function showpdf(Request $request)
+    // {
+    //     // check . . .
+    //     // return response()->file(storage_path('uploads/yourFile' ));
+    //     return response()->file("pdf/1667409656.HIPONIA-IT136-Final-Module1.pdf"); // to preview the PDF
+
+    // // return response()->download("path/to/file.pdf"); // to download the PDF
+    // }
+
+
+
+
+
     public function project_check()
     {
         $id = Auth::user()->id;
 
-        $checkU = DB::table('capstone_user')->where('user_id',  $id)->count()>0;
-        if($checkU){
+        $checkU = DB::table('capstone_user')->where('user_id',  $id)->count() > 0;
+        if ($checkU) {
             $users = DB::table('capstone_user')->where('user_id', $id)->pluck('capstone_id')->first();
             return response()->json([
 
                 'ans'  => $users,
-    
+
             ], 200);
-        }else{
+        } else {
             return response()->json([
 
                 'ans'  => 0,
-    
+
             ], 200);
         }
     }
 
 
 
-    public function add_capstone(Request $request)
+    public function add_capstone_project(Request $request)
     {
         $capstone = new Capstone();
 
         $capstone->groupname = $request->groupname;
         $capstone->title = $request->title;
         $capstone->abstract = $request->abstract;
-        $capstone->start_date = $request->start_date;
+        $capstone->xf3 = $request->instructor;
         $capstone->xf1 = $request->xf1;
         $capstone->xf2 = $request->xf2;
         $capstone->save();
@@ -64,7 +78,7 @@ class CapstoneController extends Controller
         $capstone->user()->attach($request->panels3, ['role_person' => 'panels3']);
         $capstone->user()->attach($request->adviser, ['role_person' => 'adviser']);
         $capstone->user()->attach($request->coAdviser, ['role_person' => 'coAdviser']);
-        $capstone->user()->attach($request->instructor, ['role_person' => 'instructor']);
+        // $capstone->user()->attach($request->instructor, ['role_person' => 'instructor']);
         $capstone->user()->attach($request->secretarys, ['role_person' => 'secretarys']);
 
 
@@ -73,101 +87,204 @@ class CapstoneController extends Controller
         // $user->roles()->attach($capstoneID);
     }
 
+
+
     public function update_capstone(Request $request, $id)
     {
-        // $capstone = new Capstone();
+        $student1 = DB::table('capstone_user')->where('role_person', 'student1')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $students2 = DB::table('capstone_user')->where('role_person', 'students2')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $students3 = DB::table('capstone_user')->where('role_person', 'students3')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $students4 = DB::table('capstone_user')->where('role_person', 'students4')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+
+        $panels1 = DB::table('capstone_user')->where('role_person', 'panels1')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $panels2 = DB::table('capstone_user')->where('role_person', 'panels2')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $panels3 = DB::table('capstone_user')->where('role_person', 'panels3')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+
+        $adviser = DB::table('capstone_user')->where('role_person', 'adviser')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $coAdviser = DB::table('capstone_user')->where('role_person', 'coAdviser')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $secretarys = DB::table('capstone_user')->where('role_person', 'secretarys')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+
+
+
+
+
+
+
+
+        // $request->validate([
+        //     'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf'
+        //  ]);
+
+        //  $fileUpload = new FileUpload;
+
         $capstone = Capstone::find($id);
+        // if($request->hasFile('file')) {
+
+        //     $file = $request->file('file');
+        //     $file_name = time().'.'.$file->getClientOriginalName();
+        //     $file->move(public_path('pdf'), $file_name);
+
+
+        // $file_path = $request->file('file')->storeAs('uploads', $file_name, 'public');
+
+        // $capstone->name = time().'_'.$request->file->getClientOriginalName();
+        // $capstone->path = '/storage/' . $file_path;
+        // $fileUpload->save();
+
+        //  return response()->json(['success'=>'File uploaded successfully.']);
+        // }&& ($capstone->xf5 != null)
+        if ($request->file == null) {
+            // $name = $capstone->xf5;
+            $name = $capstone->xf5;
+        } else if (($capstone->xf5 != $request->file) ) {
+            // $strpos = strpos($request->file, ';');
+            // $sub = substr($request->file, 0, $strpos);
+            // $ex = explode('/', $sub)[1];
+            // $name = time() . "." . $ex;
+            $filee = $request->file('file');
+            $name = time() . '.' . $filee->getClientOriginalName();
+            // $filee->move(public_path('pdf'), $file_name);
+            // $img = $request->file;
+            // Image::make($request->photo)->resize(200, 200);
+            $upload_path = public_path() . "/pdf/";
+            $files = $upload_path . $capstone->xf5;
+            // $img->save($upload_path . $file_name);
+            $filee->move(public_path('pdf'), $name);
+            if (file_exists($files)) {
+                @unlink($files);
+            }
+            // if($capstone->xf5 !=null||$capstone->xf5!=" "){
+
+            // }
+        } else {
+            $name = $capstone->xf5;
+        }
+        $capstone->xf5 = $name;
 
         $capstone->groupname = $request->groupname;
         $capstone->title = $request->title;
 
         $capstone->abstract = $request->abstract;
         $capstone->xf1 = $request->xf1;
+        $capstone->xf2 = $request->xf2;
+        $capstone->xf4 = $request->xf4;
+        $capstone->name = $request->name;
+
+        // $capstone->xf5 = $file_name;
 
         //  $capstone->user()->update([
         //     'user_id'=>$request->students1,
         // ]);
 
+        if ($request->students1 == 10000000) {
+            $capstone->user()->where('role_person', 'student1')->update([
+                'user_id' => $student1,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'student1')->update([
+                'user_id' => $request->students1,
+            ]);
+        }
 
+        if ($request->students2 == 10000000) {
+            $capstone->user()->where('role_person', 'students2')->update([
+                'user_id' => $students2,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'students2')->update([
+                'user_id' => $request->students2,
+            ]);
+        }
+        if ($request->students3 == 10000000) {
+            $capstone->user()->where('role_person', 'students3')->update([
+                'user_id' => $students3,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'students3')->update([
+                'user_id' => $request->students3,
+            ]);
+        }
 
+        if ($request->students4 == 10000000) {
+            $capstone->user()->where('role_person', 'students4')->update([
+                'user_id' => $students4,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'students4')->update([
+                'user_id' => $request->students4,
+            ]);
+        }
 
-        $capstone->user()->where('role_person', 'student1')->update([
-            'user_id' => $request->students1,
-        ]);
-        $capstone->user()->where('role_person', 'students2')->update([
-            'user_id' => $request->students2,
-        ]);
-        $capstone->user()->where('role_person', 'students3')->update([
-            'user_id' => $request->students3,
-        ]);
-        $capstone->user()->where('role_person', 'students4')->update([
-            'user_id' => $request->students4,
-        ]);
+        if ($request->panels1 == 10000000) {
+            $capstone->user()->where('role_person', 'panels1')->update([
+                'user_id' => $panels1,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'panels1')->update([
+                'user_id' => $request->panels1,
+            ]);
+        }
 
+        if ($request->panels2 == 10000000) {
+            $capstone->user()->where('role_person', 'panels2')->update([
+                'user_id' => $panels2,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'panels2')->update([
+                'user_id' => $request->panels2,
+            ]);
+        }
+        if ($request->panels3 == 10000000) {
+            $capstone->user()->where('role_person', 'panels3')->update([
+                'user_id' => $panels3,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'panels3')->update([
+                'user_id' => $request->panels3,
+            ]);
+        }
 
-        $capstone->user()->where('role_person', 'panels1')->update([
-            'user_id' => $request->panels1,
-        ]);
-        $capstone->user()->where('role_person', 'panels2')->update([
-            'user_id' => $request->panels2,
-        ]);
-        $capstone->user()->where('role_person', 'panels3')->update([
-            'user_id' => $request->panels3,
-        ]);
+        if ($request->adviser == 10000000) {
+            $capstone->user()->where('role_person', 'adviser')->update([
+                'user_id' => $adviser,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'adviser')->update([
+                'user_id' => $request->adviser,
+            ]);
+        }
 
+        if ($request->coAdviser == 10000000) {
+            $capstone->user()->where('role_person', 'coAdviser')->update([
+                'user_id' => $coAdviser,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'coAdviser')->update([
+                'user_id' => $request->coAdviser,
+            ]);
+        }
 
-
-
-        // $num=$capstone->user()->where('role_person','adviser')->count() < 1;
-
-        // if($num){
-        //     $capstone->user()->attach($request->adviser, ['role_person' => 'adviser']);
-
-        // }else{
-        //     $capstone->user()->where('role_person','adviser')->update([
-        //         'user_id'=>$request->adviser,
-        //     ]);
-
-        // }
-
-        $capstone->user()->where('role_person', 'adviser')->update([
-            'user_id' => $request->adviser,
-        ]);
-        $capstone->user()->where('role_person', 'coAdviser')->update([
-            'user_id' => $request->coAdviser,
-        ]);
-
-        // $capstone->user()->where('role_person', 'instructor')->update([
-        //     'user_id' => $request->instructor,
-        // ]);
-        $capstone->user()->where('role_person', 'secretarys')->update([
-            'user_id' => $request->secretarys,
-        ]);
-
+        if ($request->secretarys == 10000000) {
+            $capstone->user()->where('role_person', 'secretarys')->update([
+                'user_id' => $secretarys,
+            ]);
+        } else {
+            $capstone->user()->where('role_person', 'secretarys')->update([
+                'user_id' => $request->secretarys,
+            ]);
+        }
 
         $capstone->save();
-
-
-
-
-
-
-        // $capstone = $request->id;
-        // $capstone->user()->attach($request->students1, ['role_person' => 'student1']);
-        // $capstone->user()->attach($request->students2, ['role_person' => 'students2']);
-        // $capstone->user()->attach($request->students3, ['role_person' => 'students3']);
-        // $capstone->user()->attach($request->students4, ['role_person' => 'students4']);
-        // $capstone->user()->attach($request->panels1, ['role_person' => 'panels1']);
-        // $capstone->user()->attach($request->panels2, ['role_person' => 'panels2']);
-        // $capstone->user()->attach($request->panels3, ['role_person' => 'panels3']);
-        // $capstone->user()->attach($request->adviser, ['role_person' => 'adviser']);
-        // $capstone->user()->attach($request->coAdviser, ['role_person' => 'coAdviser']);
-        // $capstone->user()->attach($request->instructor, ['role_person' => 'instructor']);
-        // $capstone->user()->attach($request->secretarys, ['role_person' => 'secretarys']);
-
-        // $capstone->user()->attach($request->students1, ['cert_number' => $cert_number]);
-
-        // $user->roles()->attach($capstoneID);
     }
 
     public function testrate($id)
@@ -233,7 +350,7 @@ class CapstoneController extends Controller
     //     'xf4' => 0,
     //     'xf5' => "",
     //     'xf6' => "",
-   
+
     // ]);
 
     public function save_instructor(Request $request)
@@ -245,14 +362,13 @@ class CapstoneController extends Controller
         $capstone->user_id = $request->user_id;
 
         $capstone->save();
- 
     }
 
     public function get_all_capstone_advisee(Request $request)
     {
         $id = Auth::user()->id;
         $panel1 = DB::table('capstone_user')->where('role_person', 'adviser')
-        ->where('user_id', $id)->pluck('capstone_id');
+            ->where('user_id', $id)->pluck('capstone_id');
 
 
 
@@ -271,7 +387,7 @@ class CapstoneController extends Controller
         //         200
         //     );
         // }
-         $capstone = Capstone::find($panel1);
+        $capstone = Capstone::find($panel1);
         return response()->json(
             [
                 'capstones'  => $capstone,
@@ -286,15 +402,15 @@ class CapstoneController extends Controller
 
 
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
-        ->where('user_id', $id)->pluck('capstone_id');
+            ->where('user_id', $id)->pluck('capstone_id');
         $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
-        ->where('user_id', $id)->pluck('capstone_id');
+            ->where('user_id', $id)->pluck('capstone_id');
         $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
-        ->where('user_id', $id)->pluck('capstone_id');
+            ->where('user_id', $id)->pluck('capstone_id');
 
-$all = $panel1->merge($panel2);
-$alll = $panel3->merge($all);
-         $capstone = Capstone::find($alll);
+        $all = $panel1->merge($panel2);
+        $alll = $panel3->merge($all);
+        $capstone = Capstone::find($alll);
         return response()->json(
             [
                 'capstones'  => $capstone,
@@ -375,8 +491,6 @@ $alll = $panel3->merge($all);
             $capstone3->xf2 = $xf2;
             $capstone3->xf3 = $xf3;
             $capstone3->save();
-
-           
         }
 
 
@@ -514,8 +628,16 @@ $alll = $panel3->merge($all);
 
         $data = $request->searching;
         $sortdata = $request->sorting;
-        if (($sortdata == "groupname" || $sortdata == "start_date" || $sortdata == "title" || $sortdata == "xf1")) {
+        if (($sortdata == "groupname" || $sortdata == "start_date" || $sortdata == "title" || $sortdata == "xf1" || $sortdata == "xf3")) {
             $capstone = Capstone::orderBy($sortdata, "asc")->get();
+            return response()->json(
+                [
+                    'capstones'  => $capstone,
+                ],
+                200
+            );
+        } else if ($sortdata == "xf2") {
+            $capstone = Capstone::orderBy($sortdata, "desc")->get();
             return response()->json(
                 [
                     'capstones'  => $capstone,
@@ -645,7 +767,7 @@ $alll = $panel3->merge($all);
 
 
 
-    
+
     public function get_capstone_inst(Request $request, $id)
     {
 
@@ -818,6 +940,24 @@ $alll = $panel3->merge($all);
     // $capstone = Capstone::whereRoleIs(['student'])->get();
     // $user  = User::find($id);
     // $capstone = Capstone::find($id);
+
+    // public function store(Request $request)
+    // {
+    //     Validator::make($request->all(), [
+    //         'title' => ['required'],
+    //         'file' => ['required'],
+    //     ])->validate();
+
+    //     $fileName = time().'.'.$request->file->extension();  
+    //     $request->file->move(public_path('uploads'), $fileName);
+
+    //     Capstone::create([
+    //         'title' => $request->title,
+    //         'name' => $fileName
+    //     ]);
+
+    //     // return redirect()->route('file.upload');
+    // }
 
 }
 

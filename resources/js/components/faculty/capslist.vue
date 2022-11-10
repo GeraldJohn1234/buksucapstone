@@ -1,13 +1,13 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-2">
+  <div class="contentOfThePage rounded bg-light p-3">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
-      <!-- 
+
       <div class="forInline float-end mtop">
         <router-link class="nav_link" to="/project">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
-      </div> -->
+      </div>
     </div>
     <hr />
 
@@ -34,10 +34,11 @@
             v-model="capslisttsort.sorting"
           >
             <option selected>Choose...</option>
-            <option value="title">TITLE</option>
-            <option value="start_date">STARTED YEAR</option>
-            <option value="xf1">YEAR</option>
             <option value="groupname">GROUP NAME</option>
+            <option value="title">TITLE</option>
+            <option value="xf3">SCHOOL YEAR</option>
+            <option value="xf1">YEAR</option>
+            <option value="xf2">STATUS</option>
           </select>
         </div>
       </div>
@@ -48,67 +49,44 @@
       <thead class="colorNeh">
         <tr>
           <th class="">#</th>
-          <th class="col-4">TITLE</th>
+          <th class="col-3">TITLE</th>
           <th class="col-2">GROUP NAME</th>
-          <th class="col">YEAR</th>
-          <th class="col">DATE STARTED</th>
+          <th class="col">YEAR LEVEL</th>
+          <th class="col">SCHOOL YEAR</th>
+          <th class="col">STATUS</th>
           <th class="col-1">ACTION</th>
         </tr>
       </thead>
 
       <tbody class="colorNeh">
         <tr v-for="(item, index) in projects" :key="item.id">
-          <td>{{ index + 1 }}</td>
-          <td>{{ item.title }}</td>
-          <td class="text-center">
-            {{ item.groupname }}
-          </td>
-          <td>{{ item.xf1 }}</td>
-          <td>{{ item.start_date }}</td>
+          <template v-if="index <= limitlist">
+            <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
+            <td>{{ index + 1 }}</td>
+            <td>{{ item.title }}</td>
+            <td class="text-center">
+              {{ item.groupname }}
+            </td>
+            <td>{{ item.xf1 }}</td>
+            <td>{{ item.xf3 }}</td>
+            <td>{{ item.xf2 }}</td>
 
-          <!-- <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
-          <td>{{ item.year }}</td> -->
-          <!-- <img
-              class="avatarImage1"
-              :src="ourImage(item.photo)"
-              alt="a"
-              v-if="item.photo"
-            /> -->
-          <!-- <td>Buksu Archiving and Monitoring System</td> -->
-
-          <td class="">
-            <ul class="nav row">
-              <li class="col">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
-                  @click="viewCap(item.id)"
-                >
-                  <!-- @click="onView(item.id)" -->
-                  VIEW
-                </button>
-              </li>
-              <!-- <li class="col">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 m-1"
-                  @click="edithCap(item.id)"
-                >
-                
-                  UPDATE
-                </button>
-              </li>
-              <li class="col">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 m-1"
-                  @click="deleteCapstone(item.id)"
-                >
-                  DELETE
-                </button>
-              </li> -->
-            </ul>
-          </td>
+            <td class="">
+              <ul class="nav row">
+                <li class="col">
+                  <button
+                    type="button"
+                    class="btn btn-outline-success button1 my-1 fw-bold"
+                    @click="viewCap(item.id)"
+                  >
+                    <!-- @click="onView(item.id)" -->
+                    <!-- <span class="text-dark fw-bold"></span> -->
+                    VIEW
+                  </button>
+                </li>
+              </ul>
+            </td>
+          </template>
         </tr>
       </tbody>
     </table>
@@ -120,12 +98,17 @@
       <div class="float-end">
         <div class="input-group mb-3 inline-block">
           <span class="inline-block botM" for="">Row visible: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
+          <select
+            class="form-select inline-block box1"
+            v-model="limitlist"
+            id="inputGroupSelect01"
+          >
             <option selected>Choose...</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
+            <option value="4">5</option>
+            <option value="9">10</option>
+            <option value="14">15</option>
+            <option value="19">20</option>
+            <option value="10000">all</option>
           </select>
         </div>
       </div>
@@ -141,9 +124,24 @@ import { onMounted, reactive, ref, watch } from "vue";
 
 let projects = ref([]);
 
+let nextlist = 0;
+let limitlist = 10000;
+
 const capslistt = reactive({ searching: null });
 const capslisttsort = reactive({ sorting: null });
 
+// const listt = reactive({ limitlist: 9 });
+
+// watch(listt, (newValue, oldValue) => {
+//   console.log(newValue, oldValue);
+//   // dataCapstone();
+//   dataCapstone();
+//   // dataCapstonesort();
+// });
+onMounted(async () => {
+  // getCapstone();
+  dataCapstone();
+});
 watch(capslistt, (newValue, oldValue) => {
   console.log(newValue, oldValue);
   dataCapstone();
@@ -226,11 +224,6 @@ const viewCap = (id) => {
       });
     });
 };
-
-onMounted(async () => {
-  // getCapstone();
-  dataCapstone();
-});
 
 // const getCapstoneSearch = async () => {
 //   let iddd = window.location.pathname.split("/")[2];

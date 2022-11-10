@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light">
+  <div class="contentOfThePage rounded bg-light p-3">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
 
@@ -34,10 +34,11 @@
             v-model="capslisttsort.sorting"
           >
             <option selected>Choose...</option>
-            <option value="title">TITLE</option>
-            <option value="start_date">STARTED YEAR</option>
-            <option value="xf1">YEAR</option>
             <option value="groupname">GROUP NAME</option>
+            <option value="title">TITLE</option>
+            <option value="xf3">SCHOOL YEAR</option>
+            <option value="xf1">YEAR</option>
+            <option value="xf2">STATUS</option>
           </select>
         </div>
       </div>
@@ -48,11 +49,12 @@
       <thead class="colorNeh">
         <tr>
           <th class="">#</th>
-          <th class="col-4">TITLE</th>
+          <th class="col-3">TITLE</th>
           <th class="col-2">GROUP NAME</th>
-          <th class="col">YEAR</th>
-          <th class="col">DATE STARTED</th>
-          <th class="col-4">ACTION</th>
+          <th class="col">YEAR LEVEL</th>
+          <th class="col">SCHOOL YEAR</th>
+          <th class="col">STATUS</th>
+          <th class="col-3">ACTION</th>
         </tr>
       </thead>
 
@@ -66,7 +68,8 @@
               {{ item.groupname }}
             </td>
             <td>{{ item.xf1 }}</td>
-            <td>{{ item.start_date }}</td>
+            <td>{{ item.xf3 }}</td>
+            <td>{{ item.xf2 }}</td>
 
             <td class="">
               <ul class="nav row">
@@ -110,7 +113,7 @@
       </tbody>
     </table>
     <hr class="topHi" />
-    <div class="">
+    <!-- <div class="">
       <a href="#" class="previous">&laquo; Previous</a>
       <a href="#" class="next">Next &raquo;</a>
 
@@ -131,7 +134,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

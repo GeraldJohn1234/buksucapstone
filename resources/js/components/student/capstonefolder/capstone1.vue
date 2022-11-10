@@ -9,7 +9,9 @@
         <p class="toTopp">Title</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <div class="contentOfThePage">
+        <p class="parag m-2">{{ GenCapData.abstract }}</p>
+      </div>
       <br />
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
@@ -688,5 +690,10 @@ const rateddd = async () => {
 }
 .panelH {
   height: 60px;
+}
+.parag {
+  margin: 0;
+  text-indent: 2rem;
+  text-align: justify;
 }
 </style>

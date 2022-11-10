@@ -39,6 +39,7 @@ class Capstone1Controller extends Controller
         $count = 0;
 
         $idAuth = Auth::user()->id;
+        // $idAuth = 1;
         
 
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
@@ -63,12 +64,13 @@ class Capstone1Controller extends Controller
         }else{
             $users = 2;
         }
-        $userrole = User::find($users);
-        return response()->json([
+        // $userrole = Partialstorage::find($users);
+        // return response()->json([
 
-            'userCaps'  => $userrole,
+        //     'userCaps'  => $users,
 
-        ], 200);
+        // ], 200);
+        return $users;
     }
 
 

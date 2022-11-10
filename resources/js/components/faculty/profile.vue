@@ -68,11 +68,11 @@
         />
       </div>
       <div class="col">
-        <label for="middlename" class="form-label">Middle Name</label>
+        <label for="middlename" class="form-label">Middle Initial</label>
         <input
           type="text"
           class="form-control"
-          placeholder="MIDDLE NAME"
+          placeholder="MIDDLE INITIAL"
           aria-label="Middle Name"
           v-model="form.mname"
         />
@@ -218,7 +218,7 @@ const props = defineProps({
 });
 
 const getPhoto = () => {
-  let photo = "/upload/leader.jpg";
+  let photo = "/images/instructor.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;

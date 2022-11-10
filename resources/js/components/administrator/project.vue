@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage">
+  <div class="contentOfThePage p-3">
     <!-- <button type="button" class="m-1 btnSize btn btn-primary fw-bold" @click="tryy()">
       Save
     </button> -->
@@ -7,8 +7,16 @@
     <h5 class="text-left boldThese">Optical Character Recognition for ABSTRACT</h5>
     <div class="row">
       <div class="col row contentOfThePage me-1 ms-3">
+        <span class="text-danger">
+          NOTE: The conversion of Image to Text, will depend on the clarity of the images.
+        </span>
         <div class="col-10">
-          <input type="file" id="imageLoader" @change="updateCanvasImage" />
+          <input
+            type="file"
+            accept="image/*"
+            id="imageLoader"
+            @change="updateCanvasImage"
+          />
         </div>
         <div class="col stats">{{ status }}</div>
 
@@ -20,7 +28,14 @@
       </div>
       <!-- v-model="RichTextEditor.content" -->
       <div class="col contentOfThePage ms-1 me-3">
-        <h5 class="text-left boldThese">CONVERTED TEXT</h5>
+        <p class="text-left">
+          <span class="titleText boldThese">CONVERTED TEXT</span> (<span
+            class="text-primary"
+            >You can edit the <span class="fw-bold"> converted text</span> before adding
+            to abstract.</span
+          >)
+        </p>
+
         <div class="form-floating col">
           <textarea
             class="form-control inputColor"
@@ -43,6 +58,7 @@
       </div>
     </div>
     <!-- v-model="GenCaps.abstract" -->
+    <br />
 
     <h5 class="text-left boldThese">Abstract Or Project Descriptions</h5>
     <div class="form-floating col">
@@ -80,7 +96,7 @@
       <br />
     </div>
     <div class="row">
-      <div class="form-group col">
+      <div class="form-group col-3">
         <label for="exampleFormControlTextarea1" id="">Group Name</label>
         <textarea
           v-model="GenCaps.groupname"
@@ -100,7 +116,7 @@
           </select>
         </div>
       </div> -->
-      <div class="col">
+      <div class="col-3">
         <label for="lastname" class="form-label">Project Status</label>
         <div class="input-group mb-3">
           <select
@@ -116,7 +132,7 @@
         </div>
       </div>
 
-      <div class="col">
+      <div class="col-3">
         <label for="lastname" class="form-label">Choose Year</label>
         <div class="input-group mb-3">
           <select
@@ -133,16 +149,80 @@
         </div>
       </div>
       <div class="col">
-        <label for="date" class="form-label">Date Project Started</label>
-        <input type="date" class="col-12 inputColor" v-model="GenCaps.start_date" />
+        <label for="date" class="form-label">Capstone From:</label>
+        <!-- <input type="date" class="col-12 inputColor" v-model="GenCaps.start_date" /> -->
+        <Datepicker v-model="year.fromYear" yearPicker />
       </div>
+      <div class="col">
+        <label for="date" class="form-label">Capstone To:</label>
+        <!-- <input type="date" class="col-12 inputColor" v-model="GenCaps.start_date" /> -->
+        <Datepicker v-model="year.toYear" yearPicker />
+        <!-- <input type="text" v-model="fromYear" /> -->
+        <!-- <p>{{ year.toYear }}</p>
+        <p>{{ year.fromYear }}</p> -->
+      </div>
+    </div>
+    <span>Select height is limited to 8 options.</span>
+
+    <div class="select-wrapper form-column form-column-field">
+      <select
+        data-no-search=""
+        data-placeholder="Выбрать год"
+        class="select select-no-search"
+      >
+        <option disabled="disabled">
+          <font style="vertical-align: inherit">-Select Year</font>
+        </option>
+        <option value="1922">
+          <font style="vertical-align: inherit">1922</font>
+        </option>
+        <option value="1923">
+          <font style="vertical-align: inherit">1923</font>
+        </option>
+        <option value="1922">
+          <font style="vertical-align: inherit">1924</font>
+        </option>
+        <option value="1923">
+          <font style="vertical-align: inherit">1925</font>
+        </option>
+        <option value="1922">
+          <font style="vertical-align: inherit">1926</font>
+        </option>
+        <option value="1923">
+          <font style="vertical-align: inherit">1927</font>
+        </option>
+        <option value="1922">
+          <font style="vertical-align: inherit">1928</font>
+        </option>
+        <option value="1923">
+          <font style="vertical-align: inherit">1929</font>
+        </option>
+        <option value="1922">
+          <font style="vertical-align: inherit">1930</font>
+        </option>
+        <option value="1923">
+          <font style="vertical-align: inherit">1931</font>
+        </option>
+        <option value="1922">
+          <font style="vertical-align: inherit">1932</font>
+        </option>
+        <option value="1923">
+          <font style="vertical-align: inherit">1933</font>
+        </option>
+      </select>
     </div>
 
     <div class="row">
       <div class="col">
         <label for="panel1" class="form-label">Panel 1</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.panels1">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=3;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.panels1"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -249,7 +329,11 @@
       <div class="col">
         <label for="coAdviser" class="form-label">Co-Adviser</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.coAdviser">
+          <select
+            class="form-control inputColor"
+            style="max-height: 100px"
+            v-model="GenCaps.coAdviser"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -286,21 +370,33 @@
 import axios from "axios";
 import { onMounted, ref, reactive, watch } from "vue";
 import router from "../../routers/administratorRouter";
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 
 let secretarys = ref({});
-const tryc = () => {
-  toast.fire({
-    icon: "success",
-    title: "textcontent",
-  });
-};
+
+// let year;
+// const fromYear = ref(new Date().getFullYear());
+// const toYear = ref(new Date().getFullYear());
+// let fromYear = ref(new Date().getFullYear());
+
+const year = ref({
+  toYear: ref(new Date().getFullYear()),
+  fromYear: ref(new Date().getFullYear()),
+});
 
 let students = ref({
   name: "",
   mname: "",
   lname: "",
 });
-
+// let schoolYear = year.value.fromYear + "-" + year.value.toYear;
+// const tryy = () => {
+//   toast.fire({
+//     icon: "success",
+//     title: schoolYear,
+//   });
+// };
 let caps = ref({
   ocr: "",
 });
@@ -374,13 +470,15 @@ const saveCaps = () => {
       title: "Invalid, Please fill on groupname field",
       // title: GenCaps.value.panels1,
     });
-  } else if (GenCaps.value.start_date == null || GenCaps.value.start_date == 0) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, Please fill on start_date field",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (GenCaps.value.students2 == null || GenCaps.value.students2 == 0) {
+  }
+  // else if (GenCaps.value.start_date == null || GenCaps.value.start_date == 0) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, Please fill on start_date field",
+
+  //   });
+  // }
+  else if (GenCaps.value.students2 == null || GenCaps.value.students2 == 0) {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill on Proponet 2 field, choose temporary if NONE",
@@ -435,6 +533,173 @@ const saveCaps = () => {
       title: "Invalid, Please fill on secretarys field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
+  } else if (GenCaps.value.students1 == GenCaps.value.students2) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field students1 and students2",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.students1 == GenCaps.value.students3) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field students1 and students3",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.students1 == GenCaps.value.students4) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field students1 and students4",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.students2 == GenCaps.value.students3) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field students2 and students3",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.students2 == GenCaps.value.students4) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field students2 and students4",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.students3 == GenCaps.value.students4) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field students3 and students4",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels1 == GenCaps.value.panels2) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels1 and panels2",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels1 == GenCaps.value.panels3) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels1 and panels3",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels1 == GenCaps.value.adviser) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels1 and adviser",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels1 == GenCaps.value.coAdviser) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels1 and coAdviser",
+      // title: GenCaps.value.panels1,
+    });
+  }
+  // else if (GenCaps.value.panels1 == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels1 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.panels1 == GenCaps.value.secretarys) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels1 and secretarys",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels2 == GenCaps.value.panels3) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels2 and panels3",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels2 == GenCaps.value.adviser) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels2 and adviser",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels2 == GenCaps.value.coAdviser) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels2 and coAdviser",
+      // title: GenCaps.value.panels1,
+    });
+  }
+  // else if (GenCaps.value.panels2 == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels2 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels2 and secretarys",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels3 == GenCaps.value.adviser) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels3 and adviser",
+      // title: GenCaps.value.panels1,
+    });
+  } else if (GenCaps.value.panels3 == GenCaps.value.coAdviser) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels3 and coAdviser",
+      // title: GenCaps.value.panels1,
+    });
+  }
+  //  else if (GenCaps.value.panels3 == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels3 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field panels3 and secretarys",
+      // title: GenCaps.value.panels1,
+    });
+  }
+  // else if (GenCaps.value.adviser == GenCaps.value.coAdviser) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field adviser and coAdviser",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  // else if (GenCaps.value.adviser == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field adviser and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field adviser and secretarys",
+      // title: GenCaps.value.panels1,
+    });
+  }
+  //  else if (GenCaps.value.coAdviser == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field coAdviser and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
+    toast.fire({
+      icon: "warning",
+      title: "Invalid, duplicate role for field coAdviser and secretarys",
+      // title: GenCaps.value.panels1,
+    });
   } else {
     axios.get("/api/get_capstonee1").then((response) => {
       caps.value = response.data.capstone11111;
@@ -464,15 +729,16 @@ const saveCaps = () => {
     formData.append("adviser", GenCaps.value.adviser);
     formData.append("coAdviser", GenCaps.value.coAdviser);
 
-    formData.append("instructor", GenCaps.value.instructor);
+    formData.append("instructor", year.value.fromYear + " - " + year.value.toYear);
 
     formData.append("secretarys", GenCaps.value.secretarys);
     formData.append("xf1", GenCaps.value.xf1);
     formData.append("xf2", GenCaps.value.xf2);
-    formData.append("start_date", GenCaps.value.start_date);
+    // formData.append("c", "vdvdv");
+    // formData.append("sy", year.value.fromYear + "-" + year.value.toYear);
 
     axios
-      .post("/api/add_capstone", formData)
+      .post("/api/add_capstone_project", formData)
       .then((response) => {
         const removeData = new FormData();
         removeData.append("texttext", ".");
@@ -492,11 +758,11 @@ const saveCaps = () => {
               (GenCaps.value.panels3 = ""),
               (GenCaps.value.adviser = ""),
               (GenCaps.value.coAdviser = ""),
-              (GenCaps.value.instructor = ""),
+              // (GenCaps.value.instructor = ""),
               (GenCaps.value.secretarys = ""),
               (GenCaps.value.xf1 = ""),
               (GenCaps.value.xf2 = ""),
-              (GenCaps.value.start_date = ""),
+              // (GenCaps.value.start_date = ""),
               router.push("/capslist");
 
             toast.fire({
@@ -517,11 +783,11 @@ const saveCaps = () => {
           (GenCaps.value.panels3 = ""),
           (GenCaps.value.adviser = ""),
           (GenCaps.value.coAdviser = ""),
-          (GenCaps.value.instructor = ""),
+          // (GenCaps.value.instructor = ""),
           (GenCaps.value.secretarys = ""),
           (GenCaps.value.xf1 = ""),
           (GenCaps.value.xf2 = ""),
-          (GenCaps.value.start_date = ""),
+          // (GenCaps.value.start_date = ""),
           router.push("/capslist");
 
         // toast.fire({
@@ -594,6 +860,10 @@ const getInstructor = async () => {
 hr {
   border: 1px solid #0062ff;
 }
+.dropdown-menu {
+  max-height: 250px;
+  overflow: auto;
+}
 .toTop {
   margin-top: -5px;
 }
@@ -618,6 +888,14 @@ hr {
 .inputColor {
   border: 1px solid #0062ff;
   border-radius: 4px;
+}
+.titleText {
+  font-size: 16;
+  font-weight: bolder;
+}
+.navbar-nav .dropdown-menu {
+  overflow: auto;
+  height: 100px;
 }
 </style>
 

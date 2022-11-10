@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="boxProfile text-center mx-auto d-block contentOfThePage">
+    <div class="boxProfile text-center mx-auto d-block contentOfThePage p-2">
       <h1 class="fontE">NO PROJECT FOUND</h1>
 
       <router-link class="nav_link" to="/project">

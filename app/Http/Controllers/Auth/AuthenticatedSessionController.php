@@ -38,7 +38,32 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::DASH);
+
+
+        if(Auth::user()->hasRole('student')){
+            // return view('studentDashboard');
+            // return redirect(RouteServiceProvider::HOME);
+            return redirect()->intended(RouteServiceProvider::HOME);
+  
+        }
+        elseif(Auth::user()->hasRole('archiver')){
+            // return view('archiverDashboard');
+            // return redirect(RouteServiceProvider::HOME);
+            return redirect()->intended(RouteServiceProvider::HOME);
+  
+        }elseif(Auth::user()->hasRole('faculty')){
+            
+            // return view('facultyDashboard');
+            // return redirect(RouteServiceProvider::DASH);
+            return redirect()->intended(RouteServiceProvider::DASH);
+  
+        }elseif(Auth::user()->hasRole('administrator')){
+            // return view('administratorDashboard');
+            // return redirect(RouteServiceProvider::DASH);
+            return redirect()->intended(RouteServiceProvider::DASH);
+  
+        }
     }
  
 

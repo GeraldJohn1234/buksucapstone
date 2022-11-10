@@ -9,7 +9,9 @@
         <p class="toTopp">Title</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <div class="contentOfThePage">
+        <p class="parag m-2">{{ GenCapData.abstract }}</p>
+      </div>
       <!-- <div class="form-floating col">
         <textarea
           class="form-control inputColor"
@@ -359,7 +361,7 @@
       </div>
       <div class="" id="titleSize">
         <h5 class="pt-2 text-uppercase fw-bold">
-          {{ GenCadocu123.xf2 }}: {{ parseFloat(GenCadocu123.xf1).toFixed(2) }} %
+          {{ GenCadocu123.xf2 }}, {{ parseFloat(GenCadocu123.xf1).toFixed(2) }} %
         </h5>
         <hr class="toTop" />
         <p class="toTopp">Rating status</p>
@@ -646,10 +648,11 @@ const ssAccept = () => {
 const rateddd = async () => {
   let idd = getIDfromURL();
   let response = await axios.get("/api/panel_rate_check/" + idd);
-  console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
-  rated.value = response.data.userCaps;
-  console.warn("TYTRTYTRYTRYTRY", rated.value.id);
-  if (rated.value.id == 1) {
+  console.warn("XFFFFFFFFF22222222", GenCadocu123.value.xf2);
+  // rated.value = response.data.userCaps;
+  let idss = response.data;
+  console.warn("IDDDDDDDDDD", idss);
+  if (idss == 1) {
     axios
       .post("/api/create_rate/" + idd)
       .then((response) => {

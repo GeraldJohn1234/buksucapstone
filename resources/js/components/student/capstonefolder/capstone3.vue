@@ -9,7 +9,9 @@
         <p class="toTopp">TITLE</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <div class="contentOfThePage">
+        <p class="parag m-2">{{ GenCapData.abstract }}</p>
+      </div>
       <br />
 
       <div class="row px-2">

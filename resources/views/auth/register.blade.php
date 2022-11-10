@@ -24,7 +24,7 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
             <div>
-                <x-label for="mname" :value="__('Middle Name')" />
+                <x-label for="mname" :value="__('Middle Initial')" />
 
                 <x-input id="mname" class="block mt-1 w-full" type="text" name="mname" :value="old('mname')" required autofocus />
             </div>
@@ -69,7 +69,7 @@
                 <x-label for="role_id" value="{{ _('Register as:') }}"/>
                 <select name="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" id="">
                     <option value="student">Student</option>
-                    <option value="archiver">Archiver</option>
+                    {{-- <option value="archiver">Archiver</option> --}}
                     <option value="faculty">Faculty</option>
                 </select>
 

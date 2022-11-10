@@ -152,7 +152,7 @@
               <option value="administrator">ADMINISTRATOR</option>
               <option value="faculty">FACULTY</option>
               <option value="student">STUDENT</option>
-              <option value="archiver">ARCHIVER</option>
+              <!-- <option value="archiver">ARCHIVER</option> -->
             </select>
           </div>
         </div>

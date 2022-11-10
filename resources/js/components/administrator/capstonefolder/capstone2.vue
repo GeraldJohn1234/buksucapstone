@@ -9,7 +9,9 @@
         <p class="toTopp boldThese">TITLE</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <div class="contentOfThePage">
+        <p class="parag m-2">{{ GenCapData.abstract }}</p>
+      </div>
       <br />
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
@@ -263,7 +265,7 @@
 
       <div class="" id="titleSize">
         <p class="pt-2 text-uppercase boldThese">
-          {{ GenCadocu123.xf2 }}: {{ parseFloat(GenCadocu123.xf1).toFixed(2) }} %
+          {{ GenCadocu123.xf2 }}, {{ parseFloat(GenCadocu123.xf1).toFixed(2) }} %
         </p>
         <hr class="toTop" />
         <p class="toTopp">RATING STATUS</p>
@@ -510,15 +512,17 @@ const ssAccept = () => {
 const rateddd = async () => {
   let idd = getIDfromURL();
   let response = await axios.get("/api/panel_rate_check/" + idd);
-  rated.value = response.data.userCaps;
-  if (rated.value.id == 1) {
-    // router.push("/rate2/" + idd);
-
+  console.warn("XFFFFFFFFF22222222", GenCadocu123.value.xf2);
+  // rated.value = response.data.userCaps;
+  let idss = response.data;
+  console.warn("IDDDDDDDDDD", idss);
+  if (idss == 1) {
     axios
       .post("/api/create_rate/" + idd)
       .then((response) => {
-        router.push("/rate2/" + idd);
+        router.push("/rate/" + idd);
       })
+      // router.push("/rate/" + idd);
 
       .catch(function (error) {
         console.log(error.response.data.errors);

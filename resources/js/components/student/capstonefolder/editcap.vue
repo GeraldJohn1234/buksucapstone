@@ -1,5 +1,90 @@
 <template>
-  <div class="contentOfThePage p-2">
+  <!-- class="modal bg-success contentOfThePage" -->
+  <div v-if="modall.open" class="modalist contentOfThePage bg-light p-5">
+    <button class="btn btn-danger float" @click="modall.open = false">X</button>
+    <br />
+    <h4 class="text-center text-uppercase fw-bold">Information Sharing Consent</h4>
+    <br />
+    <p class="parag">
+      <span class="">We</span> the group
+      <span class="text-uppercase fw-bold">{{ GenCapData.groupname }}</span> Proponents of
+      <span class="text-uppercase fw-bold">{{ GenCapData.title }}</span> hereby give our
+      permission for (Information Technology Department) to share our study including
+      accessing the manuscript We understand that (Information Technology Department) may
+      hold information gathered about our study and our rights under the Data Protection
+      Act will not be affected.
+    </p>
+    <p>
+      <span class="leftSpacess">&nbsp;We</span> understand that (Information Technology
+      Department) may hold information gathered about our study and our rights under the
+      Data Protection Act will not be affected.
+    </p>
+    <br />
+    <h5 class="fw-bold">Statement of Consent:</h5>
+    <p class="">
+      <span class="fw-bold">• </span> <span class="leftSpaces"> We</span> understand that
+      our capstone study information well be shared.
+    </p>
+    <p class="">
+      <span class="fw-bold">• </span> <span class="leftSpaces"> We</span> have had the
+      opportunity to discuss the implications of sharing or not sharing information about
+      the study.
+    </p>
+    <hr />
+    <!-- <br /> -->
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        id="flexRadioDefault1"
+        value="AGREE"
+        v-model="GenCapData.name"
+      />
+      <label class="form-check-label fw-bold" for="flexRadioDefault1">
+        <span class="leftSpacess">We</span> agree to our study being shared and gathered
+        to IT Department.
+      </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        id="flexRadioDefault2"
+        value="NOT_AGREE"
+        v-model="GenCapData.name"
+      />
+      <label class="form-check-label fw-bold pt-1" for="flexRadioDefault2">
+        <span class="leftSpacess">We</span> cannot agree.
+      </label>
+    </div>
+    <br />
+    <p>
+      <span class="fw-bold"
+        >Your consent to share your study information is entirely voluntary and you may
+        withdraw your consent at any time.</span
+      >
+      If you wish to withdraw your consent, please re submit and change your choice.
+    </p>
+    <br />
+    <button
+      v-if="GenCapData.name === '' || GenCapData.name === null"
+      class="btnSize btn btn-primary fw-bold"
+      disabled
+    >
+      SUBMIT
+    </button>
+    <button v-else class="btnSize btn btn-primary fw-bold" @click="saveCapstone()">
+      SUBMIT
+    </button>
+    <!-- <button @click="modall.open = false">Close</button> -->
+    <!-- <button class="btn btn-primary" @click="modall.open = false">X</button> -->
+
+    <br />
+  </div>
+
+  <div class="contentOfThePage" :class="modall">
     <h5 class="text-left boldThese">Title</h5>
     <div class="form-floating col">
       <textarea
@@ -55,8 +140,23 @@
           </select>
         </div>
       </div> -->
+      <div class="col-3">
+        <label for="lastname" class="form-label">Project Status</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select inputColor"
+            id="inputGroupSelect01"
+            v-model="GenCapData.xf2"
+          >
+            <option selected disabled>Choose...</option>
+            <option value="UNDER DEVELOPMENT">UNDER DEVELOPMENT</option>
+            <option value="DEPLOYED">DEPLOYED</option>
+            <option value="UNIMPLEMENTED">UNIMPLEMENTED</option>
+          </select>
+        </div>
+      </div>
 
-      <div class="col">
+      <div class="col-3">
         <label for="lastname" class="form-label">Choose Year</label>
         <div class="input-group mb-3">
           <select
@@ -64,7 +164,6 @@
             v-model="GenCapData.xf1"
             id="inputGroupSelect01"
           >
-            <option selected>Choose...</option>
             <option selected disabled>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
@@ -75,7 +174,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <label for="adviser" class="form-label">Adviser</label>
         <label for="" class="float-end colorText"
           >{{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}</label
@@ -89,7 +188,7 @@
           </select>
         </div>
       </div>
-      <div class="col">
+      <div class="col-3">
         <label for="coAdviser" class="form-label">Co-Adviser</label>
         <label for="" class="float-end colorText"
           >{{ coAdviser.name }} {{ coAdviser.mname }} {{ coAdviser.lname }}</label
@@ -103,7 +202,30 @@
           </select>
         </div>
       </div>
+
+      <div class="form-group col-3">
+        <label for="exampleFormControlTextarea1" id="">Client full name</label>
+        <textarea
+          v-model="GenCapData.xf4"
+          class="form-control pbn inputColor"
+          id="exampleFormControlTextarea1"
+          rows="1"
+          placeholder="Input Client full name"
+          required
+        ></textarea>
+      </div>
+      <div class="col-3">
+        <label for="coAdviser" class="form-label"
+          >Upload final Manuscript (pdf only!)</label
+        >
+        <!-- <input type="file" id="" /> -->
+        <div class="input-group mb-3 col-12 border border-primary">
+          <input type="file" id="" accept=".pdf" class="" @change="onChange" />
+          <!-- @change="updatePhoto" -->
+        </div>
+      </div>
     </div>
+
     <div class="row">
       <div class="col">
         <label for="panel1" class="form-label">Panel 1</label>
@@ -297,30 +419,47 @@
 
     <div class="row">
       <div class="col">
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="saveCapstone()">
+        <button
+          type="submit"
+          class="m-1 btnSize btn btn-primary"
+          @click="modall.open = true"
+        >
           Save
         </button>
+        <!-- <button class="btnSize btn btn-primary" >
+          Open Modal
+        </button> -->
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import router from "../../../routers/studentRouter";
+import router from "../../../routers/administratorRouter";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
 let students = ref({});
 let panels = ref({});
 let advisers = ref({});
-// let instructors = ref({});
+let instructors = ref({});
 let secretarys = ref({});
+
+// let modall = false;
+let modall = ref({
+  open: false,
+});
 
 let GenCapData = ref({
   title: "",
   abstract: "",
   groupname: "",
   xf1: "",
+  xf2: "",
+  xf4: "",
+  xf5: null,
+  file: null,
+  name: "",
 });
 let student1 = ref({
   name: "",
@@ -367,34 +506,34 @@ let coAdviser = ref({
   mname: "",
   lname: "",
 });
-// let instructor = ref({
-//   name: "",
-//   mname: "",
-//   lname: "",
-// });
+let instructor = ref({
+  name: "",
+  mname: "",
+  lname: "",
+});
 let secretary = ref({
   name: "",
   mname: "",
   lname: "",
 });
-// let caps1Instructor = ref({
-//   instructor: "",
-// });
+let caps1Instructor = ref({
+  instructor: "",
+});
 
 let GenCaps = ref({
   // title: "",
   // abstract: "",
   // groupname: "",
-  students1: "",
-  students2: "",
-  students3: "",
-  students4: "",
-  panels1: "",
-  panels2: "",
-  panels3: "",
-  adviser: "",
-  coAdviser: "",
-  secretarys: "",
+  students1: null,
+  students2: null,
+  students3: null,
+  students4: null,
+  panels1: null,
+  panels2: null,
+  panels3: null,
+  adviser: null,
+  coAdviser: null,
+  secretarys: null,
 });
 
 onMounted(async () => {
@@ -408,14 +547,28 @@ onMounted(async () => {
   getsingleUser6();
   getsingleUser7();
   getsingleUser8();
-  // getsingleUser9();
+  getsingleUser9();
   getsingleUser10();
   getSecretary();
   getStudent();
   getPanel();
   getAdviser();
-  // getInstructor();
+  getInstructor();
 });
+const onChange = (e) => {
+  // let file = e.target.files[0];
+  // let reader = new FileReader();
+  // let limit = 1024 * 1024 * 20;
+  // if (file["size"] > limit) {
+  //   return false;
+  // }
+  console.log("Selected FILE: ", e.target.files[0]);
+  // reader.onloadend = (file) => {
+  // GenCapData.value.file = reader.result;
+  GenCapData.value.file = e.target.files[0];
+  // };
+  // reader.readAsDataURL(file);
+};
 
 const gettIdfromURL = () => {
   return window.location.pathname.split("/")[2];
@@ -431,79 +584,99 @@ const onOCR = (id) => {
   router.push("/ocrpages/" + capstoneid);
 };
 const saveCapstone = () => {
-  let capstoneid = gettIdfromURL();
-  // if (
-  //   false
-  // GenCaps.value.students1 == GenCaps.value.students2 ||
-  // GenCaps.value.students1 == GenCaps.value.students3 ||
-  // GenCaps.value.students1 == GenCaps.value.students4 ||
-  // GenCaps.value.panels1 == GenCaps.value.panels2 ||
-  // GenCaps.value.panels1 == GenCaps.value.panels3 ||
-  // GenCaps.value.panels1 == GenCaps.value.adviser ||
-  // GenCaps.value.panels1 == GenCaps.value.coAdviser ||
-  // GenCaps.value.panels1 == GenCaps.value.instructor ||
-  // GenCaps.value.panels1 == GenCaps.value.secretarys ||
-  // GenCaps.value.panels2 == GenCaps.value.panels3 ||
-  // GenCaps.value.panels2 == GenCaps.value.adviser ||
-  // GenCaps.value.panels2 == GenCaps.value.coAdviser ||
-  // GenCaps.value.panels2 == GenCaps.value.instructor ||
-  // GenCaps.value.panels2 == GenCaps.value.secretarys ||
-  // GenCaps.value.panels3 == GenCaps.value.adviser ||
-  // GenCaps.value.panels3 == GenCaps.value.coAdviser ||
-  // GenCaps.value.panels3 == GenCaps.value.instructor ||
-  // GenCaps.value.panels3 == GenCaps.value.secretarys ||
-  // GenCaps.value.adviser == GenCaps.value.coAdviser ||
-  // GenCaps.value.adviser == GenCaps.value.instructor ||
-  // GenCaps.value.adviser == GenCaps.value.secretarys ||
-  // GenCaps.value.coAdviser == GenCaps.value.instructor ||
-  // GenCaps.value.coAdviser == GenCaps.value.secretarys ||
-  // GenCaps.value.instructor == GenCaps.value.secretarys
-  // ) {
+  // if(GenCapData.value.name==""||GenCapData.value.name==null){
   //   toast.fire({
   //     icon: "warning",
-  //     title: "Invalid, You have Entered duplicate role",
-  //     // title: GenCaps.value.panels1,
+  //     title: "Please ",
   //   });
-  // } else {
+  // }
+  let capstoneid = gettIdfromURL();
+  // if (GenCapData.value.file != null) {
   const formData = new FormData();
   formData.append("title", GenCapData.value.title);
   formData.append("abstract", GenCapData.value.abstract);
   formData.append("groupname", GenCapData.value.groupname);
   formData.append("xf1", GenCapData.value.xf1);
+  formData.append("xf2", GenCapData.value.xf2);
+  formData.append("xf4", GenCapData.value.xf4);
+  if (GenCapData.value.file != null) {
+    formData.append("file", GenCapData.value.file);
+  }
+  if (GenCaps.value.students1 != null) {
+    formData.append("students1", GenCaps.value.students1);
+  } else {
+    formData.append("students1", 10000000);
+  }
+  if (GenCaps.value.students2 != null) {
+    formData.append("students2", GenCaps.value.students2);
+  } else {
+    formData.append("students2", 10000000);
+  }
+  if (GenCaps.value.students3 != null) {
+    formData.append("students3", GenCaps.value.students3);
+  } else {
+    formData.append("students3", 10000000);
+  }
+  if (GenCaps.value.students4 != null) {
+    formData.append("students4", GenCaps.value.students4);
+  } else {
+    formData.append("students4", 10000000);
+  }
 
-  formData.append("students1", GenCaps.value.students1);
-  formData.append("students2", GenCaps.value.students2);
-  formData.append("students3", GenCaps.value.students3);
-  formData.append("students4", GenCaps.value.students4);
+  if (GenCaps.value.panels1 != null) {
+    formData.append("panels1", GenCaps.value.panels1);
+  } else {
+    formData.append("panels1", 10000000);
+  }
+  if (GenCaps.value.panels2 != null) {
+    formData.append("panels2", GenCaps.value.panels2);
+  } else {
+    formData.append("panels2", 10000000);
+  }
+  if (GenCaps.value.panels3 != null) {
+    formData.append("panels3", GenCaps.value.panels3);
+  } else {
+    formData.append("panels3", 10000000);
+  }
 
-  formData.append("panels1", GenCaps.value.panels1);
-  formData.append("panels2", GenCaps.value.panels2);
-  formData.append("panels3", GenCaps.value.panels3);
+  if (GenCaps.value.adviser != null) {
+    formData.append("adviser", GenCaps.value.adviser);
+  } else {
+    formData.append("adviser", 10000000);
+  }
+  if (GenCaps.value.coAdviser != null) {
+    formData.append("coAdviser", GenCaps.value.coAdviser);
+  } else {
+    formData.append("coAdviser", 10000000);
+  }
+  if (GenCaps.value.secretarys != null) {
+    formData.append("secretarys", GenCaps.value.secretarys);
+  } else {
+    formData.append("secretarys", 10000000);
+  }
 
-  formData.append("adviser", GenCaps.value.adviser);
-  formData.append("coAdviser", GenCaps.value.coAdviser);
-  // formData.append("instructor", GenCaps.value.instructor);
-  formData.append("secretarys", GenCaps.value.secretarys);
-
+  formData.append("name", GenCapData.value.name);
   axios
     .post("/api/update_capstone/" + capstoneid, formData)
     .then((response) => {
-      // caps2Inst();
-      (GenCapData.value.title = ""),
-        (GenCapData.value.abstract = ""),
-        (GenCapData.value.groupname = ""),
-        (GenCapData.value.xf1 = ""),
-        (GenCaps.value.students1 = ""),
-        (GenCaps.value.students2 = ""),
-        (GenCaps.value.students3 = ""),
-        (GenCaps.value.students4 = ""),
-        (GenCaps.value.panels1 = ""),
-        (GenCaps.value.panels2 = ""),
-        (GenCaps.value.panels3 = ""),
-        (GenCaps.value.adviser = ""),
-        (GenCaps.value.coAdviser = ""),
-        // (GenCaps.value.instructor = ""),
-        (GenCaps.value.secretarys = ""),
+      (GenCapData.value.title = null),
+        (GenCapData.value.abstract = null),
+        (GenCapData.value.groupname = null),
+        (GenCapData.value.xf1 = null),
+        (GenCapData.value.xf2 = null),
+        (GenCapData.value.file = null),
+        (GenCapData.value.name = null),
+        (GenCaps.value.students1 = null),
+        (GenCaps.value.students2 = null),
+        (GenCaps.value.students3 = null),
+        (GenCaps.value.students4 = null),
+        (GenCaps.value.panels1 = null),
+        (GenCaps.value.panels2 = null),
+        (GenCaps.value.panels3 = null),
+        (GenCaps.value.adviser = null),
+        (GenCaps.value.coAdviser = null),
+        (GenCaps.value.secretarys = null),
+        // (GenCaps.value.secretarys = null),
         router.push("/capslist");
 
       toast.fire({
@@ -511,7 +684,7 @@ const saveCapstone = () => {
         title: "User Add Successfully",
       });
     })
-    // .catch((error = {}));
+
     .catch(function (error) {
       console.log(error.response.data.errors);
       console.log("ERRRR:: ", error.response.data);
@@ -520,11 +693,7 @@ const saveCapstone = () => {
         icon: "warning",
         title: "Please fill all field, CHOOSE TEMPORARY IF NONE",
       });
-      // (error = {}));
-      // console.log("ERRRR:: ",error.response.data);
     });
-  // console.log("ERRRR:: ",error.response.data);
-  // }
 };
 
 const getsingleUser = async () => {
@@ -574,10 +743,10 @@ const getsingleUser8 = async () => {
   let response = await axios.get("/api/get_capstone_coAdviser/" + props.id);
   coAdviser.value = response.data.userCaps;
 };
-// const getsingleUser9 = async () => {
-//   let response = await axios.get("/api/get_capstone_instructor/" + props.id);
-//   instructor.value = response.data.userCaps;
-// };
+const getsingleUser9 = async () => {
+  let response = await axios.get("/api/get_capstone_instructor/" + props.id);
+  instructor.value = response.data.userCaps;
+};
 const getsingleUser10 = async () => {
   let response = await axios.get("/api/get_capstone_secretarys/" + props.id);
   secretary.value = response.data.userCaps;
@@ -603,10 +772,10 @@ const getAdviser = async () => {
   advisers.value = response.data.advisers;
 };
 
-// const getInstructor = async () => {
-//   let response = await axios.get("/api/get_all_instructor_user");
-//   instructors.value = response.data.instructors;
-// };
+const getInstructor = async () => {
+  let response = await axios.get("/api/get_all_instructor_user");
+  instructors.value = response.data.instructors;
+};
 
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
@@ -767,7 +936,50 @@ const onView3 = () => {
 .colorText {
   color: #9ba7ff;
 }
+.leftSpace {
+  margin-left: 50px;
+}
+.leftSpacess {
+  margin-left: 25px;
+}
+.leftSpaces {
+  margin-left: 37px;
+}
+.modalist {
+  width: 50%;
+  z-index: 999;
+
+  position: fixed;
+  top: 45%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+.float {
+  float: right !important;
+}
+.open {
+  opacity: 0.5;
+  z-index: 998;
+}
+.parag {
+  margin: 0;
+  text-indent: 2rem;
+  text-align: justify;
+}
 </style>
+<!-- text-align: center;
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+
+  width: 50%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 50%;
+
+  padding: 10px; -->
 
 <!-- <template>
   <h5 class="projHead">CREATE PROJECT</h5>

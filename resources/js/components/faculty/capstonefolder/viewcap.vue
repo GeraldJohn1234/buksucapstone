@@ -7,12 +7,49 @@
       <hr class="toTop" />
       <p class="toTopp boldThese">TITLE</p>
     </div>
+
+    <!-- <div class="form-floating col">
+      <textarea
+        class="form-control inputColor"
+        placeholder="Leave a comment here"
+        id="floatingTextarea2"
+        style="height: 250px"
+        v-model="GenCapData.abstract"
+      ></textarea>
+      <label class="ps-4" for="floatingTextarea2">Abstract</label>
+      <br />
+    </div> -->
+    <!-- <P class="text-left boldThese">INFORMATION</P> -->
     <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
 
-    <p class="contentOfThePage bg-light p-2 text-justify">
-      {{ GenCapData.abstract }}
-    </p>
-    <!-- <P class="text-left boldThese">INFORMATION</P> -->
+    <div class="contentOfThePage bg-light p-2">
+      <p class="parag m-3">{{ GenCapData.abstract }}</p>
+      <hr />
+
+      <!-- <a href="#" @click.prevent="getFileeee()">tryyyyyyyyyyyyyyyyy</a> -->
+      <!-- <a href="#" @click.prevent="getFileeee()">fsff</a> -->
+
+      <div v-if="GenCapData.name === 'AGREE'" class="row text-center px-2">
+        <button
+          type="button"
+          href="#"
+          class="btn btn-primary col fw-bold"
+          @click.prevent="getFileeee()"
+        >
+          OPEN MANUSCRIPT
+        </button>
+      </div>
+      <div v-else class="row text-center px-2">
+        <button
+          type="button"
+          class="btn btn-warning col fw-bold border border-dark"
+          @click="warning()"
+        >
+          OPEN MANUSCRIPT
+        </button>
+      </div>
+    </div>
+
     <br />
     <div class="row">
       <div class="form-floating mb-3 col">
@@ -44,10 +81,10 @@
         <label class="ps-4" for="floatingInput">Instructor</label> -->
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercase">
-            {{ GenCapData.start_date }}
+            {{ GenCapData.xf3 }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Date Started</p>
+          <p class="toTopp boldThese">School Year</p>
         </div>
       </div>
     </div>
@@ -85,6 +122,24 @@
         
         />
         <label class="ps-4" for="floatingInput">Co-Adviser</label> -->
+      </div>
+      <div class="form-floating mb-3 col">
+        <div class="" id="titleSize">
+          <p class="pt-2 text-uppercase">
+            {{ GenCapData.xf4 }}
+          </p>
+          <hr class="toTop" />
+          <p class="toTopp boldThese">Client</p>
+        </div>
+      </div>
+      <div class="form-floating mb-3 col">
+        <div class="" id="titleSize">
+          <p class="pt-2 text-uppercase">
+            {{ GenCapData.xf2 }}
+          </p>
+          <hr class="toTop" />
+          <p class="toTopp boldThese">Status</p>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -292,12 +347,32 @@
 import router from "../../../routers/facultyRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
+// import pdf from "vue-pdf";
+// components: {
+//   pdf;
+// }
+const getFileeee = () => {
+  // window.open("pdf/" + file, "_blank");
+  window.open("http://127.0.0.1:8000/pdf/" + GenCapData.value.xf5, "_blank");
+};
+let DocumentType = ref({
+  file: "",
+});
+// const getfiles = async () => {
+//   let response = await axios.get("/api/showpdf/");
+//   DocumentType.value.file = response.data.file;
+// };
 
 let GenCapData = ref({
   title: "",
   abstract: "",
   groupname: "",
   start_date: "",
+  xf2: "",
+  xf3: "",
+  xf4: "",
+  xf5: null,
+  name: "",
 });
 
 let student1 = ref({
@@ -359,6 +434,7 @@ let secretarys = ref({
 
 onMounted(async () => {
   getsingleUser();
+  // getfiles();
   getsingleUser1();
   getsingleUser2();
   getsingleUser3();
@@ -372,11 +448,22 @@ onMounted(async () => {
   getsingleUser10();
 });
 
+// const manuscript = () => {
+//   // window.open("https://http://127.0.0.1:8000/pdf/" + file, "_blank");
+//   window.open(
+//     "http ://127.0.0.1:8000/pdf/1667409656.HIPONIA-IT136-Final-Module1.pdf",
+//     "_blank"
+//   );
+//   //  showpdf
+//   // let response = axios.get("/api/showpdf");
+//   // GenCapData.value = response.data.capstones;
+// };
+
 const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + props.id);
   GenCapData.value = response.data.capstones;
 
-  // GenCaps.value = response.data.userCaps;
+  // GenCaps.value = response.data.userCaps;  1667371804.5. File Containing the Screenshot of the gcash payment to the panel.docx
   console.warn("Caps", GenCapData.value);
 };
 
@@ -456,6 +543,14 @@ const viewOcr = () => {
   let id = getIDfromURL();
   router.push("/ocrdocuments/" + id);
 };
+const warning = () => {
+  toast.fire({
+    icon: "warning",
+    title:
+      "The Group: " + GenCapData.value.groupname + " did not Agree to share their work!",
+  });
+};
+//
 </script>
 
 <style>

@@ -49,7 +49,7 @@ Route::get('/get_all_adviser_user', [UserController::class,'get_all_adviser_user
 Route::get('/get_all_instructor_user', [UserController::class,'get_all_instructor_user']);
 
 
-Route::post('/add_capstone', [CapstoneController::class,'add_capstone']); 
+Route::post('/add_capstone_project', [CapstoneController::class,'add_capstone_project']); 
 
 
 
@@ -185,9 +185,12 @@ Route::get('/get_all_capstone_instructo', [CapstoneController::class,'get_all_ca
 Route::post('/save_instructor', [CapstoneController::class,'save_instructor']);
 
 
+Route::get('/showpdf', [CapstoneController::class,'showpdf']);
+
+
 Route::get('/tryy/{id}', [Capstone2Controller::class,'tryy']);       
 Route::get('/testrate/{id}', [CapstoneController::class,'testrate']);
 
 
 Route::get('/getadvisee', [CapstoneController::class,'getadvisee']);
-// get_topic  get_capstone_topic take_topic    get_all_capstone_advisee get_all_capstone_panel  
+// get_topic  get_capstone_topic take_topic    get_all_capstone_advisee get_all_capstone_panel    showpdf

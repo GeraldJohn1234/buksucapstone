@@ -1,6 +1,6 @@
 <template>
-  <div class="contentOfThePage">
-    <h5 class="text-left boldThese">Title</h5>
+  <div class="contentOfThePage p-5">
+    <h5 class="text-left boldThese">Titleeeeeeeeeeeeeee</h5>
     <div class="form-floating col">
       <textarea
         v-model="GenCaps.title"
@@ -284,13 +284,15 @@ const saveCaps = () => {
       title: "Invalid, duplicate role for field panels1 and coAdviser",
       // title: GenCaps.value.panels1,
     });
-  } else if (GenCaps.value.panels1 == GenCaps.value.instructor) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels1 and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (GenCaps.value.panels1 == GenCaps.value.secretarys) {
+  }
+  // else if (GenCaps.value.panels1 == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels1 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.panels1 == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels1 and secretarys",
@@ -314,13 +316,15 @@ const saveCaps = () => {
       title: "Invalid, duplicate role for field panels2 and coAdviser",
       // title: GenCaps.value.panels1,
     });
-  } else if (GenCaps.value.panels2 == GenCaps.value.instructor) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels2 and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
+  }
+  // else if (GenCaps.value.panels2 == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels2 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels2 and secretarys",
@@ -338,13 +342,15 @@ const saveCaps = () => {
       title: "Invalid, duplicate role for field panels3 and coAdviser",
       // title: GenCaps.value.panels1,
     });
-  } else if (GenCaps.value.panels3 == GenCaps.value.instructor) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field panels3 and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
+  }
+  //  else if (GenCaps.value.panels3 == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field panels3 and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels3 and secretarys",
@@ -356,37 +362,43 @@ const saveCaps = () => {
       title: "Invalid, duplicate role for field adviser and coAdviser",
       // title: GenCaps.value.panels1,
     });
-  } else if (GenCaps.value.adviser == GenCaps.value.instructor) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field adviser and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
+  }
+  // else if (GenCaps.value.adviser == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field adviser and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field adviser and secretarys",
       // title: GenCaps.value.panels1,
     });
-  } else if (GenCaps.value.coAdviser == GenCaps.value.instructor) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field coAdviser and instructor",
-      // title: GenCaps.value.panels1,
-    });
-  } else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
+  }
+  //  else if (GenCaps.value.coAdviser == GenCaps.value.instructor) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field coAdviser and instructor",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field coAdviser and secretarys",
       // title: GenCaps.value.panels1,
     });
-  } else if (GenCaps.value.instructor == GenCaps.value.secretarys) {
-    toast.fire({
-      icon: "warning",
-      title: "Invalid, duplicate role for field instructor and secretarys",
-      // title: GenCaps.value.panels1,
-    });
-  } else {
+  }
+  // else if (GenCaps.value.instructor == GenCaps.value.secretarys) {
+  //   toast.fire({
+  //     icon: "warning",
+  //     title: "Invalid, duplicate role for field instructor and secretarys",
+  //     // title: GenCaps.value.panels1,
+  //   });
+  // }
+  else {
     const formData = new FormData();
     formData.append("title", GenCaps.value.title);
     formData.append("abstract", GenCaps.value.abstract);
@@ -404,7 +416,7 @@ const saveCaps = () => {
     formData.append("adviser", GenCaps.value.adviser);
     formData.append("coAdviser", GenCaps.value.coAdviser);
 
-    formData.append("instructor", GenCaps.value.instructor);
+    // formData.append("instructor", GenCaps.value.instructor);
 
     formData.append("secretarys", GenCaps.value.secretarys);
 
@@ -423,7 +435,7 @@ const saveCaps = () => {
           (GenCaps.value.panels3 = ""),
           (GenCaps.value.adviser = ""),
           (GenCaps.value.coAdviser = ""),
-          (GenCaps.value.instructor = ""),
+          // (GenCaps.value.instructor = ""),
           (GenCaps.value.secretarys = ""),
           router.push("/capslist");
 

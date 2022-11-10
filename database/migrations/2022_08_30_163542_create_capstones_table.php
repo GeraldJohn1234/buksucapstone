@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('xf3')->nullable(); 
             $table->string('xf4')->nullable(); 
             $table->string('xf5')->nullable(); 
+            $table->string('name')->nullable();
+            $table->string('path')->nullable();
             $table->timestamps();
 
 

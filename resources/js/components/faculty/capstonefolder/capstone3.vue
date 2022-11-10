@@ -9,7 +9,9 @@
         <p class="toTopp">TITLE</p>
       </div>
       <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
-      <div class="contentOfThePage">{{ GenCapData.abstract }}</div>
+      <div class="contentOfThePage">
+        <p class="parag m-2">{{ GenCapData.abstract }}</p>
+      </div>
       <br />
 
       <div class="row px-2">
@@ -261,7 +263,7 @@
 
       <div class="" id="titleSize">
         <p class="pt-2 text-uppercase boldThese">
-          {{ GenCadocu123.xf2 }}: {{ GenCadocu123.xf1 }} %
+          {{ GenCadocu123.xf2 }}, {{ GenCadocu123.xf1 }} %
         </p>
         <hr class="toTop" />
         <p class="toTopp">RATING STATUS</p>
@@ -531,13 +533,17 @@ const gitHub = () => {
 const rateddd = async () => {
   let idd = getIDfromURL();
   let response = await axios.get("/api/panel_rate_check/" + idd);
-  rated.value = response.data.userCaps;
-  if (rated.value.id == 1) {
+  console.warn("XFFFFFFFFF22222222", GenCadocu123.value.xf2);
+  // rated.value = response.data.userCaps;
+  let idss = response.data;
+  console.warn("IDDDDDDDDDD", idss);
+  if (idss == 1) {
     axios
       .post("/api/create_rate/" + idd)
       .then((response) => {
-        // router.push("/rate3/" + idd);
+        router.push("/rate/" + idd);
       })
+      // router.push("/rate/" + idd);
 
       .catch(function (error) {
         console.log(error.response.data.errors);

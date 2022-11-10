@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light">
+  <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
       <div class="forInline capsList">ADMINISTRATOR LIST</div>
 
@@ -108,23 +108,7 @@
       </tbody>
     </table>
     <!-- <div v-else></div> -->
-    <div class="">
-      <a href="#" class="previous">&laquo; Previous</a>
-      <a href="#" class="next">Next &raquo;</a>
-
-      <div class="float-end">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Row visible: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </div>
-      </div>
-    </div>
+    <hr class="topHi" />
   </div>
 </template>
 

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,7 +44,10 @@ class Capstone extends Model
         return [
             'groupname' => $this->groupname,
             'title' => $this->title,
-            'abstract' => $this->abstract
+            'abstract' => $this->abstract,
+            'xf3' => $this->xf3,
+            'xf2' => $this->xf2
+
         ];
     }
     // public $sortable = ['id', 'groupname', 'title', 'abstract','start_date','xf1','created_at', 'updated_at'];
@@ -51,8 +55,8 @@ class Capstone extends Model
     
 // Full texts
 // id	
-// groupname Descending 1	
-// title	
+// groupname Descending 1	  SCHOOL YEAR 
+// title	 
 // abstract
 
 
@@ -66,6 +70,11 @@ class Capstone extends Model
     public function capstone3(){
         return $this->hasOne(Capstone3::class,'capstone_id');
     }
-
+    // protected function name(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value) => url('/upload/'.$value),
+    //     );
+    // }
 
 }
