@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage">
+  <div class="contentOfThePage p-3">
     <h5 class="design">
       CAPSTONE 2 EVALUATION RUBRIC
       <hr />
@@ -46,49 +46,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="form-check-input pointerr"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="form-check-input pointerr"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="form-check-input pointerr"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="form-check-input pointerr"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -104,7 +104,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -113,9 +113,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -124,9 +124,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -135,9 +135,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -146,7 +146,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -175,7 +175,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -184,9 +184,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -195,9 +195,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -206,9 +206,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -217,7 +217,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -242,7 +242,7 @@
           <td>3</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -251,9 +251,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -262,9 +262,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -273,9 +273,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -284,7 +284,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -307,7 +307,7 @@
           <td>2</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -316,9 +316,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -327,9 +327,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -338,9 +338,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -349,7 +349,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -381,7 +381,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -390,9 +390,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -401,9 +401,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -412,9 +412,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -423,7 +423,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -452,7 +452,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -461,9 +461,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -472,9 +472,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -483,9 +483,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -494,7 +494,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -529,7 +529,7 @@
           <td>10</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -538,9 +538,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -549,9 +549,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -560,9 +560,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -571,7 +571,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -595,7 +595,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -604,9 +604,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -615,9 +615,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -626,9 +626,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -637,7 +637,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -657,7 +657,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -666,9 +666,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -677,9 +677,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -688,9 +688,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -699,7 +699,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -727,7 +727,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -736,9 +736,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -747,9 +747,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -758,9 +758,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -769,7 +769,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -805,7 +805,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -814,9 +814,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -825,9 +825,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -836,9 +836,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -847,7 +847,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -869,7 +869,7 @@
           <td>3</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -878,9 +878,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -889,9 +889,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -900,9 +900,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -911,7 +911,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -934,7 +934,7 @@
           <td>2</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -943,9 +943,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -954,9 +954,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -965,9 +965,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -976,7 +976,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -996,7 +996,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1005,9 +1005,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1016,9 +1016,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1027,9 +1027,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1038,7 +1038,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1058,7 +1058,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1067,9 +1067,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1078,9 +1078,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1089,9 +1089,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1100,7 +1100,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1131,7 +1131,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1140,9 +1140,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1151,9 +1151,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1162,9 +1162,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1173,7 +1173,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1199,7 +1199,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1208,9 +1208,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1219,9 +1219,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1230,9 +1230,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1241,7 +1241,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1264,7 +1264,7 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1273,9 +1273,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1284,9 +1284,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1295,9 +1295,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1306,7 +1306,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1338,7 +1338,7 @@
           <td>10</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1347,9 +1347,9 @@
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1358,9 +1358,9 @@
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1369,9 +1369,9 @@
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -1380,7 +1380,7 @@
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>

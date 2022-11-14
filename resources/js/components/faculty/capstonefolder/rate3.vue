@@ -1,12 +1,11 @@
 <template>
-  <div class="contentOfThePage">
+  <div class="contentOfThePage p-3">
     <h5 class="design">
       CAPSTONE 1 EVALUATION RUBRIC
       <hr />
     </h5>
 
     <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
-
     <table
       class="table tableBorder text-center table-striped table-bordered border-primary"
     >
@@ -46,49 +45,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="background"
                   v-model="caps1rate.background"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -104,49 +103,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="backgrounds"
                   v-model="caps1rate.backgrounds"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="backgrounds"
                   v-model="caps1rate.backgrounds"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="backgrounds"
                   v-model="caps1rate.backgrounds"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="backgrounds"
                   v-model="caps1rate.backgrounds"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -175,49 +174,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj1"
                   v-model="caps1rate.obj1"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj1"
                   v-model="caps1rate.obj1"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj1"
                   v-model="caps1rate.obj1"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj1"
                   v-model="caps1rate.obj1"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -242,49 +241,49 @@
           <td>3</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj2"
                   v-model="caps1rate.obj2"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj2"
                   v-model="caps1rate.obj2"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj2"
                   v-model="caps1rate.obj2"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj2"
                   v-model="caps1rate.obj2"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -307,49 +306,49 @@
           <td>2</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj3"
                   v-model="caps1rate.obj3"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj3"
                   v-model="caps1rate.obj3"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj3"
                   v-model="caps1rate.obj3"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="obj3"
                   v-model="caps1rate.obj3"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -381,49 +380,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s1"
                   v-model="caps1rate.s1"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s1"
                   v-model="caps1rate.s1"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s1"
                   v-model="caps1rate.s1"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s1"
                   v-model="caps1rate.s1"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -452,49 +451,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s2"
                   v-model="caps1rate.s2"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s2"
                   v-model="caps1rate.s2"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s2"
                   v-model="caps1rate.s2"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="s2"
                   v-model="caps1rate.s2"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -529,49 +528,49 @@
           <td>10</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="sc"
                   v-model="caps1rate.sc"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="sc"
                   v-model="caps1rate.sc"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="sc"
                   v-model="caps1rate.sc"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="sc"
                   v-model="caps1rate.sc"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -595,49 +594,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="df"
                   v-model="caps1rate.df"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="df"
                   v-model="caps1rate.df"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="df"
                   v-model="caps1rate.df"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="df"
                   v-model="caps1rate.df"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -657,49 +656,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr1"
                   v-model="caps1rate.lr1"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr1"
                   v-model="caps1rate.lr1"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr1"
                   v-model="caps1rate.lr1"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr1"
                   v-model="caps1rate.lr1"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -727,49 +726,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr2"
                   v-model="caps1rate.lr2"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr2"
                   v-model="caps1rate.lr2"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr2"
                   v-model="caps1rate.lr2"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="lr2"
                   v-model="caps1rate.lr2"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -805,49 +804,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth1"
                   v-model="caps1rate.meth1"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth1"
                   v-model="caps1rate.meth1"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth1"
                   v-model="caps1rate.meth1"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth1"
                   v-model="caps1rate.meth1"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -869,49 +868,49 @@
           <td>3</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth2"
                   v-model="caps1rate.meth2"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth2"
                   v-model="caps1rate.meth2"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth2"
                   v-model="caps1rate.meth2"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth2"
                   v-model="caps1rate.meth2"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -934,49 +933,49 @@
           <td>2</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth3"
                   v-model="caps1rate.meth3"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth3"
                   v-model="caps1rate.meth3"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth3"
                   v-model="caps1rate.meth3"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="meth3"
                   v-model="caps1rate.meth3"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -996,49 +995,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ref1"
                   v-model="caps1rate.ref1"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ref1"
                   v-model="caps1rate.ref1"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ref1"
                   v-model="caps1rate.ref1"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ref1"
                   v-model="caps1rate.ref1"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1058,49 +1057,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="format"
                   v-model="caps1rate.format"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="format"
                   v-model="caps1rate.format"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="format"
                   v-model="caps1rate.format"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="format"
                   v-model="caps1rate.format"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1131,49 +1130,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="oralCom"
                   v-model="caps1rate.oralCom"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="oralCom"
                   v-model="caps1rate.oralCom"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="oralCom"
                   v-model="caps1rate.oralCom"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="oralCom"
                   v-model="caps1rate.oralCom"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1199,49 +1198,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ppt"
                   v-model="caps1rate.ppt"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ppt"
                   v-model="caps1rate.ppt"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ppt"
                   v-model="caps1rate.ppt"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="ppt"
                   v-model="caps1rate.ppt"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1264,49 +1263,49 @@
           <td>5</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="attire"
                   v-model="caps1rate.attire"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="attire"
                   v-model="caps1rate.attire"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="attire"
                   v-model="caps1rate.attire"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="attire"
                   v-model="caps1rate.attire"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>
@@ -1338,49 +1337,49 @@
           <td>10</td>
           <td>
             <div class="">
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="resp"
                   v-model="caps1rate.resp"
                   id="inlineRadio1"
                   value="1"
                 />
-                <label class="form-check-label" for="inlineRadio1">1</label>
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="resp"
                   v-model="caps1rate.resp"
                   id="inlineRadio2"
                   value="2"
                 />
-                <label class="form-check-label" for="inlineRadio2">2</label>
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="resp"
                   v-model="caps1rate.resp"
                   id="inlineRadio3"
                   value="3"
                 />
-                <label class="form-check-label" for="inlineRadio3">3</label>
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-3 form-check form-check-inline">
+              <div class="mx-2 form-check form-check-inline">
                 <input
-                  class="form-check-input"
+                  class="pointerr form-check-input"
                   type="radio"
                   name="resp"
                   v-model="caps1rate.resp"
                   id="inlineRadio4"
                   value="4"
                 />
-                <label class="form-check-label" for="inlineRadio4">4</label>
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
               </div>
             </div>
           </td>

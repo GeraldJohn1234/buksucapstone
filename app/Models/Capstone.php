@@ -35,7 +35,11 @@ class Capstone extends Model
         return [
             'groupname' => $this->groupname,
             'title' => $this->title,
-            'abstract' => $this->abstract
+            'abstract' => $this->abstract,
+            'xf3' => $this->xf3,
+            'xf2' => $this->xf2,
+            'xf1' => $this->xf1,
+
         ];
     }
 

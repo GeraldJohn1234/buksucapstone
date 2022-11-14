@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-3">
+  <div class="contentOfThePage rounded bg-light p-3 col-12 scrollme">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
 
@@ -22,7 +22,7 @@
           v-model="capslistt.searching"
         />
 
-        <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
+        <!-- <button type="button" class="btn btn-outline-primary">search</button> col-12 col-sm-8 col-md-4-->
       </div>
 
       <div class="float-end topM">
@@ -45,7 +45,9 @@
     </div>
 
     <br />
-    <table class="table table-hover table-bordered table-striped text-center">
+    <table
+      class="table table-hover table-bordered table-striped text-center table-responsive"
+    >
       <thead class="colorNeh">
         <tr>
           <th class="">#</th>
@@ -73,7 +75,7 @@
 
             <td class="">
               <ul class="nav row">
-                <li class="col">
+                <li class="col-lg-4 col-sm-12 col-md-12">
                   <button
                     type="button"
                     class="btn btn-outline-success button1 my-1 fw-bold"
@@ -84,7 +86,7 @@
                     VIEW
                   </button>
                 </li>
-                <li class="col">
+                <li class="col-lg-4 col-sm-12 col-md-12">
                   <button
                     type="button"
                     class="btn btn-outline-primary button1 my-1 fw-bold"
@@ -96,7 +98,7 @@
                     UPDATE
                   </button>
                 </li>
-                <li class="col">
+                <li class="col-lg-4 col-sm-8 col-md-12">
                   <button
                     type="button"
                     class="btn btn-outline-warning button1 my-1 fw-bold"
@@ -292,6 +294,9 @@ const deleteCapstone = (id) => {
 </script>
 
 <style>
+.scrollme {
+  overflow-x: auto;
+}
 .forInline {
   display: inline-block;
 }
