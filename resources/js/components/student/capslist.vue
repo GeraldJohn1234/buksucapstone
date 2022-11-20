@@ -45,16 +45,16 @@
     </div>
 
     <br />
-    <table class="table table-hover table-bordered table-striped text-center">
+    <table class="table table-hover table-bordered table-striped">
       <thead class="colorNeh">
         <tr>
-          <th class="">#</th>
-          <th class="col-3">TITLE</th>
-          <th class="col-2">GROUP NAME</th>
-          <th class="col">YEAR LEVEL</th>
-          <th class="col">SCHOOL YEAR</th>
-          <th class="col">STATUS</th>
-          <th class="col-1">ACTION</th>
+          <th class="text-center">#</th>
+          <th class="col-3 text-center">TITLE</th>
+          <th class="col-2 text-center">GROUP NAME</th>
+          <th class="col text-center">YEAR LEVEL</th>
+          <th class="col text-center">SCHOOL YEAR</th>
+          <th class="col text-center">STATUS</th>
+          <th class="col-1 text-center">ACTION</th>
         </tr>
       </thead>
 
@@ -62,16 +62,16 @@
         <tr v-for="(item, index) in projects" :key="item.id">
           <template v-if="index <= limitlist">
             <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
-            <td>{{ index + 1 }}</td>
-            <td>{{ item.title }}</td>
-            <td class="text-center">
+            <td class="text-center align-middle">{{ index + 1 }}</td>
+            <td class="align-middle">{{ item.title }}</td>
+            <td class="text-center align-middle">
               {{ item.groupname }}
             </td>
-            <td>{{ item.xf1 }}</td>
-            <td>{{ item.xf3 }}</td>
-            <td>{{ item.xf2 }}</td>
+            <td class="align-middle text-center">{{ item.xf1 }}</td>
+            <td class="text-center align-middle">{{ item.xf3 }}</td>
+            <td class="text-center align-middle">{{ item.xf2 }}</td>
 
-            <td class="">
+            <td class="text-center align-middle">
               <ul class="nav row">
                 <li class="col">
                   <button
@@ -115,7 +115,6 @@
     </div> -->
   </div>
 </template>
-
 <script setup>
 import router from "../../routers/studentRouter";
 import { onMounted, reactive, ref, watch } from "vue";

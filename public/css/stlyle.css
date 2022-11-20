@@ -20,7 +20,12 @@
       
      }
      .bgNEh{
-      background: #d31515 !important;
+      background: #d31515;
+     }
+     .bgForAuth{
+      /* background-image: linear-gradient(to right, red , yellow); */
+      /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
+      background-image: linear-gradient(to bottom right, rgb(4, 0, 255), rgb(190, 190, 192)) !important;
      }
      .imagesCenter {
       display: block;

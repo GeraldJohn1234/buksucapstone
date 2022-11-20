@@ -3,10 +3,14 @@
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
 
-      <div class="forInline float-end mtop">
-        <router-link class="nav_link" to="/project">
+      <div class="forInline float-end">
+        <!-- <router-link class="nav_link" to="/project">
           <button type="button" class="btn btn-primary box1">CREATE</button>
-        </router-link>
+        </router-link> -->
+
+        <button type="button" class="btn btn-primary box1" @click="project()">
+          CREATE
+        </button>
       </div>
     </div>
     <hr />
@@ -45,18 +49,16 @@
     </div>
 
     <br />
-    <table
-      class="table table-hover table-bordered table-striped text-center table-responsive"
-    >
+    <table class="table table-hover table-bordered table-striped table-responsive">
       <thead class="colorNeh">
         <tr>
-          <th class="">#</th>
-          <th class="col-3">TITLE</th>
-          <th class="col-2">GROUP NAME</th>
-          <th class="col">YEAR LEVEL</th>
-          <th class="col">SCHOOL YEAR</th>
-          <th class="col">STATUS</th>
-          <th class="col-3">ACTION</th>
+          <th class="text-center">#</th>
+          <th class="col-3 text-center">TITLE</th>
+          <th class="col-2 text-center">GROUP NAME</th>
+          <th class="col text-center">YEAR LEVEL</th>
+          <th class="col text-center">SCHOOL YEAR</th>
+          <th class="col text-center">STATUS</th>
+          <th class="col-3 text-center">ACTION</th>
         </tr>
       </thead>
 
@@ -64,16 +66,16 @@
         <tr v-for="(item, index) in projects" :key="item.id">
           <template v-if="index <= limitlist">
             <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
-            <td>{{ index + 1 }}</td>
-            <td>{{ item.title }}</td>
-            <td class="text-center">
+            <td class="text-center align-middle">{{ index + 1 }}</td>
+            <td class="align-middle">{{ item.title }}</td>
+            <td class="text-center align-middle">
               {{ item.groupname }}
             </td>
-            <td>{{ item.xf1 }}</td>
-            <td>{{ item.xf3 }}</td>
-            <td>{{ item.xf2 }}</td>
+            <td class="align-middle text-center">{{ item.xf1 }}</td>
+            <td class="text-center align-middle">{{ item.xf3 }}</td>
+            <td class="text-center align-middle">{{ item.xf2 }}</td>
 
-            <td class="">
+            <td class="text-center align-middle">
               <ul class="nav row">
                 <li class="col-lg-4 col-sm-12 col-md-12">
                   <button
@@ -236,6 +238,33 @@ const viewCap = (id) => {
     .post("/api/create_capstone_proj/" + id)
     .then((response) => {
       router.push("/viewcap/" + id);
+    })
+
+    .catch(function (error) {
+      console.log(error.response.data.errors);
+      console.log("ERRRR:: ", error.response.data);
+
+      toast.fire({
+        icon: "warning",
+        title: "SOMETHING WRONG",
+      });
+    });
+};
+// .post("/api/add_capstonee1", {
+//           texttext: this.getCapstoneData() + this.textcontent,
+//         })
+
+const project = () => {
+  const formData = new FormData();
+  formData.append("texttext", "   ");
+  axios
+    .post("/api/add_capstonee1", formData)
+    .then((response) => {
+      router.push("/project");
+      // toast.fire({
+      //   icon: "success",
+      //   title: "ALL GOODS",
+      // });
     })
 
     .catch(function (error) {

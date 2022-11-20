@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-2">
+  <div class="contentOfThePage rounded bg-light p-3">
     <div class="">
       <div class="forInline capsList">STUDENT LIST</div>
 

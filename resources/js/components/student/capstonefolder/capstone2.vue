@@ -272,7 +272,24 @@
         <p class="toTopp">RATING STATUS</p>
       </div>
 
-      <button class="btn btn-primary rateButton fw-bold" @click="rateddd()">RATE</button>
+      <button
+        v-if="GenCadocu123.minutes1 != null && GenCadocu123.minutes1 != 'NULL'"
+        type="button"
+        class="m-1 btnSize btn btn-success fw-bold"
+        @click.prevent="getMinutes3()"
+      >
+        VIEW
+      </button>
+      <button
+        v-else
+        type="button"
+        class="m-1 btnSize btn btn-warning fw-bold"
+        @click="warning()"
+      >
+        PENDING
+      </button>
+      <hr class="toTop" />
+      <p class="toTopp text-center">Secretary Minutes</p>
       <hr />
       <br />
       <div class="form-floating mb-3 col">
@@ -285,10 +302,17 @@
         </div>
         <br />
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase boldThese">
-            <!-- {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }} -->
-            {{ GenCadocu123.xf3 }}
+          <p
+            v-if="
+              GenCadocu123.xf3 != null &&
+              GenCadocu123.xf3 != '' &&
+              GenCadocu123.xf3 != 'NOT YET, SET'
+            "
+            class="pt-2 boldThese text-uppercase"
+          >
+            {{ instructorr.name }} {{ instructorr.mname }} {{ instructorr.lname }}
           </p>
+          <p v-else class="pt-2 boldThese text-uppercase">"Not set"</p>
           <hr class="toTop" />
           <p class="toTopp">Instructor</p>
         </div>
@@ -327,6 +351,19 @@ import router from "../../../routers/studentRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
 
+const getMinutes3 = () => {
+  // window.open("pdf/" + file, "_blank"); caps1.value.minutes1
+  window.open(
+    "http://127.0.0.1:8000/pdfminutes2/" + GenCadocu123.value.minutes1,
+    "_blank"
+  );
+};
+
+let instructorr = ref({
+  name: "",
+  mname: "",
+  lname: "",
+});
 let panels1 = ref({
   name: "",
   mname: "",
@@ -365,6 +402,7 @@ let GenCadocu123 = ref({
   ad_appointment_form: "",
   gcash_payment: "",
   acceptance_ss: "",
+  minutes1: null,
 });
 
 let GenCapData = ref({
@@ -457,6 +495,9 @@ const getcaps123 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/getcaps2/" + capstoneid);
   GenCadocu123.value = response.data.capstonee2;
+  let intn = parseInt(GenCadocu123.value.xf3);
+  let responsed = await axios.get("/api/get_edit_user/" + intn);
+  instructorr.value = responsed.data.userrs;
   // console.warn("3333333333333333333",  GenCadocu123.value);
 };
 
@@ -543,6 +584,12 @@ const pending = () => {
   toast.fire({
     icon: "warning",
     title: "Student, did not submit yet!",
+  });
+};
+const warning = () => {
+  toast.fire({
+    icon: "warning",
+    title: "The Secretary did not upload yet!",
   });
 };
 </script>

@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/create', [DashboardController::class, 'whatRole']);
     Route::get('/update', [DashboardController::class, 'whatRole']);
     Route::get('/view', [DashboardController::class, 'whatRole']);
+    Route::get('/viewcapsecretry/{pathMatch}', [DashboardController::class, 'whatRole']);
 
     Route::get('/update/{pathMatch}', [DashboardController::class, 'whatRole']);
     Route::get('/view/{pathMatch}', [DashboardController::class, 'whatRole']);

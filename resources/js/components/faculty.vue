@@ -208,7 +208,7 @@
               />
             </i>
 
-            <div class="col-md-8" id="label">ADVISEE</div>
+            <div class="col-md-8" id="label">ADVISER</div>
           </div>
         </li>
 
@@ -235,6 +235,19 @@
             </i>
 
             <div class="col-md-8" id="label">PANEL</div>
+          </div>
+        </li>
+
+        <li @click="active9()">
+          <div class="a nav_link row" :class="activehead9">
+            <i class="col-md-3">
+              <font-awesome-icon
+                icon="fa-solid fa-users-rectangle"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <div class="col-md-8" id="label">SECRETARY</div>
           </div>
         </li>
 
@@ -314,6 +327,9 @@ let activehead7 = ref({
 let activehead8 = ref({
   activeStyle1: false,
 });
+let activehead9 = ref({
+  activeStyle1: false,
+});
 const active1 = () => {
   activehead1.value.activeStyle1 = true;
   activehead2.value.activeStyle1 = false;
@@ -323,6 +339,7 @@ const active1 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = false;
   storeDashoard();
 };
 const active2 = () => {
@@ -334,6 +351,7 @@ const active2 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = false;
   profile();
 };
 const active3 = () => {
@@ -345,6 +363,7 @@ const active3 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = false;
   capslist();
 };
 const active4 = () => {
@@ -356,6 +375,7 @@ const active4 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = false;
   topic();
 };
 const active5 = () => {
@@ -367,6 +387,7 @@ const active5 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = false;
   advisee();
 };
 const active6 = () => {
@@ -378,6 +399,7 @@ const active6 = () => {
   activehead6.value.activeStyle1 = true;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = false;
   student();
 };
 const active7 = () => {
@@ -389,6 +411,7 @@ const active7 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = true;
   activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = false;
   instructor();
 };
 const active8 = () => {
@@ -400,7 +423,23 @@ const active8 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = true;
+  activehead9.value.activeStyle1 = false;
   panel();
+};
+const active9 = () => {
+  activehead1.value.activeStyle1 = false;
+  activehead2.value.activeStyle1 = false;
+  activehead3.value.activeStyle1 = false;
+  activehead4.value.activeStyle1 = false;
+  activehead5.value.activeStyle1 = false;
+  activehead6.value.activeStyle1 = false;
+  activehead7.value.activeStyle1 = false;
+  activehead8.value.activeStyle1 = false;
+  activehead9.value.activeStyle1 = true;
+  secretary();
+};
+const secretary = () => {
+  router.push("/secretary");
 };
 const panel = () => {
   router.push("/panel");

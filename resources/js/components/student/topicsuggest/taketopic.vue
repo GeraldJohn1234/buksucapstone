@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage bg-light p-2">
+  <div class="contentOfThePage bg-light p-3">
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase">{{ Topic.title }}</h5>
       <hr class="toTop" />

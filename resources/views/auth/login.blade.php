@@ -1,5 +1,5 @@
-<x-guest-layout>
-    <x-auth-card class="loginStyle">
+<x-guest-layout class="bgNEh">
+    <x-auth-card class="loginStyle ">
 
         <x-slot name="logo">
             {{-- <a href="/">
@@ -11,14 +11,14 @@
         </x-slot>
 
         <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+        <x-auth-session-status class="mb-4 " :status="session('status')" />
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login1') }}" class="fonTs">
+        <form method="POST" action="{{ route('login1') }}" class="fonTs ">
             <img class=" fill-current imagesCenter" src="/images/buksu.png" alt="logo" />
-            <h5 class=" text-center bold schoolName">Capstone Archiving Management System</h5>
+            <h5 class=" text-center bold schoolName">BukSU Capstone Archiving Management System</h5>
             <br>
             @csrf
 

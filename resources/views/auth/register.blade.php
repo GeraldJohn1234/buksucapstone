@@ -13,7 +13,7 @@
 
         <form method="POST" action="{{ route('register1') }}">
             <img class=" fill-current imagesCenter" src="/images/buksu.png" alt="logo" />
-            <h1 class=" text-center bold schoolName">Bukidnon State University </h1>
+            <h1 class=" text-center bold schoolName">BukSU Capstone Archiving Management System</h1>
             <br>
             @csrf
 
@@ -82,7 +82,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="ml-4 clorNE">
                     {{ __('Sign Up') }}
                 </x-button>
             </div>

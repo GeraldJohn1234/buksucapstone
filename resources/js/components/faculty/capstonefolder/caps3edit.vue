@@ -372,7 +372,8 @@ const touch = async () => {
 
   const formData = new FormData();
 
-  formData.append("instructor", fullname);
+  // formData.append("instructor", fullname);
+  formData.append("instructor", idd);
 
   axios
     .post("/api/capstone_instructor3/" + capstoneid, formData)

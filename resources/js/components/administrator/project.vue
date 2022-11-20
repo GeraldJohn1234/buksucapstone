@@ -143,7 +143,7 @@
             <option selected disabled>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-            <option value="5th year">5th year</option>
+            <!-- <option value="5th year">5th year</option> -->
             <option value="Graduated">Graduated</option>
           </select>
         </div>
@@ -162,55 +162,6 @@
         <p>{{ year.fromYear }}</p> -->
       </div>
     </div>
-    <span>Select height is limited to 8 options.</span>
-
-    <div class="select-wrapper form-column form-column-field">
-      <select
-        data-no-search=""
-        data-placeholder="Выбрать год"
-        class="select select-no-search"
-      >
-        <option disabled="disabled">
-          <font style="vertical-align: inherit">-Select Year</font>
-        </option>
-        <option value="1922">
-          <font style="vertical-align: inherit">1922</font>
-        </option>
-        <option value="1923">
-          <font style="vertical-align: inherit">1923</font>
-        </option>
-        <option value="1922">
-          <font style="vertical-align: inherit">1924</font>
-        </option>
-        <option value="1923">
-          <font style="vertical-align: inherit">1925</font>
-        </option>
-        <option value="1922">
-          <font style="vertical-align: inherit">1926</font>
-        </option>
-        <option value="1923">
-          <font style="vertical-align: inherit">1927</font>
-        </option>
-        <option value="1922">
-          <font style="vertical-align: inherit">1928</font>
-        </option>
-        <option value="1923">
-          <font style="vertical-align: inherit">1929</font>
-        </option>
-        <option value="1922">
-          <font style="vertical-align: inherit">1930</font>
-        </option>
-        <option value="1923">
-          <font style="vertical-align: inherit">1931</font>
-        </option>
-        <option value="1922">
-          <font style="vertical-align: inherit">1932</font>
-        </option>
-        <option value="1923">
-          <font style="vertical-align: inherit">1933</font>
-        </option>
-      </select>
-    </div>
 
     <div class="row">
       <div class="col">
@@ -218,7 +169,7 @@
         <div class="input-group mb-3">
           <select
             class="form-control inputColor"
-            onfocus="this.size=3;"
+            onfocus="this.size=8;"
             onblur="this.size=1;"
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.panels1"
@@ -234,7 +185,13 @@
       <div class="col">
         <label for="panel2" class="form-label">Panel 2</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.panels2">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.panels2"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -246,7 +203,13 @@
       <div class="col">
         <label for="panel3" class="form-label">Panel 3</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.panels3">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.panels3"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -258,7 +221,13 @@
       <div class="col">
         <label for="secretary" class="form-label">Secretary</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.secretarys">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.secretarys"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -272,7 +241,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students1">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students1"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -283,7 +258,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students2">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students2"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -294,7 +275,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students3">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students3"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -305,7 +292,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students4">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students4"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -318,7 +311,13 @@
       <div class="col">
         <label for="adviser" class="form-label">Adviser</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.adviser">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.adviser"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -331,7 +330,9 @@
         <div class="input-group mb-3">
           <select
             class="form-control inputColor"
-            style="max-height: 100px"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
             v-model="GenCaps.coAdviser"
           >
             <!-- <option value="0">Select instructor</option> -->
@@ -767,7 +768,7 @@ const saveCaps = () => {
 
             toast.fire({
               icon: "success",
-              title: "Capstone Create Successfully",
+              title: "Capstone successfully created",
             });
           });
 
@@ -802,7 +803,7 @@ const saveCaps = () => {
 
         toast.fire({
           icon: "warning",
-          title: "Capstone Create Unsuccessful",
+          title: "Capstone successfully created",
         });
         // (error = {}));
         // console.log("ERRRR:: ",error.response.data);
@@ -1006,7 +1007,7 @@ export default defineComponent({
         .then((response) => {
           toast.fire({
             icon: "success",
-            title: "Abstract Save Successfully",
+            title: "Abstract successfully saved ",
           });
           // location.reload();
           // this.getCapstone();

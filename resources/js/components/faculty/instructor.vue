@@ -1,7 +1,7 @@
 <template>
   <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
-      <div class="forInline capsList">CAPSTONE ADVISEE LIST</div>
+      <div class="forInline capsList">LIST OF CAPSTONE AS A ONE OF THE INSTRUCTOR</div>
     </div>
     <hr />
 
@@ -71,7 +71,7 @@ watch(capslisttsort, (newValue, oldValue) => {
 
 const dataCapstone = async () => {
   let response = await axios
-    .get("/api/get_all_capstone_panel", {
+    .get("/api/get_all_capstone_instructorr", {
       params: { searching: capslistt.searching },
     })
 

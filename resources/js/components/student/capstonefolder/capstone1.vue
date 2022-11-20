@@ -357,7 +357,25 @@
         <p class="toTopp">Rating status</p>
       </div>
 
-      <button class="btn btn-primary rateButton fw-bold" @click="rateddd()">RATE</button>
+      <!-- <button class="btn btn-primary rateButton fw-bold" @click="rateddd()">RATE</button> -->
+      <button
+        v-if="GenCadocu123.minutes1 != null && GenCadocu123.minutes1 != 'NULL'"
+        type="button"
+        class="m-1 btnSize btn btn-success fw-bold"
+        @click.prevent="getMinutes3()"
+      >
+        VIEW
+      </button>
+      <button
+        v-else
+        type="button"
+        class="m-1 btnSize btn btn-warning fw-bold"
+        @click="warning()"
+      >
+        PENDING
+      </button>
+      <hr class="toTop" />
+      <p class="toTopp text-center">Secretary Minutes</p>
       <hr />
       <br />
       <div class="form-floating mb-3 col">
@@ -370,10 +388,17 @@
         </div>
         <br />
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
-            <!-- {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }} -->
-            {{ GenCadocu123.xf3 }}
+          <p
+            v-if="
+              GenCadocu123.xf3 != null &&
+              GenCadocu123.xf3 != '' &&
+              GenCadocu123.xf3 != 'NOT YET, SET'
+            "
+            class="pt-2 boldThese text-uppercase"
+          >
+            {{ instructorr.name }} {{ instructorr.mname }} {{ instructorr.lname }}
           </p>
+          <p v-else class="pt-2 boldThese text-uppercase">"Not set"</p>
           <hr class="toTop" />
           <p class="toTopp">Instructor</p>
         </div>
@@ -426,6 +451,31 @@ import router from "../../../routers/studentRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
 
+const getMinutes3 = async () => {
+  let idd = getIDfromURL();
+  let response = await axios.get("/api/checkproponent/" + idd);
+
+  let authcheck = response.data;
+  if (authcheck != 0) {
+    window.open(
+      "http://127.0.0.1:8000/pdfminutes1/" + GenCadocu123.value.minutes1,
+      "_blank"
+    );
+  } else {
+    toast.fire({
+      icon: "warning",
+      title: "You do not have permission for this study",
+    });
+  }
+  // window.open("pdf/" + file, "_blank"); caps1.value.minutes1
+};
+
+let instructorr = ref({
+  name: "",
+  mname: "",
+  lname: "",
+});
+
 let panels1 = ref({
   name: "",
   mname: "",
@@ -467,6 +517,7 @@ let GenCadocu123 = ref({
   minutes: "",
   gcash_ss_file: "",
   acceptance_of_panel: "",
+  minutes1: null,
 });
 
 let GenCapData = ref({
@@ -485,8 +536,8 @@ let formcaps1 = ref({
   status: "",
   propose_date: "",
 });
-let rated = ref({
-  id: "",
+let checkk = ref({
+  idds: 0,
 });
 
 onMounted(async () => {
@@ -504,6 +555,7 @@ onMounted(async () => {
   panelrates2();
   panelrates3();
   getcaps123();
+  // checkProponents();
 });
 
 const getIDfromURL = () => {
@@ -582,7 +634,9 @@ const getcaps123 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/getcaps123/" + capstoneid);
   GenCadocu123.value = response.data.capstonee1;
-  let intn = parseInt(GenCadocu123.value.xf1);
+  let intn = parseInt(GenCadocu123.value.xf3);
+  let responsed = await axios.get("/api/get_edit_user/" + intn);
+  instructorr.value = responsed.data.userrs;
   // console.warn("5555555555555555555555", intn.toFixed(2));
   // console.warn("6666666666666666666", GenCadocu123);
 };
@@ -635,36 +689,24 @@ const ssAccept = () => {
   let id = getIDfromURL();
   router.push("/ssacept/" + id);
 };
-const rateddd = async () => {
-  let idd = getIDfromURL();
-  let response = await axios.get("/api/panel_rate_check/" + idd);
-  console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
-  rated.value = response.data.userCaps;
-  console.warn("TYTRTYTRYTRYTRY", rated.value.id);
-  if (rated.value.id == 1) {
-    axios
-      .post("/api/create_rate/" + idd)
-      .then((response) => {
-        router.push("/rate/" + idd);
-      })
-      // router.push("/rate/" + idd);
 
-      .catch(function (error) {
-        console.log(error.response.data.errors);
-        console.log("ERRRR:: ", error.response.data);
-
-        toast.fire({
-          icon: "warning",
-          title: "SOMETHING WRONG",
-        });
-      });
-  } else {
-    toast.fire({
-      icon: "warning",
-      title: "Sorry, You're not one of the Panelist",
-    });
-  }
+const warning = () => {
+  toast.fire({
+    icon: "warning",
+    title: "The Secretary did not upload yet!",
+  });
 };
+// const checkProponents = async () => {
+//   let idd = getIDfromURL();
+//   let response = await axios.get("/api/checkproponent/" + idd);
+
+//   checkk.value.idds = response.data;
+//   // console.warn("IDDDDDDDDDDSSSS", idss);
+//   // toast.fire({
+//   //   icon: "success",
+//   //   title: "IDDD is" + idss,
+//   // });
+// };
 </script>
 <style>
 .caps1Content {

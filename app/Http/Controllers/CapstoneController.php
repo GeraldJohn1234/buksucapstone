@@ -146,7 +146,7 @@ class CapstoneController extends Controller
         if ($request->file == null) {
             // $name = $capstone->xf5;
             $name = $capstone->xf5;
-        } else if (($capstone->xf5 != $request->file) ) {
+        } else if (($capstone->xf5 != $request->file)) {
             // $strpos = strpos($request->file, ';');
             // $sub = substr($request->file, 0, $strpos);
             // $ex = explode('/', $sub)[1];
@@ -287,6 +287,86 @@ class CapstoneController extends Controller
         $capstone->save();
     }
 
+
+    public function caps1minutes(Request $request, $id)
+    {
+
+        $capstone = Capstone1::find($id);
+
+        if ($request->minutes1 == null) {
+
+            $name = $capstone->minutes1;
+        } else if (($capstone->minutes1 != $request->minutes1)) {
+
+            $filee = $request->file('minutes1');
+            $name = time() . '.' . $filee->getClientOriginalName();
+
+            $upload_path = public_path() . "/pdfminutes1/";
+            $files = $upload_path . $capstone->minutes1;
+            $filee->move(public_path('pdfminutes1'), $name);
+            if (file_exists($files)) {
+                @unlink($files);
+            }
+        } else {
+            $name = $capstone->minutes1;
+        }
+        $capstone->minutes1 = $name;
+
+        $capstone->save();
+    }
+    public function caps2minutes(Request $request, $id)
+    {
+
+        $capstone = Capstone2::find($id);
+
+        if ($request->minutes1 == null) {
+
+            $name = $capstone->minutes1;
+        } else if (($capstone->minutes1 != $request->minutes1)) {
+
+            $filee = $request->file('minutes1');
+            $name = time() . '.' . $filee->getClientOriginalName();
+
+            $upload_path = public_path() . "/pdfminutes2/";
+            $files = $upload_path . $capstone->minutes1;
+            $filee->move(public_path('pdfminutes2'), $name);
+            if (file_exists($files)) {
+                @unlink($files);
+            }
+        } else {
+            $name = $capstone->minutes1;
+        }
+        $capstone->minutes1 = $name;
+
+        $capstone->save();
+    }
+    public function caps3minutes(Request $request, $id)
+    {
+
+        $capstone = Capstone3::find($id);
+
+        if ($request->minutes1 == null) {
+
+            $name = $capstone->minutes1;
+        } else if (($capstone->minutes1 != $request->minutes1)) {
+
+            $filee = $request->file('minutes1');
+            $name = time() . '.' . $filee->getClientOriginalName();
+
+            $upload_path = public_path() . "/pdfminutes3/";
+            $files = $upload_path . $capstone->minutes1;
+            $filee->move(public_path('pdfminutes3'), $name);
+            if (file_exists($files)) {
+                @unlink($files);
+            }
+        } else {
+            $name = $capstone->minutes1;
+        }
+        $capstone->minutes1 = $name;
+
+        $capstone->save();
+    }
+
     public function testrate($id)
     {
 
@@ -310,6 +390,33 @@ class CapstoneController extends Controller
             ],
             200
         );
+    }
+    public function checkproponent($id)
+    {
+
+        $authid = Auth::user()->id;
+        $count = 0;
+
+        $proponent1 = DB::table('capstone_user')->where('role_person', 'student1')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $proponent2 = DB::table('capstone_user')->where('role_person', 'students2')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $proponent3 = DB::table('capstone_user')->where('role_person', 'students3')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+        $proponent4 = DB::table('capstone_user')->where('role_person', 'students4')
+            ->where('capstone_id', $id)->pluck('user_id')->first();
+
+        if ($proponent1 == $authid) {
+            $count = $count + 1;
+        }
+        if ($proponent2 == $authid) {
+            $count = $count + 1;
+        }
+        if ($proponent3 == $authid) {
+            $count = $count + 1;
+        }
+        return $count;
+
     }
 
     public function  getadviseesort(Request $request)
@@ -418,6 +525,57 @@ class CapstoneController extends Controller
             200
         );
     }
+
+    public function get_all_capstone_secretary(Request $request)
+    {
+        $id = Auth::user()->id;
+
+
+        $secretary = DB::table('capstone_user')->where('role_person', 'secretarys')
+            ->where('user_id', $id)->pluck('capstone_id');
+        // $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
+        //     ->where('user_id', $id)->pluck('capstone_id');
+        // $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
+        //     ->where('user_id', $id)->pluck('capstone_id');
+
+        // $all = $panel1->merge($panel2);
+        // $alll = $panel3->merge($all);
+        $capstone = Capstone::find($secretary);
+        return response()->json(
+            [
+                'capstones'  => $capstone,
+            ],
+            200
+        );
+    }
+
+
+
+
+    public function get_all_capstone_instructorr(Request $request)
+    {
+        $id = Auth::user()->id;
+
+
+        $panel1 = DB::table('capstone1s')->where('xf3', $id)->pluck('capstone_id');
+        $panel2 = DB::table('capstone2s')->where('xf3', $id)->pluck('capstone_id');
+        $panel3 = DB::table('capstone3s')->where('xf3', $id)->pluck('capstone_id');
+        // $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
+        //     ->where('user_id', $id)->pluck('capstone_id');
+        // $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
+        //     ->where('user_id', $id)->pluck('capstone_id');
+
+        $all = $panel1->merge($panel2);
+        $alll = $panel3->merge($all);
+        $capstone = Capstone::find($alll);
+        return response()->json(
+            [
+                'capstones'  => $capstone,
+            ],
+            200
+        );
+    }
+
 
     public function create_capstone_proj($id)
     {
@@ -780,10 +938,6 @@ class CapstoneController extends Controller
         ], 200);
     }
     // save_instructor
-
-
-
-
 
     public function get_capstone_panels1(Request $request, $id)
     {

@@ -42,8 +42,7 @@
         v-model="GenCapData.name"
       />
       <label class="form-check-label fw-bold" for="flexRadioDefault1">
-        <span class="leftSpacess">We</span> agree to our study being shared and gathered
-        to IT Department.
+        <span class="leftSpacess">Agree</span>
       </label>
     </div>
     <div class="form-check">
@@ -56,7 +55,7 @@
         v-model="GenCapData.name"
       />
       <label class="form-check-label fw-bold pt-1" for="flexRadioDefault2">
-        <span class="leftSpacess">We</span> cannot agree.
+        <span class="leftSpacess">Disagree.</span>
       </label>
     </div>
     <br />
@@ -215,9 +214,7 @@
         ></textarea>
       </div>
       <div class="col-3">
-        <label for="coAdviser" class="form-label"
-          >Upload final Manuscript (pdf only!)</label
-        >
+        <label for="coAdviser" class="form-label">Manuscript (pdf only!)</label>
         <!-- <input type="file" id="" /> -->
         <div class="input-group mb-3 col-12 border border-primary">
           <input type="file" id="" accept=".pdf" class="" @change="onChange" />
@@ -435,7 +432,7 @@
 </template>
 
 <script setup>
-import router from "../../../routers/administratorRouter";
+import router from "../../../routers/studentRouter";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
@@ -677,12 +674,13 @@ const saveCapstone = () => {
         (GenCaps.value.coAdviser = null),
         (GenCaps.value.secretarys = null),
         // (GenCaps.value.secretarys = null),
-        router.push("/capslist");
+        router.push("/editcap/" + props.id);
 
       toast.fire({
         icon: "success",
-        title: "User Add Successfully",
+        title: "Project save successfully",
       });
+      location.reload();
     })
 
     .catch(function (error) {

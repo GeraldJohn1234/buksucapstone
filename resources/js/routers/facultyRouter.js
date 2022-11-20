@@ -28,6 +28,8 @@ import Caps3edit from "../components/faculty/capstonefolder/caps3edit.vue";
 import Editcap from "../components/faculty/capstonefolder/editcap.vue";
 import Viewcap from "../components/faculty/capstonefolder/viewcap.vue";
 
+import Viewcapsecretry from "../components/faculty/capstonefolder/viewcapsecretry.vue";
+
 import Ocrpages from "../components/faculty/capstonefolder/ocrpages.vue";
 
 import Capsdocs from "../components/faculty/capstonefolder/caps1/capsdocs.vue";
@@ -219,6 +221,12 @@ const routes = [
     path: "/viewcap/:id",
     name: "Viewcap",
     component: Viewcap,
+    props:true
+  },
+  {
+    path: "/viewcapsecretry/:id",
+    name: "Viewcapsecretry",
+    component: Viewcapsecretry,
     props:true
   },
 

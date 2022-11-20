@@ -1,7 +1,7 @@
 <template>
   <div class="contentOfThePage rounded bg-light p-2">
     <div class="">
-      <div class="forInline capsList">CAPSTONE ADVISEE LIST</div>
+      <div class="forInline capsList">LIST OF CAPSTONE AS A ADVISER</div>
     </div>
     <hr />
 

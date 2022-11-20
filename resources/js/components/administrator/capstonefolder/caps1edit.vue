@@ -389,10 +389,9 @@ const touch = async () => {
   instructor.value = response.data.userCaps;
   let fullname =
     instructor.value.name + " " + instructor.value.mname + " " + instructor.value.lname;
-
   const formData = new FormData();
 
-  formData.append("instructor", fullname);
+  formData.append("instructor", idd);
 
   axios
     .post("/api/capstone_instructor1/" + capstoneid, formData)

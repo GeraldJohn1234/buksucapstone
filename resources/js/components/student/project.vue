@@ -4,7 +4,7 @@
       Save
     </button> -->
 
-    <h5 class="text-left boldThese">Optical Character Recognition for ABSTRACT</h5>
+    <!-- <h5 class="text-left boldThese">Optical Character Recognition for ABSTRACT</h5>
     <div class="row">
       <div class="col row contentOfThePage me-1 ms-3">
         <span class="text-danger">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <!-- v-model="RichTextEditor.content" -->
+    
       <div class="col contentOfThePage ms-1 me-3">
         <p class="text-left">
           <span class="titleText boldThese">CONVERTED TEXT</span> (<span
@@ -56,29 +56,29 @@
           ADD TO ABSTRACT
         </button>
       </div>
-    </div>
+    </div> -->
     <!-- v-model="GenCaps.abstract" -->
-    <br />
+    <!-- <br /> -->
 
     <h5 class="text-left boldThese">Abstract Or Project Descriptions</h5>
     <div class="form-floating col">
       <textarea
-        v-model="caps.ocr"
+        v-model="GenCaps.abstract"
         class="form-control inputColor"
         placeholder="Leave a comment here"
         id="floatingTextarea2"
-        style="height: 200px"
+        style="height: 150px"
         required
       ></textarea>
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
       <br />
-      <button
+      <!-- <button
         type="button"
         class="m-1 btnSize btn btn-primary W-100 fw-bold"
         @click="saveCapstonee2()"
       >
         SAVE ABSTRACT
-      </button>
+      </button> -->
     </div>
     <hr />
     <P class="text-left boldThese">GENERAL INFORMATION</P>
@@ -167,7 +167,13 @@
       <div class="col">
         <label for="panel1" class="form-label">Panel 1</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.panels1">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.panels1"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -179,7 +185,13 @@
       <div class="col">
         <label for="panel2" class="form-label">Panel 2</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.panels2">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.panels2"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -191,7 +203,13 @@
       <div class="col">
         <label for="panel3" class="form-label">Panel 3</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.panels3">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.panels3"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -203,7 +221,13 @@
       <div class="col">
         <label for="secretary" class="form-label">Secretary</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.secretarys">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.secretarys"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -217,7 +241,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students1">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students1"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -228,7 +258,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students2">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students2"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -239,7 +275,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students3">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students3"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -250,7 +292,13 @@
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.students4">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.students4"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -263,7 +311,13 @@
       <div class="col">
         <label for="adviser" class="form-label">Adviser</label>
         <div class="input-group mb-3">
-          <select class="form-control inputColor" v-model="GenCaps.adviser">
+          <select
+            class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
+            v-model="GenCaps.adviser"
+          >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
@@ -276,8 +330,10 @@
         <div class="input-group mb-3">
           <select
             class="form-control inputColor"
+            onfocus="this.size=8;"
+            onblur="this.size=1;"
+            onchange="this.size=1; this.blur();"
             v-model="GenCaps.coAdviser"
-            style="max-height: 60px"
           >
             <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
@@ -659,7 +715,7 @@ const saveCaps = () => {
 
     const formData = new FormData();
     formData.append("title", GenCaps.value.title);
-    formData.append("abstract", caps.value.ocr);
+    formData.append("abstract", GenCaps.value.abstract);
     formData.append("groupname", GenCaps.value.groupname);
 
     formData.append("students1", GenCaps.value.students1);

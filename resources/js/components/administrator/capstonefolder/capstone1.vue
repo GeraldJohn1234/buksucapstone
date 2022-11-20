@@ -380,10 +380,17 @@
         </div>
         <br />
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
-            <!-- {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }} -->
-            {{ GenCadocu123.xf3 }}
+          <p
+            v-if="
+              GenCadocu123.xf3 != null &&
+              GenCadocu123.xf3 != '' &&
+              GenCadocu123.xf3 != 'NOT YET, SET'
+            "
+            class="pt-2 boldThese text-uppercase"
+          >
+            {{ instructorr.name }} {{ instructorr.mname }} {{ instructorr.lname }}
           </p>
+          <p v-else class="pt-2 boldThese text-uppercase">"Not set"</p>
           <hr class="toTop" />
           <p class="toTopp">Instructor</p>
         </div>
@@ -435,6 +442,7 @@
 import router from "../../../routers/administratorRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
+import Instructor from "../instructor.vue";
 
 let panels1 = ref({
   name: "",
@@ -451,6 +459,13 @@ let panels3 = ref({
   mname: "",
   lname: "",
 });
+
+let instructorr = ref({
+  name: "",
+  mname: "",
+  lname: "",
+});
+
 let ratee1 = ref({
   total: 0,
   xf1: "",
@@ -503,6 +518,7 @@ onMounted(async () => {
   // getIsstructor1();
 
   getsingleUser();
+  // Instructor();
 
   getsingleUser7();
   getCapston1Data();
@@ -592,7 +608,11 @@ const getcaps123 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/getcaps123/" + capstoneid);
   GenCadocu123.value = response.data.capstonee1;
-  let intn = parseInt(GenCadocu123.value.xf1);
+
+  let intn = parseInt(GenCadocu123.value.xf3);
+  let responsed = await axios.get("/api/get_edit_user/" + intn);
+  instructorr.value = responsed.data.userrs;
+  // console.warn("INSTRUCTOR name", instructorr.value.name);
   // console.warn("5555555555555555555555", intn.toFixed(2));
   // console.warn("6666666666666666666", GenCadocu123);
 };
@@ -648,7 +668,7 @@ const ssAccept = () => {
 const rateddd = async () => {
   let idd = getIDfromURL();
   let response = await axios.get("/api/panel_rate_check/" + idd);
-  console.warn("XFFFFFFFFF22222222", GenCadocu123.value.xf2);
+  // console.warn("XFFFFFFFFF22222222", GenCadocu123.value.xf2);
   // rated.value = response.data.userCaps;
   let idss = response.data;
   console.warn("IDDDDDDDDDD", idss);

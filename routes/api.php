@@ -181,8 +181,15 @@ Route::post('/take_topic/{id}', [TopicController::class,'take_topic']);
 Route::get('/getadviseesort', [CapstoneController::class,'getadviseesort']);
 Route::get('/get_all_capstone_advisee', [CapstoneController::class,'get_all_capstone_advisee']);
 Route::get('/get_all_capstone_panel', [CapstoneController::class,'get_all_capstone_panel']);
+Route::get('/get_all_capstone_instructorr', [CapstoneController::class,'get_all_capstone_instructorr']);
+Route::get('/get_all_capstone_secretary', [CapstoneController::class,'get_all_capstone_secretary']);
+
 Route::get('/get_all_capstone_instructo', [CapstoneController::class,'get_all_capstone_instructo']);
 Route::post('/save_instructor', [CapstoneController::class,'save_instructor']);
+Route::post('/caps1minutes/{id}', [CapstoneController::class,'caps1minutes']);
+Route::post('/caps2minutes/{id}', [CapstoneController::class,'caps2minutes']);
+Route::post('/caps3minutes/{id}', [CapstoneController::class,'caps3minutes']);
+Route::get('/checkproponent/{id}', [CapstoneController::class,'checkproponent']);
 
 
 Route::get('/showpdf', [CapstoneController::class,'showpdf']);
@@ -193,4 +200,4 @@ Route::get('/testrate/{id}', [CapstoneController::class,'testrate']);
 
 
 Route::get('/getadvisee', [CapstoneController::class,'getadvisee']);
-// get_topic  get_capstone_topic take_topic    get_all_capstone_advisee get_all_capstone_panel    showpdf
+//     caps2minutes get_topic  get_capstone_topic take_topic    get_all_capstone_advisee get_all_capstone_panel    showpdf  get_all_capstone_instructorr get_all_capstone_secretary

@@ -13,7 +13,6 @@
         <p class="parag m-2">{{ GenCapData.abstract }}</p>
       </div>
       <br />
-
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Revised Manuscript of Chapter 1-5</p>
@@ -281,10 +280,17 @@
         </div>
         <br />
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase boldThese">
-            <!-- {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }} -->
-            {{ GenCadocu123.xf3 }}
+          <p
+            v-if="
+              GenCadocu123.xf3 != null &&
+              GenCadocu123.xf3 != '' &&
+              GenCadocu123.xf3 != 'NOT YET, SET'
+            "
+            class="pt-2 boldThese text-uppercase"
+          >
+            {{ instructorr.name }} {{ instructorr.mname }} {{ instructorr.lname }}
           </p>
+          <p v-else class="pt-2 boldThese text-uppercase">"Not set"</p>
           <hr class="toTop" />
           <p class="toTopp">Instructor</p>
         </div>
@@ -400,6 +406,11 @@ let formcaps3 = ref({
 let rated = ref({
   id: "",
 });
+let instructorr = ref({
+  name: "",
+  mname: "",
+  lname: "",
+});
 
 onMounted(async () => {
   // getIsstructor1();
@@ -469,6 +480,9 @@ const getcaps123 = async () => {
   let response = await axios.get("/api/get_capstonee3/" + capstoneid);
   GenCadocu123.value = response.data.capstone33333;
   console.warn("12345678", GenCadocu123.value);
+  let intn = parseInt(GenCadocu123.value.xf3);
+  let responsed = await axios.get("/api/get_edit_user/" + intn);
+  instructorr.value = responsed.data.userrs;
 };
 
 const getIDfromURL = () => {
@@ -541,7 +555,7 @@ const rateddd = async () => {
     axios
       .post("/api/create_rate/" + idd)
       .then((response) => {
-        router.push("/rate3/" + idd);
+        router.push("/rate/" + idd);
       })
       // router.push("/rate/" + idd);
 

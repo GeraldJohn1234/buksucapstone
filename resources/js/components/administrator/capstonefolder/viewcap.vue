@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage bg-light">
+  <div class="contentOfThePage bg-light p-3">
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">
         {{ GenCapData.title }}

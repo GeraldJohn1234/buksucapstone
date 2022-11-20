@@ -284,10 +284,17 @@
         </div>
         <br />
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase boldThese">
-            <!-- {{ instruct.name }} {{ instruct.mname }} {{ instruct.lname }} -->
-            {{ GenCadocu123.xf3 }}
+          <p
+            v-if="
+              GenCadocu123.xf3 != null &&
+              GenCadocu123.xf3 != '' &&
+              GenCadocu123.xf3 != 'NOT YET, SET'
+            "
+            class="pt-2 boldThese text-uppercase"
+          >
+            {{ instructorr.name }} {{ instructorr.mname }} {{ instructorr.lname }}
           </p>
+          <p v-else class="pt-2 boldThese text-uppercase">"Not set"</p>
           <hr class="toTop" />
           <p class="toTopp">Instructor</p>
         </div>
@@ -326,6 +333,11 @@ import router from "../../../routers/administratorRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
 
+let instructorr = ref({
+  name: "",
+  mname: "",
+  lname: "",
+});
 let panels1 = ref({
   name: "",
   mname: "",
@@ -456,6 +468,10 @@ const getcaps123 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/getcaps2/" + capstoneid);
   GenCadocu123.value = response.data.capstonee2;
+
+  let intn = parseInt(GenCadocu123.value.xf3);
+  let responsed = await axios.get("/api/get_edit_user/" + intn);
+  instructorr.value = responsed.data.userrs;
   // console.warn("3333333333333333333",  GenCadocu123.value);
 };
 
