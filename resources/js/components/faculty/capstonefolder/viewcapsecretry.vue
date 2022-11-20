@@ -1,4 +1,5 @@
 <template>
+  <!-- <button class="col-12" @click="testlink()">TAPPP</button> -->
   <div class="contentOfThePage bg-light p-2">
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">
@@ -412,16 +413,16 @@ import { ref } from "vue";
 //   pdf;
 // }
 const getMinutes1 = () => {
-  // window.open("pdf/" + file, "_blank"); caps1.value.minutes1
-  window.open("http://127.0.0.1:8000/pdfminutes1/" + caps1.value.minutes1, "_blank");
+  let link = window.location.pathname.split("/")[0];
+  window.open(link + "/pdfminutes1/" + caps1.value.minutes1, "_blank");
 };
 const getMinutes2 = () => {
-  // window.open("pdf/" + file, "_blank"); caps1.value.minutes1
-  window.open("http://127.0.0.1:8000/pdfminutes2/" + caps2.value.minutes1, "_blank");
+  let link = window.location.pathname.split("/")[0];
+  window.open(link + "/pdfminutes2/" + caps2.value.minutes1, "_blank");
 };
 const getMinutes3 = () => {
-  // window.open("pdf/" + file, "_blank"); caps1.value.minutes1
-  window.open("http://127.0.0.1:8000/pdfminutes3/" + caps3.value.minutes1, "_blank");
+  let link = window.location.pathname.split("/")[0];
+  window.open(link + "/pdfminutes3/" + caps3.value.minutes1, "_blank");
 };
 let DocumentType = ref({
   file: "",
@@ -728,6 +729,14 @@ const props = defineProps({
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
+// const testlink = () => {
+//   let link = window.location.pathname.split("/")[1];
+
+//   toast.fire({
+//     icon: "warning",
+//     title: "LINK IS" + link,
+//   });
+// };
 
 const onView1 = () => {
   let id = getIDfromURL();

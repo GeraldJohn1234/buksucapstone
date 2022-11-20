@@ -29,7 +29,15 @@
       <!-- <a href="#" @click.prevent="getFileeee()">tryyyyyyyyyyyyyyyyy</a> -->
       <!-- <a href="#" @click.prevent="getFileeee()">fsff</a> -->
 
-      <div v-if="GenCapData.name === 'AGREE'" class="row text-center px-2">
+      <div
+        v-if="
+          GenCapData.name === 'AGREE' &&
+          GenCapData.xf5 != null &&
+          GenCapData.xf5 != 'null' &&
+          GenCapData.xf5 != 'null'
+        "
+        class="row text-center px-2"
+      >
         <button
           type="button"
           href="#"
@@ -37,6 +45,22 @@
           @click.prevent="getFileeee()"
         >
           OPEN MANUSCRIPT
+        </button>
+      </div>
+      <div
+        v-else-if="
+          GenCapData.xf5 === null ||
+          GenCapData.xf5 === 'null' ||
+          GenCapData.xf5 === 'NULL'
+        "
+        class="row text-center px-2"
+      >
+        <button
+          type="button"
+          class="btn btn-warning col fw-bold border border-dark"
+          @click="warningNoData()"
+        >
+          EMPTY MANUSCRIPT
         </button>
       </div>
       <div v-else class="row text-center px-2">
@@ -352,8 +376,10 @@ import { ref } from "vue";
 //   pdf;
 // }
 const getFileeee = () => {
-  // window.open("pdf/" + file, "_blank");
-  window.open("http://127.0.0.1:8000/pdf/" + GenCapData.value.xf5, "_blank");
+  let link = window.location.pathname.split("/")[0];
+  // window.open(link + "/pdfminutes3/" + caps3.value.minutes1, "_blank");
+
+  window.open(link + "/pdf/" + GenCapData.value.xf5, "_blank");
 };
 let DocumentType = ref({
   file: "",
@@ -547,7 +573,16 @@ const warning = () => {
   toast.fire({
     icon: "warning",
     title:
-      "The Group: " + GenCapData.value.groupname + " did not Agree to share their work!",
+      "The group " +
+      GenCapData.value.groupname +
+      ", did not Agree to share their manuscript!",
+  });
+};
+const warningNoData = () => {
+  toast.fire({
+    icon: "warning",
+    title:
+      "The group " + GenCapData.value.groupname + ", did not submit their manuscript!",
   });
 };
 //
