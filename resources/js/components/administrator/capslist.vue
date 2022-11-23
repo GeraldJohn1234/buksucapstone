@@ -58,7 +58,7 @@
           <th class="col text-center">YEAR LEVEL</th>
           <th class="col text-center">SCHOOL YEAR</th>
           <th class="col text-center">STATUS</th>
-          <th class="col-3 text-center">ACTION</th>
+          <th class="col-3 text-center px-5">ACTION</th>
         </tr>
       </thead>
 
@@ -100,7 +100,7 @@
                     UPDATE
                   </button>
                 </li>
-                <li class="col-lg-4 col-sm-8 col-md-12">
+                <li class="col-lg-4 col-sm-12 col-md-12">
                   <button
                     type="button"
                     class="btn btn-outline-warning button1 my-1 fw-bold"

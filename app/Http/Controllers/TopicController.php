@@ -19,7 +19,11 @@ class TopicController extends Controller
         $clientC = "No Data";
         $clientL = "No Data";
         $x = "No Data";
-        $id = Auth::user()->id;
+        // $id = Auth::user()->id;
+
+        $users = Auth::user()->id;
+        // $id = 1;
+        // $users = User::find($id);
 
         $topic = new Topic();
 
@@ -50,7 +54,7 @@ class TopicController extends Controller
         }
 
         $topic->status = $status;
-        $topic->uploader_id = $id;
+        $topic->uploader_id = $users;
 
         $topic->save();
     }

@@ -15,7 +15,7 @@
         @endif
 
         <div class="mt-4 flex items-center justify-between">
-            <form method="POST" action="{{ route('verification.send') }}">
+            <form method="POST" action="{{ route('verification1.send') }}">
                 <img class=" fill-current imagesCenter" src="/images/buksu.png" alt="logo" />
                 <h1 class=" text-center bold schoolName">Bukidnon State University </h1>
                 <br>

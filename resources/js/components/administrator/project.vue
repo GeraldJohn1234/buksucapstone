@@ -8,9 +8,10 @@
     <div class="row">
       <div class="col row contentOfThePage me-1 ms-3">
         <span class="text-danger">
-          NOTE: The conversion of Image to Text, will depend on the clarity of the images.
+          NOTE: The conversion of Image to Text, will depend the the clarity of the
+          images.
         </span>
-        <div class="col-10">
+        <div class="col-9">
           <input
             type="file"
             accept="image/*"
@@ -18,7 +19,7 @@
             @change="updateCanvasImage"
           />
         </div>
-        <div class="col stats">{{ status }}</div>
+        <div class="col stats text-warning fw-bolder">{{ status }}</div>
 
         <div class="journey">
           <div class="centerne">
@@ -456,82 +457,82 @@ const saveCaps = () => {
   if (GenCaps.value.students1 == null || GenCaps.value.students1 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 1 field, choose temporary if NONE",
+      title: "Invalid, Please fill the Proponet 1 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.title == null || GenCaps.value.title == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on title field",
+      title: "Invalid, Please fill the title field",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.groupname == null || GenCaps.value.groupname == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on groupname field",
+      title: "Invalid, Please fill the groupname field",
       // title: GenCaps.value.panels1,
     });
   }
   // else if (GenCaps.value.start_date == null || GenCaps.value.start_date == 0) {
   //   toast.fire({
   //     icon: "warning",
-  //     title: "Invalid, Please fill on start_date field",
+  //     title: "Invalid, Please fill the start_date field",
 
   //   });
   // }
   else if (GenCaps.value.students2 == null || GenCaps.value.students2 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 2 field, choose temporary if NONE",
+      title: "Invalid, Please fill the Proponet 2 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students3 == null || GenCaps.value.students3 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 3 field, choose temporary if NONE",
+      title: "Invalid, Please fill the Proponet 3 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students4 == null || GenCaps.value.students4 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on Proponet 4 field, choose temporary if NONE",
+      title: "Invalid, Please fill the Proponet 4 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels1 == null || GenCaps.value.panels1 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on panel 1 field, choose temporary if NONE",
+      title: "Invalid, Please fill the panel 1 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels2 == null || GenCaps.value.panels2 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on panel 2 field, choose temporary if NONE",
+      title: "Invalid, Please fill the panel 2 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels3 == null || GenCaps.value.panels3 == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on panel 3 field, choose temporary if NONE",
+      title: "Invalid, Please fill the panel 3 field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.adviser == null || GenCaps.value.adviser == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on adviser field, choose temporary if NONE",
+      title: "Invalid, Please fill the adviser field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.coAdviser == null || GenCaps.value.coAdviser == 0) {
     toast.fire({
       icon: "warning",
       title:
-        "Invalid, Please fill on Co-Adviser field, if none repeat the Adviser, choose temporary if NONE",
+        "Invalid, Please fill the Co-Adviser field, if none repeat the Adviser or choose temporary",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.secretarys == null || GenCaps.value.secretarys == 0) {
     toast.fire({
       icon: "warning",
-      title: "Invalid, Please fill on secretarys field, choose temporary if NONE",
+      title: "Invalid, Please fill the secretarys field, choose temporary if NONE",
       // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students1 == GenCaps.value.students2) {

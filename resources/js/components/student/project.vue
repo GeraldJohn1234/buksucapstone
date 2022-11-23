@@ -360,7 +360,7 @@
           class="m-1 btnSize btn btn-primary fw-bold fw-bold"
           @click="saveCaps()"
         >
-          CREATE PROJECT
+          SAVE
         </button>
       </div>
     </div>

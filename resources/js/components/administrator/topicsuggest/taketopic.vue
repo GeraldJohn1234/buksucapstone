@@ -87,16 +87,19 @@ let uploader = ref({
   mname: "",
   lname: "",
 });
-const topicUploader = async () => {
-  let capstoneid = window.location.pathname.split("/")[2];
-  let response = await axios.get("/api/get_capstone_topic/" + capstoneid);
-  uploader.value = response.data.uploader;
-  // console.warn("UPLOADER:", uploader.value);
-};
+// const topicUploader = async () => {
+//   let capstoneid = window.location.pathname.split("/")[2];
+//   let response = await axios.get("/api/get_capstone_topic/" + capstoneid);
+//   uploader.value = response.data.uploader;
+//   // console.warn("UPLOADER:", uploader.value);
+// };
 const getTopic = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_topic/" + capstoneid);
   Topic.value = response.data.topic;
+
+  let responsed = await axios.get("/api/get_capstone_topic/" + Topic.value.uploader_id);
+  uploader.value = responsed.data.uploader;
 };
 
 const getIDfromURL = () => {

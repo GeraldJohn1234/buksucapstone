@@ -9,7 +9,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('password.update') }}">
+        <form method="POST" action="{{ route('password1.update') }}">
             <img class=" fill-current imagesCenter" src="/images/buksu.png" alt="logo" />
             <h1 class=" text-center bold schoolName">Bukidnon State University </h1>
             <br>

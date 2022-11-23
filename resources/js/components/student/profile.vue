@@ -118,7 +118,6 @@
             <option selected>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-            <option value="5th year">5th year</option>
           </select>
         </div>
       </div>

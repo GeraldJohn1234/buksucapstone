@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" type="x-icon" href="/images/buksu.png">
         <meta name="token" id="token" value="{{ csrf_token() }}">
-        <title>STUDENT</title>
+        <title>Capstone Archiving Management System</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

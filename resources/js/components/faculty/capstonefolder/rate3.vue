@@ -1,48 +1,34 @@
 <template>
   <div class="contentOfThePage p-3">
     <h5 class="design">
-      CAPSTONE 1 EVALUATION RUBRIC
+      CAPSTONE 3 EVALUATION RUBRIC FOR MANUSCRIPT
       <hr />
     </h5>
 
     <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
     <table
-      class="table tableBorder text-center table-striped table-bordered border-primary"
+      class="table tableBorder text-center align-middle table-striped table-bordered border-primary"
     >
       <thead>
         <tr>
-          <th scope="col">Category</th>
-          <th scope="col">4-Excellent</th>
-          <th scope="col">3-Good</th>
-          <th scope="col">2-Average</th>
-          <th scope="col">1-Needs Improvement</th>
-          <th scope="col">Weight(%)</th>
-          <th scope="col-3" class="col-2">Score</th>
-          <th scope="col">Rating(%)</th>
+          <th scope="col">Standards</th>
+          <th scope="col">3-Very Good</th>
+          <th scope="col">2-Good</th>
+          <th scope="col">1-Poor</th>
+          <!-- <th scope="col">Weight(%)</th> -->
+          <th scope="col-3" class="col-2">Rate</th>
+          <th scope="col">Score</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td scope="row" rowspan="2">
-            <h5 class="fw-bold py-1">Background of the Study</h5>
+            <h5 class="fw-bold py-1">Abstract</h5>
           </td>
-          <td>
-            Well formulated background of the study based on facts that are supported with
-            5 or more strong sources of evidence specific to the topic.
-          </td>
-          <td>
-            Fairly well formulated background of the study that has some evidence to
-            support the topic but the evidence is a mixture of strong and weak sources.
-          </td>
-          <td>
-            @Background of the study is not well constructed and provides a few (less than
-            5) sources of weak evidence to support the topic.
-          </td>
-          <td>
-            Lacks proper background of the study. There is no substantive evidence to
-            support the topic
-          </td>
-          <td>5</td>
+          <td>Clearly states problem and question to be resolved.</td>
+          <td>Summarizes problem and questions but lack some details.</td>
+          <td>Is vague about the problem.</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -78,29 +64,17 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="background"
-                  v-model="caps1rate.background"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.background) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.background }}</h5>
           </td>
         </tr>
         <tr>
-          <td>5 research articles are appropriately selected and cited.</td>
-          <td>3-4 research articles are appropriately selected and cited.</td>
-          <td>1-2 research articles are appropriately selected and cited</td>
-          <td>Citations are not related</td>
-          <td>5</td>
+          <td>clearly summarizes method, results, and conclusions.</td>
+          <td>Summarizes results, and conclusions but lacks some details.</td>
+          <td>Does not provide a summary of the whole project.</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -136,42 +110,30 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="backgrounds"
-                  v-model="caps1rate.backgrounds"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.backgrounds) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.backgrounds }}</h5>
           </td>
         </tr>
 
         <tr>
           <td scope="row" rowspan="3">
-            <h5 class="fw-bold py-1">Objectives of the Study</h5>
+            <h5 class="fw-bold py-1">Introduction</h5>
           </td>
           <td>
-            The general objective specifies the system being developed, the main
-            functionality of the system, and a platform for development
+            Provides background research into the topic and summarizes important findings
+            from the review of the literature.
           </td>
           <td>
-            The general objective specifies the system being developed, the main
-            functionality of the system.
+            Provides background research into the topic and describes the problem to be
+            solved.
           </td>
-          <td>The general objective specifies the system being developed</td>
           <td>
-            The general objective does not specify the system being developed, the main
-            functionality of the system, and a platform for development
+            Provides background research into the topic but does not describe the problem
+            to be solved; fails to explain details to non-specialists
           </td>
-          <td>5</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -207,38 +169,22 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="obj1"
-                  v-model="caps1rate.obj1"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.obj1) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.obj1 }}</h5>
           </td>
         </tr>
         <tr>
           <td>
-            The specific objectives enumerate the steps in planning, designing, developing
-            implementing, and evaluating the system.
+            Describes thoroughly the problem to be solved and thoroughly justifies the
+            study;
           </td>
           <td>
-            The specific objectives enumerate the steps in designing, developing
-            implementing, and evaluating the system.
+            Describes the problem to be solved but did not thoroughly justifies the study;
           </td>
-          <td>
-            The specific objectives enumerate the steps in developing implementing, and
-            evaluating the system.
-          </td>
-          <td>The specific objectives enumerate the steps in developing the system.</td>
-          <td>3</td>
+          <td>Describes the problem to be solved but did not justifies the study;</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -274,36 +220,23 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="obj2"
-                  v-model="caps1rate.obj2"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (3 * caps1rate.obj2) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.obj2 }}</h5>
           </td>
         </tr>
 
         <tr>
           <td>
-            3 comprehensive objectives stated considering the achievable & measurable
-            objective
+            Explains thoroughly the significance of the problem to an audience of
+            non-specialists.
           </td>
-          <td>Stated 3 objective but limited evidence of achievable & measurable</td>
-          <td>Stated less than 3 objective & not clearly objective</td>
           <td>
-            Stated less than 3 objectives with no evidence of measurable & achievable
-            objective
+            Explains the significance of the problem to an audience of non-specialists.
           </td>
-          <td>2</td>
+          <td>Explains the significance of the problem to technical specialists.</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -339,45 +272,23 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="obj3"
-                  v-model="caps1rate.obj3"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (2 * caps1rate.obj3) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.obj3 }}</h5>
           </td>
         </tr>
 
         <tr>
-          <td scope="row" rowspan="2">
-            <h5 class="fw-bold py-1">Significance of the Study</h5>
+          <td scope="row" rowspan="1">
+            <h5 class="fw-bold py-1">Problem</h5>
           </td>
           <td>
-            Very clearly stated who will benefit from the study (population, community,
-            organization, industry, LGU).
+            Addresses the problem with clarity and a strong rationale/justification.
           </td>
-          <td>
-            Fairly well stated who will benefit from the study (population, community,
-            organization, industry, LGU)
-          </td>
-          <td>
-            Not clearly stated who will benefit from the study (population, community,
-            organization, industry, LGU)
-          </td>
-          <td>
-            Lacks statement as to who will benefit from the study (population, community,
-            organization, industry, LGU)
-          </td>
-          <td>5</td>
+          <td>Addresses the problem but lacks details in rationale/justification.</td>
+          <td>Does not clearly address the problem</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -413,42 +324,26 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="s1"
-                  v-model="caps1rate.s1"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.s1) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.s1 }}</h5>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Very clearly stated purpose of the study that connects very well to the
-            introduction and the statement of the problem.
+          <td scope="row" rowspan="1">
+            <h5 class="fw-bold py-1">Procedure (Methodology)</h5>
           </td>
           <td>
-            Fairly well stated purpose of the study that connects well to the introduction
-            and the statement of the problem.
+            Presents easy-to-follow steps that are logical and adequately detailed;
+            mehtodology is appropriate to address the problem.
           </td>
           <td>
-            Purpose of the study is not clearly stated and/or does not connect well with
-            the introduction and the statement of the problem.
+            Presents most of the steps but lacks in details or explanation of sampling.
           </td>
-          <td>
-            Lacks a purpose of the study statement or does not pertain to the introduction
-            and/or the statement of the problem.
-          </td>
-          <td>5</td>
+          <td>Misses procedural steps of has steps that are not sequential.</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -484,48 +379,21 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="s2"
-                  v-model="caps1rate.s2"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.s2) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.s2 }}</h5>
           </td>
         </tr>
         <tr>
           <td scope="row">
-            <h5 class="fw-bold py-1">Scope and Limitation</h5>
+            <h5 class="fw-bold py-1">Data and results</h5>
           </td>
 
-          <td>
-            Include the following: brief statement of the general purpose of the study,
-            subject matter and topics, the locale of the study, the period of the study.
-            the main functionality of the system, and a platform for development
-          </td>
-          <td>
-            Include the following: brief statement of the general purpose of the study,
-            subject matter and topics, the locale of the study, the period of the study.
-            the main functionality of the system,
-          </td>
-          <td>
-            Include the following: brief statement of the general purpose of the study,
-            subject matter and topics, the locale of the study, and the period of the
-            study.
-          </td>
-          <td>
-            Include the following: brief statement of the general purpose of the study,
-            subject matter and topics, and the locale of the stud,
-          </td>
-          <td>10</td>
+          <td>Provides complete explanation of data and results.</td>
+          <td>Explains data and results with some aspects lacking detail.</td>
+          <td>Lacks description of data and results.</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -561,37 +429,25 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="sc"
-                  v-model="caps1rate.sc"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (10 * caps1rate.sc) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.sc }}</h5>
           </td>
         </tr>
 
         <tr>
           <td scope="row">
-            <h5 class="fw-bold py-1">Definition of terms</h5>
+            <h5 class="fw-bold py-1">Conclusion</h5>
           </td>
 
           <td>
-            List the important key words and defines the technical and operational
-            definitions.
+            Presents a logical explanation for findings and addresses recommendations
+            and/or implications for further research or use/application.
           </td>
-          <td>Fairly defines the technical and operational definitions.</td>
-          <td>Technical and operational terms are not clearly defined.</td>
-          <td>Technical and operational terms are not defined.</td>
-          <td>5</td>
+          <td>Presents a logical explanation for findings.</td>
+          <td>Does not adequately explain findings.</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -627,33 +483,29 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="df"
-                  v-model="caps1rate.df"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.df) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.df }}</h5>
           </td>
         </tr>
 
         <tr>
-          <td scope="row" rowspan="2">
-            <h5 class="fw-bold py-1">Literature Review</h5>
+          <td scope="row" rowspan="1">
+            <h5 class="fw-bold py-1">Mechanics and documentation</h5>
           </td>
-          <td>Summarize concisely 8-10 literature items (what, when, where, how)</td>
-          <td>Summarize 5-7 literature items (what, when, where, how)</td>
-          <td>Summarize 3- 5 literature items (what, when, where, how)</td>
-          <td>Summarize less than 3- literature items (what, when, where, how)</td>
-          <td>5</td>
+          <td>
+            Is free or almost free of errors of grammar, spelling, and writing mechanics
+            and appropriately documents sources.
+          </td>
+          <td>
+            Has errors but they don’t represent a major distraction; documents sources.
+          </td>
+          <td>
+            Has many errors that obscure meaning of content or add confusion; neglects
+            important sources or documents few to no sources.
+          </td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -689,41 +541,26 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="lr1"
-                  v-model="caps1rate.lr1"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.lr1) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.lr1 }}</h5>
           </td>
         </tr>
         <tr>
+          <td scope="row" rowspan="1">
+            <h5 class="fw-bold py-1">Sources</h5>
+          </td>
+
           <td>
-            Demonstrates a strong familiarity with the literature or previous work in the
-            field.
+            All sources are accurately documented according to copyright and APA 6th ed.
+            guidelines.
           </td>
           <td>
-            Study addresses some relevant questions in the field. Knowledge of literature
-            or previous work in the field is good.
+            All sources are accurately documented but few are not in the desired format.
           </td>
-          <td>
-            Study addresses questions in the field. Knowledge of the literature or
-            previous work in the field is adequate.
-          </td>
-          <td>
-            Study does not adequately address questions in the field. Knowledge of the
-            literature or previous work in the field is limited
-          </td>
-          <td>5</td>
+          <td>There are many citation mistakes and copyright is often violated</td>
+
           <td>
             <div class="">
               <div class="mx-2 form-check form-check-inline">
@@ -759,663 +596,34 @@
                 />
                 <label class="form-check-labellll" for="inlineRadio3">3</label>
               </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="lr2"
-                  v-model="caps1rate.lr2"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
             </div>
           </td>
           <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.lr2) / 4 }}</h5>
+            <h5 class="fw-bold">{{ caps1rate.lr2 }}</h5>
           </td>
         </tr>
 
         <tr>
-          <td scope="row" rowspan="3">
-            <h5 class="fw-bold py-1">Methodology</h5>
-          </td>
-          <td>
-            Include the following: brief statement of the processes and procedures for
-            executing the study, research design/methods, system architecture/conceptual
-            design, process model, use case, DFD, and flowchart diagram.
-          </td>
-          <td>
-            Include the following: brief statement of the processes and procedures for
-            executing the study, research design/methods, system architecture/conceptual
-            design, process model, use case, and DFD.
-          </td>
-          <td>
-            Include the following: brief statement of the processes and procedures for
-            executing the study, research design/methods, system architecture/conceptual
-            design, process model, and use case.
-          </td>
-          <td>
-            Include the following: brief statement of the processes and procedures for
-            executing the study, research design/methods, system architecture/conceptual
-            design, and process model.
-          </td>
-          <td>5</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth1"
-                  v-model="caps1rate.meth1"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth1"
-                  v-model="caps1rate.meth1"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth1"
-                  v-model="caps1rate.meth1"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth1"
-                  v-model="caps1rate.meth1"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.meth1) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Processes and procedures are well stated, manageable, appropriate and
-            comprehensive.
-          </td>
-          <td>
-            Processes and procedures seem logical and adequate for executing the studyt.
-          </td>
-          <td>Processes and procedures for executing the project appear are vague.</td>
-          <td>Processes and procedures outlined are unclear.</td>
-          <td>3</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth2"
-                  v-model="caps1rate.meth2"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth2"
-                  v-model="caps1rate.meth2"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth2"
-                  v-model="caps1rate.meth2"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth2"
-                  v-model="caps1rate.meth2"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (3 * caps1rate.meth2) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Study has every reasonable expectation of being completed with goals that are
-            discipline specific and achievable.
-          </td>
-          <td>Study completion is probable and goals are measurable.</td>
-          <td>
-            Study completion is attainable, but goals are appropriate by it is unclear how
-            they will be measured.
-          </td>
-          <td>Study completion is unlikely and goals are not unclear.</td>
-          <td>2</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth3"
-                  v-model="caps1rate.meth3"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth3"
-                  v-model="caps1rate.meth3"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth3"
-                  v-model="caps1rate.meth3"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="meth3"
-                  v-model="caps1rate.meth3"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (2 * caps1rate.meth3) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <h5 class="fw-bold py-1">References</h5>
-          </td>
-          <td>Adhere with the APA format requirement.</td>
-          <td>Meet the format requirement.</td>
-          <td>Lacking of format requirement.</td>
-          <td>Not meet the format requirement.</td>
-          <td>5</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ref1"
-                  v-model="caps1rate.ref1"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ref1"
-                  v-model="caps1rate.ref1"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ref1"
-                  v-model="caps1rate.ref1"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ref1"
-                  v-model="caps1rate.ref1"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.ref1) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <h5 class="fw-bold py-1">Formatting</h5>
-          </td>
-          <td>Adhere with ALL format requirement.</td>
-          <td>Meet the format requirement.</td>
-          <td>Lacking of format requirement.</td>
-          <td>Not meet the format requirement.</td>
-          <td>5</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="format"
-                  v-model="caps1rate.format"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="format"
-                  v-model="caps1rate.format"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="format"
-                  v-model="caps1rate.format"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="format"
-                  v-model="caps1rate.format"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.format) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <h5 class="fw-bold py-1">Oral communication skills</h5>
-          </td>
-          <td>
-            The students clearly and confidently explained in English with a clear audible
-            voice.
-          </td>
-          <td>
-            Students were able to explain effectively in English partially with an audible
-            voice.
-          </td>
-          <td>
-            Students were able to explain in English partially with an audible voice.
-          </td>
-          <td>
-            Students were unable to explain effectively in English although with an
-            audible voice.
-          </td>
-          <td>5</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="oralCom"
-                  v-model="caps1rate.oralCom"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="oralCom"
-                  v-model="caps1rate.oralCom"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="oralCom"
-                  v-model="caps1rate.oralCom"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="oralCom"
-                  v-model="caps1rate.oralCom"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.oralCom) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <h5 class="fw-bold py-1">PPt & Video presentation</h5>
-          </td>
-          <td>
-            PPT/video presentation were comprehensive, very clear, readable and properly
-            arranged.
-          </td>
-          <td>
-            The PPT/video visual enhance-ment was generally reasonable and conscientious
-            effort is very visible.
-          </td>
-          <td>The PPT/video visual enhancement was visible.</td>
-          <td>The PPT/video presentation were poorly done and requires improvement.</td>
-          <td>5</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ppt"
-                  v-model="caps1rate.ppt"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ppt"
-                  v-model="caps1rate.ppt"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ppt"
-                  v-model="caps1rate.ppt"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="ppt"
-                  v-model="caps1rate.ppt"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.ppt) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <h5 class="fw-bold py-1">Attire</h5>
-          </td>
-          <td>
-            The group were all in proper business attire, well-groomed and appears
-            professional.
-          </td>
-          <td>Few of the group members were not in proper business attire.</td>
-          <td>Most of the group members were not in proper business attire.</td>
-          <td>Group members were not in proper business attire.</td>
-          <td>5</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="attire"
-                  v-model="caps1rate.attire"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="attire"
-                  v-model="caps1rate.attire"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="attire"
-                  v-model="caps1rate.attire"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="attire"
-                  v-model="caps1rate.attire"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (5 * caps1rate.attire) / 4 }}</h5>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <h5 class="fw-bold py-1">Response to Inquiry</h5>
-          </td>
-          <td>
-            Student demonstrates full knowledge by answering questions with explanations
-            and elaboration.
-          </td>
-          <td>
-            Student shows adequate knowledge by answering questions with few details or
-            elaboration.
-          </td>
-          <td>
-            Student shows little knowledge by answering questions with little to no detail
-            or elaboration.
-          </td>
-          <td>
-            Student shows little knowledge by answering questions with no detail or
-            elaboration.
-          </td>
-          <td>10</td>
-          <td>
-            <div class="">
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="resp"
-                  v-model="caps1rate.resp"
-                  id="inlineRadio1"
-                  value="1"
-                />
-                <label class="form-check-labellll" for="inlineRadio1">1</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="resp"
-                  v-model="caps1rate.resp"
-                  id="inlineRadio2"
-                  value="2"
-                />
-                <label class="form-check-labellll" for="inlineRadio2">2</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="resp"
-                  v-model="caps1rate.resp"
-                  id="inlineRadio3"
-                  value="3"
-                />
-                <label class="form-check-labellll" for="inlineRadio3">3</label>
-              </div>
-              <div class="mx-2 form-check form-check-inline">
-                <input
-                  class="pointerr form-check-input"
-                  type="radio"
-                  name="resp"
-                  v-model="caps1rate.resp"
-                  id="inlineRadio4"
-                  value="4"
-                />
-                <label class="form-check-labellll" for="inlineRadio4">4</label>
-              </div>
-            </div>
-          </td>
-          <td>
-            <h5 class="fw-bold">{{ (10 * caps1rate.resp) / 4 }}</h5>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row" colspan="5">
+          <td scope="row" colspan="4">
             <h5 class="fw-bold py-1" float-start>TOTAL</h5>
           </td>
-          <td>100</td>
+          
           <td></td>
           <td>
             <h5 class="fw-bold">
               {{
-                (5 * caps1rate.background) / 4 +
-                (5 * caps1rate.backgrounds) / 4 +
-                (5 * caps1rate.obj1) / 4 +
-                (3 * caps1rate.obj2) / 4 +
-                (2 * caps1rate.obj3) / 4 +
-                (5 * caps1rate.s1) / 4 +
-                (5 * caps1rate.s2) / 4 +
-                (10 * caps1rate.sc) / 4 +
-                (5 * caps1rate.df) / 4 +
-                (5 * caps1rate.lr1) / 4 +
-                (5 * caps1rate.lr2) / 4 +
-                (5 * caps1rate.meth1) / 4 +
-                (3 * caps1rate.meth2) / 4 +
-                (2 * caps1rate.meth3) / 4 +
-                (5 * caps1rate.ref1) / 4 +
-                (5 * caps1rate.format) / 4 +
-                (5 * caps1rate.oralCom) / 4 +
-                (5 * caps1rate.ppt) / 4 +
-                (5 * caps1rate.attire) / 4 +
-                (10 * caps1rate.resp) / 4
+                (caps1rate.background) / 1+
+                (caps1rate.backgrounds) / 1 +
+                (caps1rate.obj1) / 1 +
+                (caps1rate.obj2) / 1 +
+                (caps1rate.obj3) / 1 +
+                (caps1rate.s1) / 1 +
+                (caps1rate.s2) / 1 +
+                (caps1rate.sc) / 1 +
+                (caps1rate.df) / 1 +
+                (caps1rate.lr1) / 1 +
+                (caps1rate.lr2) / 1 
+                
               }}
             </h5>
           </td>
@@ -1423,41 +631,421 @@
       </tbody>
     </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="design">
+      CAPSTONE 3 EVALUATION RUBRIC FOR ORAL PRESENTATION
+      <hr />
+    </h5>
+
+    <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
+    <table
+      class="table tableBorder text-center align-middle table-striped table-bordered border-primary"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Standards</th>
+          <th scope="col">4</th>
+          <th scope="col">3</th>
+          <th scope="col">2</th>
+          <th scope="col">1</th>
+          <!-- <th scope="col">Weight(%)</th> -->
+          <th scope="col-3" class="col-2">Rate</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+     
+
+
+        <tr>
+          <td scope="row" rowspan="4">
+            <h5 class="fw-bold py-1">Oral Defense</h5>
+          </td>
+          <td>
+            Masterfully defends research by providing clear and insightful answers to questions.
+          </td>
+          <td>
+            Competently defends research
+            by providing very
+            helpful answers
+            to questions.
+          </td>
+          <td>
+            Adequately defends
+            research; answers
+            questions, but often
+            with little insight;
+          </td>
+          <td>
+            Does not adequately
+ defend research;
+ does not answer key questions; frequently
+          </td>
+
+          <td>
+            <div class="">
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth1"
+                  v-model="caps1rate.meth1"
+                  id="inlineRadio1"
+                  value="1"
+                />
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth1"
+                  v-model="caps1rate.meth1"
+                  id="inlineRadio2"
+                  value="2"
+                />
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth1"
+                  v-model="caps1rate.meth1"
+                  id="inlineRadio3"
+                  value="3"
+                />
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth1"
+                  v-model="caps1rate.meth1"
+                  id="inlineRadio4"
+                  value="4"
+                />
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
+              </div>
+            </div>
+          </td>
+          <td>
+            <h5 class="fw-bold">{{  caps1rate.meth1}}</h5>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Uses presentation resources as
+            a guide.
+          </td>
+          <td>
+            occasionally manifest
+            need for further
+            reflection on minor
+            points;
+          </td>
+          <td>frequently shows a need for deeper reflection on minor points.</td>
+          <td>shows a need for deeper reflection on vital points;</td>
+        
+          <td>
+            <div class="">
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth2"
+                  v-model="caps1rate.meth2"
+                  id="inlineRadio1"
+                  value="1"
+                />
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth2"
+                  v-model="caps1rate.meth2"
+                  id="inlineRadio2"
+                  value="2"
+                />
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth2"
+                  v-model="caps1rate.meth2"
+                  id="inlineRadio3"
+                  value="3"
+                />
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth2"
+                  v-model="caps1rate.meth2"
+                  id="inlineRadio4"
+                  value="4"
+                />
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
+              </div>
+            </div>
+          </td>
+          <td>
+            <h5 class="fw-bold">{{ caps1rate.meth2 }}</h5>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Gives detailed explanations and is easily understandable.
+          </td>
+          <td>Uses presentation resources as a guide, is easily understandable.</td>
+          <td>
+            Relies too much on presentation and has difficulty speaking freely to the audience.
+          </td>
+          <td>Reads the material from presentation to make the report.</td>
+          <td>
+            <div class="">
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth3"
+                  v-model="caps1rate.meth3"
+                  id="inlineRadio1"
+                  value="1"
+                />
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth3"
+                  v-model="caps1rate.meth3"
+                  id="inlineRadio2"
+                  value="2"
+                />
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth3"
+                  v-model="caps1rate.meth3"
+                  id="inlineRadio3"
+                  value="3"
+                />
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="meth3"
+                  v-model="caps1rate.meth3"
+                  id="inlineRadio4"
+                  value="4"
+                />
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
+              </div>
+            </div>
+          </td>
+          <td>
+            <h5 class="fw-bold">{{ caps1rate.meth3 }}</h5>
+          </td>
+        </tr>
+
+        <tr>
+        
+          <td>keeps appropriate eye contact with the audience.</td>
+          <td>Keeps eye contact with the audience.</td>
+          <td>Somewhat comfortable with the topic.</td>
+          <td>and is clearly not comfortable with the topic.</td>
+          <td>
+            <div class="">
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="ref1"
+                  v-model="caps1rate.ref1"
+                  id="inlineRadio1"
+                  value="1"
+                />
+                <label class="form-check-labellll" for="inlineRadio1">1</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="ref1"
+                  v-model="caps1rate.ref1"
+                  id="inlineRadio2"
+                  value="2"
+                />
+                <label class="form-check-labellll" for="inlineRadio2">2</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="ref1"
+                  v-model="caps1rate.ref1"
+                  id="inlineRadio3"
+                  value="3"
+                />
+                <label class="form-check-labellll" for="inlineRadio3">3</label>
+              </div>
+              <div class="mx-2 form-check form-check-inline">
+                <input
+                  class="pointerr form-check-input"
+                  type="radio"
+                  name="ref1"
+                  v-model="caps1rate.ref1"
+                  id="inlineRadio4"
+                  value="4"
+                />
+                <label class="form-check-labellll" for="inlineRadio4">4</label>
+              </div>
+            </div>
+          </td>
+          <td>
+            <h5 class="fw-bold"> {{ caps1rate.ref1 }}</h5>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td scope="row" colspan="5">
+            <h5 class="fw-bold py-1" float-start>TOTAL</h5>
+          </td>
+        
+          <td></td>
+          <td>
+            <h5 class="fw-bold">
+              {{
+            
+                ( caps1rate.meth1) / 1 +
+                ( caps1rate.meth2) / 1 +
+                ( caps1rate.meth3) / 1 +
+                (caps1rate.ref1) / 1 
+            
+              }}
+            </h5>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <br />
 
     <div class="row">
       <div class="col-9"></div>
       <div class="col">
-        <h5 class="d-inline fw-bold" for="total">RATING&nbsp;</h5>
+        <h5 class="d-inline fw-bold" for="total">SCORE&nbsp;&nbsp;&nbsp;</h5>
         <h5 class="d-inline fw-bold">
           :&nbsp;&nbsp;&nbsp;
           {{
-            (5 * caps1rate.background) / 4 +
-            (5 * caps1rate.backgrounds) / 4 +
-            (5 * caps1rate.obj1) / 4 +
-            (3 * caps1rate.obj2) / 4 +
-            (2 * caps1rate.obj3) / 4 +
-            (5 * caps1rate.s1) / 4 +
-            (5 * caps1rate.s2) / 4 +
-            (10 * caps1rate.sc) / 4 +
-            (5 * caps1rate.df) / 4 +
-            (5 * caps1rate.lr1) / 4 +
-            (5 * caps1rate.lr2) / 4 +
-            (5 * caps1rate.meth1) / 4 +
-            (3 * caps1rate.meth2) / 4 +
-            (2 * caps1rate.meth3) / 4 +
-            (5 * caps1rate.ref1) / 4 +
-            (5 * caps1rate.format) / 4 +
-            (5 * caps1rate.oralCom) / 4 +
-            (5 * caps1rate.ppt) / 4 +
-            (5 * caps1rate.attire) / 4 +
-            (10 * caps1rate.resp) / 4
-          }}
-          %
+            ( caps1rate.background) / 1 +
+            ( caps1rate.backgrounds) / 1 +
+            (caps1rate.obj1) / 1 +
+            ( caps1rate.obj2) / 1 +
+            ( caps1rate.obj3) / 1 +
+            ( caps1rate.s1) / 1 +
+            ( caps1rate.s2) / 1 +
+            ( caps1rate.sc) / 1 +
+            ( caps1rate.df) / 1 +
+            ( caps1rate.lr1) / 1 +
+            ( caps1rate.lr2) / 1 +
+            ( caps1rate.meth1) / 1 +
+            ( caps1rate.meth2) / 1 +
+            ( caps1rate.meth3) / 1 +
+            ( caps1rate.ref1) / 1
+        
+          }} / 49 = <span>     {{parseFloat((( ( caps1rate.background) / 1 +
+            ( caps1rate.backgrounds) / 1 +
+            (caps1rate.obj1) / 1 +
+            ( caps1rate.obj2) / 1 +
+            ( caps1rate.obj3) / 1 +
+            ( caps1rate.s1) / 1 +
+            ( caps1rate.s2) / 1 +
+            ( caps1rate.sc) / 1 +
+            ( caps1rate.df) / 1 +
+            ( caps1rate.lr1) / 1 +
+            ( caps1rate.lr2) / 1 +
+            ( caps1rate.meth1) / 1 +
+            ( caps1rate.meth2) / 1 +
+            ( caps1rate.meth3) / 1 +
+            ( caps1rate.ref1) / 1)/49)*100).toFixed(2)}} %</span>
+          
         </h5>
       </div>
     </div>
-
+    <!-- parseFloat(GenCadocu123.xf1).toFixed(2) -->
     <div class="row">
       <div class="col-9"></div>
       <div class="col">
@@ -1547,12 +1135,13 @@ const approved = () => {
     caps1rate.value.meth1 != null &&
     caps1rate.value.meth2 != null &&
     caps1rate.value.meth3 != null &&
-    caps1rate.value.ref1 != null &&
-    caps1rate.value.format != null &&
-    caps1rate.value.oralCom != null &&
-    caps1rate.value.ppt != null &&
-    caps1rate.value.attire != null &&
-    caps1rate.value.resp != null
+    caps1rate.value.ref1 != null 
+    // &&
+    // caps1rate.value.format != null &&
+    // caps1rate.value.oralCom != null &&
+    // caps1rate.value.ppt != null &&
+    // caps1rate.value.attire != null &&
+    // caps1rate.value.resp != null
   ) {
     // toast.fire({
     //   icon: "success",
@@ -1583,12 +1172,13 @@ const temporary = () => {
     caps1rate.value.meth1 != null &&
     caps1rate.value.meth2 != null &&
     caps1rate.value.meth3 != null &&
-    caps1rate.value.ref1 != null &&
-    caps1rate.value.format != null &&
-    caps1rate.value.oralCom != null &&
-    caps1rate.value.ppt != null &&
-    caps1rate.value.attire != null &&
-    caps1rate.value.resp != null
+    caps1rate.value.ref1 != null
+    //  &&
+    // caps1rate.value.format != null &&
+    // caps1rate.value.oralCom != null &&
+    // caps1rate.value.ppt != null &&
+    // caps1rate.value.attire != null &&
+    // caps1rate.value.resp != null
   ) {
     saveRatingg();
   } else {
@@ -1627,35 +1217,36 @@ const saveRatinggFinal = () => {
   rateData.append("meth2", caps1rate.value.meth2);
   rateData.append("meth3", caps1rate.value.meth3);
   rateData.append("ref1", caps1rate.value.ref1);
-  rateData.append("format", caps1rate.value.format);
-  rateData.append("oralCom", caps1rate.value.oralCom);
-  rateData.append("ppt", caps1rate.value.ppt);
-  rateData.append("attire", caps1rate.value.attire);
-  rateData.append("resp", caps1rate.value.resp);
-  rateData.append("xf2", caps1rate.value.xf2);
+  rateData.append("format", '0');
+  rateData.append("oralCom", '0');
+  rateData.append("ppt", '0');
+  rateData.append("attire", '0');
+  rateData.append("resp", '0');
+  rateData.append("xf2", '0');
 
   rateData.append(
     "total",
-    (5 * caps1rate.value.background) / 4 +
-      (5 * caps1rate.value.backgrounds) / 4 +
-      (5 * caps1rate.value.obj1) / 4 +
-      (3 * caps1rate.value.obj2) / 4 +
-      (2 * caps1rate.value.obj3) / 4 +
-      (5 * caps1rate.value.s1) / 4 +
-      (5 * caps1rate.value.s2) / 4 +
-      (10 * caps1rate.value.sc) / 4 +
-      (5 * caps1rate.value.df) / 4 +
-      (5 * caps1rate.value.lr1) / 4 +
-      (5 * caps1rate.value.lr2) / 4 +
-      (5 * caps1rate.value.meth1) / 4 +
-      (3 * caps1rate.value.meth2) / 4 +
-      (2 * caps1rate.value.meth3) / 4 +
-      (5 * caps1rate.value.ref1) / 4 +
-      (5 * caps1rate.value.format) / 4 +
-      (5 * caps1rate.value.oralCom) / 4 +
-      (5 * caps1rate.value.ppt) / 4 +
-      (5 * caps1rate.value.attire) / 4 +
-      (10 * caps1rate.value.resp) / 4
+   ( (( caps1rate.value.background) / 1+
+      ( caps1rate.value.backgrounds) / 1 +
+      ( caps1rate.value.obj1) / 1 +
+      ( caps1rate.value.obj2) / 1 +
+      ( caps1rate.value.obj3) / 1 +
+      ( caps1rate.value.s1) / 1 +
+      ( caps1rate.value.s2) / 1 +
+      ( caps1rate.value.sc) / 1 +
+      (caps1rate.value.df) / 1 +
+      ( caps1rate.value.lr1) / 1 +
+      ( caps1rate.value.lr2) / 1 +
+      ( caps1rate.value.meth1) / 1 +
+      ( caps1rate.value.meth2) / 1 +
+      ( caps1rate.value.meth3) / 1 +
+      ( caps1rate.value.ref1) / 1)/49)*100
+      // +
+      // (5 * caps1rate.value.format) / 4 +
+      // (5 * caps1rate.value.oralCom) / 4 +
+      // (5 * caps1rate.value.ppt) / 4 +
+      // (5 * caps1rate.value.attire) / 4 +
+      // (10 * caps1rate.value.resp) / 4
   );
   rateData.append("xf1", "APPROVED");
 
@@ -1731,35 +1322,30 @@ const saveRatingg = () => {
   rateData.append("meth2", caps1rate.value.meth2);
   rateData.append("meth3", caps1rate.value.meth3);
   rateData.append("ref1", caps1rate.value.ref1);
-  rateData.append("format", caps1rate.value.format);
-  rateData.append("oralCom", caps1rate.value.oralCom);
-  rateData.append("ppt", caps1rate.value.ppt);
-  rateData.append("attire", caps1rate.value.attire);
-  rateData.append("resp", caps1rate.value.resp);
-  rateData.append("xf2", caps1rate.value.xf2);
+  rateData.append("format", '0');
+  rateData.append("oralCom", '0');
+  rateData.append("ppt", '0');
+  rateData.append("attire", '0');
+  rateData.append("resp", '0');
+  rateData.append("xf2", '0');
 
   rateData.append(
     "total",
-    (5 * caps1rate.value.background) / 4 +
-      (5 * caps1rate.value.backgrounds) / 4 +
-      (5 * caps1rate.value.obj1) / 4 +
-      (3 * caps1rate.value.obj2) / 4 +
-      (2 * caps1rate.value.obj3) / 4 +
-      (5 * caps1rate.value.s1) / 4 +
-      (5 * caps1rate.value.s2) / 4 +
-      (10 * caps1rate.value.sc) / 4 +
-      (5 * caps1rate.value.df) / 4 +
-      (5 * caps1rate.value.lr1) / 4 +
-      (5 * caps1rate.value.lr2) / 4 +
-      (5 * caps1rate.value.meth1) / 4 +
-      (3 * caps1rate.value.meth2) / 4 +
-      (2 * caps1rate.value.meth3) / 4 +
-      (5 * caps1rate.value.ref1) / 4 +
-      (5 * caps1rate.value.format) / 4 +
-      (5 * caps1rate.value.oralCom) / 4 +
-      (5 * caps1rate.value.ppt) / 4 +
-      (5 * caps1rate.value.attire) / 4 +
-      (10 * caps1rate.value.resp) / 4
+    ( (( caps1rate.value.background) / 1+
+      ( caps1rate.value.backgrounds) / 1 +
+      ( caps1rate.value.obj1) / 1 +
+      ( caps1rate.value.obj2) / 1 +
+      ( caps1rate.value.obj3) / 1 +
+      ( caps1rate.value.s1) / 1 +
+      ( caps1rate.value.s2) / 1 +
+      ( caps1rate.value.sc) / 1 +
+      (caps1rate.value.df) / 1 +
+      ( caps1rate.value.lr1) / 1 +
+      ( caps1rate.value.lr2) / 1 +
+      ( caps1rate.value.meth1) / 1 +
+      ( caps1rate.value.meth2) / 1 +
+      ( caps1rate.value.meth3) / 1 +
+      ( caps1rate.value.ref1) / 1)/49)*100
   );
   rateData.append("xf1", "PARTIAL");
 

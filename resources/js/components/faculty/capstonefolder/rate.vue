@@ -8,7 +8,7 @@
     <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
 
     <table
-      class="table tableBorder text-center table-striped table-bordered border-primary"
+      class="table tableBorder text-center align-middle table-striped table-bordered border-primary"
     >
       <thead>
         <tr>
@@ -1471,7 +1471,7 @@
               Passed with minor revisions
             </option>
             <option value="Failed with major revisions">
-              Passed with minor revisions
+              Passed with major revisions
             </option>
           </select>
         </div>

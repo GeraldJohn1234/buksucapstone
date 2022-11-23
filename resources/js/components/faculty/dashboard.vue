@@ -125,7 +125,7 @@
           </td>
         </tr>
         <tr>
-          <td>Prptotype defense:</td>
+          <td>Prototype defense:</td>
           <td class="bgData">
             {{ ((dashboard.under_revision_2 / dashboard.no_group2) * 100).toFixed(2) }} %
           </td>

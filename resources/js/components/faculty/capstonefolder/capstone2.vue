@@ -536,7 +536,7 @@ const rateddd = async () => {
     axios
       .post("/api/create_rate/" + idd)
       .then((response) => {
-        router.push("/rate/" + idd);
+        router.push("/rate2/" + idd);
       })
       // router.push("/rate/" + idd);
 

@@ -112,13 +112,17 @@
       </div> -->
 
       <div class="col-4">
-        <label for="lastname" class="form-label">Choose Year</label>
+        <label for="lastname" class="form-label">Choose Year (student)</label>
         <div class="input-group mb-3">
-          <select class="form-select" id="inputGroupSelect01" v-model="form.year">
+          <select
+            class="form-select"
+            id="inputGroupSelect01"
+            disabled
+            v-model="form.year"
+          >
             <option selected>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-            <option value="5th year">5th year</option>
           </select>
         </div>
       </div>

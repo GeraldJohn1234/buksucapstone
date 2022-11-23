@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage bg-light">
+  <div class="contentOfThePage bg-light p-3">
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase">{{ Topic.title }}</h5>
       <hr class="toTop" />
@@ -79,7 +79,7 @@ let Topic = ref({
 });
 onMounted(async () => {
   getTopic();
-  topicUploader();
+  // topicUploader();
 });
 
 let uploader = ref({
@@ -87,17 +87,24 @@ let uploader = ref({
   mname: "",
   lname: "",
 });
-const topicUploader = async () => {
-  let capstoneid = window.location.pathname.split("/")[2];
-  let response = await axios.get("/api/get_capstone_topic/" + capstoneid);
-  uploader.value = response.data.uploader;
-  // console.warn("UPLOADER:", uploader.value);
-};
+// const topicUploader = async () => {
+//   // let capstoneid = window.location.pathname.split("/")[2];
+ 
+//   // console.warn("UPLOADER:", uploader.value);
+// };
 const getTopic = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_topic/" + capstoneid);
   Topic.value = response.data.topic;
+
+  // Topic.value.uploader_id = response.data.topic;
+
+  let responsed = await axios.get("/api/get_capstone_topic/" + Topic.value.uploader_id);
+  uploader.value = responsed.data.uploader;
+
+
 };
+
 
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];

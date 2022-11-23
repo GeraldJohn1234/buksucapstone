@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage p-2">
+  <div class="contentOfThePage p-3">
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">CREATE TOPIC SUGGESTIONS</h5>
       <hr class="toTop" />
@@ -109,6 +109,19 @@ const toTopic = () => {
 };
 
 const saveTopic = () => {
+  if(Topic.value.title==null||Topic.value.title==''){
+    toast.fire({
+          icon: "warning",
+          title: "Title should not empty!",
+        });
+  }else if(Topic.value.abstract==null||Topic.value.abstract==''){
+    toast.fire({
+          icon: "warning",
+          title: "Topic description should not empty!",
+        });
+  }else{
+
+  
   const formData = new FormData();
   formData.append("title", Topic.value.title);
   formData.append("abstract", Topic.value.abstract);
@@ -146,6 +159,7 @@ const saveTopic = () => {
       // console.log("ERRRR:: ",error.response.data);
     });
   // console.log("ERRRR:: ",error.response.data);
+}
 };
 </script>
 

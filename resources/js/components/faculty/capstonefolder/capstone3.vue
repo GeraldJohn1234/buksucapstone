@@ -262,7 +262,7 @@
 
       <div class="" id="titleSize">
         <p class="pt-2 text-uppercase boldThese">
-          {{ GenCadocu123.xf2 }}, {{ GenCadocu123.xf1 }} %
+          {{ GenCadocu123.xf2 }}, {{ parseFloat(GenCadocu123.xf1).toFixed(2) }} %
         </p>
         <hr class="toTop" />
         <p class="toTopp">RATING STATUS</p>
@@ -555,7 +555,7 @@ const rateddd = async () => {
     axios
       .post("/api/create_rate/" + idd)
       .then((response) => {
-        router.push("/rate/" + idd);
+        router.push("/rate3/" + idd);
       })
       // router.push("/rate/" + idd);
 
