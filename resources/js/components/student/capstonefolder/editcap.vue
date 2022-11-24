@@ -55,7 +55,7 @@
         v-model="GenCapData.name"
       />
       <label class="form-check-label fw-bold pt-1" for="flexRadioDefault2">
-        <span class="leftSpacess">Disagree.</span>
+        <span class="leftSpacess">Disagree</span>
       </label>
     </div>
     <br />
@@ -166,7 +166,7 @@
             <option selected disabled>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-            <option value="5th year">5th year</option>
+            <!-- <option value="5th year">5th year</option> -->
             <option value="Graduated">Graduated</option>
           </select>
         </div>
@@ -678,7 +678,7 @@ const saveCapstone = () => {
 
       toast.fire({
         icon: "success",
-        title: "Project save successfully",
+        title: "Project successfully saved",
       });
       location.reload();
     })

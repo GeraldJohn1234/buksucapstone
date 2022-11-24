@@ -719,7 +719,13 @@ const rateddd = async () => {
 .heightBox {
   height: 200px !important;
 }
+
 .panelH {
   height: 60px;
+}
+.parag {
+  margin: 0;
+  text-indent: 2rem;
+  text-align: justify;
 }
 </style>

@@ -284,21 +284,22 @@ const updateUser = () => {
     .post("/api/update_user/" + props.id, formData)
 
     .then((response) => {
-      (form.value.uid = ""),
-        (form.value.email = ""),
-        (form.value.password = ""),
-        (form.value.name = ""),
-        (form.value.mname = ""),
-        (form.value.lname = ""),
-        (form.value.year = ""),
-        (form.value.gender = ""),
-        (form.value.photo = ""),
-        router.push("/student");
+      // (form.value.uid = ""),
+      //   (form.value.email = ""),
+      //   (form.value.password = ""),
+      //   (form.value.name = ""),
+      //   (form.value.mname = ""),
+      //   (form.value.lname = ""),
+      //   (form.value.year = ""),
+      //   (form.value.gender = ""),
+      //   (form.value.photo = ""),
+        router.push("/update/"+ props.id);
 
       toast.fire({
         icon: "success",
         title: "User Update Successfully",
       });
+      // location.reload();
     })
     .catch((error) => {});
 };

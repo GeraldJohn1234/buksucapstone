@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage p-2">
+  <div class="contentOfThePage p-3">
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">CREATE TOPIC SUGGESTIONS</h5>
       <hr class="toTop" />
