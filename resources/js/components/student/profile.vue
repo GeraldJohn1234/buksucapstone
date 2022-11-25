@@ -112,9 +112,14 @@
       </div> -->
 
       <div class="col-4">
-        <label for="lastname" class="form-label">Choose Year</label>
+        <label for="lastname" class="form-label">Choose Year (Student)</label>
         <div class="input-group mb-3">
-          <select class="form-select" id="inputGroupSelect01" v-model="form.year">
+          <select
+            class="form-select"
+            id="inputGroupSelect01"
+            disabled
+            v-model="form.year"
+          >
             <option selected>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
@@ -217,7 +222,7 @@ const props = defineProps({
 });
 
 const getPhoto = () => {
-  let photo = "/images/student.jpg";
+  let photo = "/images/instructor.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
       photo = form.value.photo;
@@ -248,6 +253,14 @@ const getsingleUser = async () => {
 };
 
 const updateUser = () => {
+  if(form.value.password==""||form.value.password==null){
+    toast.fire({
+        icon: "warning",
+        title: "Please fill out the password field",
+      });
+  }else{
+
+ 
   const formData = new FormData();
   formData.append("uid", form.value.uid);
   formData.append("email", form.value.email);
@@ -279,10 +292,11 @@ const updateUser = () => {
       getsingleUser();
       toast.fire({
         icon: "success",
-        title: "User Update Successfully",
+        title: "Updated Successfully",
       });
     })
     .catch((error) => {});
+  }
 };
 
 const type = ref("password");
