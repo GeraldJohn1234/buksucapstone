@@ -2,7 +2,7 @@
   <div class="rowLeft">
     <h5 class="rowLeftHHH rowTOP">USERS</h5>
     <div class="row">
-      <div class="col box text-center">
+      <div class="col col-sm-5.5 box text-center">
         <img class="userImages" src="/images/student.jpg" alt="Student" />
         <br />
         <span class="marginTop">STUDENT</span>
@@ -28,12 +28,12 @@
         <span class="marginTop">PANELIST</span>
         <h4>{{ dashboard.panelist }}</h4>
       </div>
-      <div class="col box text-center">
+      <!-- <div class="col box text-center">
         <img class="userImages" src="/images/archiver.png" alt="Student" />
         <br />
         <span class="marginTop">ARCHIVER</span>
         <h4>{{ dashboard.archiver }}</h4>
-      </div>
+      </div> -->
       <div class="col box text-center">
         <img class="userImages" src="/images/secretary.png" alt="Student" />
         <br />
@@ -65,7 +65,7 @@
         </td>
       </tr>
     </table>
-    <div class="col-4 pieChartbox2 center pt-2">
+    <div class="col-lg-4 col-sm-12 pieChartbox2 center pt-2">
       <canvas class="pieChart" id="myChart"></canvas>
     </div>
   </div>
@@ -345,12 +345,13 @@ export default {
 
 .userImages {
   height: 100px;
+  padding-top: 10px;
   margin-top: 5px;
   border-color: 1px #000000;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 40%;
 }
 .marginTop {
   margin-top: -5px;
