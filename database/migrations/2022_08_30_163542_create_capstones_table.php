@@ -27,6 +27,9 @@ return new class extends Migration
             $table->string('xf5')->nullable(); 
             $table->string('name')->nullable();
             $table->string('path')->nullable();
+            $table->string('xf6')->nullable();
+            $table->string('xf7')->nullable();
+            $table->string('xf8')->nullable();
             $table->timestamps();
 
 

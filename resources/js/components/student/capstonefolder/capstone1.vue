@@ -451,6 +451,7 @@ import router from "../../../routers/studentRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
 
+
 const getMinutes3 = async () => {
   let idd = getIDfromURL();
   let response = await axios.get("/api/checkproponent/" + idd);
@@ -535,6 +536,7 @@ let adviser = ref({
 let formcaps1 = ref({
   status: "",
   propose_date: "",
+  xf4:"",
 });
 let checkk = ref({
   idds: 0,

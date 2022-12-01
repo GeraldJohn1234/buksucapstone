@@ -48,6 +48,9 @@ const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
 
+// const goBack=()=>{
+//   this.$router.go(-1)
+// }
 const getsingleUser = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone/" + capstoneid);
@@ -67,8 +70,9 @@ const getcaps123 = async () => {
 };
 
 const onVBack = () => {
-  let id = getIDfromURL();
-  router.push("/capstone1/" + id);
+  // let id = getIDfromURL();
+  router.go(-1);
+  // this.$router.go(-1);
 };
 </script>
 
@@ -91,5 +95,8 @@ const onVBack = () => {
   height: 50px;
   width: 65px;
   padding-left: 10px;
+}
+.caps1Side {
+  padding: 40px !important;
 }
 </style>

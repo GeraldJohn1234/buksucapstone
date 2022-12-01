@@ -8,11 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
+use Laravel\Scout\Searchable;
+use Kyslik\ColumnSortable\Sortable;
 
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Searchable, Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -33,6 +35,33 @@ class User extends Authenticatable
         'password',
         'photo'
     ];
+
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+            'mname' => $this->mname,
+            'lname' => $this->lname,
+            'email' => $this->email,
+            'year' => $this->year,
+
+        ];
+    }
+
+    public function tosortableArray()
+    {
+        return [
+            'name' => $this->name,
+            'mname' => $this->mname,
+            'lname' => $this->lname,
+            'email' => $this->email,
+            'year' => $this->year,
+        ];
+    }
+
+
+
 
     public function capstone(){
         return $this->belongsToMany(Capstone::class)->withPivot('role_person');

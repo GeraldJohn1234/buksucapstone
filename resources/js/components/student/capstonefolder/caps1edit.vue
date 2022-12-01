@@ -1,6 +1,87 @@
 <template>
   <div class="row">
-    <div class="contentOfThePage caps1Side col-7">
+    <div v-if="modall.open" class="modalist contentOfThePage bg-light p-5">
+      <button class="btn btn-danger float" @click="modall.open = false">X</button>
+      <br />
+      <h4 class="text-center text-uppercase fw-bold">Information Sharing Consent</h4>
+      <br />
+      <p class="parag">
+        <span class="">We</span> the group
+        <span class="text-uppercase fw-bold">{{ GenCapData.groupname }}</span> Proponents
+        of <span class="text-uppercase fw-bold">{{ GenCapData.title }}</span> hereby give
+        our permission for (Information Technology Department) to share our study
+        including accessing the manuscript We understand that (Information Technology
+        Department) may hold information gathered about our study and our rights under the
+        Data Protection Act will not be affected.
+      </p>
+      <p>
+        <span class="leftSpacess">&nbsp;We</span> understand that (Information Technology
+        Department) may hold information gathered about our study and our rights under the
+        Data Protection Act will not be affected.
+      </p>
+      <br />
+      <h5 class="fw-bold">Statement of Consent:</h5>
+      <p class="">
+        <span class="fw-bold">• </span> <span class="leftSpaces"> We</span> understand
+        that our capstone study information well be shared.
+      </p>
+      <p class="">
+        <span class="fw-bold">• </span> <span class="leftSpaces"> We</span> have the
+        opportunity to discuss the implications of sharing or not sharing information
+        about the study.
+      </p>
+      <hr />
+      <!-- <br /> -->
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+          value="AGREE"
+          v-model="formcaps1.xf4"
+        />
+        <label class="form-check-label fw-bold" for="flexRadioDefault1">
+          <span class="leftSpacess">Agree</span>
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+          value="NOT_AGREE"
+          v-model="formcaps1.xf4"
+        />
+        <label class="form-check-label fw-bold pt-1" for="flexRadioDefault2">
+          <span class="leftSpacess">Disagree</span>
+        </label>
+      </div>
+      <br />
+      <p>
+        <span class="fw-bold"
+          >Your consent to share your study information is entirely voluntary and you may
+          withdraw your consent at any time.</span
+        >
+        If you wish to withdraw your consent, please re submit and change your choice.
+      </p>
+      <br />
+      <button
+        v-if="formcaps1.xf4 === '' || formcaps1.xf4 === null"
+        class="btnSize btn btn-primary fw-bold"
+        disabled
+      >
+        SUBMIT
+      </button>
+      <button v-else class="btnSize btn btn-primary fw-bold" @click="saveCapstone1()">
+        SUBMIT
+      </button>
+
+      <br />
+    </div>
+
+    <div class="contentOfThePage caps1Side col-7" :class="modall">
       <h5 class="text-left boldThese">CAPSTONE 1</h5>
       <!-- width="560"
           height="315" 
@@ -299,7 +380,7 @@
 
       <br />
       <div class="col text-center">
-        <button type="button" class="btn btnW btn-primary" @click="saveCapstone1()">
+        <button type="button" class="btn btnW btn-primary" @click="modall.open = true">
           SAVE
         </button>
         <!-- <button type="button" class="btn btnW btn-primary" @click="touch()">TOUCH</button> -->
@@ -312,6 +393,36 @@
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+
+let modall = ref({
+  open: false,
+});
+let GenCapData = ref({
+  title: "",
+  abstract: "",
+  groupname: "",
+  xf1: "",
+  xf2: "",
+  xf4: "",
+  xf5: null,
+  file: null,
+  name: "",
+});
+const getsingleUser = async () => {
+  let linkid = window.location.pathname.split("/")[2];
+  let response = await axios.get("/api/get_capstone/" + linkid);
+  GenCapData.value = response.data.capstones;
+
+  // GenCaps.value = response.data.userCaps;
+  console.warn("Caps", GenCapData.value);
+};
+
+onMounted(async () => {
+  getsingleUser();
+  getCapston1Data();
+  getInstructor();
+});
+
 let formcaps1 = ref({
   status: "",
   revise_manuscript: "",
@@ -325,6 +436,7 @@ let formcaps1 = ref({
   gcash_ss_file: "",
   acceptance_of_panel: "",
   propose_date: "",
+  xf4: "",
 });
 
 // const date = ref({
@@ -447,11 +559,6 @@ const onOCR = (id) => {
   router.push("/ocrpages/" + capstoneid);
 };
 
-onMounted(async () => {
-  getCapston1Data();
-  getInstructor();
-});
-
 const getCapston1Data = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstonee111/" + capstoneid);
@@ -483,6 +590,7 @@ const saveCapstone1 = () => {
   formData.append("gcash_ss_file", formcaps1.value.gcash_ss_file);
   formData.append("acceptance_of_panel", formcaps1.value.acceptance_of_panel);
   formData.append("propose_date", formcaps1.value.propose_date);
+  formData.append("xf4", formcaps1.value.xf4);
 
   axios
     .post("/api/addcapstone1/" + capstoneid, formData)
@@ -499,6 +607,7 @@ const saveCapstone1 = () => {
         (formcaps1.value.gcash_ss_file = ""),
         (formcaps1.value.acceptance_of_panel = ""),
         (formcaps1.value.propose_date = ""),
+        (GenCapData.value.name = ""),
         (capstoneid = ""),
         // router.push("/create");
         getCapston1Data();
@@ -507,8 +616,9 @@ const saveCapstone1 = () => {
 
       toast.fire({
         icon: "success",
-        title: "Capstone Embed links, Add Successfully",
+        title: "Capstone embedded links, Added Successfully",
       });
+      location.reload();
     })
     // .catch((error = {}));
     .catch(function (error) {
@@ -517,7 +627,7 @@ const saveCapstone1 = () => {
 
       toast.fire({
         icon: "warning",
-        title: "User Add Unsuccessful",
+        title: "Failed to save, something wrong",
       });
       // (error = {}));
       // console.log("ERRRR:: ",error.response.data);
@@ -530,6 +640,19 @@ const embedSource = () => {
 };
 </script>
 <style>
+.modalist {
+  width: 50%;
+  z-index: 999;
+
+  position: fixed;
+  top: 45%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+.open {
+  opacity: 0.5 !important;
+  z-index: 998 !important;
+}
 .caps1Content {
   width: 74%;
   height: 100%;

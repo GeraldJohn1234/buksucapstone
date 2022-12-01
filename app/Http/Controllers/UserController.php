@@ -23,13 +23,13 @@ use App\Http\Middleware\Authenticate;
 
 class UserController extends Controller
 {
-   
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
- 
+
     public function myprofile(Request $request)
     {
         $id = Auth::user()->id;
@@ -111,6 +111,96 @@ class UserController extends Controller
             200
         );
     }
+
+    // $secretarys = DB::table('capstone_user')->where('role_person', 'secretarys')
+    // ->where('capstone_id', $id)->pluck('user_id')->first();
+    public function get_all_student_search(Request $request)
+    {
+
+        // $data ='John';
+        // $data = $request->searching;
+
+        // if (User::search($data)->where('remember_token', 1)->get() != null && User::search($data)->where('remember_token', 1)->get() != "") {
+        //     $students = User::search($data)->where('remember_token', 1)->get();
+        //     return response()->json(
+        //         [
+        //             'students'  => $students,
+        //         ],
+        //         200
+        //     );
+        // }else{
+        //     $students = User::whereRoleIs(['student'])->get();
+        // }
+
+        $students = User::whereRoleIs(['student'])->get();
+      
+        return response()->json(
+            [
+                'students'  => $students,
+            ],
+            200
+        );
+    }
+
+
+    public function get_all_student_sort(Request $request)
+    {
+
+        $sortdata = $request->sorting;
+        if (($sortdata == "name" || $sortdata == "mname" || $sortdata == "lname" || $sortdata == "email"|| $sortdata == "year")) {
+            // $capstone = Topic::orderBy($sortdata, "asc")->get();
+            $students = User::orderBy($sortdata, "asc")->where('remember_token', 1)->get();
+            return response()->json(
+                [
+                    'students'  => $students,
+                ],
+                200
+            );
+        } else {
+            // $capstone = Topic::all();
+            $students = User::whereRoleIs(['student'])->get();
+            return response()->json(
+                [
+                    'students'  => $students,
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+    public function get_all_faculty_search(Request $request)
+    {
+
+        // $data ='John';
+        $data = $request->searching;
+
+        if (User::search($data)->where('remember_token', 2)->get() != null && User::search($data)->where('remember_token', 2)->get() != "") {
+            $students = User::search($data)->where('remember_token', 2)->get();
+            return response()->json(
+                [
+                    'facultys'  => $students,
+                ],
+                200
+            );
+        }
+
+
+        $students = User::whereRoleIs(['student'])->get();
+        return response()->json(
+            [
+                'facultys'  => $students,
+            ],
+            200
+        );
+    }
+   
+
+
+
+
     public function get_all_archiver_user()
     {
         $archivers = User::whereRoleIs(['archiver'])->get();
@@ -276,6 +366,12 @@ class UserController extends Controller
         $user->uid = $request->uid;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+
+        if ($request->usertype == 'student') {
+            $user->remember_token = 1;
+        }
+
+
         $user->save();
 
         if ($request->usertype == 'faculty') {

@@ -38,6 +38,7 @@ class Capstone2Controller extends Controller
         $capstone2->acceptance_ss = $request->acceptance_ss;
 
         $capstone2->prototype_date = $request->prototype_date;
+        $capstone2->xf4 = $request->xf4;
 
         $capstone2->save();
     }

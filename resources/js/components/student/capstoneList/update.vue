@@ -268,6 +268,13 @@ const getsingleUser = async () => {
 };
 
 const updateUser = () => {
+
+  if(form.value.password==""||form.value.password==null){
+    toast.fire({
+        icon: "warning",
+        title: "Please fill out the password field",
+      });
+  }else{
   const formData = new FormData();
   formData.append("uid", form.value.uid);
   formData.append("email", form.value.email);
@@ -300,10 +307,11 @@ const updateUser = () => {
 
       toast.fire({
         icon: "success",
-        title: "User Update Successfully",
+        title: "Updated Successfully",
       });
     })
     .catch((error) => {});
+  }
 };
 
 const type = ref("password");

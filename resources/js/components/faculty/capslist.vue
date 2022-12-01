@@ -3,11 +3,11 @@
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
 
-      <div class="forInline float-end mtop">
+      <!-- <div class="forInline float-end mtop">
         <router-link class="nav_link" to="/project">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
-      </div>
+      </div> -->
     </div>
     <hr />
 

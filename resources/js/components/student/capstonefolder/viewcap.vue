@@ -314,8 +314,30 @@
         <div class="col">
           <label for="update" class="m-2">Status: Under-revision</label>
         </div>
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="onView1()">
-          VIEW
+
+        <button
+          v-if="formcaps1.xf4 === 'AGREE'"
+          type="button"
+          class="m-1 btnSize btn btn-primary"
+          @click="onView1()"
+        >
+          OPEN{{ formcaps1.xf4 }}
+        </button>
+        <button
+          v-else-if="formcaps1.xf4 === 'NOT_AGREE'"
+          type="button"
+          class="m-1 btnSize btn btn-warning"
+          @click="notAgree()"
+        >
+          PENDING
+        </button>
+        <button
+          v-else
+          type="button"
+          class="m-1 btnSize btn btn-warning"
+          @click="noupload()"
+        >
+          PENDING
         </button>
       </div>
       <div class="col row mx-2 contentOfThePage text-center">
@@ -326,8 +348,32 @@
         <div class="col">
           <label for="update" class="m-2">Status: Development</label>
         </div>
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="onView2()">
+        <!-- <button type="button" class="m-1 btnSize btn btn-primary" @click="onView2()">
           VIEW
+        </button> -->
+        <button
+          v-if="capstone2data.xf4 === 'AGREE'"
+          type="button"
+          class="m-1 btnSize btn btn-primary"
+          @click="onView2()"
+        >
+          OPEN
+        </button>
+        <button
+          v-else-if="capstone2data.xf4 === 'NOT_AGREE'"
+          type="button"
+          class="m-1 btnSize btn btn-warning"
+          @click="notAgree()"
+        >
+          PENDING
+        </button>
+        <button
+          v-else
+          type="button"
+          class="m-1 btnSize btn btn-warning"
+          @click="noupload()"
+        >
+          PENDING
         </button>
       </div>
       <div class="col row mx-2 contentOfThePage text-center">
@@ -338,8 +384,32 @@
         <div class="col">
           <label for="update" class="m-2">Status: Under-revision</label>
         </div>
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="onView3()">
+        <!-- <button type="button" class="m-1 btnSize btn btn-primary" @click="onView3()">
           VIEW
+        </button> -->
+        <button
+          v-if="formcaps3.xf4 === 'AGREE'"
+          type="button"
+          class="m-1 btnSize btn btn-primary"
+          @click="onView3()"
+        >
+          OPEN
+        </button>
+        <button
+          v-else-if="formcaps3.xf4 === 'NOT_AGREE'"
+          type="button"
+          class="m-1 btnSize btn btn-warning"
+          @click="notAgree()"
+        >
+          PENDING
+        </button>
+        <button
+          v-else
+          type="button"
+          class="m-1 btnSize btn btn-warning"
+          @click="noupload()"
+        >
+          PENDING
         </button>
       </div>
     </div>
@@ -388,6 +458,50 @@ let DocumentType = ref({
 //   let response = await axios.get("/api/showpdf/");
 //   DocumentType.value.file = response.data.file;
 // };
+let formcaps1 = ref({
+  xf4: "",
+});
+let capstone2data = ref({
+  xf4: "",
+});
+let formcaps3 = ref({
+  xf4: "",
+});
+
+const getCapston1Data = async () => {
+  let capstoneid = getIDfromURL();
+  let response = await axios.get("/api/get_capstonee111/" + capstoneid);
+  formcaps1.value = response.data.capstone11111;
+  console.warn("!!!!!!!!!!!!!!!!!!!!!!!!!", formcaps1.value.xf4);
+};
+const getCapston2Data = async () => {
+  let capstoneid = getIDfromURL();
+  let response = await axios.get("/api/get_capstonee2/" + capstoneid);
+  capstone2data.value = response.data.capstone22222;
+};
+const getCapston1Data3 = async () => {
+  let capstoneid = getIDfromURL();
+  let response = await axios.get("/api/get_capstonee3/" + capstoneid);
+  formcaps3.value = response.data.capstone33333;
+};
+onMounted(async () => {
+  getCapston1Data();
+  getCapston2Data();
+  getCapston1Data3();
+  getsingleUser();
+  // getfiles();
+  getsingleUser1();
+  getsingleUser2();
+  getsingleUser3();
+  getsingleUser11();
+  getsingleUser4();
+  getsingleUser5();
+  getsingleUser6();
+  getsingleUser7();
+  getsingleUser8();
+  getsingleUser9();
+  getsingleUser10();
+});
 
 let GenCapData = ref({
   title: "",
@@ -456,22 +570,6 @@ let secretarys = ref({
   name: "",
   mname: "",
   lname: "",
-});
-
-onMounted(async () => {
-  getsingleUser();
-  // getfiles();
-  getsingleUser1();
-  getsingleUser2();
-  getsingleUser3();
-  getsingleUser11();
-  getsingleUser4();
-  getsingleUser5();
-  getsingleUser6();
-  getsingleUser7();
-  getsingleUser8();
-  getsingleUser9();
-  getsingleUser10();
 });
 
 // const manuscript = () => {
@@ -582,7 +680,22 @@ const warningNoData = () => {
   toast.fire({
     icon: "warning",
     title:
-      "The group " + GenCapData.value.groupname + ", did not submit their manuscript!",
+      "The group " + GenCapData.value.groupname + ", Doesn't submit their manuscript!",
+  });
+};
+const noupload = () => {
+  toast.fire({
+    icon: "warning",
+    title: "The group " + GenCapData.value.groupname + ", does not submit yet.",
+  });
+};
+const notAgree = () => {
+  toast.fire({
+    icon: "warning",
+    title:
+      "The group " +
+      GenCapData.value.groupname +
+      ", Doesn't Agree to share their manuscrip",
   });
 };
 //

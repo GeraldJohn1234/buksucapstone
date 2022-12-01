@@ -39,6 +39,9 @@ return new class extends Migration
                 $table->string('xf2')->nullable(); 
                 $table->string('xf3')->nullable(); 
                 $table->string('minutes1')->nullable();
+                $table->string('xf4')->nullable();
+                $table->string('xf5')->nullable();
+                $table->string('xf6')->nullable();
 
                 $table->foreign('capstone_id')->references('id')->on('capstones')->onUpdate('cascade')->onDelete('cascade');
                 $table->timestamps();

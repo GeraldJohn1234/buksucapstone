@@ -48,29 +48,66 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'mname' => $request->mname,
-            'lname' => $request->lname,
-            'uid' => $request->uid,
-            'year' => 'not set',
-            'gender' => 'not set',
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'mname' => $request->mname,
+        //     'lname' => $request->lname,
+        //     'uid' => $request->uid,
+        //     'year' => 'not set',
+        //     'gender' => 'not set',
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+
+
+           
+        // ]);
+        // if ($request->usertype == 'student') {
+        //     // $user->attachRoles(['administrator', 'student', 'faculty', 'archiver']);
+        //     'remember_token' => 1,
+        // }
         
 
+ 
+
+        $user = new User();
+
+        $user->name = $request->name;
+        $user->mname = $request->mname;
+        $user->lname = $request->lname;
+        
+        $user->year = 'not set';
+        $user->gender = 'not set';
+
+        $user->uid = $request->uid;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        if ($request->role_id == 'student') {
+            $user->remember_token = 1;
+        }
+
+
+        $user->save();
+
+        // if ($request->usertype == 'faculty') {
+        //     $user->attachRoles(['secretary', 'panel', 'faculty', 'instructor', 'adviser']);
+        // } else {
+        //     $user->attachRole($request->usertype);
+        // }
 
         if ($request->usertype == 'faculty') {
-            $user->attachRoles(['administrator', 'student', 'faculty', 'archiver']);
+            // $user->attachRoles(['administrator', 'student', 'faculty', 'archiver']);
+            $user->attachRoles(['secretary', 'panel', 'faculty', 'instructor', 'adviser']);
         } else {
             $user->attachRole ($request->usertype);
         }
         $user->attachRole($request->role_id);
+
+
+
+
         // $user->attachRole('administrator');
         event(new Registered($user));
-
-
 
         Auth::login($user);
 

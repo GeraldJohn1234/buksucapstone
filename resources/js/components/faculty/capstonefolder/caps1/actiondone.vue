@@ -67,8 +67,7 @@ const getcaps123 = async () => {
 };
 
 const onVBack = () => {
-  let id = getIDfromURL();
-  router.push("/capstone1/" + id);
+  router.go(-1);
 };
 </script>
 
@@ -91,5 +90,8 @@ const onVBack = () => {
   height: 50px;
   width: 65px;
   padding-left: 10px;
+}
+.caps1Side {
+  padding: 40px !important;
 }
 </style>

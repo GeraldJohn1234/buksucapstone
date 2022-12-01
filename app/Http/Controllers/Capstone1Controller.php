@@ -132,6 +132,7 @@ class Capstone1Controller extends Controller
             $capstone1->gcash_ss_file = $request->gcash_ss_file;
             $capstone1->acceptance_of_panel = $request->acceptance_of_panel;
             $capstone1->propose_date = $request->propose_date;
+            $capstone1->xf4 = $request->xf4;
    
             $capstone1->save();
     }

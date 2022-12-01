@@ -9,7 +9,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Topic extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory, Searchable, Sortable;
 
     //  protected $fillable = [
     //     'title','abstract',

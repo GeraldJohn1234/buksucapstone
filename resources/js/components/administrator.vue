@@ -160,11 +160,13 @@
           />
 
           <div class="col text-center mx-2 mt-2">
-            <span class="topA" id="labelAvatar">
-              {{ form.name }} {{ form.mname }} {{ form.lname }}
-            </span>
+            <!-- <span class="topA" id="labelAvatar">
+              {{ form.name }} 
+             
+            </span> -->
+            <p class="roleAvatarname fw-bolder mx-2"> {{ form.name }} </p>
             <br />
-            <p class="roleAvatar mt-1 mx-2">ADMINISTRATOR</p>
+            <p class="roleAvatar  mx-2">ADMINISTRATOR</p>
           </div>
         </div>
       </div>
@@ -492,7 +494,12 @@ const logout = () => {
   }
   .roleAvatar {
     font-size: 18px;
-    margin-top: -23px;
+    margin-top: -10px;
+    text-align: center;
+  }
+  .roleAvatarname {
+    font-size: 12px;
+    
     text-align: center;
   }
   .wrapper .sidebar {
@@ -523,6 +530,9 @@ const logout = () => {
 @media screen and (max-width: 1019px) {
   #labelAvatar,
   .roleAvatar {
+    display: none;
+  }
+   .roleAvatarname {
     display: none;
   }
 

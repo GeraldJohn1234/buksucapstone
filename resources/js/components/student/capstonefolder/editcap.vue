@@ -77,8 +77,7 @@
     <button v-else class="btnSize btn btn-primary fw-bold" @click="saveCapstone()">
       SUBMIT
     </button>
-    <!-- <button @click="modall.open = false">Close</button> -->
-    <!-- <button class="btn btn-primary" @click="modall.open = false">X</button> -->
+ 
 
     <br />
   </div>
@@ -124,21 +123,7 @@
           required
         ></textarea>
       </div>
-      <!-- <div class="col">
-        <label for="instructor" class="form-label">Instructor</label>
-        <label for="" class="float-end colorText"
-          >{{ instructor.name }} {{ instructor.mname }} {{ instructor.lname }}</label
-        >
-        <div class="input-group mb-3">
-          <select class="form-control inputColor" required v-model="GenCaps.instructor">
-           
-            <option selected>Open this select menu</option>
-            <option v-for="item in instructors" :key="item.id" :value="item.id">
-              {{ item.name }} {{ item.mname }} {{ item.lname }}
-            </option>
-          </select>
-        </div>
-      </div> -->
+    
       <div class="col-3">
         <label for="lastname" class="form-label">Project Status</label>
         <div class="input-group mb-3">
@@ -423,9 +408,8 @@
         >
           Save
         </button>
-        <!-- <button class="btnSize btn btn-primary" >
-          Open Modal
-        </button> -->
+     
+        
       </div>
     </div>
   </div>
@@ -952,13 +936,14 @@ const onView3 = () => {
   left: 55%;
   transform: translate(-50%, -50%);
 }
-.float {
-  float: right !important;
-}
 .open {
   opacity: 0.5;
   z-index: 998;
 }
+.float {
+  float: right !important;
+}
+
 .parag {
   margin: 0;
   text-indent: 2rem;

@@ -26,6 +26,7 @@ class Capstone3Controller extends Controller
             $capstone3->software_demo = $request->software_demo;
             $capstone3->githublink = $request->githublink;
             $capstone3->final_date = $request->final_date;
+            $capstone3->xf4 = $request->xf4;
    
             $capstone3->save();
     }

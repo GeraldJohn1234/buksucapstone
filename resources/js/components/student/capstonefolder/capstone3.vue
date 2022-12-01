@@ -434,6 +434,7 @@ let instructor = ref({
 let formcaps3 = ref({
   status: "",
   final_date: "",
+  xf4:"",
 });
 let rated = ref({
   id: "",

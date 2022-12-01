@@ -28,6 +28,7 @@ use App\Models\Caps1rating;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }) ;
+// 
 
 Route::get('/get_all_user', [UserController::class,'get_all_user']);
 Route::post('/add_user', [UserController::class,'add_user']);
@@ -191,6 +192,8 @@ Route::post('/caps2minutes/{id}', [CapstoneController::class,'caps2minutes']);
 Route::post('/caps3minutes/{id}', [CapstoneController::class,'caps3minutes']);
 Route::get('/checkproponent/{id}', [CapstoneController::class,'checkproponent']);
 
+Route::get('/get_all_student_search', [UserController::class,'get_all_student_search']);
+Route::get('/get_all_student_sort', [UserController::class,'get_all_student_sort']);
 
 Route::get('/showpdf', [CapstoneController::class,'showpdf']);
 

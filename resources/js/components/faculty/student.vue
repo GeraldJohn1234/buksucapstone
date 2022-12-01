@@ -14,7 +14,7 @@
     <hr />
 
     <div class="">
-      <div class="input-group">
+      <!-- <div class="input-group">
         <input
           type="search"
           placeholder="Search"
@@ -22,17 +22,34 @@
           aria-describedby="search-addon"
         />
         <button type="button" class="btn btn-outline-primary">search</button>
+      </div> -->
+      <div class="input-group">
+        <input
+          class="inputColor"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-addon"
+          v-model="capslistt.searching"
+        />
+
+        <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
       </div>
 
       <div class="float-end topM">
         <div class="input-group mb-3 inline-block">
           <span class="inline-block botM" for="">Sort by: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
+          <select
+            class="form-select inline-block box1"
+            v-model="capslisttsort.sorting"
+            id="inputGroupSelect01"
+          >
             <option selected>Choose...</option>
-            <option value="1">NAME</option>
-            <option value="2">LAST NAME</option>
-            <option value="3">YEAR</option>
-            <option value="3">GROUPNAME</option>
+            <option value="name">NAME</option>
+            <option value="lname">LAST NAME</option>
+            <option value="mname">MIDDLE NAME</option>
+            <option value="year">YEAR</option>
+            <option value="email">EMAIL</option>
           </select>
         </div>
       </div>
@@ -114,8 +131,61 @@
 
 <script setup>
 import axios from "axios";
-import { onMounted, ref } from "vue";
+// import { onMounted, ref } from "vue";
+import { onMounted, reactive, ref, watch } from "vue";
 import router from "../../routers/facultyRouter";
+
+const capslistt = reactive({ searching: null });
+const capslisttsort = reactive({ sorting: null });
+
+watch(capslistt, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstoneSearch();
+  // dataCapstonesort();
+});
+watch(capslisttsort, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstonesort();
+});
+
+const dataCapstoneSearch = async () => {
+  let response = await axios
+    .get("/api/get_all_student_search", {
+      params: { searching: capslistt.searching },
+    })
+
+    .then((response) => {
+      users.value = response.data.students;
+      // toast.fire({
+      //   icon: "success",
+      //   title: "SOMETHING WRONG",
+      // });
+    })
+
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+const dataCapstonesort = async () => {
+  let response = await axios
+    .get("/api/get_all_student_sort", {
+      params: { sorting: capslisttsort.sorting },
+    })
+
+    .then((response) => {
+      users.value = response.data.students;
+      // toast.fire({
+      //   icon: "success",
+      //   title: "SOMETHING WRONG",
+      // });
+    })
+
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
 //import {useRouter} from 'vue-router'
 
 //const router = useRouter
@@ -124,19 +194,21 @@ let users = ref([]);
 let capst = ref([]);
 
 onMounted(async () => {
-  getUsers();
+  // getUsers();
   getCapstone();
+  dataCapstoneSearch();
 });
 
 // const create = () => {
 //   router.push('/create')
 // }
 
-const getUsers = async () => {
-  let response = await axios.get("/api/get_all_student_user");
-  users.value = response.data.students;
-  // console.log("users", users.value);
-};
+// const getUsers = async () => {
+//   // let response = await axios.get("/api/get_all_student_user");
+//   let response = await axios.get("/api/get_all_student_search");
+//   users.value = response.data.students;
+//   // console.log("users", users.value);get_all_student_search
+// };
 const getCapstone = async () => {
   let response = await axios.get("/api/get_all");
   capst.value = response.data.capstone;

@@ -72,8 +72,7 @@ const getcaps123 = async () => {
 };
 
 const onVBack = () => {
-  let id = getIDfromURL();
-  router.push("/capstone2/" + id);
+  router.go(-1);
 };
 </script>
 

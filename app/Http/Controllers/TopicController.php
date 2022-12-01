@@ -196,6 +196,7 @@ class TopicController extends Controller
         $capstone->save();
 
 
+        
         // $capstone = $request->id;
         $capstone->user()->attach($id, ['role_person' => 'student1']);
         $capstone->user()->attach($request->students2, ['role_person' => 'students2']);

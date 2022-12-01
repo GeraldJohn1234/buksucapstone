@@ -423,6 +423,7 @@ let instructor = ref({
 let capstone2data = ref({
   status: "",
   prototype_date: "",
+  xf4:"",
 });
 let rated = ref({
   id: "",
