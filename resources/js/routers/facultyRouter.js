@@ -16,6 +16,7 @@ import Project from "../components/faculty/project.vue";
 import Create from "../components/faculty/capstoneList/create.vue";
 import View from "../components/faculty/capstoneList/view.vue";
 import Update from "../components/faculty/capstoneList/update.vue";
+import Viewstudent from "../components/faculty/capstoneList/viewstudent.vue";
 
 import Capstone1 from "../components/faculty/capstonefolder/capstone1.vue";
 import Capstone2 from "../components/faculty/capstonefolder/capstone2.vue";
@@ -171,6 +172,12 @@ const routes = [
     path: "/update/:id",
     name: "Update",
     component: Update,
+    props:true
+  },
+  {
+    path: "/viewstudent/:id",
+    name: "Viewstudent",
+    component: Viewstudent,
     props:true
   },
 

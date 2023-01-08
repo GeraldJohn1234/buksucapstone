@@ -67,13 +67,13 @@
           <template v-if="index <= limitlist">
             <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
             <td class="text-center align-middle">{{ index + 1 }}</td>
-            <td class="align-middle">{{ item.title }}</td>
-            <td class="text-center align-middle">
+            <td class="align-middle text-uppercase">{{ item.title }}</td>
+            <td class="text-center align-middle text-uppercase">
               {{ item.groupname }}
             </td>
-            <td class="align-middle text-center">{{ item.xf1 }}</td>
-            <td class="text-center align-middle">{{ item.xf3 }}</td>
-            <td class="text-center align-middle">{{ item.xf2 }}</td>
+            <td class="align-middle text-center text-uppercase">{{ item.xf1 }}</td>
+            <td class="text-center align-middle text-uppercase">{{ item.xf3 }}</td>
+            <td class="text-center align-middle text-uppercase">{{ item.xf2 }}</td>
 
             <td class="text-center align-middle">
               <ul class="nav row">
@@ -312,10 +312,22 @@ const deleteCapstone = (id) => {
         .then(() => {
           Swal.fire("Delete", "Capstone delete successfully", "success");
           // getCapstone();
-          dataCapstone();
+          // dataCapstone();
+          location.reload();
         })
-        .catch(() => {
-          Swal.fire("Failed!", "There was Something Wrongcdcdcdcdcdcdc.", "Warning");
+        // .catch(() => {
+        //   console.log(error.response.data.errors);
+        //   console.log("ERRRR:: ", error.response.data);
+        //   Swal.fire("Failed!", "There was Something Wrongcdcdcdcdcdcdc.", "Warning");
+        // });
+        .catch(function (error) {
+          console.log(error.response.data.errors);
+          console.log("ERRRR:: ", error.response.data);
+
+          toast.fire({
+            icon: "warning",
+            title: "SOMETHING WRONG",
+          });
         });
     }
   });

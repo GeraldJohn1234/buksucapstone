@@ -28,8 +28,8 @@ use App\Models\Caps1rating;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }) ;
-// 
-
+// get_one_user
+Route::get('/get_one_user/{id}', [UserController::class,'get_one_user']);
 Route::get('/get_all_user', [UserController::class,'get_all_user']);
 Route::post('/add_user', [UserController::class,'add_user']);
 Route::get('/get_edit_user/{id}', [UserController::class,'get_edit_user']);
@@ -53,11 +53,17 @@ Route::get('/get_all_instructor_user', [UserController::class,'get_all_instructo
 Route::post('/add_capstone_project', [CapstoneController::class,'add_capstone_project']); 
 
 
+Route::get('/get_all_audit', [CapstoneController::class,'get_all_audit']);
 
 Route::get('/get_all_capstone', [CapstoneController::class,'get_all_capstone']);
 Route::get('/get_all_capstonesort', [CapstoneController::class,'get_all_capstonesort']);
 Route::get('/get_all', [CapstoneController::class,'get_all']);
 Route::get('/get_all_capstone/{id}', [CapstoneController::class,'get_all_capstone']);
+
+Route::get('/advisee_count_not_done/{id}', [CapstoneController::class,'advisee_count_not_done']);
+Route::get('/advisee_count_done/{id}', [CapstoneController::class,'advisee_count_done']);
+Route::get('/secretarys_count/{id}', [CapstoneController::class,'secretarys_count']);
+Route::get('/panels_count/{id}', [CapstoneController::class,'panels_count']);
 
 Route::post('/store_dashboard', [CapstonedashboardController::class,'store_dashboard']);//this is for the dash board  store_dashboard     
 Route::get('/get_dashboard', [CapstonedashboardController::class,'get_dashboard']);
@@ -192,15 +198,29 @@ Route::post('/caps2minutes/{id}', [CapstoneController::class,'caps2minutes']);
 Route::post('/caps3minutes/{id}', [CapstoneController::class,'caps3minutes']);
 Route::get('/checkproponent/{id}', [CapstoneController::class,'checkproponent']);
 
+Route::get('/get_capstone_check/{id}', [CapstoneController::class,'get_capstone_check']);
+
+
+
 Route::get('/get_all_student_search', [UserController::class,'get_all_student_search']);
 Route::get('/get_all_student_sort', [UserController::class,'get_all_student_sort']);
+
+Route::get('/get_all_faculty_search', [UserController::class,'get_all_faculty_search']);
+Route::get('/get_all_faculty_sort', [UserController::class,'get_all_faculty_sort']);
+
+Route::get('/get_all_admin_search', [UserController::class,'get_all_admin_search']);
+Route::get('/get_all_admin_sort', [UserController::class,'get_all_admin_sort']);
 
 Route::get('/showpdf', [CapstoneController::class,'showpdf']);
 
 
 Route::get('/tryy/{id}', [Capstone2Controller::class,'tryy']);       
 Route::get('/testrate/{id}', [CapstoneController::class,'testrate']);
-
-
 Route::get('/getadvisee', [CapstoneController::class,'getadvisee']);
+
+Route::get('/audit_capstone', [CapstoneController::class,'audit_capstone']);
+Route::get('/audit_capstone1', [CapstoneController::class,'audit_capstone1']);
+Route::get('/audit_capstone2', [CapstoneController::class,'audit_capstone2']);
+Route::get('/audit_capstone3', [CapstoneController::class,'audit_capstone3']);
+Route::get('/audit_user', [CapstoneController::class,'audit_user']);
 //     caps2minutes get_topic  get_capstone_topic take_topic    get_all_capstone_advisee get_all_capstone_panel    showpdf  get_all_capstone_instructorr get_all_capstone_secretary

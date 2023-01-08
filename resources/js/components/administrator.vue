@@ -87,6 +87,19 @@
           </div>
         </li>
 
+        <!-- <li @click="active8()">
+          <div class="a nav_link row" :class="activehead8">
+            <i class="col-md-3">
+              <font-awesome-icon
+                icon="fa-solid fa-history"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <div class="col-md-8" id="label">AUDIT LOG</div>
+          </div>
+        </li> -->
+
         <div class="listOfUser pt-3 ps-2">
           <a id="listOfUser">
             <div class="" id="label">LIST OF USERS</div>
@@ -96,7 +109,7 @@
           <div class="a nav_link row" :class="activehead5">
             <i class="col-md-3">
               <font-awesome-icon
-                icon="fa-solid fa-user-pen"
+                icon="fa-solid fa-user-tie"
                 style="width: 24px; height: 24px"
               />
             </i>
@@ -132,7 +145,7 @@
           </div>
         </li>
 
-        <li id="logout" @click="logout">
+        <!-- <li id="logout" @click="logout">
           <div class="row a nav_link">
             <i class="col-md-3">
               <font-awesome-icon
@@ -140,10 +153,9 @@
                 style="width: 24px; height: 24px"
               />
             </i>
-
             <div class="col-md-8" id="label">LOGOUT</div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
     <div class="main_content">
@@ -164,10 +176,18 @@
               {{ form.name }} 
              
             </span> -->
-            <p class="roleAvatarname fw-bolder mx-2"> {{ form.name }} </p>
+            <p class="roleAvatarname fw-bolder mx-2">{{ form.name }}</p>
             <br />
-            <p class="roleAvatar  mx-2">ADMINISTRATOR</p>
+            <p class="roleAvatar mx-2">ADMINISTRATOR</p>
           </div>
+          <i class="col mx-2 marginTop trigger" @click="logout">
+            <font-awesome-icon
+              icon="fa-solid fa-right-from-bracket"
+              style="width: 24px; height: 24px"
+            />
+          </i>
+          <div class="hidden hoverStyle">Logout</div>
+          <!-- <div class="trigger">Hover here.</div> -->
         </div>
       </div>
 
@@ -296,6 +316,7 @@ const active8 = () => {
   activehead6.value.activeStyle1 = false;
   activehead7.value.activeStyle1 = false;
   activehead8.value.activeStyle1 = true;
+  audit();
 };
 const dash = () => {
   router.push("/dashboard");
@@ -317,6 +338,9 @@ const student = () => {
 };
 const instructor = () => {
   router.push("/instructor");
+};
+const audit = () => {
+  router.push("/audit");
 };
 const logoutt = () => {
   router.push("/logout");
@@ -499,7 +523,7 @@ const logout = () => {
   }
   .roleAvatarname {
     font-size: 12px;
-    
+
     text-align: center;
   }
   .wrapper .sidebar {
@@ -532,7 +556,7 @@ const logout = () => {
   .roleAvatar {
     display: none;
   }
-   .roleAvatarname {
+  .roleAvatarname {
     display: none;
   }
 
@@ -632,10 +656,12 @@ const logout = () => {
   color: #717171;
   float: left;
 }
+
 .wrapper .main_content .headerR {
   background: #fff;
   color: #717171;
   float: right;
+  margin-right: 5px;
   font-size: 10px;
 }
 
@@ -709,5 +735,31 @@ div .activeStyle1 i {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
+}
+.hidden {
+  display: none;
+}
+.trigger:hover + .hidden {
+  display: inline;
+}
+.hoverStyle {
+  position: fixed;
+  float: right;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  font-weight: bolder;
+  margin-top: 72px;
+  margin-left: 210px;
+}
+.marginTop {
+  padding-top: 25px;
+  color: #000000;
+  cursor: pointer;
+}
+.marginTop:hover {
+  padding-top: 25px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>

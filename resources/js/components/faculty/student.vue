@@ -62,12 +62,12 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Avatar</th>
+          <th class="text-uppercase">Avatar</th>
           <th>I.D</th>
           <th>FULLNAME</th>
           <th>YEAR</th>
           <!-- <th>GROUP NAME</th> -->
-          <th class="col-2">ACTION</th>
+          <th class="col">ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -86,14 +86,14 @@
           </td>
           <td>{{ item.uid }}</td>
           <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
-          <td>{{ item.year }}</td>
+          <td class="text-uppercase">{{ item.year }}</td>
           <!-- <td>
             {{ item.groupname }}
           </td> -->
-          <td class="">
+          <!-- <td class="">
             <ul class="nav row">
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view"> -->
+             
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 fw-bold button1 my-1"
@@ -101,8 +101,44 @@
                 >
                   VIEW
                 </button>
+             
+              </li>
+            </ul>
+          </td> -->
+          <td class="">
+            <ul class="nav row">
+              <li class="col">
+                <!-- <router-link class="nav_link" to="/view"> -->
+                <button
+                  type="button"
+                  class="btn btn-outline-success button1 fw-bold button1 my-1"
+                  @click="onView(item.id)"
+                >
+                  VIEW
+                </button>
                 <!-- </router-link> -->
               </li>
+              <!-- <li class="col">
+                
+                <button
+                  type="button"
+                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
+                  @click="onEdith(item.id)"
+                >
+                  UPDATE
+                </button>
+              
+              </li>
+              <li class="col">
+        
+                <button
+                  type="button"
+                  class="btn btn-outline-warning button1 fw-bold button1 my-1"
+                  @click="deleteUser(item.id)"
+                >
+                  DELETE
+                </button>
+              </li> -->
             </ul>
           </td>
         </tr>
@@ -156,6 +192,7 @@ const dataCapstoneSearch = async () => {
 
     .then((response) => {
       users.value = response.data.students;
+      console.log("RESUUUULTTT:::::::::::", users.value);
       // toast.fire({
       //   icon: "success",
       //   title: "SOMETHING WRONG",
@@ -227,7 +264,8 @@ const onEdith = (id) => {
   router.push("/update/" + id);
 };
 const onView = (id) => {
-  router.push("/view/" + id);
+  // router.push("/view/" + id);
+  router.push("/viewstudent/" + id);
 };
 const deleteUser = (id) => {
   Swal.fire({

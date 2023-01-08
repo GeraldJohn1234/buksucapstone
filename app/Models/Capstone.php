@@ -12,12 +12,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Scout\Searchable;
+use OwenIt\Auditing\Contracts\Auditable;
 use Kyslik\ColumnSortable\Sortable;
 
-class Capstone extends Model
+class Capstone extends Model implements Auditable
 {
     // use HasFactory, Searchable;
     use HasFactory, Searchable;
+    use \OwenIt\Auditing\Auditable;
 
 
     protected $fillable = [

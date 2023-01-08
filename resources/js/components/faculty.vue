@@ -242,7 +242,7 @@
           <div class="a nav_link row" :class="activehead9">
             <i class="col-md-3">
               <font-awesome-icon
-                icon="fa-solid fa-users-rectangle"
+                icon="fa-solid fa-user-pen"
                 style="width: 24px; height: 24px"
               />
             </i>
@@ -251,7 +251,7 @@
           </div>
         </li>
 
-        <li id="logout" @click="logout">
+        <!-- <li id="logout" @click="logout">
           <div class="row a nav_link">
             <i class="col-md-3">
               <font-awesome-icon
@@ -262,10 +262,30 @@
 
             <div class="col-md-8" id="label">LOGOUT</div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
     <div class="main_content">
+      <!-- <div class="header topHeader">
+        <div class="headerL">Capstone Archiving Management System</div>
+
+        <div class="headerR rheadertop footer content bg-light row">
+          <img
+            @click="active2()"
+            class="avatarUser mt-3 rounded-circle border bg-info col point"
+            id="rizal"
+            :src="getPhoto()"
+            alt="img"
+          />
+
+          <div class="col text-center mx-2 mt-2">
+         
+            <p class="roleAvatarname fw-bolder mx-2">{{ form.name }}</p>
+            <br />
+            <p class="roleAvatar mx-4">FACULTY</p>
+          </div>
+        </div>
+      </div> -->
       <div class="header topHeader">
         <div class="headerL">Capstone Archiving Management System</div>
 
@@ -279,14 +299,17 @@
           />
 
           <div class="col text-center mx-2 mt-2">
-            <!-- <span class="topA" id="labelAvatar">
-              {{ form.name }} 
-             
-            </span> -->
             <p class="roleAvatarname fw-bolder mx-2">{{ form.name }}</p>
             <br />
             <p class="roleAvatar mx-4">FACULTY</p>
           </div>
+          <i class="col mx-2 marginTop trigger" @click="logout">
+            <font-awesome-icon
+              icon="fa-solid fa-right-from-bracket"
+              style="width: 24px; height: 24px"
+            />
+          </i>
+          <div class="hidden hoverStyle">Logout</div>
         </div>
       </div>
 
@@ -861,5 +884,31 @@ div .activeStyle1 i {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
+}
+.hidden {
+  display: none;
+}
+.trigger:hover + .hidden {
+  display: inline;
+}
+.hoverStyle {
+  position: fixed;
+  float: right;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  font-weight: bolder;
+  margin-top: 72px;
+  margin-left: 170px;
+}
+.marginTop {
+  padding-top: 25px;
+  color: #000000;
+  cursor: pointer;
+}
+.marginTop:hover {
+  padding-top: 25px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>

@@ -48,24 +48,24 @@
       <thead class="colorNeh">
         <tr>
           <th class="">#</th>
-          <th class="col-4">TITLE</th>
-          <th class="col">DATE CREATED</th>
-          <th class="col-2">STATUS</th>
-          <th class="col-4">ACTION</th>
+          <th class="col-4 text-uppercase">TITLE</th>
+          <th class="col text-uppercase">DATE CREATED</th>
+          <th class="col-2 text-uppercase">STATUS</th>
+          <th class="col-4 text-uppercase">ACTION</th>
         </tr>
       </thead>
 
       <tbody class="colorNeh">
         <tr v-for="(item, index) in projects" :key="item.id">
           <td>{{ index + 1 }}</td>
-          <td>{{ item.title }}</td>
+          <td class="text-uppercase">{{ item.title }}</td>
           <td>{{ item.created_at }}</td>
           <td>
             <!-- {{ item.status }} -->
-            <p v-if="item.status === 'Available'" class="text-success">
+            <p v-if="item.status === 'Available'" class="text-success text-uppercase">
               {{ item.status }}
             </p>
-            <p v-else class="text-warning">{{ item.status }}</p>
+            <p v-else class="text-warning text-uppercase">{{ item.status }}</p>
           </td>
 
           <!-- 

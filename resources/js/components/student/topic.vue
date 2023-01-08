@@ -58,14 +58,17 @@
       <tbody class="colorNeh">
         <tr v-for="(item, index) in projects" :key="item.id">
           <td>{{ index + 1 }}</td>
-          <td>{{ item.title }}</td>
+          <td class="text-uppercase">{{ item.title }}</td>
           <td>{{ item.created_at }}</td>
           <td>
             <!-- {{ item.status }} -->
-            <p v-if="item.status === 'Available'" class="text-success fw-bold">
+            <p
+              v-if="item.status === 'Available'"
+              class="text-success fw-bold text-uppercase"
+            >
               {{ item.status }}
             </p>
-            <p v-else class="text-warning fw-bold">{{ item.status }}</p>
+            <p v-else class="text-warning fw-bold text-uppercase">{{ item.status }}</p>
           </td>
 
           <!-- 

@@ -65,6 +65,7 @@ class CapstoneController extends Controller
         $capstone->xf3 = $request->instructor;
         $capstone->xf1 = $request->xf1;
         $capstone->xf2 = $request->xf2;
+        // $capstone->xf6 = $request->adviser;
         $capstone->save();
 
 
@@ -179,6 +180,7 @@ class CapstoneController extends Controller
         $capstone->xf2 = $request->xf2;
         $capstone->xf4 = $request->xf4;
         $capstone->name = $request->name;
+      
 
         // $capstone->xf5 = $file_name;
 
@@ -258,10 +260,12 @@ class CapstoneController extends Controller
             $capstone->user()->where('role_person', 'adviser')->update([
                 'user_id' => $adviser,
             ]);
+            $capstone->xf6 = $adviser;
         } else {
             $capstone->user()->where('role_person', 'adviser')->update([
                 'user_id' => $request->adviser,
             ]);
+            $capstone->xf6 = $request->adviser;
         }
 
         if ($request->coAdviser == 10000000) {
@@ -476,24 +480,6 @@ class CapstoneController extends Controller
         $id = Auth::user()->id;
         $panel1 = DB::table('capstone_user')->where('role_person', 'adviser')
             ->where('user_id', $id)->pluck('capstone_id');
-
-
-
-
-        $data = $request->searching;
-        $sortdata = $request->sorting;
-        // if (Capstone::search($data)->get() != null && Capstone::search($data)->get() != "") {
-        //     // if (true) {
-        //     // $capstone1 = Capstone::search($data)->get();
-        //     $capstone1 = Capstone::find($panel1);
-        //     // $capstone1 = Capstone::find($panel1)->search($data)->get();
-        //     return response()->json(
-        //         [
-        //             'capstones'  => $capstone1,
-        //         ],
-        //         200
-        //     );
-        // }
         $capstone = Capstone::find($panel1);
         return response()->json(
             [
@@ -502,6 +488,57 @@ class CapstoneController extends Controller
             200
         );
     }
+
+    public function advisee_count_not_done($id)
+    {
+        $advisee_under = DB::table('capstones')->where('xf2', 'UNDER DEVELOPMENT')->where('xf6', $id)->count();
+        // $advisee = DB::table('capstone_user')->where('role_person', 'adviser')->where('user_id', $id)->count();
+        // $advise_not_done = $advisee - $advisee_under;
+        return response()->json(
+            [
+                'capstones'  => $advisee_under,
+            ],
+            200
+        );
+    }
+    public function advisee_count_done($id)
+    {
+        $advisee = DB::table('capstone_user')->where('role_person', 'adviser')->where('user_id', $id)->count();
+        $advisee_under = DB::table('capstones')->where('xf2', 'UNDER DEVELOPMENT')->where('xf6', $id)->count();
+        $advise_not_done = $advisee - $advisee_under;
+        return response()->json(
+            [
+                'capstones'  => $advise_not_done,
+            ],
+            200
+        );
+    }
+    public function secretarys_count($id)
+    {
+        $secretarys = DB::table('capstone_user')->where('role_person', 'secretarys')->where('user_id', $id)->count();
+        return response()->json(
+            [
+                'capstones'  => $secretarys,
+            ],
+            200
+        );
+    }
+    public function panels_count($id)
+    {
+        $panels1 = DB::table('capstone_user')->where('role_person', 'panels1')->where('user_id', $id)->count();
+        $panels2 = DB::table('capstone_user')->where('role_person', 'panels2')->where('user_id', $id)->count();
+        $panels3 = DB::table('capstone_user')->where('role_person', 'panels3')->where('user_id', $id)->count();
+
+        $panel = $panels1 + $panels2 + $panels3;
+        return response()->json(
+            [
+                'capstones'  => $panel,
+            ],
+            200
+        );
+    }
+
+
 
     public function get_all_capstone_panel(Request $request)
     {
@@ -771,6 +808,41 @@ class CapstoneController extends Controller
             200
         );
     }
+
+//     public function get_all_audit(Request $request)
+//     {
+
+//         // $article = Capstone::first();
+       
+
+//         // $data = $request->searching;
+//         // $sortdata = $request->sorting;
+//         // if (Capstone::search($data)->get() != null && Capstone::search($data)->get() != "") {
+//         //     $capstone = Capstone::search($data)
+//         //         ->get();
+//         //     return response()->json(
+//         //         [
+//         //             'capstones'  => $capstone,
+//         //         ],
+//         //         200
+//         //     );
+//         // }
+//         // $first = $article->audits()->first();
+
+//         // $capstonee = Capstone::all();
+//         // $capstone = $capstonee->audits()->first();
+//         // $article = Capstone::all();
+
+
+// $all = Capstone::all()->audits()->first();
+//         return response()->json(
+//             [
+//                 'capstones'  => $all,
+//             ],
+//             200
+//         );
+//     }
+
     public function get_all(Request $request)
     {
         $capstone = Capstone::all();
@@ -853,6 +925,40 @@ class CapstoneController extends Controller
         );
     }
 
+    public function get_capstone_check($id)
+    {
+        $checkU = DB::table('capstone_user')->where('user_id',  $id)->count() > 0;
+        if ($checkU) {
+            $users = DB::table('capstone_user')->where('user_id', $id)->pluck('capstone_id')->first();
+            return response()->json([
+
+                'ans'  => $users,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'ans'  => 0,
+
+            ], 200);
+        }
+
+        // $capstone = Capstone::find($id);
+        // return response()->json([
+
+        //     'capstones'  => $capstone,
+
+        // ], 200);
+    }
+    // public function get_capstone($id)
+    // {
+    //     $capstone = Capstone::find($id);
+    //     return response()->json([
+
+    //         'capstones'  => $capstone,
+
+    //     ], 200);
+    // }
     public function get_capstone($id)
     {
         $capstone = Capstone::find($id);
@@ -1043,9 +1149,53 @@ class CapstoneController extends Controller
 
     public function delete_capstone($id)
     {
-        $capstone = Capstone::findOrFail($id);
+        $rating1 = Caps1rating::find($id);
+        $rating2 = Caps2rating::find($id);
+        $rating3 = Caps3rating::find($id);
+
+        $capstone = Capstone::find($id);
+        $capstone1 = Capstone1::find($id);
+        $capstone2 = Capstone2::find($id);
+        $capstone3 = Capstone3::find($id);
         $capstone->user()->detach();
-        $capstone->delete();
+        if($rating1 != null){
+            $rating1->delete();
+        }
+        if($rating2 != null){
+            $rating2->delete();
+        }
+        if($rating3 != null){
+            $rating3->delete();
+        }
+
+        if($capstone != null){
+            $capstone->delete();
+        }
+        if($capstone1 != null){
+            $capstone1->delete();
+        }
+        if($capstone2 != null){
+            $capstone2->delete();
+        }
+        if($capstone3 != null){
+            $capstone3->delete();
+        }
+       
+      
+        
+        // $rating1->user()->detach();
+        // $rating2->user()->detach();
+        // $rating3->user()->detach();
+        // $capstone1->user()->detach();
+        // $capstone2->user()->detach();
+        // $capstone3->user()->detach();
+        // $capstone->delete();
+        // $capstone1->delete();
+        // $capstone2->delete();
+        // $capstone3->delete();
+        
+        // $rating2->delete();
+        // $rating3->delete();
     }
 
 
@@ -1112,6 +1262,61 @@ class CapstoneController extends Controller
 
     //     // return redirect()->route('file.upload');
     // }
+
+
+
+    public function audit_capstone()
+    {
+        $capstone = Capstone::first();
+        $auditcapstone =  $capstone->audits;
+   
+        return response()->json([
+
+            'audit'  => $auditcapstone,
+
+        ], 200);
+    }
+    public function audit_capstone1()
+    {
+        $capstone1 = Capstone1::first();
+        $auditcapstone =  $capstone1->audits;
+
+        return response()->json([
+
+            'audit'  => $auditcapstone,
+
+        ], 200);
+    }
+    public function audit_capstone2()
+    {
+        $capstone2 = Capstone2::first();
+        $auditcapstone =  $capstone2->audits;
+        return response()->json([
+
+            'audit'  => $auditcapstone,
+
+        ], 200);
+    }
+    public function audit_capstone3()
+    {
+        $capstone33 = Capstone3::first();
+        $auditcapstone =  $capstone33->audits;
+        return response()->json([
+
+            'audit'  => $auditcapstone,
+
+        ], 200);
+    }
+    public function audit_user()
+    {
+        $user = User::first();
+        $auditcapstone =  $user->audits;
+        return response()->json([
+
+            'audit'  => $auditcapstone,
+
+        ], 200);
+    }
 
 }
 

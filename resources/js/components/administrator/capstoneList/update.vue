@@ -224,6 +224,7 @@ const router = useRouter();
 
 onMounted(async () => {
   getsingleUser();
+  // getPhoto();
 });
 
 const props = defineProps({
@@ -265,43 +266,72 @@ const getsingleUser = async () => {
 };
 
 const updateUser = () => {
-  const formData = new FormData();
-  formData.append("uid", form.value.uid);
-  formData.append("email", form.value.email);
-  formData.append("password", form.value.password);
+  // let photo = "/upload/archiver.png";
+  // if (form.value.photo) {
+  //   if (form.value.photo.indexOf("base64") != -1) {
+  //     photo = form.value.photo;
+  //   } else {
+  //     photo = "/upload/" + form.value.photo;
+  //   }
+  // }
 
-  formData.append("name", form.value.name);
-  formData.append("mname", form.value.mname);
-  formData.append("year", form.value.year);
-  formData.append("lname", form.value.lname);
+  if (form.value.password == "" || form.value.password == null) {
+    toast.fire({
+      icon: "warning",
+      title: "Please fill out the password field",
+    });
+  } else {
+    const formData = new FormData();
+    formData.append("uid", form.value.uid);
+    formData.append("email", form.value.email);
+    formData.append("password", form.value.password);
 
-  formData.append("gender", form.value.gender);
-  formData.append("photo", form.value.photo);
+    formData.append("name", form.value.name);
+    formData.append("mname", form.value.mname);
+    formData.append("year", form.value.year);
+    formData.append("lname", form.value.lname);
 
-  // ${form.value.id}
+    formData.append("gender", form.value.gender);
+    formData.append("photo", form.value.photo);
 
-  axios
-    .post("/api/update_user/" + props.id, formData)
+    // ${form.value.id}
 
-    .then((response) => {
-      // (form.value.uid = ""),
-      //   (form.value.email = ""),
-      //   (form.value.password = ""),
-      //   (form.value.name = ""),
-      //   (form.value.mname = ""),
-      //   (form.value.lname = ""),
-      //   (form.value.year = ""),
-      //   (form.value.gender = ""),
-      //   (form.value.photo = ""),
-        router.push("/update/"+ props.id);
+    axios
+      .post("/api/update_user/" + props.id, formData)
 
-      toast.fire({
-        icon: "success",
-        title: "User Update Successfully",
+      .then((response) => {
+        // (form.value.uid = ""),
+        //   (form.value.email = ""),
+        //   (form.value.password = ""),
+        //   (form.value.name = ""),
+        //   (form.value.mname = ""),
+        //   (form.value.lname = ""),
+        //   (form.value.year = ""),
+        //   (form.value.gender = ""),
+        //   (form.value.photo = ""),
+        router.push("/update/" + props.id);
+
+        toast.fire({
+          icon: "success",
+          title: "User Update Successfully",
+        });
+        // location.reload();
+      })
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
+
+        toast.fire({
+          icon: "warning",
+          title: "Update failed, please change the the temporary avatar",
+        });
+        // (error = {}));
+        // console.log("ERRRR:: ",error.response.data);
       });
-      // location.reload();
-    })
-    .catch((error) => {});
+  }
+  // .catch((error) => {
+
+  // });
 };
 
 const type = ref("password");

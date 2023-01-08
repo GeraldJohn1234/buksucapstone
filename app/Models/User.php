@@ -10,12 +10,13 @@ use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
 use Laravel\Scout\Searchable;
 use Kyslik\ColumnSortable\Sortable;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Auditable
 {
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable, Searchable, Sortable;
-
+    use \OwenIt\Auditing\Auditable;
     /**
      * The attributes that are mass assignable.
      *

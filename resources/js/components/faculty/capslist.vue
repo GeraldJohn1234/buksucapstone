@@ -62,14 +62,14 @@
         <tr v-for="(item, index) in projects" :key="item.id">
           <template v-if="index <= limitlist">
             <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
-            <td class="text-center align-middle">{{ index + 1 }}</td>
-            <td class="align-middle">{{ item.title }}</td>
-            <td class="text-center align-middle">
+            <td class="text-center align-middle upper">{{ index + 1 }}</td>
+            <td class="align-middle text-uppercase upper">{{ item.title }}</td>
+            <td class="text-center align-middle text-uppercase upper">
               {{ item.groupname }}
             </td>
-            <td class="align-middle text-center">{{ item.xf1 }}</td>
-            <td class="text-center align-middle">{{ item.xf3 }}</td>
-            <td class="text-center align-middle">{{ item.xf2 }}</td>
+            <td class="align-middle text-center text-uppercase upper">{{ item.xf1 }}</td>
+            <td class="text-center align-middle text-uppercase upper">{{ item.xf3 }}</td>
+            <td class="text-center align-middle text-uppercase upper">{{ item.xf2 }}</td>
 
             <td class="text-center align-middle">
               <ul class="nav row">
@@ -338,5 +338,8 @@ a:hover {
 
 .topHi {
   margin-top: -15px;
+}
+.upper {
+  text-transform: uppercase;
 }
 </style>

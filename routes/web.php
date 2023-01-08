@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Models\Capstone;
+use App\Models\User;
 // use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,15 +20,39 @@ use Illuminate\Support\Facades\Auth;
 */
 // Route::get('Auth');
 
+Route::get('/tryyyy', function () {
+    // $article =  Capstone::with('audits')->get();
+    // // return Capstone::first();
+    // return $article->audits()->latest()->first();
+    $article = Capstone::first();
 
+
+return  $article->audits;
+// Get latest Audit
+// return $article->audits()->latest()->first();
+
+// Get first Audit
+// return $article->audits()->first();
+
+// Get last Audit
+// return $article->audits()->latest()->first();
+
+// Get Audit by id
+// return $article->audits()->find(4);
+
+// var_dump($audit->getMetadata());
+});
 
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [DashboardController::class, 'index'])->name('dashboard');
-
+    // viewstudent
     Route::get('/adviser', [DashboardController::class, 'whatRole']);
+    Route::get('/audit', [DashboardController::class, 'whatRole']);
+
     Route::get('/capslist', [DashboardController::class, 'whatRole']);
+
     Route::get('/instructor', [DashboardController::class, 'whatRole']);
     Route::get('/panel', [DashboardController::class, 'whatRole']);
     Route::get('/profile', [DashboardController::class, 'whatRole']);
@@ -40,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/create', [DashboardController::class, 'whatRole']);
     Route::get('/update', [DashboardController::class, 'whatRole']);
     Route::get('/view', [DashboardController::class, 'whatRole']);
+    Route::get('/viewstudent/{pathMatch}', [DashboardController::class, 'whatRole']);
+    Route::get('/viewfaculty/{pathMatch}', [DashboardController::class, 'whatRole']);
     Route::get('/viewcapsecretry/{pathMatch}', [DashboardController::class, 'whatRole']);
 
     Route::get('/update/{pathMatch}', [DashboardController::class, 'whatRole']);

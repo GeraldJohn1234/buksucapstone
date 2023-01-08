@@ -1,11 +1,11 @@
 <template>
   <div class="contentOfThePage bg-light p-3">
     <div class="" id="titleSize">
-      <h5 class="pt-2 text-uppercase boldThese">
+      <h5 class="pt-2 text-uppercas fw-bolder boldThese">
         {{ GenCapData.title }}
       </h5>
       <hr class="toTop" />
-      <p class="toTopp boldThese">TITLE</p>
+      <p class="toTopp">TITLE</p>
     </div>
 
     <!-- <div class="form-floating col">
@@ -19,7 +19,7 @@
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
       <br />
     </div> -->
-    <!-- <P class="text-left boldThese">INFORMATION</P> -->
+    <!-- <P class="text-left  ">INFORMATION</P> -->
     <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
 
     <div class="contentOfThePage bg-light p-2">
@@ -78,11 +78,11 @@
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.groupname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Group Name</p>
+          <p class="toTopp">Group Name</p>
         </div>
         <!-- <input
           type="email"
@@ -104,39 +104,31 @@
         />
         <label class="ps-4" for="floatingInput">Instructor</label> -->
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf3 }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">School Year</p>
+          <p class="toTopp">School Year</p>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Adviser</p>
+          <p class="toTopp">Adviser</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-         
-        />
-        <label class="ps-4" for="floatingInput">Adviser</label> -->
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ coAdviser.name }} {{ coAdviser.mname }} {{ coAdviser.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Co-Adviser</p>
+          <p class="toTopp">Co-Adviser</p>
         </div>
         <!-- <input
           type="email"
@@ -149,31 +141,31 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf4 }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Client</p>
+          <p class="toTopp">Client</p>
         </div>
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf2 }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Status</p>
+          <p class="toTopp">Status</p>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ panels1.name }} {{ panels1.mname }} {{ panels1.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Panel 1</p>
+          <p class="toTopp">Panel 1</p>
         </div>
         <!-- <input
           type="email"
@@ -185,11 +177,11 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ panels2.name }} {{ panels2.mname }} {{ panels2.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Panel 2</p>
+          <p class="toTopp">Panel 2</p>
         </div>
         <!-- <input
           type="email"
@@ -201,11 +193,11 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ panels3.name }} {{ panels3.mname }} {{ panels3.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Panel 3</p>
+          <p class="toTopp">Panel 3</p>
         </div>
         <!-- <input
           type="email"
@@ -217,11 +209,11 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ secretarys.name }} {{ secretarys.mname }} {{ secretarys.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Secretary</p>
+          <p class="toTopp">Secretary</p>
         </div>
         <!-- <input
           type="email"
@@ -236,11 +228,11 @@
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ student1.name }} {{ student1.mname }} {{ student1.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Proponent 1</p>
+          <p class="toTopp">Proponent 1</p>
         </div>
         <!-- <input
           type="email"
@@ -252,11 +244,11 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ student2.name }} {{ student2.mname }} {{ student2.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Proponent 2</p>
+          <p class="toTopp">Proponent 2</p>
         </div>
         <!-- <input
           type="email"
@@ -268,11 +260,11 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ student3.name }} {{ student3.mname }} {{ student3.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Proponent 3</p>
+          <p class="toTopp">Proponent 3</p>
         </div>
         <!-- <input
           type="email"
@@ -284,11 +276,11 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ student4.name }} {{ student4.mname }} {{ student4.lname }}
           </p>
           <hr class="toTop" />
-          <p class="toTopp boldThese">Proponent 4</p>
+          <p class="toTopp">Proponent 4</p>
         </div>
         <!-- <input
           type="email"
@@ -314,7 +306,11 @@
         <div class="col">
           <label for="update" class="m-2">Status: Under-revision</label>
         </div>
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="onView1()">
+        <button
+          type="button"
+          class="m-1 btnSize btn btn-primary boldThese"
+          @click="onView1()"
+        >
           VIEW
         </button>
       </div>
@@ -326,7 +322,11 @@
         <div class="col">
           <label for="update" class="m-2">Status: Development</label>
         </div>
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="onView2()">
+        <button
+          type="button"
+          class="m-1 btnSize btn btn-primary boldThese"
+          @click="onView2()"
+        >
           VIEW
         </button>
       </div>
@@ -338,7 +338,11 @@
         <div class="col">
           <label for="update" class="m-2">Status: Under-revision</label>
         </div>
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="onView3()">
+        <button
+          type="button"
+          class="m-1 btnSize btn btn-primary boldThese"
+          @click="onView3()"
+        >
           VIEW
         </button>
       </div>
@@ -600,6 +604,7 @@ const warningNoData = () => {
 }
 .boldThese {
   font-weight: bolder;
+  text-transform: uppercase;
 }
 #titleSize {
   margin-left: auto;

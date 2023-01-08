@@ -3,6 +3,9 @@ import { createWebHistory, createRouter } from "vue-router";
 import Dashboard from "../components/administrator/dashboard.vue";
 import Profile from "../components/administrator/profile.vue";
 import CapsList from "../components/administrator/capslist.vue";
+
+import Audit from "../components/administrator/audit.vue";
+
 import Topic from "../components/administrator/topic.vue";
 import Student from "../components/administrator/student.vue";
 import Instructor from "../components/administrator/instructor.vue";
@@ -16,6 +19,8 @@ import Project from "../components/administrator/project.vue";
 import Create from "../components/administrator/capstoneList/create.vue";
 import View from "../components/administrator/capstoneList/view.vue";
 import Update from "../components/administrator/capstoneList/update.vue";
+import Viewstudent from "../components/administrator/capstoneList/viewstudent.vue";
+import Viewfaculty from "../components/administrator/capstoneList/viewfaculty.vue";
 
 import Capstone1 from "../components/administrator/capstonefolder/capstone1.vue";
 import Capstone2 from "../components/administrator/capstonefolder/capstone2.vue";
@@ -106,6 +111,14 @@ const routes = [
     component: CapsList,
   },
   {
+    path: "/audit",
+    name: "Audit",
+    component: Audit,
+  },
+
+
+  
+  {
     path: "/topic",
     name: "Topic",
     component: Topic,
@@ -163,7 +176,18 @@ const routes = [
     component: Update,
     props:true
   },
-
+  {
+    path: "/viewstudent/:id",
+    name: "Viewstudent",
+    component: Viewstudent,
+    props:true
+  },
+  {
+    path: "/viewfaculty/:id",
+    name: "Viewfaculty",
+    component: Viewfaculty,
+    props:true
+  },
 
 
   {

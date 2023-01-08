@@ -20,12 +20,12 @@
 
       <tbody class="colorNeh">
         <tr v-for="(item, index) in projects" :key="item.id">
-          <td>{{ index + 1 }}</td>
-          <td>{{ item.title }}</td>
+          <td class="text-uppercase">{{ index + 1 }}</td>
+          <td class="text-uppercase">{{ item.title }}</td>
           <td class="text-center">
             {{ item.groupname }}
           </td>
-          <td>{{ item.xf1 }}</td>
+          <td class="text-uppercase">{{ item.xf1 }}</td>
           <td>{{ item.start_date }}</td>
 
           <td class="">

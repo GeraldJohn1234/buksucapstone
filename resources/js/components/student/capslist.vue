@@ -56,14 +56,14 @@
         <tr v-for="(item, index) in projects" :key="item.id">
           <template v-if="index <= limitlist">
             <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
-            <td class="text-center align-middle">{{ index + 1 }}</td>
-            <td class="align-middle">{{ item.title }}</td>
-            <td class="text-center align-middle">
+            <td class="text-center align-middle text-uppercase">{{ index + 1 }}</td>
+            <td class="align-middle text-uppercase">{{ item.title }}</td>
+            <td class="text-center align-middle text-uppercase">
               {{ item.groupname }}
             </td>
-            <td class="align-middle text-center">{{ item.xf1 }}</td>
-            <td class="text-center align-middle">{{ item.xf3 }}</td>
-            <td class="text-center align-middle">{{ item.xf2 }}</td>
+            <td class="align-middle text-center text-uppercase">{{ item.xf1 }}</td>
+            <td class="text-center align-middle text-uppercase">{{ item.xf3 }}</td>
+            <td class="text-center align-middle text-uppercase">{{ item.xf2 }}</td>
 
             <td class="text-center align-middle">
               <ul class="nav row">

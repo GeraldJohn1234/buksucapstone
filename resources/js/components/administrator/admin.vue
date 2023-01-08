@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-2">
+  <div class="contentOfThePage rounded bg-light p-3">
     <div class="">
       <div class="forInline capsList">ADMINISTRATOR LIST</div>
 
@@ -14,7 +14,7 @@
     <hr />
 
     <div class="">
-      <div class="input-group">
+      <!-- <div class="input-group">
         <input
           type="search"
           placeholder="Search"
@@ -22,15 +22,34 @@
           aria-describedby="search-addon"
         />
         <button type="button" class="btn btn-outline-primary">search</button>
+      </div> -->
+      <div class="input-group">
+        <input
+          class="inputColor"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-addon"
+          v-model="capslistt.searching"
+        />
+
+        <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
       </div>
 
       <div class="float-end topM">
         <div class="input-group mb-3 inline-block">
           <span class="inline-block botM" for="">Sort by: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
+          <select
+            class="form-select inline-block box1"
+            v-model="capslisttsort.sorting"
+            id="inputGroupSelect01"
+          >
             <option selected>Choose...</option>
-            <option value="1">FIRST NAME</option>
-            <option value="2">LAST NAME</option>
+            <option value="name">NAME</option>
+            <option value="lname">LAST NAME</option>
+            <option value="mname">MIDDLE NAME</option>
+            <option value="year">YEAR</option>
+            <option value="email">EMAIL</option>
           </select>
         </div>
       </div>
@@ -43,14 +62,17 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Avatar</th>
+          <th class="text-uppercase">Avatar</th>
           <th>I.D</th>
           <th>FULLNAME</th>
-          <th class="col-4">Action</th>
+          <!-- <th>YEAR</th> -->
+          <!-- <th>GROUP NAME</th> -->
+          <th class="col-4">ACTION</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item, index) in users" :key="item.id">
+          <!-- let capst = ref([]); -->
           <!-- <td>1</td> -->
           <td>{{ index + 1 }}</td>
 
@@ -64,6 +86,25 @@
           </td>
           <td>{{ item.uid }}</td>
           <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
+          <!-- <td class="text-uppercase">{{ item.year }}</td> -->
+          <!-- <td>
+            {{ item.groupname }}
+          </td> -->
+          <!-- <td class="">
+            <ul class="nav row">
+              <li class="col">
+             
+                <button
+                  type="button"
+                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
+                  @click="onView(item.id)"
+                >
+                  VIEW
+                </button>
+             
+              </li>
+            </ul>
+          </td> -->
           <td class="">
             <ul class="nav row">
               <li class="col">
@@ -108,35 +149,95 @@
       </tbody>
     </table>
     <!-- <div v-else></div> -->
-    <hr class="topHi" />
+    <!-- <div class="">
+      <a href="#" class="previous">&laquo; Previous</a>
+      <a href="#" class="next">Next &raquo;</a>
+
+      <div class="float-end">
+        <div class="input-group mb-3 inline-block">
+          <span class="inline-block botM" for="">Row visible: </span>
+          <select class="form-select inline-block box1" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+      </div>
+    </div> -->
   </div>
 </template>
 
 <script setup>
 import axios from "axios";
-import { onMounted, ref } from "vue";
+// import { onMounted, ref } from "vue";
+import { onMounted, reactive, ref, watch } from "vue";
 import router from "../../routers/administratorRouter";
-//import {useRouter} from 'vue-router'
 
-//const router = useRouter
+const capslistt = reactive({ searching: null });
+const capslisttsort = reactive({ sorting: null });
 
-let users = ref([]);
-
-onMounted(async () => {
-  getUsers();
+watch(capslistt, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstoneSearch();
+  // dataCapstonesort();
+});
+watch(capslisttsort, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  dataCapstonesort();
 });
 
-// const create = () => {
-//   router.push('/create')
-// }
+const dataCapstoneSearch = async () => {
+  let response = await axios
+    .get("/api/get_all_admin_search", {
+      params: { searching: capslistt.searching },
+    })
 
-const getUsers = async () => {
-  // let response = await axios.get("/api/get_all_user");
+    .then((response) => {
+      users.value = response.data.admin;
+      console.log("RESUUUULTTT:::::::::::", users.value);
+    })
 
-  let response = await axios.get("/api/get_all_admin_user");
-  // get_all_student_user
-  users.value = response.data.admins;
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+const dataCapstonesort = async () => {
+  let response = await axios
+    .get("/api/get_all_admin_sort", {
+      params: { sorting: capslisttsort.sorting },
+    })
+
+    .then((response) => {
+      users.value = response.data.admin;
+    })
+
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+let users = ref([]);
+let capst = ref([]);
+
+onMounted(async () => {
+  // getUsers();
+  getCapstone();
+  dataCapstoneSearch();
+});
+
+const getCapstone = async () => {
+  let response = await axios.get("/api/get_all");
+  capst.value = response.data.capstone;
   // console.log("users", users.value);
+};
+
+const trry = (id) => {
+  {
+    Swal.fire("Delete", "Student account, delete successfully" + id, "success");
+  }
 };
 const ourImage = (img) => {
   return "/upload/" + img;
@@ -145,7 +246,8 @@ const onEdith = (id) => {
   router.push("/update/" + id);
 };
 const onView = (id) => {
-  router.push("/view/" + id);
+  // router.push("/view/" + id);
+  router.push("/viewstudent/" + id);
 };
 const deleteUser = (id) => {
   Swal.fire({
@@ -161,8 +263,9 @@ const deleteUser = (id) => {
       axios
         .get("/api/delete_user/" + id)
         .then(() => {
-          Swal.fire("Delete", "Account delete successfully", "success");
-          getUsers();
+          Swal.fire("Delete", "Student account, deleted successfully", "success");
+          // getUsers();
+          dataCapstoneSearch();
         })
         .catch(() => {
           Swal.fire("Failed!", "There was Something Wrong.", "Warning");
@@ -234,8 +337,8 @@ a:hover {
   margin-right: -15px;
 }
 .capsList {
-  margin-top: 5px;
   font-weight: bolder;
+  margin-top: 5px;
 }
 .avatarImage1 {
   height: 30px;

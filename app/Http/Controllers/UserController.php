@@ -92,6 +92,17 @@ class UserController extends Controller
             200
         );
     }
+    public function get_one_user($id)
+    {
+        // $users = User::all();
+        $userrole = User::find($id);
+        return response()->json(
+            [
+                'userrs'  => $userrole,
+            ],
+            200
+        );
+    }
     // //This will get all members of a team that belongs to any role
     // $team  = Team::where('name', $id)->first();
     // $roles = Role::get();
@@ -112,34 +123,29 @@ class UserController extends Controller
         );
     }
 
-    // $secretarys = DB::table('capstone_user')->where('role_person', 'secretarys')
-    // ->where('capstone_id', $id)->pluck('user_id')->first();
     public function get_all_student_search(Request $request)
     {
 
-        // $data ='John';
-        // $data = $request->searching;
+        $data = $request->searching;
 
-        // if (User::search($data)->where('remember_token', 1)->get() != null && User::search($data)->where('remember_token', 1)->get() != "") {
-        //     $students = User::search($data)->where('remember_token', 1)->get();
-        //     return response()->json(
-        //         [
-        //             'students'  => $students,
-        //         ],
-        //         200
-        //     );
-        // }else{
-        //     $students = User::whereRoleIs(['student'])->get();
-        // }
-
-        $students = User::whereRoleIs(['student'])->get();
-      
-        return response()->json(
-            [
-                'students'  => $students,
-            ],
-            200
-        );
+        if (User::search($data)->where('role_num', 1)->get() != null && User::search($data)->where('role_num', 1)->get() != "") {
+            $students = User::search($data)->where('role_num', 1)->get();
+            return response()->json(
+                [
+                    'students'  => $students,
+                ],
+                200
+            );
+        }else{
+            // $students = User::orderBy('nccame', "asc")->where('role_num', 1)->get();
+            $students = User::whereRoleIs(['student'])->get();
+            return response()->json(
+                [
+                    'students'  => $students,
+                ],
+                200
+            );
+        }
     }
 
 
@@ -147,9 +153,10 @@ class UserController extends Controller
     {
 
         $sortdata = $request->sorting;
+        // $sortdata = 'name';
         if (($sortdata == "name" || $sortdata == "mname" || $sortdata == "lname" || $sortdata == "email"|| $sortdata == "year")) {
             // $capstone = Topic::orderBy($sortdata, "asc")->get();
-            $students = User::orderBy($sortdata, "asc")->where('remember_token', 1)->get();
+            $students = User::orderBy($sortdata, "asc")->where('role_num', 1)->get();
             return response()->json(
                 [
                     'students'  => $students,
@@ -174,11 +181,19 @@ class UserController extends Controller
     public function get_all_faculty_search(Request $request)
     {
 
-        // $data ='John';
         $data = $request->searching;
 
-        if (User::search($data)->where('remember_token', 2)->get() != null && User::search($data)->where('remember_token', 2)->get() != "") {
-            $students = User::search($data)->where('remember_token', 2)->get();
+        if (User::search($data)->where('role_num', 2)->get() != null && User::search($data)->where('role_num', 2)->get() != "") {
+            $students = User::search($data)->where('role_num', 2)->get();
+            return response()->json(
+                [
+                    'facultys'  => $students,
+                ],
+                200
+            );
+        }else{
+            // $students = User::whereRoleIs(['faculty'])->get();
+            $students = User::orderBy('name', "asc")->where('role_num', 2)->get();
             return response()->json(
                 [
                     'facultys'  => $students,
@@ -186,15 +201,83 @@ class UserController extends Controller
                 200
             );
         }
+    }
+    public function get_all_faculty_sort(Request $request)
+    {
+        $sortdata = $request->sorting;
+        if (($sortdata == "name" || $sortdata == "mname" || $sortdata == "lname" || $sortdata == "email"|| $sortdata == "year")) {
+            // $capstone = Topic::orderBy($sortdata, "asc")->get();
+            $students = User::orderBy($sortdata, "asc")->where('role_num', 2)->get();
+            return response()->json(
+                [
+                    'facultys'  => $students,
+                ],
+                200
+            );
+        } else {
+            // $capstone = Topic::all();
+            $students = User::whereRoleIs(['faculty'])->get();
+            // $students = User::orderBy($sortdata, 'name')->where('role_num', 2)->get();
+            return response()->json(
+                [
+                    'facultys'  => $students,
+                ],
+                200
+            );
+        }
+    }
 
 
-        $students = User::whereRoleIs(['student'])->get();
-        return response()->json(
-            [
-                'facultys'  => $students,
-            ],
-            200
-        );
+
+
+
+    public function get_all_admin_search(Request $request)
+    {
+
+        $data = $request->searching;
+
+        if (User::search($data)->where('role_num', 3)->get() != null && User::search($data)->where('role_num', 3)->get() != "") {
+            $students = User::search($data)->where('role_num', 3)->get();
+            return response()->json(
+                [
+                    'admin'  => $students,
+                ],
+                200
+            );
+        }else{
+            // $students = User::whereRoleIs(['faculty'])->get();
+            $students = User::orderBy('name', "asc")->where('role_num', 3)->get();
+            return response()->json(
+                [
+                    'admin'  => $students,
+                ],
+                200
+            );
+        }
+    }
+    public function get_all_admin_sort(Request $request)
+    {
+        $sortdata = $request->sorting;
+        if (($sortdata == "name" || $sortdata == "mname" || $sortdata == "lname" || $sortdata == "email"|| $sortdata == "year")) {
+            // $capstone = Topic::orderBy($sortdata, "asc")->get();
+            $students = User::orderBy($sortdata, "asc")->where('role_num', 3)->get();
+            return response()->json(
+                [
+                    'admin'  => $students,
+                ],
+                200
+            );
+        } else {
+            // $capstone = Topic::all();
+            $students = User::whereRoleIs(['faculty'])->get();
+            // $students = User::orderBy($sortdata, 'name')->where('role_num', 2)->get();
+            return response()->json(
+                [
+                    'admin'  => $students,
+                ],
+                200
+            );
+        }
     }
    
 
@@ -368,7 +451,13 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
 
         if ($request->usertype == 'student') {
-            $user->remember_token = 1;
+            $user->role_num = 1;
+        }
+        if ($request->usertype == 'faculty') {
+            $user->role_num = 2;
+        }
+        if ($request->usertype == 'administrator') {
+            $user->role_num = 3;
         }
 
 

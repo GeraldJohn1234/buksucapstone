@@ -77,7 +77,6 @@
     <button v-else class="btnSize btn btn-primary fw-bold" @click="saveCapstone()">
       SUBMIT
     </button>
- 
 
     <br />
   </div>
@@ -110,7 +109,7 @@
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
       <br />
     </div>
-    <P class="text-left boldThese">INFORMATION</P>
+    <h5 class="text-left boldThese">INFORMATION</h5>
     <div class="row">
       <div class="form-group col">
         <label for="exampleFormControlTextarea1" id="">Group Name</label>
@@ -123,7 +122,7 @@
           required
         ></textarea>
       </div>
-    
+
       <div class="col-3">
         <label for="lastname" class="form-label">Project Status</label>
         <div class="input-group mb-3">
@@ -268,10 +267,10 @@
         </div>
       </div>
     </div>
-    <h5 class="boldThese">Proponents</h5>
+    <h5 class="text-left boldThese">Proponents</h5>
     <div class="row">
       <div class="col">
-        <label for="students" class="form-label">Proponet 1</label>
+        <label for="students" class="form-label">Proponent 1</label>
         <label for="" class="float-end colorText"
           >{{ student1.name }} {{ student1.mname }} {{ student1.lname }}</label
         >
@@ -285,7 +284,7 @@
         </div>
       </div>
       <div class="col">
-        <label for="students" class="form-label">Proponet 2</label>
+        <label for="students" class="form-label">Proponent 2</label>
         <label for="" class="float-end colorText"
           >{{ student2.name }} {{ student2.mname }} {{ student2.lname }}</label
         >
@@ -299,7 +298,7 @@
         </div>
       </div>
       <div class="col">
-        <label for="students" class="form-label">Proponet 3</label>
+        <label for="students" class="form-label">Proponent 3</label>
         <label for="" class="float-end colorText"
           >{{ student3.name }} {{ student3.mname }} {{ student3.lname }}</label
         >
@@ -313,7 +312,9 @@
         </div>
       </div>
       <div class="col">
-        <label for="students" class="form-label">Proponet 4{{ GenCaps.students4 }}</label>
+        <label for="students" class="form-label"
+          >Proponent 4{{ GenCaps.students4 }}</label
+        >
         <label for="" class="float-end colorText"
           >{{ student4.name }} {{ student4.mname }} {{ student4.lname }}</label
         >
@@ -408,8 +409,6 @@
         >
           Save
         </button>
-     
-        
       </div>
     </div>
   </div>

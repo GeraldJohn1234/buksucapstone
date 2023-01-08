@@ -83,7 +83,10 @@ class RegisteredUserController extends Controller
         $user->password = Hash::make($request->password);
 
         if ($request->role_id == 'student') {
-            $user->remember_token = 1;
+            $user->role_num = 1;
+        }
+        if ($request->role_id == 'faculty') {
+            $user->role_num = 2;
         }
 
 
@@ -97,9 +100,15 @@ class RegisteredUserController extends Controller
 
         if ($request->usertype == 'faculty') {
             // $user->attachRoles(['administrator', 'student', 'faculty', 'archiver']);
+            $user->role_num = 2;
             $user->attachRoles(['secretary', 'panel', 'faculty', 'instructor', 'adviser']);
-        } else {
+        } else if($request->usertype == 'student'){
+            $user->role_num = 1;
             $user->attachRole ($request->usertype);
+        } else if($request->usertype == 'administrator'){
+            $user->role_num = 3;
+            $user->attachRole ($request->usertype);
+
         }
         $user->attachRole($request->role_id);
 

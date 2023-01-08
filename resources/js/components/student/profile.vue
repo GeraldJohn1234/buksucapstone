@@ -253,49 +253,58 @@ const getsingleUser = async () => {
 };
 
 const updateUser = () => {
-  if(form.value.password==""||form.value.password==null){
+  if (form.value.password == "" || form.value.password == null) {
     toast.fire({
-        icon: "warning",
-        title: "Please fill out the password field",
+      icon: "warning",
+      title: "Please fill the password field",
+    });
+  } else {
+    const formData = new FormData();
+    formData.append("uid", form.value.uid);
+    formData.append("email", form.value.email);
+    formData.append("password", form.value.password);
+
+    formData.append("name", form.value.name);
+    formData.append("mname", form.value.mname);
+    formData.append("year", form.value.year);
+    formData.append("lname", form.value.lname);
+
+    formData.append("gender", form.value.gender);
+    formData.append("photo", form.value.photo);
+
+    axios
+      .post("/api/myprofile_update", formData)
+
+      .then((response) => {
+        (form.value.uid = ""),
+          (form.value.email = ""),
+          (form.value.password = ""),
+          (form.value.name = ""),
+          (form.value.mname = ""),
+          (form.value.lname = ""),
+          (form.value.year = ""),
+          (form.value.gender = ""),
+          (form.value.photo = ""),
+          // router.push("/profile");
+          window.location.reload();
+        getsingleUser();
+        toast.fire({
+          icon: "success",
+          title: "Updated Successfully",
+        });
+      })
+      // .catch((error) => {});
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
+
+        toast.fire({
+          icon: "warning",
+          title: "Update failed, please change the the temporary avatar",
+        });
+        // (error = {}));
+        // console.log("ERRRR:: ",error.response.data);
       });
-  }else{
-
- 
-  const formData = new FormData();
-  formData.append("uid", form.value.uid);
-  formData.append("email", form.value.email);
-  formData.append("password", form.value.password);
-
-  formData.append("name", form.value.name);
-  formData.append("mname", form.value.mname);
-  formData.append("year", form.value.year);
-  formData.append("lname", form.value.lname);
-
-  formData.append("gender", form.value.gender);
-  formData.append("photo", form.value.photo);
-
-  axios
-    .post("/api/myprofile_update", formData)
-
-    .then((response) => {
-      (form.value.uid = ""),
-        (form.value.email = ""),
-        (form.value.password = ""),
-        (form.value.name = ""),
-        (form.value.mname = ""),
-        (form.value.lname = ""),
-        (form.value.year = ""),
-        (form.value.gender = ""),
-        (form.value.photo = ""),
-        // router.push("/profile");
-        window.location.reload();
-      getsingleUser();
-      toast.fire({
-        icon: "success",
-        title: "Updated Successfully",
-      });
-    })
-    .catch((error) => {});
   }
 };
 
