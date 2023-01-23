@@ -55,7 +55,7 @@
         v-model="GenCapData.name"
       />
       <label class="form-check-label fw-bold pt-1" for="flexRadioDefault2">
-        <span class="leftSpacess">Disagree</span>
+        <span class="leftSpacess">Disagree.</span>
       </label>
     </div>
     <br />
@@ -77,6 +77,8 @@
     <button v-else class="btnSize btn btn-primary fw-bold" @click="saveCapstone()">
       SUBMIT
     </button>
+    <!-- <button @click="modall.open = false">Close</button> -->
+    <!-- <button class="btn btn-primary" @click="modall.open = false">X</button> -->
 
     <br />
   </div>
@@ -109,7 +111,7 @@
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
       <br />
     </div>
-    <h5 class="text-left boldThese">INFORMATION</h5>
+    <P class="text-left boldThese">INFORMATION</P>
     <div class="row">
       <div class="form-group col">
         <label for="exampleFormControlTextarea1" id="">Group Name</label>
@@ -122,7 +124,21 @@
           required
         ></textarea>
       </div>
-
+      <!-- <div class="col">
+        <label for="instructor" class="form-label">Instructor</label>
+        <label for="" class="float-end colorText"
+          >{{ instructor.name }} {{ instructor.mname }} {{ instructor.lname }}</label
+        >
+        <div class="input-group mb-3">
+          <select class="form-control inputColor" required v-model="GenCaps.instructor">
+           
+            <option selected>Open this select menu</option>
+            <option v-for="item in instructors" :key="item.id" :value="item.id">
+              {{ item.name }} {{ item.mname }} {{ item.lname }}
+            </option>
+          </select>
+        </div>
+      </div> -->
       <div class="col-3">
         <label for="lastname" class="form-label">Project Status</label>
         <div class="input-group mb-3">
@@ -150,7 +166,7 @@
             <option selected disabled>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-            <!-- <option value="5th year">5th year</option> -->
+            <option value="5th year">5th year</option>
             <option value="Graduated">Graduated</option>
           </select>
         </div>
@@ -159,9 +175,13 @@
     <div class="row">
       <div class="col-3">
         <label for="adviser" class="form-label">Adviser</label>
-        <label for="" class="float-end colorText"
+        <label
+          v-if="adviser.name != null && adviser.mname != null && adviser.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.adviser">
             <!-- <option value="0">Select instructor</option> -->
@@ -173,9 +193,15 @@
       </div>
       <div class="col-3">
         <label for="coAdviser" class="form-label">Co-Adviser</label>
-        <label for="" class="float-end colorText"
+        <label
+          v-if="
+            coAdviser.name != null && coAdviser.mname != null && coAdviser.lname != null
+          "
+          for=""
+          class="float-end colorText"
           >{{ coAdviser.name }} {{ coAdviser.mname }} {{ coAdviser.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.coAdviser">
             <!-- <option value="0">Select instructor</option> -->
@@ -210,9 +236,13 @@
     <div class="row">
       <div class="col">
         <label for="panel1" class="form-label">Panel 1</label>
-        <label for="" class="float-end colorText"
+        <label
+          v-if="panels1.name != null && panels1.mname != null && panels1.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ panels1.name }} {{ panels1.mname }} {{ panels1.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels1">
             <!-- <option value="0">Select instructor</option> -->
@@ -225,9 +255,13 @@
 
       <div class="col">
         <label for="panel2" class="form-label">Panel 2</label>
-        <label for="" class="float-end colorText"
+        <label
+          v-if="panels2.name != null && panels2.mname != null && panels2.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ panels2.name }} {{ panels2.mname }} {{ panels2.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels2">
             <!-- <option value="0">Select instructor</option> -->
@@ -240,9 +274,13 @@
 
       <div class="col">
         <label for="panel3" class="form-label">Panel 3</label>
-        <label for="" class="float-end colorText"
+        <label
+          v-if="panels3.name != null && panels3.mname != null && panels3.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ panels3.name }} {{ panels3.mname }} {{ panels3.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels3">
             <!-- <option value="0">Select instructor</option> -->
@@ -255,9 +293,15 @@
 
       <div class="col">
         <label for="secretary" class="form-label">Secretary</label>
-        <label for="" class="float-end colorText"
+        <label
+          v-if="
+            secretary.name != null && secretary.mname != null && secretary.lname != null
+          "
+          for=""
+          class="float-end colorText"
           >{{ secretary.name }} {{ secretary.mname }} {{ secretary.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.secretarys">
             <option v-for="item in secretarys" :key="item.id" :value="item.id">
@@ -267,13 +311,17 @@
         </div>
       </div>
     </div>
-    <h5 class="text-left boldThese">Proponents</h5>
+    <h5 class="boldThese">Proponents</h5>
     <div class="row">
       <div class="col">
-        <label for="students" class="form-label">Proponent 1</label>
-        <label for="" class="float-end colorText"
+        <label for="students" class="form-label">Proponet 1</label>
+        <label
+          v-if="student1.name != null && student1.mname != null && student1.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ student1.name }} {{ student1.mname }} {{ student1.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students1">
             <!-- <option value="0">Select instructor</option> -->
@@ -284,10 +332,14 @@
         </div>
       </div>
       <div class="col">
-        <label for="students" class="form-label">Proponent 2</label>
-        <label for="" class="float-end colorText"
+        <label for="students" class="form-label">Proponet 2</label>
+        <label
+          v-if="student2.name != null && student2.mname != null && student2.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ student2.name }} {{ student2.mname }} {{ student2.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students2">
             <!-- <option value="0">Select instructor</option> -->
@@ -298,10 +350,14 @@
         </div>
       </div>
       <div class="col">
-        <label for="students" class="form-label">Proponent 3</label>
-        <label for="" class="float-end colorText"
+        <label for="students" class="form-label">Proponet 3</label>
+        <label
+          v-if="student3.name != null && student3.mname != null && student3.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ student3.name }} {{ student3.mname }} {{ student3.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students3">
             <!-- <option value="0">Select instructor</option> -->
@@ -312,12 +368,14 @@
         </div>
       </div>
       <div class="col">
-        <label for="students" class="form-label"
-          >Proponent 4{{ GenCaps.students4 }}</label
-        >
-        <label for="" class="float-end colorText"
+        <label for="students" class="form-label">Proponet 4{{ GenCaps.students4 }}</label>
+        <label
+          v-if="student4.name != null && student4.mname != null && student4.lname != null"
+          for=""
+          class="float-end colorText"
           >{{ student4.name }} {{ student4.mname }} {{ student4.lname }}</label
         >
+        <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students4">
             <!-- <option selected disabled>Select instructor</option> -->
@@ -409,6 +467,9 @@
         >
           Save
         </button>
+        <!-- <button class="btnSize btn btn-primary" >
+          Open Modal
+        </button> -->
       </div>
     </div>
   </div>
@@ -442,60 +503,61 @@ let GenCapData = ref({
   name: "",
 });
 let student1 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let student2 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let student3 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let student4 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels1 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels2 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels3 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let adviser = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let coAdviser = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let instructor = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let secretary = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
+
 let caps1Instructor = ref({
   instructor: "",
 });
@@ -661,7 +723,7 @@ const saveCapstone = () => {
 
       toast.fire({
         icon: "success",
-        title: "Project successfully saved",
+        title: "Project save successfully",
       });
       location.reload();
     })
@@ -685,52 +747,155 @@ const getsingleUser = async () => {
   console.warn("Caps", GenCapData.value);
 };
 
+// const getsingleUser1 = async () => {
+//   let response = await axios.get("/api/get_capstone_student1/" + props.id);
+//   student1.value = response.data.userCaps;
+//   console.warn("TRY", student1.value);
+// };
+// const getsingleUser2 = async () => {
+//   let response = await axios.get("/api/get_capstone_student2/" + props.id);
+//   student2.value = response.data.userCaps;
+// };
+
+// const getsingleUser3 = async () => {
+//   let response = await axios.get("/api/get_capstone_student3/" + props.id);
+//   student3.value = response.data.userCaps;
+// };
+// const getsingleUser11 = async () => {
+//   let response = await axios.get("/api/get_capstone_student4/" + props.id);
+//   student4.value = response.data.userCaps;
+// };
+
+// const getsingleUser4 = async () => {
+//   let response = await axios.get("/api/get_capstone_panels1/" + props.id);
+//   panels1.value = response.data.userCaps;
+// };
+// const getsingleUser5 = async () => {
+//   let response = await axios.get("/api/get_capstone_panels2/" + props.id);
+//   panels2.value = response.data.userCaps;
+// };
+// const getsingleUser6 = async () => {
+//   let response = await axios.get("/api/get_capstone_panels3/" + props.id);
+//   panels3.value = response.data.userCaps;
+// };
+// const getsingleUser7 = async () => {
+//   let response = await axios.get("/api/get_capstone_adviser/" + props.id);
+//   adviser.value = response.data.userCaps;
+// };
+// const getsingleUser8 = async () => {
+//   let response = await axios.get("/api/get_capstone_coAdviser/" + props.id);
+//   coAdviser.value = response.data.userCaps;
+// };
+// const getsingleUser9 = async () => {
+//   let response = await axios.get("/api/get_capstone_instructor/" + props.id);
+//   instructor.value = response.data.userCaps;
+// };
+// const getsingleUser10 = async () => {
+//   let response = await axios.get("/api/get_capstone_secretarys/" + props.id);
+//   secretary.value = response.data.userCaps;
+// };
 const getsingleUser1 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student1/" + props.id);
-  student1.value = response.data.userCaps;
-  console.warn("TRY", student1.value);
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student1.value = response.data.userCaps;
+  }
+
+  // console.warn("TRY", student1.value);
 };
 const getsingleUser2 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student2/" + props.id);
-  student2.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student2.value = response.data.userCaps;
+  }
 };
 
 const getsingleUser3 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student3/" + props.id);
-  student3.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student3.value = response.data.userCaps;
+  }
 };
 const getsingleUser11 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student4/" + props.id);
-  student4.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student4.value = response.data.userCaps;
+  }
 };
 
 const getsingleUser4 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_panels1/" + props.id);
-  panels1.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels1.value = response.data.userCaps;
+  }
 };
 const getsingleUser5 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_panels2/" + props.id);
-  panels2.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels2.value = response.data.userCaps;
+  }
 };
 const getsingleUser6 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_panels3/" + props.id);
-  panels3.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels3.value = response.data.userCaps;
+  }
 };
 const getsingleUser7 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_adviser/" + props.id);
-  adviser.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    adviser.value = response.data.userCaps;
+  }
 };
 const getsingleUser8 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_coAdviser/" + props.id);
-  coAdviser.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    coAdviser.value = response.data.userCaps;
+  }
 };
 const getsingleUser9 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_instructor/" + props.id);
-  instructor.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    instructor.value = response.data.userCaps;
+  }
 };
 const getsingleUser10 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_secretarys/" + props.id);
-  secretary.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    secretary.value = response.data.userCaps;
+  }
 };
 
 const getSecretary = async () => {
@@ -935,14 +1100,13 @@ const onView3 = () => {
   left: 55%;
   transform: translate(-50%, -50%);
 }
+.float {
+  float: right !important;
+}
 .open {
   opacity: 0.5;
   z-index: 998;
 }
-.float {
-  float: right !important;
-}
-
 .parag {
   margin: 0;
   text-indent: 2rem;

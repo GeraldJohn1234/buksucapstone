@@ -117,10 +117,25 @@ class Capstone2Controller extends Controller
     public function get_capstonee111($id)
     {
         $capstone = Capstone1::find($id);
-        return response()->json([
 
-            'capstone11111'  => $capstone,
 
-        ], 200);
+        if ($capstone != null) {
+           
+            return response()->json([
+
+                'capstone11111'  => $capstone,
+    
+            ], 200);
+        }else{
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
+
+
+
+      
     }
 }

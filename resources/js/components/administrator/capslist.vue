@@ -216,39 +216,41 @@ const dataCapstonesort = async () => {
 };
 
 const edithCap = (id) => {
-  axios
-    .post("/api/create_capstone_proj/" + id)
-    .then((response) => {
-      router.push("/editcap/" + id);
-    })
+  router.push("/editcap/" + id);
+  // axios
+  //   .post("/api/create_capstone_proj/" + id)
+  //   .then((response) => {
+  //     router.push("/editcap/" + id);
+  //   })
 
-    .catch(function (error) {
-      console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
+  //   .catch(function (error) {
+  //     console.log(error.response.data.errors);
+  //     console.log("ERRRR:: ", error.response.data);
 
-      toast.fire({
-        icon: "warning",
-        title: "SOMETHING WRONG",
-      });
-    });
+  //     toast.fire({
+  //       icon: "warning",
+  //       title: "SOMETHING WRONG",
+  //     });
+  //   });
 };
 
 const viewCap = (id) => {
-  axios
-    .post("/api/create_capstone_proj/" + id)
-    .then((response) => {
-      router.push("/viewcap/" + id);
-    })
+  router.push("/viewcap/" + id);
+  // axios
+  //   .post("/api/create_capstone_proj/" + id)
+  //   .then((response) => {
+  //     router.push("/viewcap/" + id);
+  //   })
 
-    .catch(function (error) {
-      console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
+  //   .catch(function (error) {
+  //     console.log(error.response.data.errors);
+  //     console.log("ERRRR:: ", error.response.data);
 
-      toast.fire({
-        icon: "warning",
-        title: "SOMETHING WRONG",
-      });
-    });
+  //     toast.fire({
+  //       icon: "warning",
+  //       title: "SOMETHING WRONG",
+  //     });
+  //   });
 };
 // .post("/api/add_capstonee1", {
 //           texttext: this.getCapstoneData() + this.textcontent,

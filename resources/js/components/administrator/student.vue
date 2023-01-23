@@ -263,7 +263,7 @@ const deleteUser = (id) => {
       axios
         .get("/api/delete_user/" + id)
         .then(() => {
-          Swal.fire("Delete", "Student account, deleted successfully", "success");
+          Swal.fire("Delete", "User account, deleted successfully", "success");
           // getUsers();
           dataCapstoneSearch();
         })

@@ -201,21 +201,23 @@ const edithCap = (id) => {
 };
 
 const viewCap = (id) => {
-  axios
-    .post("/api/create_capstone_proj/" + id)
-    .then((response) => {
-      router.push("/viewcap/" + id);
-    })
+  router.push("/viewcap/" + id);
 
-    .catch(function (error) {
-      console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
+  // axios
+  //   .post("/api/create_capstone_proj/" + id)
+  //   .then((response) => {
+  //     router.push("/viewcap/" + id);
+  //   })
 
-      toast.fire({
-        icon: "warning",
-        title: "SOMETHING WRONG",
-      });
-    });
+  //   .catch(function (error) {
+  //     console.log(error.response.data.errors);
+  //     console.log("ERRRR:: ", error.response.data);
+
+  //     toast.fire({
+  //       icon: "warning",
+  //       title: "SOMETHING WRONG",
+  //     });
+  //   });
 };
 
 // const getCapstoneSearch = async () => {

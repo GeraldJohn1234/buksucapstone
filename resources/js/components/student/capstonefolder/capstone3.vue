@@ -182,17 +182,18 @@
     </div>
     <div class="col contentOfThePage">
       <h5 class="text-left boldThese ml-2">PANELIST</h5>
+
       <div class="row m-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
-          <p class="text-uppercase panelH">
+          <p
+            v-if="panels1.name != null && panels1.mname != null && panels1.lname != null"
+            class="text-uppercase panelH"
+          >
             {{ panels1.name }} {{ panels1.mname }} {{ panels1.lname }}
           </p>
-          <!-- <p class="fw-bold">{{ ratee1.total }} %</p> -->
+          <p v-else class="text-uppercase panelH text-danger">no data</p>
+          <p class="fw-bold">{{ ratee1.total }} %</p>
           <br />
-          <!-- <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
-            {{ ratee1.xf1 }}
-          </button> -->
-
           <div v-if="ratee1.xf1 === 'PENDING'">
             <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
               {{ ratee1.xf1 }}
@@ -203,21 +204,29 @@
               {{ ratee1.xf1 }}
             </button>
           </div>
-          <div v-else>
+          <div v-else-if="ratee1.xf1 === 'PARTIAL'">
             <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
               {{ ratee1.xf1 }}
             </button>
           </div>
+          <div v-else>
+            <button class="btn btn-danger w-100 position-absolute bottom-0 start-0">
+              NO DATA
+            </button>
+          </div>
         </div>
+
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
-          <p class="text-uppercase panelH">
+          <p
+            v-if="panels2.name != null && panels2.mname != null && panels2.lname != null"
+            class="text-uppercase panelH"
+          >
             {{ panels2.name }} {{ panels2.mname }} {{ panels2.lname }}
           </p>
-          <!-- <p class="fw-bold">{{ ratee2.total }} %</p> -->
+          <p v-else class="text-uppercase panelH text-danger">no data</p>
+
+          <p class="fw-bold">{{ ratee2.total }} %</p>
           <br />
-          <!-- <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
-            {{ ratee2.xf1 }}
-          </button> -->
           <div v-if="ratee2.xf1 === 'PENDING'">
             <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
               {{ ratee2.xf1 }}
@@ -228,21 +237,30 @@
               {{ ratee2.xf1 }}
             </button>
           </div>
-          <div v-else>
+          <div v-else-if="ratee2.xf1 === 'PARTIAL'">
             <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
               {{ ratee2.xf1 }}
             </button>
           </div>
+
+          <div v-else>
+            <button class="btn btn-danger w-100 position-absolute bottom-0 start-0">
+              NO DATA
+            </button>
+          </div>
         </div>
+
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
-          <p class="text-uppercase panelH">
+          <p
+            v-if="panels3.name != null && panels3.mname != null && panels3.lname != null"
+            class="text-uppercase panelH"
+          >
             {{ panels3.name }} {{ panels3.mname }} {{ panels3.lname }}
           </p>
-          <!-- <p class="fw-bold">{{ ratee3.total }} %</p> -->
+          <p v-else class="text-uppercase panelH text-danger">no data</p>
+
+          <p class="fw-bold">{{ ratee3.total }} %</p>
           <br />
-          <!-- <button class="btn w-100 btn-primary position-absolute bottom-0 start-0">
-            {{ ratee3.xf1 }}
-          </button> -->
           <div v-if="ratee3.xf1 === 'PENDING'">
             <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
               {{ ratee3.xf1 }}
@@ -253,9 +271,14 @@
               {{ ratee3.xf1 }}
             </button>
           </div>
-          <div v-else>
+          <div v-else-if="ratee3.xf1 === 'PARTIAL'">
             <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
               {{ ratee3.xf1 }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-danger w-100 position-absolute bottom-0 start-0">
+              NO DATA
             </button>
           </div>
         </div>
@@ -369,24 +392,24 @@ const getMinutes3 = () => {
   );
 };
 let instructorr = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels1 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels2 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels3 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let ratee1 = ref({
   total: 0,
@@ -422,19 +445,19 @@ let GenCapData = ref({
   groupname: "",
 });
 let adviser = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let instructor = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let formcaps3 = ref({
   status: "",
-  final_date: "",
-  xf4:"",
+  final_date: null,
+  xf4: "",
 });
 let rated = ref({
   id: "",
@@ -467,39 +490,89 @@ onMounted(async () => {
 //   instruct.value = response.data.instruct;
 // };
 
+const getCapston1Data = async () => {
+  let capstoneid = getIDfromURL();
+  let response = await axios.get("/api/get_capstonee111/" + capstoneid);
+
+  let nullneh;
+  nullneh = response.data.capstone11111;
+  if (nullneh != null) {
+    formcaps1.value = response.data.capstone11111;
+  }
+};
+
 const getsingleUser4 = async () => {
+  let nullneh;
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone_panels1/" + capstoneid);
-  panels1.value = response.data.userCaps;
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels1.value = response.data.userCaps;
+  }
 };
 const getsingleUser5 = async () => {
+  let nullneh;
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone_panels2/" + capstoneid);
-  panels2.value = response.data.userCaps;
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels2.value = response.data.userCaps;
+  }
 };
 const getsingleUser6 = async () => {
+  let nullneh;
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone_panels3/" + capstoneid);
-  panels3.value = response.data.userCaps;
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels3.value = response.data.userCaps;
+  }
+};
+const getsingleUser7 = async () => {
+  let capstoneid = getIDfromURL();
+  let response = await axios.get("/api/get_capstone_adviser/" + capstoneid);
+  // adviser.value = response.data.userCaps;
+
+  let nullneh;
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    adviser.value = response.data.userCaps;
+  }
 };
 
 const panelrates1 = async () => {
   let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_rate_panel13/" + capstoneid);
-  ratee1.value = response.data.panelrate1;
+  let nullneh;
+  let response = await axios.get("/api/get_rate_panel1/" + capstoneid);
+  nullneh = response.data.panelrate1;
+  if (nullneh != null) {
+    ratee1.value = response.data.panelrate1;
+  }
   // console.warn("111111111111111111", ratee1.value);
 };
 const panelrates2 = async () => {
   let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_rate_panel23/" + capstoneid);
-  ratee2.value = response.data.panelrate2;
+  let nullneh;
+  let response = await axios.get("/api/get_rate_panel2/" + capstoneid);
+
+  nullneh = response.data.panelrate2;
+  if (nullneh != null) {
+    ratee2.value = response.data.panelrate2;
+  }
+
   // console.warn("2222222222222222222", ratee2.value);
 };
 
 const panelrates3 = async () => {
   let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_rate_panel33/" + capstoneid);
-  ratee3.value = response.data.panelrate3;
+  let nullneh;
+  let response = await axios.get("/api/get_rate_panel3/" + capstoneid);
+
+  nullneh = response.data.panelrate3;
+  if (nullneh != null) {
+    ratee3.value = response.data.panelrate3;
+  }
+
   // console.warn("3333333333333333333", ratee3.value.xf1);
 };
 
@@ -524,19 +597,6 @@ const getsingleUser = async () => {
 
   // GenCaps.value = response.data.userCaps;
   // console.warn("Caps", GenCapData.value);
-};
-
-const getsingleUser7 = async () => {
-  let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_capstone_adviser/" + capstoneid);
-  adviser.value = response.data.userCaps;
-};
-
-const getCapston1Data = async () => {
-  let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_capstonee3/" + capstoneid);
-  formcaps3.value = response.data.capstone33333;
-  console.warn("CAPSTON 1", formcaps3.value);
 };
 
 const onView3 = () => {

@@ -1,7 +1,7 @@
 <template>
   <div class="contentOfThePage bg-light p-3">
     <div class="" id="titleSize">
-      <h5 class="pt-2 boldThese text-uppercase">
+      <h5 class="pt-2 text-uppercas fw-bolder boldThese">
         {{ GenCapData.title }}
       </h5>
       <hr class="toTop" />
@@ -19,7 +19,7 @@
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
       <br />
     </div> -->
-    <!-- <P class="text-left ">INFORMATION</P> -->
+    <!-- <P class="text-left  ">INFORMATION</P> -->
     <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
 
     <div class="contentOfThePage bg-light p-2">
@@ -41,10 +41,10 @@
         <button
           type="button"
           href="#"
-          class="btn btn-primary col fw-bold boldThese"
+          class="btn btn-primary col fw-bold"
           @click.prevent="getFileeee()"
         >
-          OPEN publishable PAPER
+          OPEN MANUSCRIPT
         </button>
       </div>
       <div
@@ -69,7 +69,7 @@
           class="btn btn-warning col fw-bold border border-dark"
           @click="warning()"
         >
-          OPEN publishable MANUSCRIPT
+          OPEN MANUSCRIPT
         </button>
       </div>
     </div>
@@ -78,7 +78,7 @@
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.groupname }}
           </p>
           <hr class="toTop" />
@@ -104,7 +104,7 @@
         />
         <label class="ps-4" for="floatingInput">Instructor</label> -->
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf3 }}
           </p>
           <hr class="toTop" />
@@ -115,26 +115,29 @@
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="adviser.name != null && adviser.mname != null && adviser.lname != null"
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}
           </p>
+
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Adviser</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-         
-        />
-        <label class="ps-4" for="floatingInput">Adviser</label> -->
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="
+              coAdviser.name != null && coAdviser.mname != null && coAdviser.lname != null
+            "
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ coAdviser.name }} {{ coAdviser.mname }} {{ coAdviser.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Co-Adviser</p>
         </div>
@@ -149,16 +152,17 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p v-if="GenCapData.xf4 != null" class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf4 }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Client</p>
         </div>
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf2 }}
           </p>
           <hr class="toTop" />
@@ -169,9 +173,14 @@
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="panels1.name != null && panels1.mname != null && panels1.lname != null"
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ panels1.name }} {{ panels1.mname }} {{ panels1.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
+
           <hr class="toTop" />
           <p class="toTopp">Panel 1</p>
         </div>
@@ -185,9 +194,13 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="panels2.name != null && panels2.mname != null && panels2.lname != null"
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ panels2.name }} {{ panels2.mname }} {{ panels2.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Panel 2</p>
         </div>
@@ -201,9 +214,13 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="panels3.name != null && panels3.mname != null && panels3.lname != null"
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ panels3.name }} {{ panels3.mname }} {{ panels3.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Panel 3</p>
         </div>
@@ -217,9 +234,17 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="
+              secretarys.name != null &&
+              secretarys.mname != null &&
+              secretarys.lname != null
+            "
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ secretarys.name }} {{ secretarys.mname }} {{ secretarys.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Secretary</p>
         </div>
@@ -236,9 +261,15 @@
     <div class="row">
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="
+              student1.name != null && student1.mname != null && student1.lname != null
+            "
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ student1.name }} {{ student1.mname }} {{ student1.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Proponent 1</p>
         </div>
@@ -252,9 +283,15 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="
+              student2.name != null && student2.mname != null && student2.lname != null
+            "
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ student2.name }} {{ student2.mname }} {{ student2.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Proponent 2</p>
         </div>
@@ -268,9 +305,15 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="
+              student3.name != null && student3.mname != null && student3.lname != null
+            "
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ student3.name }} {{ student3.mname }} {{ student3.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Proponent 3</p>
         </div>
@@ -284,9 +327,15 @@
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
-          <p class="pt-2 boldThese text-uppercase">
+          <p
+            v-if="
+              student4.name != null && student4.mname != null && student4.lname != null
+            "
+            class="pt-2 text-uppercas fw-bolder boldThese"
+          >
             {{ student4.name }} {{ student4.mname }} {{ student4.lname }}
           </p>
+          <p v-else class="pt-2 text-uppercas fw-bolder boldThese">no data</p>
           <hr class="toTop" />
           <p class="toTopp">Proponent 4</p>
         </div>
@@ -311,33 +360,34 @@
           <label for="view" class="m-2">Capstone 1</label>
         </div>
 
-        <div class="col">
+        <!-- <div class="col">
           <label for="update" class="m-2">Status: Under-revision</label>
-        </div>
-
+        </div> -->
         <button
-          v-if="formcaps1.xf4 === 'AGREE'"
+          v-if="
+            panels1.name != null &&
+            panels1.mname != null &&
+            panels1.lname != null &&
+            panels2.name != null &&
+            panels2.mname != null &&
+            panels2.lname != null &&
+            panels3.name != null &&
+            panels3.mname != null &&
+            panels3.lname != null
+          "
           type="button"
-          class="m-1 btnSize btn btn-primary"
+          class="m-1 btnSize btn btn-primary boldThese"
           @click="onView1()"
         >
-          OPEN{{ formcaps1.xf4 }}
-        </button>
-        <button
-          v-else-if="formcaps1.xf4 === 'NOT_AGREE'"
-          type="button"
-          class="m-1 btnSize btn btn-warning"
-          @click="notAgree()"
-        >
-          PENDING
+          VIEW
         </button>
         <button
           v-else
           type="button"
-          class="m-1 btnSize btn btn-warning"
-          @click="noupload()"
+          class="m-1 btnSize btn btn-warning boldThese"
+          @click="unavailable()"
         >
-          PENDING
+          UNAVAILABLE
         </button>
       </div>
       <div class="col row mx-2 contentOfThePage text-center">
@@ -345,35 +395,34 @@
           <label for="view" class="m-2">Capstone 2</label>
         </div>
 
-        <div class="col">
+        <!-- <div class="col">
           <label for="update" class="m-2">Status: Development</label>
-        </div>
-        <!-- <button type="button" class="m-1 btnSize btn btn-primary" @click="onView2()">
-          VIEW
-        </button> -->
+        </div> -->
         <button
-          v-if="capstone2data.xf4 === 'AGREE'"
+          v-if="
+            panels1.name != null &&
+            panels1.mname != null &&
+            panels1.lname != null &&
+            panels2.name != null &&
+            panels2.mname != null &&
+            panels2.lname != null &&
+            panels3.name != null &&
+            panels3.mname != null &&
+            panels3.lname != null
+          "
           type="button"
-          class="m-1 btnSize btn btn-primary"
+          class="m-1 btnSize btn btn-primary boldThese"
           @click="onView2()"
         >
-          OPEN
-        </button>
-        <button
-          v-else-if="capstone2data.xf4 === 'NOT_AGREE'"
-          type="button"
-          class="m-1 btnSize btn btn-warning"
-          @click="notAgree()"
-        >
-          PENDING
+          VIEW
         </button>
         <button
           v-else
           type="button"
-          class="m-1 btnSize btn btn-warning"
-          @click="noupload()"
+          class="m-1 btnSize btn btn-warning boldThese"
+          @click="unavailable()"
         >
-          PENDING
+          UNAVAILABLE
         </button>
       </div>
       <div class="col row mx-2 contentOfThePage text-center">
@@ -381,35 +430,34 @@
           <label for="view" class="m-2">Capstone 3</label>
         </div>
 
-        <div class="col">
+        <!-- <div class="col">
           <label for="update" class="m-2">Status: Under-revision</label>
-        </div>
-        <!-- <button type="button" class="m-1 btnSize btn btn-primary" @click="onView3()">
-          VIEW
-        </button> -->
+        </div> -->
         <button
-          v-if="formcaps3.xf4 === 'AGREE'"
+          v-if="
+            panels1.name != null &&
+            panels1.mname != null &&
+            panels1.lname != null &&
+            panels2.name != null &&
+            panels2.mname != null &&
+            panels2.lname != null &&
+            panels3.name != null &&
+            panels3.mname != null &&
+            panels3.lname != null
+          "
           type="button"
-          class="m-1 btnSize btn btn-primary"
+          class="m-1 btnSize btn btn-primary boldThese"
           @click="onView3()"
         >
-          OPEN
-        </button>
-        <button
-          v-else-if="formcaps3.xf4 === 'NOT_AGREE'"
-          type="button"
-          class="m-1 btnSize btn btn-warning"
-          @click="notAgree()"
-        >
-          PENDING
+          VIEW
         </button>
         <button
           v-else
           type="button"
-          class="m-1 btnSize btn btn-warning"
-          @click="noupload()"
+          class="m-1 btnSize btn btn-warning boldThese"
+          @click="unavailable()"
         >
-          PENDING
+          UNAVAILABLE
         </button>
       </div>
     </div>
@@ -458,50 +506,6 @@ let DocumentType = ref({
 //   let response = await axios.get("/api/showpdf/");
 //   DocumentType.value.file = response.data.file;
 // };
-let formcaps1 = ref({
-  xf4: "",
-});
-let capstone2data = ref({
-  xf4: "",
-});
-let formcaps3 = ref({
-  xf4: "",
-});
-
-const getCapston1Data = async () => {
-  let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_capstonee111/" + capstoneid);
-  formcaps1.value = response.data.capstone11111;
-  console.warn("!!!!!!!!!!!!!!!!!!!!!!!!!", formcaps1.value.xf4);
-};
-const getCapston2Data = async () => {
-  let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_capstonee2/" + capstoneid);
-  capstone2data.value = response.data.capstone22222;
-};
-const getCapston1Data3 = async () => {
-  let capstoneid = getIDfromURL();
-  let response = await axios.get("/api/get_capstonee3/" + capstoneid);
-  formcaps3.value = response.data.capstone33333;
-};
-onMounted(async () => {
-  getCapston1Data();
-  getCapston2Data();
-  getCapston1Data3();
-  getsingleUser();
-  // getfiles();
-  getsingleUser1();
-  getsingleUser2();
-  getsingleUser3();
-  getsingleUser11();
-  getsingleUser4();
-  getsingleUser5();
-  getsingleUser6();
-  getsingleUser7();
-  getsingleUser8();
-  getsingleUser9();
-  getsingleUser10();
-});
 
 let GenCapData = ref({
   title: "",
@@ -510,66 +514,97 @@ let GenCapData = ref({
   start_date: "",
   xf2: "",
   xf3: "",
-  xf4: "",
+  xf4: null,
   xf5: null,
   name: "",
 });
 
+let dataNull = ref({
+  stud1: null,
+  stud2: null,
+  stud3: null,
+  stud4: null,
+  ad: null,
+  coAd: null,
+  sec: null,
+  pan1: null,
+  pan2: null,
+  pan3: null,
+});
+
 let student1 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 
 let student2 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let student3 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let student4 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels1 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels2 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let panels3 = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let adviser = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let coAdviser = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let instructor = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
 });
 let secretarys = ref({
-  name: "",
-  mname: "",
-  lname: "",
+  name: null,
+  mname: null,
+  lname: null,
+});
+
+onMounted(async () => {
+  getsingleUser2();
+  getsingleUser4();
+  getsingleUser();
+  // getfiles();
+  getsingleUser1();
+
+  getsingleUser3();
+  getsingleUser11();
+
+  getsingleUser5();
+  getsingleUser6();
+  getsingleUser7();
+  getsingleUser8();
+  getsingleUser9();
+  getsingleUser10();
 });
 
 // const manuscript = () => {
@@ -592,51 +627,107 @@ const getsingleUser = async () => {
 };
 
 const getsingleUser1 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student1/" + props.id);
-  student1.value = response.data.userCaps;
-  console.warn("TRY", student1.value);
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student1.value = response.data.userCaps;
+  }
+
+  // console.warn("TRY", student1.value);
 };
 const getsingleUser2 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student2/" + props.id);
-  student2.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student2.value = response.data.userCaps;
+  }
 };
 
 const getsingleUser3 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student3/" + props.id);
-  student3.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student3.value = response.data.userCaps;
+  }
 };
 const getsingleUser11 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_student4/" + props.id);
-  student4.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    student4.value = response.data.userCaps;
+  }
 };
 
 const getsingleUser4 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_panels1/" + props.id);
-  panels1.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels1.value = response.data.userCaps;
+  }
 };
 const getsingleUser5 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_panels2/" + props.id);
-  panels2.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels2.value = response.data.userCaps;
+  }
 };
 const getsingleUser6 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_panels3/" + props.id);
-  panels3.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    panels3.value = response.data.userCaps;
+  }
 };
 const getsingleUser7 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_adviser/" + props.id);
-  adviser.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    adviser.value = response.data.userCaps;
+  }
 };
 const getsingleUser8 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_coAdviser/" + props.id);
-  coAdviser.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    coAdviser.value = response.data.userCaps;
+  }
 };
 const getsingleUser9 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_instructor/" + props.id);
-  instructor.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    instructor.value = response.data.userCaps;
+  }
 };
 const getsingleUser10 = async () => {
+  let nullneh;
   let response = await axios.get("/api/get_capstone_secretarys/" + props.id);
-  secretarys.value = response.data.userCaps;
+
+  nullneh = response.data.userCaps;
+  if (nullneh != null) {
+    secretarys.value = response.data.userCaps;
+  }
 };
 
 const props = defineProps({
@@ -652,15 +743,62 @@ const getIDfromURL = () => {
 
 const onView1 = () => {
   let id = getIDfromURL();
-  router.push("/capstone1/" + id);
+  // router.push("/capstone1/" + id);
+  // router.push("/viewcap/" + id);
+
+  axios
+    .post("/api/create_capstone_proj/" + id)
+    .then((response) => {
+      router.push("/capstone1/" + id);
+    })
+
+    .catch(function (error) {
+      console.log(error.response.data.errors);
+      console.log("ERRRR:: ", error.response.data);
+
+      toast.fire({
+        icon: "warning",
+        title: "SOMETHING WRONG",
+      });
+    });
 };
 const onView2 = () => {
   let id = getIDfromURL();
-  router.push("/capstone2/" + id);
+
+  axios
+    .post("/api/create_capstone_proj/" + id)
+    .then((response) => {
+      router.push("/capstone2/" + id);
+    })
+
+    .catch(function (error) {
+      console.log(error.response.data.errors);
+      console.log("ERRRR:: ", error.response.data);
+
+      toast.fire({
+        icon: "warning",
+        title: "SOMETHING WRONG",
+      });
+    });
 };
 const onView3 = () => {
   let id = getIDfromURL();
-  router.push("/capstone3/" + id);
+
+  axios
+    .post("/api/create_capstone_proj/" + id)
+    .then((response) => {
+      router.push("/capstone3/" + id);
+    })
+
+    .catch(function (error) {
+      console.log(error.response.data.errors);
+      console.log("ERRRR:: ", error.response.data);
+
+      toast.fire({
+        icon: "warning",
+        title: "SOMETHING WRONG",
+      });
+    });
 };
 
 const viewOcr = () => {
@@ -680,25 +818,16 @@ const warningNoData = () => {
   toast.fire({
     icon: "warning",
     title:
-      "The group " + GenCapData.value.groupname + ", Doesn't submit their manuscript!",
-  });
-};
-const noupload = () => {
-  toast.fire({
-    icon: "warning",
-    title: "The group " + GenCapData.value.groupname + ", does not submit yet.",
-  });
-};
-const notAgree = () => {
-  toast.fire({
-    icon: "warning",
-    title:
-      "The group " +
-      GenCapData.value.groupname +
-      ", Doesn't Agree to share their manuscrip",
+      "The group " + GenCapData.value.groupname + ", did not submit their manuscript!",
   });
 };
 //
+const unavailable = () => {
+  toast.fire({
+    icon: "warning",
+    title: "Panelist must be complete!",
+  });
+};
 </script>
 
 <style>

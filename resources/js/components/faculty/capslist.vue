@@ -189,40 +189,41 @@ const dataCapstonesort = async () => {
     });
 };
 
-const edithCap = (id) => {
-  axios
-    .post("/api/create_capstone_proj/" + id)
-    .then((response) => {
-      router.push("/editcap/" + id);
-    })
+// const edithCap = (id) => {
+//   axios
+//     .post("/api/create_capstone_proj/" + id)
+//     .then((response) => {
+//       router.push("/editcap/" + id);
+//     })
 
-    .catch(function (error) {
-      console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
+//     .catch(function (error) {
+//       console.log(error.response.data.errors);
+//       console.log("ERRRR:: ", error.response.data);
 
-      toast.fire({
-        icon: "warning",
-        title: "SOMETHING WRONG",
-      });
-    });
-};
+//       toast.fire({
+//         icon: "warning",
+//         title: "SOMETHING WRONG",
+//       });
+//     });
+// };
 
 const viewCap = (id) => {
-  axios
-    .post("/api/create_capstone_proj/" + id)
-    .then((response) => {
-      router.push("/viewcap/" + id);
-    })
+  router.push("/viewcap/" + id);
+  // axios
+  //   .post("/api/create_capstone_proj/" + id)
+  //   .then((response) => {
+  //     router.push("/viewcap/" + id);
+  //   })
 
-    .catch(function (error) {
-      console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
+  //   .catch(function (error) {
+  //     console.log(error.response.data.errors);
+  //     console.log("ERRRR:: ", error.response.data);
 
-      toast.fire({
-        icon: "warning",
-        title: "SOMETHING WRONG",
-      });
-    });
+  //     toast.fire({
+  //       icon: "warning",
+  //       title: "SOMETHING WRONG",
+  //     });
+  //   });
 };
 
 // const getCapstoneSearch = async () => {
@@ -243,30 +244,30 @@ const viewCap = (id) => {
 //   projects.value = response.data.capstones;
 // };
 
-const deleteCapstone = (id) => {
-  Swal.fire({
-    title: "Are You Sure?",
-    text: "You can't go back!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonText: "No!",
-    confirmButtonText: "Yes, delete it!",
-  }).then((result) => {
-    if (result.value) {
-      axios
-        .get("/api/delete_capstone/" + id)
-        .then(() => {
-          Swal.fire("Delete", "Capstone delete successfully", "success");
-          // getCapstone();
-          dataCapstone();
-        })
-        .catch(() => {
-          Swal.fire("Failed!", "There was Something Wrongcdcdcdcdcdcdc.", "Warning");
-        });
-    }
-  });
-};
+// const deleteCapstone = (id) => {
+//   Swal.fire({
+//     title: "Are You Sure?",
+//     text: "You can't go back!",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonColor: "#3085d6",
+//     cancelButtonText: "No!",
+//     confirmButtonText: "Yes, delete it!",
+//   }).then((result) => {
+//     if (result.value) {
+//       axios
+//         .get("/api/delete_capstone/" + id)
+//         .then(() => {
+//           Swal.fire("Delete", "Capstone delete successfully", "success");
+
+//           dataCapstone();
+//         })
+//         .catch(() => {
+//           Swal.fire("Failed!", "There was Something Wrongcdcdcdcdcdcdc.", "Warning");
+//         });
+//     }
+//   });
+// };
 </script>
 
 <style>

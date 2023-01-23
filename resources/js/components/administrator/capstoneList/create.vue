@@ -268,7 +268,7 @@ const saveUser = () => {
 
       toast.fire({
         icon: "success",
-        title: "User Add Successfully",
+        title: "User created successfully",
       });
     })
     // .catch((error = {}));

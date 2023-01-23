@@ -41,15 +41,15 @@ class CapstonedashboardController extends Controller
         $defense2 = DB::table('capstone2s')->where('status', "Under-Revision")->count();
         $defense3 = DB::table('capstone3s')->where('status', "Under-Revision")->count();
 
-        
 
-        
+
+
         $allcaps = Capstone::count();
-        $no__capstone = $allcaps-$done_capstone;
+        $no__capstone = $allcaps - $done_capstone;
 
-        $working1= $no__capstone - $approve1;
-        $working2= $no__capstone - $approve2;
-        $working3= $no__capstone - $approve3;
+        $working1 = $no__capstone - $approve1;
+        $working2 = $no__capstone - $approve2;
+        $working3 = $no__capstone - $approve3;
 
 
 
@@ -211,7 +211,7 @@ class CapstonedashboardController extends Controller
         $panelapprove3 = DB::table('caps2ratings')->where('user_id', $panel3)
             ->where('capstone2_id', $id)->pluck('xf1')->first();
 
-         $panelrate1 = DB::table('caps2ratings')->where('user_id', $panel1)
+        $panelrate1 = DB::table('caps2ratings')->where('user_id', $panel1)
             ->where('capstone2_id', $id)->pluck('total')->first();
         $panelrate2 = DB::table('caps2ratings')->where('user_id', $panel2)
             ->where('capstone2_id', $id)->pluck('total')->first();
@@ -292,7 +292,7 @@ class CapstonedashboardController extends Controller
         $panelapprove3 = DB::table('caps3ratings')->where('user_id', $panel3)
             ->where('capstone3_id', $id)->pluck('xf1')->first();
 
-         $panelrate1 = DB::table('caps3ratings')->where('user_id', $panel1)
+        $panelrate1 = DB::table('caps3ratings')->where('user_id', $panel1)
             ->where('capstone3_id', $id)->pluck('total')->first();
         $panelrate2 = DB::table('caps3ratings')->where('user_id', $panel2)
             ->where('capstone3_id', $id)->pluck('total')->first();
@@ -351,54 +351,81 @@ class CapstonedashboardController extends Controller
 
 
 
+
     public function get_rate_panel1($id)
     {
 
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
+        if ($panel1 != null) {
+            $panelrate1 = DB::table('caps1ratings')->where('user_id', $panel1)
+                ->where('capstone1_id', $id)->pluck('id')->first();
 
-        $panelrate1 = DB::table('caps1ratings')->where('user_id', $panel1)
-            ->where('capstone1_id', $id)->pluck('id')->first();
+            $capstone1 = Caps1rating::find($panelrate1);
 
-        $capstone1 = Caps1rating::find($panelrate1);
+            return response()->json([
 
-        return response()->json([
+                'panelrate1'  => $capstone1,
 
-            'panelrate1'  => $capstone1,
+            ], 200);
+        } else {
+            return response()->json([
 
-        ], 200);
+                'panelrate1'  => null,
+
+            ], 200);
+        }
     }
     public function get_rate_panel2($id)
     {
         $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
             ->where('capstone_id', $id)->pluck('user_id')->first();
-        $panelrate2 = DB::table('caps1ratings')->where('user_id', $panel2)
-            ->where('capstone1_id', $id)->pluck('id')->first();
+
+
+        if ($panel2 != null) {
+            $panelrate2 = DB::table('caps1ratings')->where('user_id', $panel2)
+                ->where('capstone1_id', $id)->pluck('id')->first();
 
             $capstone2 = Caps1rating::find($panelrate2);
 
-        return response()->json([
+            return response()->json([
 
-            'panelrate2'  => $capstone2,
+                'panelrate2'  => $capstone2,
 
-        ], 200);
+            ], 200);
+        } else {
+            return response()->json([
+
+                'panelrate2'  => null,
+
+            ], 200);
+        }
     }
 
     public function get_rate_panel3($id)
     {
         $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
-        $panelrate3 = DB::table('caps1ratings')->where('user_id', $panel3)
-            ->where('capstone1_id', $id)->pluck('id')->first();
+
+        if ($panel3 != null) {
+            $panelrate3 = DB::table('caps1ratings')->where('user_id', $panel3)
+                ->where('capstone1_id', $id)->pluck('id')->first();
 
             $capstone3 = Caps1rating::find($panelrate3);
 
-        return response()->json([
+            return response()->json([
 
-            'panelrate3'  => $capstone3,
+                'panelrate3'  => $capstone3,
 
-        ], 200);
+            ], 200);
+        } else {
+            return response()->json([
+
+                'panelrate3'  => null,
+
+            ], 200);
+        }
     }
 
     public function get_rate_panel12($id)
@@ -407,48 +434,76 @@ class CapstonedashboardController extends Controller
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
+        if ($panel1 != null) {
 
-        $panelrate1 = DB::table('caps2ratings')->where('user_id', $panel1)
-            ->where('capstone2_id', $id)->pluck('id')->first();
+            $panelrate1 = DB::table('caps2ratings')->where('user_id', $panel1)
+                ->where('capstone2_id', $id)->pluck('id')->first();
 
-        $capstone1 = Caps2rating::find($panelrate1);
+            $capstone1 = Caps2rating::find($panelrate1);
 
-        return response()->json([
+            return response()->json([
 
-            'panelrate1'  => $capstone1,
+                'panelrate1'  => $capstone1,
 
-        ], 200);
+            ], 200);
+        } else {
+            return response()->json([
+
+                'panelrate1'  => null,
+
+            ], 200);
+        }
     }
     public function get_rate_panel22($id)
     {
         $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
             ->where('capstone_id', $id)->pluck('user_id')->first();
-        $panelrate2 = DB::table('caps2ratings')->where('user_id', $panel2)
-            ->where('capstone2_id', $id)->pluck('id')->first();
+
+
+        if ($panel2 != null) {
+            $panelrate2 = DB::table('caps2ratings')->where('user_id', $panel2)
+                ->where('capstone2_id', $id)->pluck('id')->first();
 
             $capstone2 = Caps2rating::find($panelrate2);
 
-        return response()->json([
+            return response()->json([
 
-            'panelrate2'  => $capstone2,
+                'panelrate2'  => $capstone2,
 
-        ], 200);
+            ], 200);
+        } else {
+            return response()->json([
+
+                'panelrate2'  => null,
+
+            ], 200);
+        }
     }
 
     public function get_rate_panel32($id)
     {
         $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
-        $panelrate3 = DB::table('caps2ratings')->where('user_id', $panel3)
-            ->where('capstone2_id', $id)->pluck('id')->first();
+
+
+        if ($panel3 != null) {
+            $panelrate3 = DB::table('caps2ratings')->where('user_id', $panel3)
+                ->where('capstone2_id', $id)->pluck('id')->first();
 
             $capstone3 = Caps2rating::find($panelrate3);
 
-        return response()->json([
+            return response()->json([
 
-            'panelrate3'  => $capstone3,
+                'panelrate3'  => $capstone3,
 
-        ], 200);
+            ], 200);
+        } else {
+            return response()->json([
+
+                'panelrate3'  => null,
+
+            ], 200);
+        }
     }
 
     public function get_rate_panel13($id)
@@ -457,48 +512,75 @@ class CapstonedashboardController extends Controller
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
+        if ($panel1 != null) {
+            $panelrate1 = DB::table('caps3ratings')->where('user_id', $panel1)
+                ->where('capstone3_id', $id)->pluck('id')->first();
 
-        $panelrate1 = DB::table('caps3ratings')->where('user_id', $panel1)
-            ->where('capstone3_id', $id)->pluck('id')->first();
+            $capstone1 = Caps3rating::find($panelrate1);
 
-        $capstone1 = Caps3rating::find($panelrate1);
+            return response()->json([
 
-        return response()->json([
+                'panelrate1'  => $capstone1,
 
-            'panelrate1'  => $capstone1,
+            ], 200);
+        } else {
+            return response()->json([
 
-        ], 200);
+                'panelrate1'  => null,
+
+            ], 200);
+        }
     }
     public function get_rate_panel23($id)
     {
         $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
             ->where('capstone_id', $id)->pluck('user_id')->first();
-        $panelrate2 = DB::table('caps3ratings')->where('user_id', $panel2)
-            ->where('capstone3_id', $id)->pluck('id')->first();
+
+
+        if ($panel2 != null) {
+            $panelrate2 = DB::table('caps3ratings')->where('user_id', $panel2)
+                ->where('capstone3_id', $id)->pluck('id')->first();
 
             $capstone2 = Caps3rating::find($panelrate2);
 
-        return response()->json([
+            return response()->json([
 
-            'panelrate2'  => $capstone2,
+                'panelrate2'  => $capstone2,
 
-        ], 200);
+            ], 200);
+        } else {
+            return response()->json([
+
+                'panelrate2'  => null,
+
+            ], 200);
+        }
     }
 
     public function get_rate_panel33($id)
     {
         $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
-        $panelrate3 = DB::table('caps3ratings')->where('user_id', $panel3)
-            ->where('capstone3_id', $id)->pluck('id')->first();
+
+
+        if ($panel3 != null) {
+            $panelrate3 = DB::table('caps3ratings')->where('user_id', $panel3)
+                ->where('capstone3_id', $id)->pluck('id')->first();
 
             $capstone3 = Caps3rating::find($panelrate3);
 
-        return response()->json([
+            return response()->json([
 
-            'panelrate3'  => $capstone3,
+                'panelrate3'  => $capstone3,
 
-        ], 200);
+            ], 200);
+        } else {
+            return response()->json([
+
+                'panelrate3'  => null,
+
+            ], 200);
+        }
     }
 
 
@@ -603,14 +685,14 @@ class CapstonedashboardController extends Controller
         $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            $panelapprove1 = DB::table('caps2ratings')->where('user_id', $panel1)
+        $panelapprove1 = DB::table('caps2ratings')->where('user_id', $panel1)
             ->where('capstone2_id', $id)->pluck('xf1')->first();
         $panelapprove2 = DB::table('caps2ratings')->where('user_id', $panel2)
             ->where('capstone2_id', $id)->pluck('xf1')->first();
         $panelapprove3 = DB::table('caps2ratings')->where('user_id', $panel3)
             ->where('capstone2_id', $id)->pluck('xf1')->first();
 
-         $panelrate1 = DB::table('caps2ratings')->where('user_id', $panel1)
+        $panelrate1 = DB::table('caps2ratings')->where('user_id', $panel1)
             ->where('capstone2_id', $id)->pluck('total')->first();
         $panelrate2 = DB::table('caps2ratings')->where('user_id', $panel2)
             ->where('capstone2_id', $id)->pluck('total')->first();
@@ -657,7 +739,6 @@ class CapstonedashboardController extends Controller
             'totalrate'  => $totalrate,
 
         ], 200);
-
     }
 
 
@@ -679,14 +760,14 @@ class CapstonedashboardController extends Controller
         $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            $panelapprove1 = DB::table('caps3ratings')->where('user_id', $panel1)
+        $panelapprove1 = DB::table('caps3ratings')->where('user_id', $panel1)
             ->where('capstone3_id', $id)->pluck('xf1')->first();
         $panelapprove2 = DB::table('caps3ratings')->where('user_id', $panel2)
             ->where('capstone3_id', $id)->pluck('xf1')->first();
         $panelapprove3 = DB::table('caps3ratings')->where('user_id', $panel3)
             ->where('capstone3_id', $id)->pluck('xf1')->first();
 
-         $panelrate1 = DB::table('caps3ratings')->where('user_id', $panel1)
+        $panelrate1 = DB::table('caps3ratings')->where('user_id', $panel1)
             ->where('capstone3_id', $id)->pluck('total')->first();
         $panelrate2 = DB::table('caps3ratings')->where('user_id', $panel2)
             ->where('capstone3_id', $id)->pluck('total')->first();
