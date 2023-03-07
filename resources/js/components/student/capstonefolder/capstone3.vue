@@ -287,7 +287,7 @@
       <div class="" id="titleSize">
         <p class="pt-2 text-uppercase boldThese">
           {{ GenCadocu123.xf2 }}
-          <!-- : {{ GenCadocu123.xf1 }} % -->
+          
         </p>
         <hr class="toTop" />
         <p class="toTopp">RATING STATUS</p>
@@ -346,7 +346,7 @@
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercase boldThese">
             {{ formcaps3.final_date }}
-            <!-- April 25, 2022 -->
+            
           </p>
           <hr class="toTop" />
           <p class="toTopp">Final Defense Date</p>
@@ -362,19 +362,7 @@
         </div>
       </div>
 
-      <!-- <h5 class="text-left boldThese ml-2">STATUS</h5> -->
-
-      <!-- <h5 class="text-left boldThese ml-2">RECOMMENDATION/COMMENTS/SUGGESTION</h5>
-      <div class="form-floating col">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="floatingTextarea2"
-          style="height: 700px"
-        ></textarea>
-        <label class="ps-4" for="floatingTextarea2">Comments Temp</label>
-        <br />
-      </div> -->
+   
     </div>
   </div>
 </template>
@@ -385,7 +373,7 @@ import { onMounted } from "vue";
 import { ref } from "vue";
 
 const getMinutes3 = () => {
-  // window.open("pdf/" + file, "_blank"); caps1.value.minutes1
+
   window.open(
     "http://127.0.0.1:8000/pdfminutes3/" + GenCadocu123.value.minutes1,
     "_blank"
@@ -464,7 +452,7 @@ let rated = ref({
 });
 
 onMounted(async () => {
-  // getIsstructor1();
+ 
   getsingleUser();
   getsingleUser7();
 
@@ -479,16 +467,7 @@ onMounted(async () => {
   getcaps123();
 });
 
-// let instruct = ref({
-//   name: "",
-//   mname: "",
-//   lname: "",
-// });
-// const getIsstructor1 = async () => {
-//   let capstoneid = getIDfromURL();
-//   let response = await axios.get("/api/get_capstone_instructor2/" + capstoneid);
-//   instruct.value = response.data.instruct;
-// };
+
 
 const getCapston1Data = async () => {
   let capstoneid = getIDfromURL();
@@ -531,7 +510,7 @@ const getsingleUser6 = async () => {
 const getsingleUser7 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone_adviser/" + capstoneid);
-  // adviser.value = response.data.userCaps;
+
 
   let nullneh;
   nullneh = response.data.userCaps;
@@ -548,7 +527,7 @@ const panelrates1 = async () => {
   if (nullneh != null) {
     ratee1.value = response.data.panelrate1;
   }
-  // console.warn("111111111111111111", ratee1.value);
+
 };
 const panelrates2 = async () => {
   let capstoneid = getIDfromURL();
@@ -560,7 +539,7 @@ const panelrates2 = async () => {
     ratee2.value = response.data.panelrate2;
   }
 
-  // console.warn("2222222222222222222", ratee2.value);
+
 };
 
 const panelrates3 = async () => {
@@ -573,7 +552,7 @@ const panelrates3 = async () => {
     ratee3.value = response.data.panelrate3;
   }
 
-  // console.warn("3333333333333333333", ratee3.value.xf1);
+
 };
 
 const getcaps123 = async () => {
@@ -595,8 +574,7 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + capstoneid);
   GenCapData.value = response.data.capstones;
 
-  // GenCaps.value = response.data.userCaps;
-  // console.warn("Caps", GenCapData.value);
+ 
 };
 
 const onView3 = () => {
@@ -640,7 +618,7 @@ const rateddd = async () => {
     axios
       .post("/api/create_rate/" + idd)
       .then((response) => {
-        // router.push("/rate3/" + idd);
+        
       })
 
       .catch(function (error) {

@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <!-- v-model="RichTextEditor.content" -->
+   
       <div class="col contentOfThePage ms-1 me-3">
         <h5 class="text-left boldThese">CONVERTED TEXT</h5>
         <div class="form-floating col">
@@ -40,7 +40,7 @@
     <h4 class="text-center mt-4">FULL DOCUMENTATION</h4>
     <div class="contentOfThePage my-3">
       <h5 class="text-left boldThese">CONTENT</h5>
-      <!-- {{ caps.capstone_ocr }} -->
+  
       <div class="form-floating col">
         <textarea
           class="form-control inputColor"
@@ -143,10 +143,7 @@ export default defineComponent({
       this.status = "initialize";
       var self = this;
 
-      // const canvas = document
-      //   .getElementById("photoTaken")
-      //   .toDataURL("image/jpeg")
-      //   .replace("image/jpeg", "image/octet-stream");
+      
 
       var reader,
         files = e.target.files;
@@ -182,7 +179,7 @@ export default defineComponent({
         },
       })
         .then((result) => {
-          // alert(result.data.text);
+         
           this.textcontent = result.data.text;
           vm.status = "";
         })
@@ -241,9 +238,7 @@ export default defineComponent({
         .replace("image/jpeg", "image/octet-stream");
       download.setAttribute("href", canvas);
     },
-    // getIDfromURL() {
-    //   return window.location.pathname.split("/")[2];
-    // },
+  
     saveCapstonee1() {
       let id = window.location.pathname.split("/")[2];
       axios
@@ -256,7 +251,7 @@ export default defineComponent({
             title: "User Capstone Successfully",
           });
           this.getCapstone();
-          // $("#success").html(response.data.message);
+    
         });
     },
     getCapstone() {
@@ -273,9 +268,7 @@ export default defineComponent({
       return this.caps.capstone_ocr;
     },
 
-    // toConcat() {
-    //   return (concatSting = caps.capstone_ocr + textcontent);
-    // },
+ 
   },
 
   created() {

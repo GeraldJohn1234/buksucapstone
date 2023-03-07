@@ -5,7 +5,7 @@
       <hr />
     </h5>
 
-    <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
+
 
     <table
       class="table tableBorder text-center align-middle table-striped table-bordered border-primary"
@@ -630,18 +630,7 @@
                 (10 * caps1rate.sc) / 4 +
                 (10 * caps1rate.df) / 4
               }}
-              <!-- +
-                (5 * caps1rate.lr1) / 4 +
-                (5 * caps1rate.lr2) / 4 +
-                (5 * caps1rate.meth1) / 4 +
-                (3 * caps1rate.meth2) / 4 +
-                (2 * caps1rate.meth3) / 4 +
-                (5 * caps1rate.ref1) / 4 +
-                (5 * caps1rate.format) / 4 +
-                (5 * caps1rate.oralCom) / 4 +
-                (5 * caps1rate.ppt) / 4 +
-                (5 * caps1rate.attire) / 4 +
-                (10 * caps1rate.resp) / 4 -->
+            
             </h5>
           </td>
         </tr>
@@ -727,7 +716,7 @@ let caps1rate = ref({
   sc: "",
   df: "",
 });
-// v-model="GenCaps.abstract"
+
 
 const router = useRouter();
 
@@ -832,14 +821,9 @@ const saveRatinggFinal = () => {
         (caps1rate.value.df = ""),
         (total = ""),
         (xf1 = "");
-      // router.push("/create");
-
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Partial Rate Successfully",
-      // });
+   
     })
-    // .catch((error = {}));
+   
     .catch(function (error) {
       console.log(error.response.data.errors);
 
@@ -847,7 +831,7 @@ const saveRatinggFinal = () => {
         icon: "warning",
         title: "Rate Unsuccessful",
       });
-      // (error = {}));
+
     });
 };
 
@@ -901,14 +885,9 @@ const saveRatingg = () => {
         (caps1rate.value.df = ""),
         (total = ""),
         (xf1 = "");
-      // router.push("/create");
-
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Partial Rate Successfully",
-      // });
+     
     })
-    // .catch((error = {}));
+
     .catch(function (error) {
       console.log(error.response.data.errors);
 
@@ -916,7 +895,7 @@ const saveRatingg = () => {
         icon: "warning",
         title: "Rate Unsuccessful",
       });
-      // (error = {}));
+    
     });
 };
 
@@ -936,10 +915,7 @@ const getStoreRatingRate2 = async () => {
     .post("/api/post_approved_rate_status2/" + capsID, rateData)
     .then((response) => {
       (rate = ""), (status = "");
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Usser Add Successfully" + status,
-      // });
+  
     })
     .catch(function (error) {
       console.log(error.response.data.errors);

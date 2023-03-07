@@ -3,7 +3,6 @@
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">CREATE TOPIC SUGGESTIONS</h5>
       <hr class="toTop" />
-      <!-- <p class="toTopp boldThese">CREATE TOPIC SUGGESTIONS</p> -->
     </div>
 
     <h5 class="text-left boldThese">TITLE</h5>
@@ -109,57 +108,50 @@ const toTopic = () => {
 };
 
 const saveTopic = () => {
-  if(Topic.value.title==null||Topic.value.title==''){
+  if (Topic.value.title == null || Topic.value.title == "") {
     toast.fire({
-          icon: "warning",
-          title: "Title should not empty!",
-        });
-  }else if(Topic.value.abstract==null||Topic.value.abstract==''){
+      icon: "warning",
+      title: "Title should not empty!",
+    });
+  } else if (Topic.value.abstract == null || Topic.value.abstract == "") {
     toast.fire({
-          icon: "warning",
-          title: "Topic description should not empty!",
-        });
-  }else{
+      icon: "warning",
+      title: "Topic description should not empty!",
+    });
+  } else {
+    const formData = new FormData();
+    formData.append("title", Topic.value.title);
+    formData.append("abstract", Topic.value.abstract);
+    formData.append("client_name", Topic.value.client_name);
+    formData.append("client_location", Topic.value.client_location);
+    formData.append("client_company", Topic.value.client_company);
+    formData.append("xf1", Topic.value.xf1);
 
-  
-  const formData = new FormData();
-  formData.append("title", Topic.value.title);
-  formData.append("abstract", Topic.value.abstract);
-  formData.append("client_name", Topic.value.client_name);
-  formData.append("client_location", Topic.value.client_location);
-  formData.append("client_company", Topic.value.client_company);
-  formData.append("xf1", Topic.value.xf1);
-
-  axios
-    .post("/api/add_topic", formData)
-    .then((response) => {
-      (Topic.value.title = ""),
-        (Topic.value.abstract = ""),
-        (Topic.value.client_name = ""),
-        (Topic.value.client_location = ""),
-        (Topic.value.client_company = ""),
-        (Topic.value.xf1 = ""),
-        // router.push("/create");
+    axios
+      .post("/api/add_topic", formData)
+      .then((response) => {
+        (Topic.value.title = ""),
+          (Topic.value.abstract = ""),
+          (Topic.value.client_name = ""),
+          (Topic.value.client_location = ""),
+          (Topic.value.client_company = ""),
+          (Topic.value.xf1 = ""),
+          toast.fire({
+            icon: "success",
+            title: "Topic Successfully, Added! ",
+          });
+        toTopic();
+      })
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
 
         toast.fire({
-          icon: "success",
-          title: "Topic Successfully, Added! ",
+          icon: "warning",
+          title: "Topic Add, Unsuccessful",
         });
-      toTopic();
-    })
-    .catch(function (error) {
-      console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
-
-      toast.fire({
-        icon: "warning",
-        title: "Topic Add, Unsuccessful",
       });
-      // (error = {}));
-      // console.log("ERRRR:: ",error.response.data);
-    });
-  // console.log("ERRRR:: ",error.response.data);
-}
+  }
 };
 </script>
 

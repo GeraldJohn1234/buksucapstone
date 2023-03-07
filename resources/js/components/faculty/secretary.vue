@@ -31,13 +31,9 @@
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
-                  @click="viewCap(item.id)"
-                >
-                  VIEW
-                </button>
+                <i class="btn btn-outline-primary" @click="viewCap(item.id)">
+                  <font-awesome-icon icon="fa-solid fa-eye" />
+                </i>
               </li>
             </ul>
           </td>
@@ -52,8 +48,6 @@
 import router from "../../routers/facultyRouter";
 import { onMounted, reactive, ref, watch } from "vue";
 
-// import { reactive, ref, watch } from "vue";
-
 let projects = ref([]);
 
 const capslistt = reactive({ searching: null });
@@ -62,12 +56,7 @@ const capslisttsort = reactive({ sorting: null });
 watch(capslistt, (newValue, oldValue) => {
   console.log(newValue, oldValue);
   dataCapstone();
-  // dataCapstonesort();
 });
-// watch(capslisttsort, (newValue, oldValue) => {
-//   console.log(newValue, oldValue);
-//   dataCapstonesort();
-// });
 
 const dataCapstone = async () => {
   let response = await axios
@@ -77,52 +66,12 @@ const dataCapstone = async () => {
 
     .then((response) => {
       projects.value = response.data.capstones;
-      // toast.fire({
-      //   icon: "success",
-      //   title: "SOMETHING WRONG",
-      // });
     })
 
     .catch(function (error) {
       console.log(error);
     });
 };
-// const dataCapstonesort = async () => {
-//   let response = await axios
-//     .get("/api/getadviseesort", {
-//       params: { sorting: capslisttsort.sorting },
-//     })
-
-//     .then((response) => {
-//       projects.value = response.data.capstones;
-//       // toast.fire({
-//       //   icon: "success",
-//       //   title: "SOMETHING WRONG",
-//       // });
-//     })
-
-//     .catch(function (error) {
-//       console.log(error);
-//     });
-// };
-
-// const edithCap = (id) => {
-//   axios
-//     .post("/api/create_capstone_proj/" + id)
-//     .then((response) => {
-//       router.push("/editcap/" + id);
-//     })
-
-//     .catch(function (error) {
-//       console.log(error.response.data.errors);
-//       console.log("ERRRR:: ", error.response.data);
-
-//       toast.fire({
-//         icon: "warning",
-//         title: "SOMETHING WRONG",
-//       });
-//     });
-// };
 
 const viewCap = (id) => {
   axios

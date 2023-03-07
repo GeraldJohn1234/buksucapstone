@@ -10,127 +10,6 @@
         </div>
       </div>
 
-      <!-- <ul>
-        <li>
-          <router-link class="a active nav_link" @click="storeDashoard()" to="/dashboard">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-dashboard"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-            <span id="label">DASHBOARD</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link class="a nav_link" to="/profile">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-address-card"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-            <span id="label">PROFILE</span>
-          </router-link>
-        </li>
-
-        <li>
-          <router-link class="a nav_link" to="/capslist">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-file"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">CAPSTONE LIST</span>
-          </router-link>
-        </li>
-
-        <li>
-          <router-link class="a nav_link" to="/topic">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-lightbulb"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">TOPIC SUGGESTION</span>
-          </router-link>
-        </li>
-
-        <li>
-          <router-link class="a nav_link" to="/student">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-users"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            
-            <span id="label">STUDENT</span>
-          </router-link>
-        </li>
-        <div class="listOfUser pt-3">
-          <a id="listOfUser">
-            <span id="label">CAPSTONE ROLE</span>
-          </a>
-        </div>
-
-        <li>
-          <router-link class="a nav_link" to="/advisee">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-chalkboard-teacher"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">ADVISEE</span>
-          </router-link>
-        </li>
-
-        <li>
-          <router-link class="a nav_link" to="/instructor">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-user"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">INSTRUCTOR</span>
-          </router-link>
-        </li>
-
-        <li>
-          <router-link class="a nav_link" to="/panel">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-users-rectangle"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">PANEL</span>
-          </router-link>
-        </li>
-
-        <li id="logout">
-          <a href="#" @click="logout">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-right-from-bracket"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">LOGOUT</span>
-          </a>
-        </li>
-      </ul> -->
       <ul>
         <li class="pt-4" @click="active1()">
           <div class="a nav_link row" :class="activehead1">
@@ -251,7 +130,7 @@
           </div>
         </li>
 
-        <!-- <li id="logout" @click="logout">
+        <li id="logout" class="hideee" @click="logout">
           <div class="row a nav_link">
             <i class="col-md-3">
               <font-awesome-icon
@@ -262,30 +141,10 @@
 
             <div class="col-md-8" id="label">LOGOUT</div>
           </div>
-        </li> -->
+        </li>
       </ul>
     </div>
     <div class="main_content">
-      <!-- <div class="header topHeader">
-        <div class="headerL">Capstone Archiving Management System</div>
-
-        <div class="headerR rheadertop footer content bg-light row">
-          <img
-            @click="active2()"
-            class="avatarUser mt-3 rounded-circle border bg-info col point"
-            id="rizal"
-            :src="getPhoto()"
-            alt="img"
-          />
-
-          <div class="col text-center mx-2 mt-2">
-         
-            <p class="roleAvatarname fw-bolder mx-2">{{ form.name }}</p>
-            <br />
-            <p class="roleAvatar mx-4">FACULTY</p>
-          </div>
-        </div>
-      </div> -->
       <div class="header topHeader">
         <div class="headerL">Capstone Archiving Management System</div>
 
@@ -303,7 +162,7 @@
             <br />
             <p class="roleAvatar mx-4">FACULTY</p>
           </div>
-          <i class="col mx-2 marginTop trigger" @click="logout">
+          <i class="col mx-2 marginTop trigger thishideee" @click="logout">
             <font-awesome-icon
               icon="fa-solid fa-right-from-bracket"
               style="width: 24px; height: 24px"
@@ -496,41 +355,6 @@ const instructor = () => {
 const logoutt = () => {
   router.push("/logout");
 };
-// const capslist = () => {
-//   router.push("/capslist");
-// };
-
-// const reload = () => {
-//   location.reload();
-
-// };
-
-// let dashboard = ref({
-//   instructor1: 0,
-//   instructor2: 0,
-//   instructor3: 0,
-//   panelist: 0,
-//   students: 0,
-//   adviser: 0,
-//   co_adviser: 0,
-//   archiver: 0,
-//   secretary: 0,
-//   under_develop: 0,
-//   deploy: 0,
-//   unimplemented: 0,
-//   no_group1: 0,
-//   no_propose_def: 0,
-//   under_revision_1: 0,
-//   approved_panels_1: 0,
-//   no_group2: 0,
-//   no_prototype_def: 0,
-//   under_revision_2: 0,
-//   approved_panels_2: 0,
-//   no_group3: 0,
-//   no_final_def: 0,
-//   under_revision_3: 0,
-//   approved_panels_3: 0,
-// });
 
 let form = ref({
   userId: "",
@@ -549,7 +373,6 @@ let form = ref({
 onMounted(async () => {
   getsingleUser();
   getPhoto();
-  // storeDashoard();
 });
 
 const storeDashoard = () => {
@@ -557,24 +380,12 @@ const storeDashoard = () => {
     .post("/api/store_dashboard")
     .then((response) => {
       dash();
-      // toast.fire({
-      //   icon: "warning",
-      //   title: "SOMETHING GOOD in Dashboard",
-      // });
     })
 
-    .catch(function (error) {
-      // console.log(error.response.data.errors);
-      // console.log("ERRRR:: ", error.response.data);
-      // toast.fire({
-      //   icon: "warning",
-      //   title: "SOMETHING WRONG",
-      // });
-    });
+    .catch(function (error) {});
 };
 
 const getPhoto = () => {
-  // let photo = "/upload/leader.jpg";
   let photo = "/images/instructor.jpg";
   if (form.value.photo) {
     if (form.value.photo.indexOf("base64") != -1) {
@@ -595,29 +406,8 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/myprofile");
   form.value = response.data.userrs;
   console.warn("userrs", form.value);
-
-  // console.warn(test);
-
-  // test = ("userrs", form.value.name);
 };
-// export default {
-//   mounted() {
-//     console.log("Component mounted.");
-//   },
-//   data() {
-//     return {};
-//   },
-//   methods: {
-//     logout() {
-//       axios
-//         .post("/logout", {})
-//         .then((res) => {
-//           location.href = "/";
-//         })
-//         .catch((err) => {});
-//     },
-//   },
-// <!-- border-bottom: 1px solid rgba(0, 0, 0, 0.05) -->
+
 const logout = () => {
   axios
     .post("/logout", {})
@@ -658,8 +448,6 @@ const logout = () => {
   display: flex;
   position: relative;
 }
-
-/* this is a comment */
 
 @media screen and (min-width: 811px) {
   .logoHeader {
@@ -702,8 +490,16 @@ const logout = () => {
     border-top: 1px solid #d6d2d2;
   }
 }
+@media screen and (min-width: 1019px) {
+  .hideee {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 1019px) {
+  .thishideee {
+    display: none;
+  }
   #labelAvatar,
   .roleAvatar {
     display: none;
@@ -734,6 +530,7 @@ const logout = () => {
     left: 0px;
     width: 80px;
     border-top: 1px solid #d6d2d2;
+    border-right: 0.11px solid #000000;
   }
   .wrapper .main_content {
     width: 100%;

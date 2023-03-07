@@ -24,10 +24,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import {faAddressCard, faChalkboardTeacher, faDashboard, faDownload, faEye, faEyeSlash, faFile, faHome, faLightbulb, faPersonChalkboard, faRightFromBracket, faUser, faUserGroup, faUserPen, faUsers, faUserSecret, faUsersRectangle} from '@fortawesome/free-solid-svg-icons'
+import {faAddressCard, faChalkboardTeacher, faDashboard, faDownload, faEye, faEyeSlash, faFile, faHome, faLightbulb, faPersonChalkboard, faRightFromBracket, faUser, faUserGroup, faUserPen, faUsers, faUserSecret, faUsersRectangle, faEdit, faTrash} from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library font-awesome-icon */
-library.add(faUserSecret,faHome,faDownload,faUsers,faDashboard,faUser,faUsers,faChalkboardTeacher,faUserGroup,faPersonChalkboard,faAddressCard,faUserPen,faUsersRectangle,faFile,faLightbulb,faRightFromBracket,faEyeSlash,faEyeSlash,faEye)
+library.add(faUserSecret,faHome,faDownload,faUsers,faDashboard,faUser,faUsers,faChalkboardTeacher,faUserGroup,faPersonChalkboard,faAddressCard,faUserPen,faUsersRectangle,faFile,faLightbulb,faRightFromBracket,faEyeSlash,faEyeSlash,faEye,faEdit,faTrash)
 
 createApp(archiver)
     .use(router)

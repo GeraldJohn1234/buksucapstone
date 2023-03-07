@@ -1,7 +1,7 @@
 <template>
   <div class="card mb-3 boxProfile text-center mx-auto d-block contentOfThePage">
     <img src="/images/buksuBg.jpg" alt="logo" class="boxBg" />
-    <!-- <img src="/images/luffy.jfif" alt="logo" class="boxP" /> -->
+
     <img id="" :src="getPhoto()" alt="img" class="boxP" />
     <div class="text-center">
       <h5>{{ form.name }} {{ form.mname }} {{ form.lname }}</h5>
@@ -100,17 +100,6 @@
         />
       </div>
 
-      <!-- <div class="col-2">
-        <label for="lastname" class="form-label">Year</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="LAST NAME"
-          aria-label="Last name"
-          v-model="form.year"
-        />
-      </div> -->
-
       <div class="col-4">
         <label for="lastname" class="form-label">Choose Year (student)</label>
         <div class="input-group mb-3">
@@ -126,15 +115,6 @@
           </select>
         </div>
       </div>
-      <!-- <div class="col-2">
-        <label for="gender" class="form-label">Gender</label>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Gender"
-          v-model="form.gender"
-        />
-      </div> -->
 
       <div class="col">
         <div class="form-check twoSides">
@@ -173,7 +153,7 @@
     </div>
     <br />
     <br />
-    <!-- <div class="container bg-primary"></div> -->
+
     <div class="row text-center px-2">
       <button type="button" class="btn btn-primary col fw-bold" @click="updateUser()">
         UPDATE
@@ -183,13 +163,6 @@
 </template>
 
 <script setup>
-// import { vue } from 'laravel-mix';
-// import axios from "axios";
-//  import router from "../../routers/administratorRouter";
-// import { error } from "console";
-// import { response } from "express";
-// import axios from "axios";
-// import axios from "axios";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -285,7 +258,6 @@ const updateUser = () => {
           (form.value.year = ""),
           (form.value.gender = ""),
           (form.value.photo = ""),
-          // router.push("/profile");
           window.location.reload();
         getsingleUser();
         toast.fire({
@@ -293,7 +265,7 @@ const updateUser = () => {
           title: "Updated Successfully",
         });
       })
-      // .catch((error) => {});
+
       .catch(function (error) {
         console.log(error.response.data.errors);
         console.log("ERRRR:: ", error.response.data);
@@ -302,8 +274,6 @@ const updateUser = () => {
           icon: "warning",
           title: "Update failed, please change the the temporary avatar",
         });
-        // (error = {}));
-        // console.log("ERRRR:: ",error.response.data);
       });
   }
 };

@@ -7,9 +7,7 @@
       <hr class="toTop" />
       <p class="toTopp boldThese">TITLE</p>
     </div>
-    <!-- <button type="button" class="m-2 px-3 btn btn-primary centerDocu" @click="onVBack()">
-        BACK
-      </button> -->
+
     <img class="backSize" src="/images/backPre.png" @click="onVBack()" alt="Student" />
 
     <div class="">
@@ -52,9 +50,6 @@ const getsingleUser = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone/" + capstoneid);
   GenCapData.value = response.data.capstones;
-
-  // GenCaps.value = response.data.userCaps;
-  // console.warn("Caps", GenCapData.value);
 };
 
 const getcaps123 = async () => {
@@ -62,7 +57,6 @@ const getcaps123 = async () => {
   let response = await axios.get("/api/getcaps123/" + capstoneid);
   GenCadocu123.value = response.data.capstonee1;
 
-  // GenCaps.value = response.data.userCaps;
   console.warn("Caps", GenCadocu123.value);
 };
 

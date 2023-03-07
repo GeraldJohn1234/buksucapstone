@@ -6,7 +6,7 @@
      /* @import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap"); */
    
 
-     /* ayaw lang ni ilising nasa ubos, hehe*/
+
      .contentBody{
       background: #EFEFEF !important;
       font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -14,7 +14,7 @@
       
      }
      *{
-      /* background: #EFEFEF !important; */
+     
       font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
       
       
@@ -23,9 +23,6 @@
       background: #d31515;
      }
      .bgForAuth{
-      /* background-image: linear-gradient(to right, red , yellow); */
-      /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
-      /* background-image: linear-gradient(to bottom right, rgb(4, 0, 255), rgb(190, 190, 192)) !important; */
       background-image: linear-gradient(to bottom right, rgb(4, 0, 255), rgb(2, 2, 46)) !important;
      }
      
@@ -38,18 +35,13 @@
     }
     .schoolName{
       font-size: xx-large;
-     /* background: #4766f0 !important;*/
       color: #0062FF !important;
       justify-content: center;
-      /* font-family: "Ibarra Real Nova", serif !important; */
       font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
      }
      .fonTs{
-      /* font-family: "Ibarra Real Nova", serif !important; */
       font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
      }
      .clorNE{
       background-color: #0062FF !important;
      }
-
-     

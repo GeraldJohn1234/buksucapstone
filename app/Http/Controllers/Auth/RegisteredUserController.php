@@ -74,6 +74,7 @@ class RegisteredUserController extends Controller
         $user->name = $request->name;
         $user->mname = $request->mname;
         $user->lname = $request->lname;
+        $user->photo = "the_avatar.jpeg";
         
         $user->year = 'not set';
         $user->gender = 'not set';

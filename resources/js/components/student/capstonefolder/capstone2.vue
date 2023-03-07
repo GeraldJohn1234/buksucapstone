@@ -16,12 +16,7 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Capstone Adviser Appointment Form</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="appForm()"
-          >
-            OPEN
-          </button> -->
+        
 
           <button
             v-if="
@@ -43,12 +38,7 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Minutes of the Propotype Defense</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="minutes()"
-          >
-            OPEN
-          </button> -->
+        
           <button
             v-if="
               GenCadocu123.proto_minutes === null || GenCadocu123.proto_minutes === 'null'
@@ -68,12 +58,7 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Action Done Matrix of Prototype Defense</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="done()"
-          >
-            OPEN
-          </button> -->
+         
           <button
             v-if="
               GenCadocu123.proto_matrix === null || GenCadocu123.proto_matrix === 'null'
@@ -97,12 +82,7 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>System Demo Recorded Video/ Recording of the Live Demo during defense</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="recordProposal()"
-          >
-            OPEN
-          </button> -->
+          
 
           <button
             v-if="
@@ -125,12 +105,7 @@
           <p>
             Capstone 2 File Containing the Screenshot of the gcash payment to the panel
           </p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="ssPayment()"
-          >
-            OPEN
-          </button> -->
+        
 
           <button
             v-if="
@@ -154,12 +129,7 @@
             File Containing the Screenshot of the acceptance of the panel to the revision
             done to the system
           </p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="ssAccept()"
-          >
-            OPEN
-          </button> -->
+         
           <button
             v-if="
               GenCadocu123.acceptance_ss === null || GenCadocu123.acceptance_ss === 'null'
@@ -287,7 +257,7 @@
       <div class="" id="titleSize">
         <p class="pt-2 text-uppercase boldThese">
           {{ GenCadocu123.xf2 }}
-          <!-- : {{ parseFloat(GenCadocu123.xf1).toFixed(2) }} % -->
+        
         </p>
         <hr class="toTop" />
         <p class="toTopp">RATING STATUS</p>
@@ -348,7 +318,7 @@
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercase boldThese">
             {{ capstone2data.prototype_date }}
-            <!-- April 25, 2022 -->
+          
           </p>
           <hr class="toTop" />
           <p class="toTopp">Prototype defense Date</p>
@@ -373,7 +343,7 @@ import { onMounted } from "vue";
 import { ref } from "vue";
 
 const getMinutes3 = () => {
-  // window.open("pdf/" + file, "_blank"); caps1.value.minutes1
+  
   window.open(
     "http://127.0.0.1:8000/pdfminutes2/" + GenCadocu123.value.minutes1,
     "_blank"
@@ -451,7 +421,7 @@ let rated = ref({
 });
 
 onMounted(async () => {
-  // getIsstructor1();
+  
 
   getsingleUser();
   getsingleUser7();
@@ -466,16 +436,6 @@ onMounted(async () => {
   getcaps123();
 });
 
-// let instruct = ref({
-//   name: "",
-//   mname: "",
-//   lname: "",
-// });
-// const getIsstructor1 = async () => {
-//   let capstoneid = getIDfromURL();
-//   let response = await axios.get("/api/get_capstone_instructor2/" + capstoneid);
-//   instruct.value = response.data.instruct;
-// };
 
 const getCapston1Data = async () => {
   let capstoneid = getIDfromURL();
@@ -518,7 +478,7 @@ const getsingleUser6 = async () => {
 const getsingleUser7 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone_adviser/" + capstoneid);
-  // adviser.value = response.data.userCaps;
+ 
 
   let nullneh;
   nullneh = response.data.userCaps;
@@ -535,7 +495,7 @@ const panelrates1 = async () => {
   if (nullneh != null) {
     ratee1.value = response.data.panelrate1;
   }
-  // console.warn("111111111111111111", ratee1.value);
+  
 };
 const panelrates2 = async () => {
   let capstoneid = getIDfromURL();
@@ -547,7 +507,7 @@ const panelrates2 = async () => {
     ratee2.value = response.data.panelrate2;
   }
 
-  // console.warn("2222222222222222222", ratee2.value);
+
 };
 
 const panelrates3 = async () => {
@@ -560,7 +520,7 @@ const panelrates3 = async () => {
     ratee3.value = response.data.panelrate3;
   }
 
-  // console.warn("3333333333333333333", ratee3.value.xf1);
+  
 };
 
 const getcaps123 = async () => {
@@ -570,7 +530,7 @@ const getcaps123 = async () => {
   let intn = parseInt(GenCadocu123.value.xf3);
   let responsed = await axios.get("/api/get_edit_user/" + intn);
   instructorr.value = responsed.data.userrs;
-  // console.warn("3333333333333333333",  GenCadocu123.value);
+
 };
 
 const getIDfromURL = () => {
@@ -582,8 +542,7 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + capstoneid);
   GenCapData.value = response.data.capstones;
 
-  // GenCaps.value = response.data.userCaps;
-  // console.warn("Caps", GenCapData.value);
+ 
 };
 
 const getCapston2Data = async () => {
@@ -622,7 +581,7 @@ const rateddd = async () => {
   let response = await axios.get("/api/panel_rate_check/" + idd);
   rated.value = response.data.userCaps;
   if (rated.value.id == 1) {
-    // router.push("/rate2/" + idd);
+    
 
     axios
       .post("/api/create_rate/" + idd)

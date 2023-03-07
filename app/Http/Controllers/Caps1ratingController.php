@@ -12,9 +12,6 @@ use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class Caps1ratingController extends Controller
 {
-    //
-
-    // 
 
     public function add_rating(Request $request, $id)
     {
@@ -24,11 +21,11 @@ class Caps1ratingController extends Controller
         $panelid = DB::table('caps1ratings')->where('capstone1_id', $id)
             ->where('user_id', $idauth)->pluck('id')->first();
 
-        // $checkuser = DB::table('caps1ratings')->where('user_id', $idauth)->count() < 1;
+
         $checkuser = DB::table('caps1ratings')->where('id', $panelid)->count() > 0;
 
         if ($checkuser) {
-            // $rate1 = DB::table('caps1ratings')->where('capstone1_id', $id)->count() < 1;
+
 
             $ratecaps11 = Caps1rating::find($panelid);
 
@@ -98,36 +95,18 @@ class Caps1ratingController extends Controller
         $panelrating = Caps1rating::find($panelid);
         return response()->json([
 
-            'ratecaps'  => $panelrating,
+            'ratecaps' => $panelrating,
 
         ], 200);
     }
-    // create_rate
+
 
     public function create_rate($id)
     {
-        // $capstoneid1 = DB::table('capstone1s')->where('capstone_id', $id)->count() < 1;
 
-        // $idauth = Auth::user()->id;
-
-        // $panelid = DB::table('caps1ratings')
-        // ->where('user_id', $idauth)->where('capstone1_id', $id)->pluck('id')->first();
-        // $checkuser = DB::table('caps1ratings')->where('id', $panelid)->count() < 1;
-
-
-        // $status1 = "PENDING";
-
-
-        // if ($checkuser) {
-        //     $ratecaps1 = new Caps1rating();
-        //     $ratecaps1->capstone1_id = $id;
-        //     $ratecaps1->user_id = $idauth;
-        //     $ratecaps1->xf1 = $status1;
-        //     $ratecaps1->save();
-        // }
 
         $status1 = "PENDING";
-        $total  = 0;
+        $total = 0;
 
 
 

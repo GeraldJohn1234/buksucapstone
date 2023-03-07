@@ -4,10 +4,6 @@
       <div class="forInline capsList">CAPSTONE LIST</div>
 
       <div class="forInline float-end">
-        <!-- <router-link class="nav_link" to="/project">
-          <button type="button" class="btn btn-primary box1">CREATE</button>
-        </router-link> -->
-
         <button type="button" class="btn btn-primary box1" @click="project()">
           CREATE
         </button>
@@ -25,8 +21,6 @@
           aria-describedby="search-addon"
           v-model="capslistt.searching"
         />
-
-        <!-- <button type="button" class="btn btn-outline-primary">search</button> col-12 col-sm-8 col-md-4-->
       </div>
 
       <div class="float-end topM">
@@ -58,57 +52,44 @@
           <th class="col text-center">YEAR LEVEL</th>
           <th class="col text-center">SCHOOL YEAR</th>
           <th class="col text-center">STATUS</th>
-          <th class="col-3 text-center px-5">ACTION</th>
+          <th class="col text-center px-5">ACTION</th>
         </tr>
       </thead>
 
       <tbody class="colorNeh">
         <tr v-for="(item, index) in projects" :key="item.id">
           <template v-if="index <= limitlist">
-            <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
             <td class="text-center align-middle">{{ index + 1 }}</td>
             <td class="align-middle text-uppercase">{{ item.title }}</td>
             <td class="text-center align-middle text-uppercase">
               {{ item.groupname }}
             </td>
-            <td class="align-middle text-center text-uppercase">{{ item.xf1 }}</td>
-            <td class="text-center align-middle text-uppercase">{{ item.xf3 }}</td>
-            <td class="text-center align-middle text-uppercase">{{ item.xf2 }}</td>
+            <td class="align-middle text-center text-uppercase">
+              {{ item.xf1 }}
+            </td>
+            <td class="text-center align-middle text-uppercase">
+              {{ item.xf3 }}
+            </td>
+            <td class="text-center align-middle text-uppercase">
+              {{ item.xf2 }}
+            </td>
 
             <td class="text-center align-middle">
               <ul class="nav row">
-                <li class="col-lg-4 col-sm-12 col-md-12">
-                  <button
-                    type="button"
-                    class="btn btn-outline-success button1 my-1 fw-bold"
-                    @click="viewCap(item.id)"
-                  >
-                    <!-- @click="onView(item.id)" -->
-                    <!-- <span class="text-dark fw-bold"></span> -->
-                    VIEW
-                  </button>
+                <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                  <i class="btn btn-outline-dark" @click="viewCap(item.id)">
+                    <font-awesome-icon icon="fa-solid fa-eye" />
+                  </i>
                 </li>
-                <li class="col-lg-4 col-sm-12 col-md-12">
-                  <button
-                    type="button"
-                    class="btn btn-outline-primary button1 my-1 fw-bold"
-                    @click="edithCap(item.id)"
-                  >
-                    <!-- @click="onEdith(item.id)" -->
-
-                    <!-- <span class="text-dark fw-bold"></span> -->
-                    UPDATE
-                  </button>
+                <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                  <i class="btn btn-outline-primary" @click="edithCap(item.id)">
+                    <font-awesome-icon icon="fa-solid fa-edit" />
+                  </i>
                 </li>
-                <li class="col-lg-4 col-sm-12 col-md-12">
-                  <button
-                    type="button"
-                    class="btn btn-outline-warning button1 my-1 fw-bold"
-                    @click="deleteCapstone(item.id)"
-                  >
-                    DELETE
-                    <!-- <span class="text-dark fw-bold"></span> -->
-                  </button>
+                <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                  <i class="btn btn-outline-danger" @click="deleteCapstone(item.id)">
+                    <font-awesome-icon icon="fa-solid fa-trash" />
+                  </i>
                 </li>
               </ul>
             </td>
@@ -117,36 +98,12 @@
       </tbody>
     </table>
     <hr class="topHi" />
-    <!-- <div class="">
-      <a href="#" class="previous">&laquo; Previous</a>
-      <a href="#" class="next">Next &raquo;</a>
-
-      <div class="float-end">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Row visible: </span>
-          <select
-            class="form-select inline-block box1"
-            v-model="limitlist"
-            id="inputGroupSelect01"
-          >
-            <option selected>Choose...</option>
-            <option value="4">5</option>
-            <option value="9">10</option>
-            <option value="14">15</option>
-            <option value="19">20</option>
-            <option value="10000">all</option>
-          </select>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script setup>
 import router from "../../routers/administratorRouter";
 import { onMounted, reactive, ref, watch } from "vue";
-
-// import { reactive, ref, watch } from "vue";
 
 let projects = ref([]);
 
@@ -156,22 +113,12 @@ let limitlist = 10000;
 const capslistt = reactive({ searching: null });
 const capslisttsort = reactive({ sorting: null });
 
-// const listt = reactive({ limitlist: 9 });
-
-// watch(listt, (newValue, oldValue) => {
-//   console.log(newValue, oldValue);
-//   // dataCapstone();
-//   dataCapstone();
-//   // dataCapstonesort();
-// });
 onMounted(async () => {
-  // getCapstone();
   dataCapstone();
 });
 watch(capslistt, (newValue, oldValue) => {
   console.log(newValue, oldValue);
   dataCapstone();
-  // dataCapstonesort();
 });
 watch(capslisttsort, (newValue, oldValue) => {
   console.log(newValue, oldValue);
@@ -186,10 +133,6 @@ const dataCapstone = async () => {
 
     .then((response) => {
       projects.value = response.data.capstones;
-      // toast.fire({
-      //   icon: "success",
-      //   title: "SOMETHING WRONG",
-      // });
     })
 
     .catch(function (error) {
@@ -204,10 +147,6 @@ const dataCapstonesort = async () => {
 
     .then((response) => {
       projects.value = response.data.capstones;
-      // toast.fire({
-      //   icon: "success",
-      //   title: "SOMETHING WRONG",
-      // });
     })
 
     .catch(function (error) {
@@ -217,44 +156,11 @@ const dataCapstonesort = async () => {
 
 const edithCap = (id) => {
   router.push("/editcap/" + id);
-  // axios
-  //   .post("/api/create_capstone_proj/" + id)
-  //   .then((response) => {
-  //     router.push("/editcap/" + id);
-  //   })
-
-  //   .catch(function (error) {
-  //     console.log(error.response.data.errors);
-  //     console.log("ERRRR:: ", error.response.data);
-
-  //     toast.fire({
-  //       icon: "warning",
-  //       title: "SOMETHING WRONG",
-  //     });
-  //   });
 };
 
 const viewCap = (id) => {
   router.push("/viewcap/" + id);
-  // axios
-  //   .post("/api/create_capstone_proj/" + id)
-  //   .then((response) => {
-  //     router.push("/viewcap/" + id);
-  //   })
-
-  //   .catch(function (error) {
-  //     console.log(error.response.data.errors);
-  //     console.log("ERRRR:: ", error.response.data);
-
-  //     toast.fire({
-  //       icon: "warning",
-  //       title: "SOMETHING WRONG",
-  //     });
-  //   });
 };
-// .post("/api/add_capstonee1", {
-//           texttext: this.getCapstoneData() + this.textcontent,
-//         })
 
 const project = () => {
   const formData = new FormData();
@@ -263,10 +169,6 @@ const project = () => {
     .post("/api/add_capstonee1", formData)
     .then((response) => {
       router.push("/project");
-      // toast.fire({
-      //   icon: "success",
-      //   title: "ALL GOODS",
-      // });
     })
 
     .catch(function (error) {
@@ -279,24 +181,6 @@ const project = () => {
       });
     });
 };
-
-// const getCapstoneSearch = async () => {
-//   let iddd = window.location.pathname.split("/")[2];
-//   const formData = new FormData();
-//   formData.append("searching");
-//   let response = await axios.get("/api/get_all_capstone_search");
-//   projects.value = response.data.capstones;
-// };
-// const getCapstone = async () => {
-//   const formData = new FormData();
-//   let response = await axios.get("/api/get_all_capstone/" + capslistt.value.searching);
-//   projects.value = response.data.capstones;
-// };
-
-// const getCapstone = async () => {
-//   let response = await axios.get("/api/get_all_capstone");
-//   projects.value = response.data.capstones;
-// };
 
 const deleteCapstone = (id) => {
   Swal.fire({
@@ -313,15 +197,10 @@ const deleteCapstone = (id) => {
         .get("/api/delete_capstone/" + id)
         .then(() => {
           Swal.fire("Delete", "Capstone delete successfully", "success");
-          // getCapstone();
-          // dataCapstone();
+
           location.reload();
         })
-        // .catch(() => {
-        //   console.log(error.response.data.errors);
-        //   console.log("ERRRR:: ", error.response.data);
-        //   Swal.fire("Failed!", "There was Something Wrongcdcdcdcdcdcdc.", "Warning");
-        // });
+
         .catch(function (error) {
           console.log(error.response.data.errors);
           console.log("ERRRR:: ", error.response.data);
@@ -340,9 +219,11 @@ const deleteCapstone = (id) => {
 .scrollme {
   overflow-x: auto;
 }
+
 .forInline {
   display: inline-block;
 }
+
 .topM {
   margin-top: -42px;
 }
@@ -354,10 +235,12 @@ const deleteCapstone = (id) => {
   border-radius: 10px !important;
   padding: 10px;
 }
+
 .botM {
   padding: 10px;
   margin-right: 10px;
 }
+
 .box1 {
   width: 175px;
 }
@@ -367,6 +250,7 @@ const deleteCapstone = (id) => {
   margin-right: 10px;
   margin-left: 10px;
 }
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -391,6 +275,7 @@ a:hover {
 .round {
   border-radius: 50%;
 }
+
 .button1 {
   padding: 5px 24px;
   margin-top: -15px;
@@ -398,10 +283,12 @@ a:hover {
   margin-left: -55px;
   margin-right: -55px;
 }
+
 .mtop {
   margin-top: -10px;
   margin-right: -15px;
 }
+
 .capsList {
   margin-top: 5px;
 }

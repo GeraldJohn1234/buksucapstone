@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
-    //add_topic  uploader_id
     public function add_topic(Request $request)
     {
 
@@ -19,12 +18,9 @@ class TopicController extends Controller
         $clientC = "No Data";
         $clientL = "No Data";
         $x = "No Data";
-        // $id = Auth::user()->id;
+    
 
         $users = Auth::user()->id;
-        // $id = 1;
-        // $users = User::find($id);
-
         $topic = new Topic();
 
         $topic->title = $request->title;
@@ -70,8 +66,6 @@ class TopicController extends Controller
         $id = Auth::user()->id;
         $idd = $request->id;;
         
-
-        // $topic = new Topic();
         $topic = Topic::find($idd);
 
         $topic->title = $request->title;
@@ -99,9 +93,6 @@ class TopicController extends Controller
         } else {
             $topic->xf1 = $request->xf1;
         }
-        // $topic->status = $status;
-        // $topic->uploader_id = $id;
-
         $topic->save();
     }
 
@@ -153,9 +144,6 @@ class TopicController extends Controller
     }
     public function get_topic($id)
     {
-        // $idauth = Auth::user()->id;
-        // $panelid = DB::table('caps1ratings')->where('capstone1_id', $id)
-        //     ->where('user_id', $idauth)->pluck('id')->first();
 
         $topic = Topic::find($id);
         return response()->json([
@@ -167,7 +155,6 @@ class TopicController extends Controller
     public function delete_topic($id)
     {
         $topic = Topic::findOrFail($id);
-        // $topic->user()->detach();
         $topic->delete();
     }
     public function get_capstone_topic($id)
@@ -186,7 +173,6 @@ class TopicController extends Controller
         $id = Auth::user()->id;
 
         $capstone = new Capstone();
-
         $capstone->groupname = $request->groupname;
         $capstone->title = $request->title;
         $capstone->abstract = $request->abstract;
@@ -196,8 +182,6 @@ class TopicController extends Controller
         $capstone->save();
 
 
-        
-        // $capstone = $request->id;
         $capstone->user()->attach($id, ['role_person' => 'student1']);
         $capstone->user()->attach($request->students2, ['role_person' => 'students2']);
         $capstone->user()->attach($request->students3, ['role_person' => 'students3']);
@@ -211,9 +195,6 @@ class TopicController extends Controller
         $capstone->user()->attach($request->secretarys, ['role_person' => 'secretarys']);
 
 
-        // $capstone->user()->attach($request->students1, ['cert_number' => $cert_number]);
-
-        // $user->roles()->attach($capstoneID);
     }
 
 
@@ -229,7 +210,3 @@ class TopicController extends Controller
         $topic->save();
     }
 }
-// 'client_name' => $this->client_name,
-// 'title' => $this->title,
-// 'abstract' => $this->abstract
-// get_capstone_topic   take_topic

@@ -2,10 +2,7 @@
   <div class="row">
     <div class="contentOfThePage caps1Side col-7">
       <h5 class="text-left boldThese">CAPSTONE 1</h5>
-      <!-- width="560"
-          height="315" 
-           src="https://www.youtube.com/embed/AbBk5r_i9WQ"
-          -->
+
       <section>
         <iframe
           alt="Video"
@@ -16,14 +13,6 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-        <!-- <iframe
-         class="sizeVideo"
-          src="https://www.youtube.com/embed/VrxrzH3V4vE"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
       </section>
       <h5 class="text-left boldThese text-center">HOW TO GET EMBED LINK ON YOUTUBE</h5>
       <h5 class="text-left boldThese ml-2">Guide to Add link</h5>
@@ -43,15 +32,6 @@
 
       <hr />
       <section>
-        <!-- <iframe
-          alt="Video"
-          class="sizeVideo"
-          :src="embedSource()"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
         <iframe
           class="sizeVideo"
           src="https://www.youtube.com/embed/zgBN0bx4Hak?start=182"
@@ -60,14 +40,6 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-        <!-- <iframe
-         class="sizeVideo"
-          src="https://www.youtube.com/embed/VrxrzH3V4vE"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
       </section>
       <h5 class="text-left boldThese text-zzyycenter">
         HOW TO GET EMBED LINK ON GOOGLE DRIVE
@@ -82,12 +54,6 @@
           <span class="colorLink"
             >https://docs.google.com/document/d/e/2PACX-1vQcbThqknMjD53cvBretnA-55e3XQbnz-E5d8SUWDYvgSNPJZRbSHKImH6RP68kJw/pub?embedded=true</span
           >" &gt;&lt;/iframe &gt;
-
-          <!-- &lt;iframe width="560" height="315" '\n' src="
-          <span class="colorLink">https://www.youtube.com/embed/AbBk5r_i9WQ</span>"
-          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-          clipboard-wr ite; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen &gt;&lt;/iframe &gt; -->
         </p>
         <p>4. COPY the embed link that highlight above.</p>
       </div>
@@ -95,8 +61,6 @@
     </div>
 
     <div class="col contentOfThePage">
-      <!-- <hr /> -->
-
       <h5 class="text-left boldThese ml-2">EMBED LINKS:</h5>
       <hr />
       <div class="form-floating col">
@@ -114,15 +78,6 @@
         >
         <br />
       </div>
-
-      <!-- <input type="url" placeholder="Website url" v-model="formcaps1.revise_manuscript"  @input="change($event)"
-      @change="change($event)"/>
-    <div class="error" v-if="!isValid">URL is Invalid</div> -->
-
-      <!-- var regex = /^(http|https):\/\/[w\d]+\.[\w](\/[\w\d]+)?$/;
-const str = "http://www.google";
-
-console.log(regex.test(str)); -->
 
       <div class="form-floating col">
         <textarea
@@ -278,8 +233,6 @@ console.log(regex.test(str)); -->
         </div>
       </div>
       <div class="col">
-        <!-- <h5 class="text-left boldThese ml-2">STATUS</h5> -->
-        <!-- <hr /> -->
         <label for="status" class="form-label">Choose Status</label>
         <div class="input-group mb-3">
           <select
@@ -287,14 +240,12 @@ console.log(regex.test(str)); -->
             id="inputGroupSelect01"
             v-model="formcaps1.status"
           >
-            <!-- <option selected>Choose...</option> -->
             <option value="Working Chapter 1,2,3">Working Chapter 1,2,3</option>
             <option value="Under-Revision">Under-Revision</option>
             <option value="Done-Approved">Done-Approved</option>
           </select>
         </div>
       </div>
-      <!-- class="col-12 inputColor" -->
 
       <div class="col">
         <h5 for="status" class="form-label">Status</h5>
@@ -313,7 +264,6 @@ console.log(regex.test(str)); -->
         <button type="button" class="btn btnW btn-primary" @click="saveCapstone1()">
           SAVE
         </button>
-        <!-- <button type="button" class="btn btnW btn-primary" @click="touch()">TOUCH</button> -->
       </div>
     </div>
   </div>
@@ -338,41 +288,9 @@ let formcaps1 = ref({
   propose_date: "",
 });
 
-// const date = ref({
-//   date: "",
-// });
-
 let caps1Instructor = ref({
   instruct: "",
 });
-// const caps2Inst = () => {
-//   let capstoneid = getIDfromURL();
-
-//   const formData = new FormData();
-
-//   formData.append("instructor", caps1Instructor.value.instruct);
-
-//   axios
-//     .post("/api/capstone_instructor1/" + capstoneid, formData)
-//     .then((response) => {
-//       (caps1Instructor.value.instruct = ""),
-//         toast.fire({
-//           icon: "success",
-//           title: "User Add Successfully",
-//         });
-//     })
-//     // .catch((error = {}));
-//     .catch(function (error) {
-//       console.log(error.response.data.errors);
-//       console.log("ERRRR:: ", error.response.data);
-
-//       toast.fire({
-//         icon: "warning",
-//         title: caps1Instructor.value.instruct,
-//         // title: capstoneid,
-//       });
-//     });
-// };
 
 let instructor = ref({
   name: "",
@@ -385,7 +303,6 @@ const touch = async () => {
   let idd = caps1Instructor.value.instruct;
   let response = await axios.get("/api/get_capstone_inst/" + idd);
 
-  // console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
   instructor.value = response.data.userCaps;
   let fullname =
     instructor.value.name + " " + instructor.value.mname + " " + instructor.value.lname;
@@ -398,7 +315,7 @@ const touch = async () => {
     .then((response) => {
       caps1Instructor.value.instruct = "";
     })
-    // .catch((error = {}));
+
     .catch(function (error) {
       console.log(error.response.data.errors);
       console.log("ERRRR:: ", error.response.data);
@@ -406,39 +323,9 @@ const touch = async () => {
       toast.fire({
         icon: "warning",
         title: caps1Instructor.value.instruct,
-        // title: capstoneid,
       });
     });
 };
-// toast.fire({
-//   icon: "warning",
-//   title: fullname,
-// });
-// console.warn("TYTRTYTRYTRYTRY", rated.value.id);
-// if (rated.value.id == 1) {
-//   axios
-//     .post("/api/create_rate/" + idd)
-//     .then((response) => {
-//       // router.push("/rate/" + idd);
-//       router.push("/capstone2/" + id);
-//     })
-//     // router.push("/rate/" + idd);
-
-//     .catch(function (error) {
-//       console.log(error.response.data.errors);
-//       console.log("ERRRR:: ", error.response.data);
-
-//       toast.fire({
-//         icon: "warning",
-//         title: "SOMETHING WRONG",
-//       });
-//     });
-// } else {
-//   toast.fire({
-//     icon: "warning",
-//     title: "Sorry, You're not one of the Panelist",
-//   });
-// }
 
 const getInstructor = async () => {
   let response = await axios.get("/api/get_all_instructor_user");
@@ -467,11 +354,6 @@ const getCapston1Data = async () => {
   formcaps1.value = response.data.capstone11111;
   console.warn("CAPSTON 1", formcaps1.value);
 };
-
-// let id = window.location.pathname.split("/")[2];
-//       axios.get("/api/get_capstonee1/" + id).then((response) => {
-//         this.caps = response.data.capstone11111;
-//       });
 
 const saveCapstone1 = () => {
   let capstoneid = getIDfromURL();
@@ -509,9 +391,8 @@ const saveCapstone1 = () => {
         (formcaps1.value.acceptance_of_panel = ""),
         (formcaps1.value.propose_date = ""),
         (capstoneid = ""),
-        // router.push("/create");
         getCapston1Data();
-      // caps2Inst();
+
       touch();
 
       toast.fire({
@@ -519,7 +400,7 @@ const saveCapstone1 = () => {
         title: "Capstone Embed links, Add Successfully",
       });
     })
-    // .catch((error = {}));
+
     .catch(function (error) {
       console.log(error.response.data.errors);
       console.log("ERRRR:: ", error.response.data);
@@ -528,10 +409,7 @@ const saveCapstone1 = () => {
         icon: "warning",
         title: "User Add Unsuccessful",
       });
-      // (error = {}));
-      // console.log("ERRRR:: ",error.response.data);
     });
-  // console.log("ERRRR:: ",error.response.data);
 };
 
 const embedSource = () => {

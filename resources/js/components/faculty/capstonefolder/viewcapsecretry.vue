@@ -1,5 +1,5 @@
 <template>
-  <!-- <button class="col-12" @click="testlink()">TAPPP</button> -->
+
   <div class="contentOfThePage bg-light p-2">
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">
@@ -9,46 +9,14 @@
       <p class="toTopp boldThese">TITLE</p>
     </div>
 
-    <!-- <div class="form-floating col">
-        <textarea
-          class="form-control inputColor"
-          placeholder="Leave a comment here"
-          id="floatingTextarea2"
-          style="height: 250px"
-          v-model="GenCapData.abstract"
-        ></textarea>
-        <label class="ps-4" for="floatingTextarea2">Abstract</label>
-        <br />
-      </div> -->
-    <!-- <P class="text-left boldThese">INFORMATION</P> -->
+  
     <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
 
     <div class="contentOfThePage bg-light p-2">
       <p class="parag m-3">{{ GenCapData.abstract }}</p>
       <hr />
 
-      <!-- <a href="#" @click.prevent="getFileeee()">tryyyyyyyyyyyyyyyyy</a> -->
-      <!-- <a href="#" @click.prevent="getFileeee()">fsff</a> -->
-
-      <!-- <div v-if="GenCapData.name === 'AGREE'" class="row text-center px-2">
-        <button
-          type="button"
-          href="#"
-          class="btn btn-primary col fw-bold"
-          @click.prevent="getFileeee()"
-        >
-          OPEN MANUSCRIPT
-        </button>
-      </div>
-      <div v-else class="row text-center px-2">
-        <button
-          type="button"
-          class="btn btn-warning col fw-bold border border-dark"
-          @click="warning()"
-        >
-          OPEN MANUSCRIPT
-        </button>
-      </div> -->
+      
     </div>
 
     <br />
@@ -61,25 +29,10 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Group Name</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-            v-model="GenCapData.groupname"
-          />
-          <label class="ps-4" for="floatingInput">Group Name</label> -->
+       
       </div>
       <div class="form-floating mb-3 col">
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-            v-model="student1['name'+'mname']"
-  
-          />
-          <label class="ps-4" for="floatingInput">Instructor</label> -->
+        
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercase">
             {{ GenCapData.xf3 }}
@@ -98,14 +51,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Adviser</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-           
-          />
-          <label class="ps-4" for="floatingInput">Adviser</label> -->
+      
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -115,14 +61,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Co-Adviser</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          
-          />
-          <label class="ps-4" for="floatingInput">Co-Adviser</label> -->
+    
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -152,13 +91,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Panel 1</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Panel 1</label> -->
+     
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -168,13 +101,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Panel 2</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Panel 2</label> -->
+      
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -184,13 +111,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Panel 3</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Panel 3</label> -->
+        
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -200,13 +121,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Secretary</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Secretary</label> -->
+     
       </div>
     </div>
 
@@ -219,13 +134,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Proponent 1</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Member</label> -->
+      
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -235,13 +144,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Proponent 2</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Member</label> -->
+        
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -251,13 +154,7 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Proponent 3</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Member</label> -->
+      
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -267,23 +164,13 @@
           <hr class="toTop" />
           <p class="toTopp boldThese">Proponent 4</p>
         </div>
-        <!-- <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label class="ps-4" for="floatingInput">Member</label> -->
+  
       </div>
     </div>
-    <!-- <div class="row">
-        <div class="col">
-          <button type="button" class="m-1 btnSize btn btn-primary">Save</button>
-        </div>
-      </div> -->
+
 
     <div class="row paddingSide mt-3">
-      <div class="col row mx-2 contentOfThePage">
+      <div class="col row mx-2 contentOfThePage mb-2">
         <div class="col-12 text-center">
           <label for="view" class="m-2 fw-bold">Capstone 1</label>
         </div>
@@ -315,7 +202,7 @@
           NOT YET UPLOADED
         </button>
       </div>
-      <div class="col row mx-2 contentOfThePage">
+      <div class="col row mx-2 contentOfThePage mb-2">
         <div class="col-12 text-center">
           <label for="view" class="m-2 fw-bold">Capstone 1</label>
         </div>
@@ -347,7 +234,7 @@
           NOT YET UPLOADED
         </button>
       </div>
-      <div class="col row mx-2 contentOfThePage">
+      <div class="col row mx-2 contentOfThePage mb-2">
         <div class="col-12 text-center">
           <label for="view" class="m-2 fw-bold">Capstone 1</label>
         </div>
@@ -383,24 +270,7 @@
 
     <br />
 
-    <!-- <div class="row margin contentOfThePage text-center">
-        <div class="col">
-          <label for="update" class="m-1"
-            >DOUCUMENTS THROUGHT OCTICAL CHARACTER RECOGNITION</label
-          >
   
-          <button
-            type="button"
-            class="m-1 btnSize btn btn-primary"
-            @click="onUpdate3()"
-          >
-            UPDATE
-          </button>
-          <button type="button" class="m-1 btnSize btn btn-primary" @click="viewOcr()">
-            VIEW
-          </button>
-        </div>
-      </div> -->
   </div>
 </template>
 
@@ -408,10 +278,7 @@
 import router from "../../../routers/facultyRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
-// import pdf from "vue-pdf";
-// components: {
-//   pdf;
-// }
+
 const getMinutes1 = () => {
   let link = window.location.pathname.split("/")[0];
   window.open(link + "/pdfminutes1/" + caps1.value.minutes1, "_blank");
@@ -427,10 +294,7 @@ const getMinutes3 = () => {
 let DocumentType = ref({
   file: "",
 });
-// const getfiles = async () => {
-//   let response = await axios.get("/api/showpdf/");
-//   DocumentType.value.file = response.data.file;
-// };
+
 
 let GenCapData = ref({
   title: "",
@@ -524,7 +388,7 @@ let secretarys = ref({
 
 onMounted(async () => {
   getsingleUser();
-  // getfiles();
+
   getsingleUser1();
   getsingleUser2();
   getsingleUser3();
@@ -559,7 +423,7 @@ const getcaps3minutes = async () => {
 
 const caps1minutes = () => {
   let capstoneid = window.location.pathname.split("/")[2];
-  //   caps1.value.minutes1
+
 
   if (caps1.value.minutes1 != null) {
     const formData = new FormData();
@@ -594,7 +458,7 @@ const caps1minutes = () => {
 };
 const caps2minutes = () => {
   let capstoneid = window.location.pathname.split("/")[2];
-  //   caps1.value.minutes1
+
 
   if (caps2.value.minutes1 != null) {
     const formData = new FormData();
@@ -629,7 +493,7 @@ const caps2minutes = () => {
 };
 const caps3minutes = () => {
   let capstoneid = window.location.pathname.split("/")[2];
-  //   caps1.value.minutes1
+ 
 
   if (caps3.value.minutes1 != null) {
     const formData = new FormData();
@@ -667,7 +531,7 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + props.id);
   GenCapData.value = response.data.capstones;
 
-  // GenCaps.value = response.data.userCaps;  1667371804.5. File Containing the Screenshot of the gcash payment to the panel.docx
+  
   console.warn("Caps", GenCapData.value);
 };
 
@@ -729,14 +593,7 @@ const props = defineProps({
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
-// const testlink = () => {
-//   let link = window.location.pathname.split("/")[1];
 
-//   toast.fire({
-//     icon: "warning",
-//     title: "LINK IS" + link,
-//   });
-// };
 
 const onView1 = () => {
   let id = getIDfromURL();
@@ -761,45 +618,7 @@ const warning = () => {
     title: "Please upload the minutes first!",
   });
 };
-// const checkProponents = async () => {
-//   let idd = getIDfromURL();
-//   let response = await axios.get("/api/checkproponent/" + idd);
-//   // console.warn("XFFFFFFFFF22222222", GenCadocu123.value.xf2);
-//   // rated.value = response.data.userCaps;
-//   let idss = response.data;
-//   console.warn("IDDDDDDDDDDSSSS", idss);
-//   toast.fire({
-//     icon: "success",
-//     title: "IDDD is" + idss,
-//   });
-//   //   if (idss == 1) {
-//   //     // axios
-//   //     //   .post("/api/create_rate/" + idd)
-//   //     //   .then((response) => {
-//   //     //     router.push("/rate/" + idd);
-//   //     //   })
-//   //     //   // router.push("/rate/" + idd);
 
-//   //     //   .catch(function (error) {
-//   //     //     console.log(error.response.data.errors);
-//   //     //     console.log("ERRRR:: ", error.response.data);
-
-//   //     //     toast.fire({
-//   //     //       icon: "warning",
-//   //     //       title: "SOMETHING WRONG",
-//   //     //     });
-//   //     //   });
-//   //     toast.fire({
-//   //       icon: "success",
-//   //       title: "",
-//   //     });
-//   //   } else {
-//   //     toast.fire({
-//   //       icon: "warning",
-//   //       title: "Sorry, You're not one of the Panelist",
-//   //     });
-//   //   }
-// };
 </script>
 
 <style>

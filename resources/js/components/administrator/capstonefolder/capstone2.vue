@@ -16,12 +16,7 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Capstone Adviser Appointment Form</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="appForm()"
-          >
-            OPEN
-          </button> -->
+
 
           <button
             v-if="
@@ -43,12 +38,7 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Minutes of the Propotype Defense</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="minutes()"
-          >
-            OPEN
-          </button> -->
+
           <button
             v-if="
               GenCadocu123.proto_minutes === null || GenCadocu123.proto_minutes === 'null'
@@ -68,12 +58,7 @@
         </div>
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>Action Done Matrix of Prototype Defense</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="done()"
-          >
-            OPEN
-          </button> -->
+    
           <button
             v-if="
               GenCadocu123.proto_matrix === null || GenCadocu123.proto_matrix === 'null'
@@ -97,12 +82,7 @@
       <div class="row px-2">
         <div class="col contentOfThePage m-1 text-center position-relative minHeight">
           <p>System Demo Recorded Video/ Recording of the Live Demo during defense</p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="recordProposal()"
-          >
-            OPEN
-          </button> -->
+  
 
           <button
             v-if="
@@ -125,12 +105,7 @@
           <p>
             Capstone 2 File Containing the Screenshot of the gcash payment to the panel
           </p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="ssPayment()"
-          >
-            OPEN
-          </button> -->
+    
 
           <button
             v-if="
@@ -154,12 +129,7 @@
             File Containing the Screenshot of the acceptance of the panel to the revision
             done to the system
           </p>
-          <!-- <button
-            class="btn btn-primary w-100 position-absolute bottom-0 start-0"
-            @click="ssAccept()"
-          >
-            OPEN
-          </button> -->
+    
           <button
             v-if="
               GenCadocu123.acceptance_ss === null || GenCadocu123.acceptance_ss === 'null'
@@ -283,80 +253,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="row m-2">
-        <div class="col contentOfThePage m-1 text-center position-relative minHeight">
-          <p class="text-uppercase panelH">
-            {{ panels1.name }} {{ panels1.mname }} {{ panels1.lname }}
-          </p>
-          <p class="fw-bold">{{ ratee1.total }} %</p>
-          <br />
-          
-
-          <div v-if="ratee1.xf1 === 'PENDING'">
-            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
-              {{ ratee1.xf1 }}
-            </button>
-          </div>
-          <div v-else-if="ratee1.xf1 === 'APPROVED'">
-            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
-              {{ ratee1.xf1 }}
-            </button>
-          </div>
-          <div v-else>
-            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
-              {{ ratee1.xf1 }}
-            </button>
-          </div>
-        </div>
-
-        <div class="col contentOfThePage m-1 text-center position-relative minHeight">
-          <p class="text-uppercase panelH">
-            {{ panels2.name }} {{ panels2.mname }} {{ panels2.lname }}
-          </p>
-          <p class="fw-bold">{{ ratee2.total }} %</p>
-          <br />
-        
-          <div v-if="ratee2.xf1 === 'PENDING'">
-            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
-              {{ ratee2.xf1 }}
-            </button>
-          </div>
-          <div v-else-if="ratee2.xf1 === 'APPROVED'">
-            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
-              {{ ratee2.xf1 }}
-            </button>
-          </div>
-          <div v-else>
-            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
-              {{ ratee2.xf1 }}
-            </button>
-          </div>
-        </div>
-
-        <div class="col contentOfThePage m-1 text-center position-relative minHeight">
-          <p class="text-uppercase panelH">
-            {{ panels3.name }} {{ panels3.mname }} {{ panels3.lname }}
-          </p>
-          <p class="fw-bold">{{ ratee3.total }} %</p>
-          <br />
-         
-          <div v-if="ratee3.xf1 === 'PENDING'">
-            <button class="btn btn-warning w-100 position-absolute bottom-0 start-0">
-              {{ ratee3.xf1 }}
-            </button>
-          </div>
-          <div v-else-if="ratee3.xf1 === 'APPROVED'">
-            <button class="btn btn-success w-100 position-absolute bottom-0 start-0">
-              {{ ratee3.xf1 }}
-            </button>
-          </div>
-          <div v-else>
-            <button class="btn btn-primary w-100 position-absolute bottom-0 start-0">
-              {{ ratee3.xf1 }}
-            </button>
-          </div>
-        </div>
-      </div> -->
+   
 
       <div class="" id="titleSize">
         <p class="pt-2 text-uppercase boldThese">
@@ -413,13 +310,7 @@
           <p class="toTopp">Instructor</p>
         </div>
 
-        <!-- <div class="" id="titleSize">
-          <p class="pt-2 text-uppercase boldThese">
-            {{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }}
-          </p>
-          <hr class="toTop" />
-          <p class="toTopp">Adviser</p>
-        </div> -->
+   
         <div class="" id="titleSize">
           <p
             v-if="adviser.name != null && adviser.mname != null && adviser.lname != null"
@@ -437,7 +328,7 @@
             class="pt-2 text-uppercase boldThese"
           >
             {{ capstone2data.prototype_date }}
-            <!-- April 25, 2022 -->
+        
           </p>
           <p v-else class="pt-2 text-uppercase boldThese">NOT SET</p>
           <hr class="toTop" />
@@ -531,7 +422,7 @@ let rated = ref({
 });
 
 onMounted(async () => {
-  // getIsstructor1();
+ 
 
   getsingleUser();
   getsingleUser7();
@@ -546,40 +437,11 @@ onMounted(async () => {
   getcaps123();
 });
 
-// let instruct = ref({
-//   name: "",
-//   mname: "",
-//   lname: "",
-// });
-// const getIsstructor1 = async () => {
-//   let capstoneid = getIDfromURL();
-//   let response = await axios.get("/api/get_capstone_instructor2/" + capstoneid);
-//   instruct.value = response.data.instruct;
-// };
-// const getsingleUser7 = async () => {
-//   let capstoneid = getIDfromURL();
-//   let response = await axios.get("/api/get_capstone_adviser/" + capstoneid);
-//   adviser.value = response.data.userCaps;
-// };
-// const getsingleUser4 = async () => {
-//   let capstoneid = getIDfromURL();
-//   let response = await axios.get("/api/get_capstone_panels1/" + capstoneid);
-//   panels1.value = response.data.userCaps;
-// };
-// const getsingleUser5 = async () => {
-//   let capstoneid = getIDfromURL();
-//   let response = await axios.get("/api/get_capstone_panels2/" + capstoneid);
-//   panels2.value = response.data.userCaps;
-// };
-// const getsingleUser6 = async () => {
-//   let capstoneid = getIDfromURL();
-//   let response = await axios.get("/api/get_capstone_panels3/" + capstoneid);
-//   panels3.value = response.data.userCaps;
-// };
+
 const getsingleUser7 = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_capstone_adviser/" + capstoneid);
-  // adviser.value = response.data.userCaps;
+ 
 
   let nullneh;
   nullneh = response.data.userCaps;
@@ -626,7 +488,7 @@ const panelrates1 = async () => {
     ratee1.value = response.data.panelrate1;
   }
 
-  // console.warn("111111111111111111", ratee1.value);
+
 };
 const panelrates2 = async () => {
   let capstoneid = getIDfromURL();
@@ -637,7 +499,7 @@ const panelrates2 = async () => {
   if (nullneh != null) {
     ratee2.value = response.data.panelrate2;
   }
-  // console.warn("2222222222222222222", ratee2.value);
+
 };
 
 const panelrates3 = async () => {
@@ -650,7 +512,7 @@ const panelrates3 = async () => {
     ratee3.value = response.data.panelrate3;
   }
 
-  // console.warn("3333333333333333333", ratee3.value.xf1);
+  
 };
 
 const getcaps123 = async () => {
@@ -661,7 +523,7 @@ const getcaps123 = async () => {
   let intn = parseInt(GenCadocu123.value.xf3);
   let responsed = await axios.get("/api/get_edit_user/" + intn);
   instructorr.value = responsed.data.userrs;
-  // console.warn("3333333333333333333",  GenCadocu123.value);
+ 
 };
 
 const getIDfromURL = () => {
@@ -673,8 +535,7 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + capstoneid);
   GenCapData.value = response.data.capstones;
 
-  // GenCaps.value = response.data.userCaps;
-  // console.warn("Caps", GenCapData.value);
+
 };
 
 const getCapston2Data = async () => {
@@ -718,7 +579,7 @@ const rateddd = async () => {
   let idd = getIDfromURL();
   let response = await axios.get("/api/panel_rate_check/" + idd);
   console.warn("XFFFFFFFFF22222222", GenCadocu123.value.xf2);
-  // rated.value = response.data.userCaps;
+
   let idss = response.data;
   console.warn("IDDDDDDDDDD", idss);
   if (idss == 1) {
@@ -727,7 +588,7 @@ const rateddd = async () => {
       .then((response) => {
         router.push("/rate/" + idd);
       })
-      // router.push("/rate/" + idd);
+ 
 
       .catch(function (error) {
         console.log(error.response.data.errors);

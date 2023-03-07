@@ -15,7 +15,7 @@
       <p class="text-danger hidedd" :class="abstrctRedText">
         Invalid, Please fill out the abstract field
       </p>
-      <!-- <br /> -->
+
       <button
         type="button"
         class="m-1 btnSize btn btn-primary W-100 fw-bold"
@@ -58,16 +58,7 @@
           Invalid, Please fill out the groupname field
         </p>
       </div>
-      <!-- <div class="col">
-        <label for="lastname" class="form-label">Choose Year</label>
-        <div class="input-group mb-3">
-          <select class="form-control inputColor">
-            <option v-for="item in instructors" :key="item.id" :value="item.id">
-              {{ item.name }} {{ item.mname }} {{ item.lname }}
-            </option>
-          </select>
-        </div>
-      </div> -->
+     
       <div class="col-3">
         <label for="lastname" class="form-label">Project Status</label>
         <div class="input-group mb-3">
@@ -100,7 +91,7 @@
             <option selected disabled>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-            <!-- <option value="5th year">5th year</option> -->
+      
             <option value="Graduated">Graduated</option>
           </select>
         </div>
@@ -110,16 +101,14 @@
       </div>
       <div class="col">
         <label for="date" class="form-label">Capstone From:</label>
-        <!-- <input type="date" class="col-12 inputColor" v-model="GenCaps.start_date" /> -->
+   
         <Datepicker class="inputColor" v-model="year.fromYear" yearPicker />
       </div>
       <div class="col">
         <label for="date" class="form-label">Capstone To:</label>
-        <!-- <input type="date" class="col-12 inputColor" v-model="GenCaps.start_date" /> -->
+       
         <Datepicker class="inputColor" v-model="year.toYear" yearPicker />
-        <!-- <input type="text" v-model="fromYear" /> -->
-        <!-- <p>{{ year.toYear }}</p>
-        <p>{{ year.fromYear }}</p> -->
+    
       </div>
     </div>
 
@@ -138,7 +127,7 @@
               p1secRed.redColor,
           }"
         >
-          <!-- <div class="input-group" :class="p1p2Red"> -->
+       
           <select
             class="form-control inputColor"
             onfocus="this.size=8;"
@@ -146,12 +135,12 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.panels1"
           >
-            <!-- <option value="0">Select instructor</option> -->
+         
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
-          <!-- </div> -->
+        
         </div>
         <p class="text-danger hidedd" :class="panel1RedText">
           Invalid, Please fill out the panelist 1 field
@@ -172,7 +161,7 @@
           Invalid, Duplication of role
         </p>
       </div>
-      <!-- :class="panel2tRed" -->
+     
       <div class="col">
         <label for="panel2" class="form-label">Panel 2</label>
         <div
@@ -194,7 +183,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.panels2"
           >
-            <!-- <option value="0">Select instructor</option> -->
+          
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -242,7 +231,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.panels3"
           >
-            <!-- <option value="0">Select instructor</option> -->
+        
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -289,7 +278,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.secretarys"
           >
-            <!-- <option value="0">Select instructor</option> -->
+          
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -315,7 +304,7 @@
         </p>
       </div>
     </div>
-    <!--11111111111111111111111111111111111 -->
+
     <div class="row">
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
@@ -336,15 +325,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students1"
           >
-            <!-- <option value="0">Select instructor</option>
-             :class="{
-          redColor:
-          proponentsRed.redColor ||
-          s1s2Red.redColor ||
-          s1s3Red.redColor ||
-          s1s4Red.redColor 
-        }"
-            -->
+        
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -363,7 +344,7 @@
           Invalid, Duplication of role
         </p>
       </div>
-      <!--22222222222222222222222222222222 -->
+     
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div
@@ -383,7 +364,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students2"
           >
-            <!-- <option value="0">Select instructor</option> -->
+      
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -402,7 +383,7 @@
           Invalid, Duplication of role
         </p>
       </div>
-      <!--33333333333333333333333333333333333 -->
+   
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div
@@ -422,7 +403,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students3"
           >
-            <!-- <option value="0">Select instructor</option> -->
+          
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -441,7 +422,7 @@
           Invalid, Duplication of role
         </p>
       </div>
-      <!--444444444444444444444444444444 -->
+    
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div
@@ -461,7 +442,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students4"
           >
-            <!-- <option value="0">Select instructor</option> -->
+          
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -502,7 +483,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.adviser"
           >
-            <!-- <option value="0">Select instructor</option> -->
+        
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -543,7 +524,7 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.coAdviser"
           >
-            <!-- <option value="0">Select instructor</option> -->
+    
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -563,15 +544,7 @@
         </p>
       </div>
     </div>
-    <!-- <br> -->
-    <!-- <hr> -->
-    <!-- <div class="row">
-      <div class="col">
-        <button type="button" class="m-1 btnSize btn btn-primary fw-bold" @click="onOCR()">
-          Uploading Documentation through Octical Character Recognition
-        </button>
-      </div>
-    </div> -->
+    
     <hr />
     <div class="row">
       <div class="col">
@@ -799,10 +772,7 @@ let coadsecRed = ref({
 let coadsecRedText = ref({
   redText: false,
 });
-// let year;
-// const fromYear = ref(new Date().getFullYear());
-// const toYear = ref(new Date().getFullYear());
-// let fromYear = ref(new Date().getFullYear());
+
 
 const year = ref({
   toYear: ref(new Date().getFullYear()),
@@ -814,13 +784,7 @@ let students = ref({
   mname: "",
   lname: "",
 });
-// let schoolYear = year.value.fromYear + "-" + year.value.toYear;
-// const tryy = () => {
-//   toast.fire({
-//     icon: "success",
-//     title: schoolYear,
-//   });
-// };
+
 let caps = ref({
   ocr: null,
 });
@@ -856,18 +820,7 @@ onMounted(async () => {
   getInstructor();
   datato();
 });
-// const tryy = () => {
-//   axios.get("/api/get_capstonee1").then((response) => {
-//     caps.value = response.data.capstone11111;
-//   });
-//   // caps.value.ocr;
 
-//   toast.fire({
-//     icon: "warning",
-//     title: caps.value.ocr,
-//     // title: GenCaps.value.panels1,
-//   });
-// };
 
 const datato = async () => {
   let response = await axios.get("/api/get_capstonee1");
@@ -875,27 +828,7 @@ const datato = async () => {
 };
 
 const saveCaps = () => {
-  // if (GenCaps.value.students1 == null || GenCaps.value.students1 == 0) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, Please fill out the Proponet 1 field",
-  //   });
-  // } else if (GenCaps.value.students2 == null || GenCaps.value.students2 == 0) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, Please fill out the Proponet 2 field",
-  //   });
-  // } else if (GenCaps.value.students3 == null || GenCaps.value.students3 == 0) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, Please fill out the Proponet 3 field",
-  //   });
-  // } else if (GenCaps.value.students4 == null || GenCaps.value.students4 == 0) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, Please fill out the Proponet 4 field",
-  //   });
-  // }
+  
   if (caps.value.ocr == null || caps.value.ocr == "") {
     abstrctRed.value.redColor = true;
     abstrctRedText.value.redText = true;
@@ -1197,7 +1130,7 @@ const saveCaps = () => {
       icon: "warning",
       title: "Invalid, Please fill out the groupname field",
 
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.xf2 == null || GenCaps.value.xf2 == "") {
     abstrctRed.value.redColor = false;
@@ -1299,7 +1232,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the status field",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.xf1 == null || GenCaps.value.xf1 == "") {
     abstrctRed.value.redColor = false;
@@ -1401,7 +1334,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the year field",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels1 == null || GenCaps.value.panels1 == "") {
     abstrctRed.value.redColor = false;
@@ -1503,7 +1436,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the panel 1 field",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels2 == null || GenCaps.value.panels2 == "") {
     abstrctRed.value.redColor = false;
@@ -1605,7 +1538,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the panel 2 field",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels3 == null || GenCaps.value.panels3 == "") {
     abstrctRed.value.redColor = false;
@@ -1707,7 +1640,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the panel 3 field",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.secretarys == null || GenCaps.value.secretarys == "") {
     abstrctRed.value.redColor = false;
@@ -1809,9 +1742,9 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the secretarys field",
-      // title: GenCaps.value.panels1,
+      
     });
-    // Swal.fire("Duplication", "Invalid, duplicate in  panels1 and adviser", "warning");
+    
   } else if (
     GenCaps.value.students1 == null &&
     GenCaps.value.students2 == null &&
@@ -2018,16 +1951,10 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the adviser field",
-      // title: GenCaps.value.panels1,
+      
     });
   }
-  // else if (GenCaps.value.coAdviser == null || GenCaps.value.coAdviser == 0) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title:
-  //       "Invalid, Please fill out the Co-Adviser field, if none repeat the Adviser or choose temporary",
-  //   });
-  // }
+ 
   else if (GenCaps.value.panels1 == GenCaps.value.panels2) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
@@ -2128,7 +2055,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and panels2",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.panels3) {
     abstrctRed.value.redColor = false;
@@ -2230,7 +2157,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and panels3",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
@@ -2332,7 +2259,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and secretarys",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.adviser) {
     abstrctRed.value.redColor = false;
@@ -2433,7 +2360,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and adviser",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.coAdviser) {
     abstrctRed.value.redColor = false;
@@ -2535,16 +2462,10 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and coAdviser",
-      // title: GenCaps.value.panels1,
+      
     });
   }
-  // else if (GenCaps.value.panels1 == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role in field panels1 and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
+ 
   else if (GenCaps.value.panels2 == GenCaps.value.panels3) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
@@ -2645,7 +2566,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and panels3",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels2 == GenCaps.value.adviser) {
     abstrctRed.value.redColor = false;
@@ -2746,7 +2667,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and adviser",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels2 == GenCaps.value.coAdviser) {
     abstrctRed.value.redColor = false;
@@ -2848,16 +2769,10 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and coAdviser",
-      // title: GenCaps.value.panels1,
+      
     });
   }
-  // else if (GenCaps.value.panels2 == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role in field panels2 and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
+ 
   else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
@@ -2958,7 +2873,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and secretarys",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels3 == GenCaps.value.adviser) {
     abstrctRed.value.redColor = false;
@@ -3039,8 +2954,7 @@ const saveCaps = () => {
     p2secRed.value.redColor = false;
     p2secRedText.value.redText = false;
 
-    // titleRed.value.redColor = false;
-    // titleRedText.value.redText = false;
+  
 
     p3adRed.value.redColor = true;
     p3adRedText.value.redText = true;
@@ -3060,7 +2974,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels3 and adviser",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (GenCaps.value.panels3 == GenCaps.value.coAdviser) {
     abstrctRed.value.redColor = false;
@@ -3162,16 +3076,10 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels3 and coAdviser",
-      // title: GenCaps.value.panels1,
+      
     });
   }
-  //  else if (GenCaps.value.panels3 == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role in field panels3 and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
+ 
   else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
@@ -3272,23 +3180,10 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels3 and secretarys",
-      // title: GenCaps.value.panels1,
+      
     });
   }
-  // else if (GenCaps.value.adviser == GenCaps.value.coAdviser) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role in field adviser and coAdviser",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
-  // else if (GenCaps.value.adviser == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role in field adviser and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
+ 
   else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
@@ -3388,16 +3283,10 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field adviser and secretarys",
-      // title: GenCaps.value.panels1,
+      
     });
   }
-  //  else if (GenCaps.value.coAdviser == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role in field coAdviser and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
+ 
   else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
@@ -3497,7 +3386,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field coAdviser and secretarys",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (
     GenCaps.value.students1 == GenCaps.value.students2 &&
@@ -3603,7 +3492,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students1 and students2",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (
     GenCaps.value.students1 == GenCaps.value.students3 &&
@@ -3709,7 +3598,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students1 and students3",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (
     GenCaps.value.students1 == GenCaps.value.students4 &&
@@ -3814,7 +3703,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students1 and students4",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (
     GenCaps.value.students2 == GenCaps.value.students3 &&
@@ -3920,7 +3809,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students2 and students3",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (
     GenCaps.value.students2 == GenCaps.value.students4 &&
@@ -4025,7 +3914,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students2 and students4",
-      // title: GenCaps.value.panels1,
+      
     });
   } else if (
     GenCaps.value.students3 == GenCaps.value.students4 &&
@@ -4130,19 +4019,13 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students3 and students4",
-      // title: GenCaps.value.panels1,
+      
     });
   } else {
     axios.get("/api/get_capstonee1").then((response) => {
       caps.value = response.data.capstone11111;
     });
-    // caps.value.ocr;
 
-    // toast.fire({
-    //   icon: "warning",
-    //   title: caps.value.ocr,
-    //   // title: GenCaps.value.panels1,
-    // });
 
     const formData = new FormData();
     formData.append("title", GenCaps.value.title);
@@ -4175,8 +4058,7 @@ const saveCaps = () => {
     formData.append("secretarys", GenCaps.value.secretarys);
     formData.append("xf1", GenCaps.value.xf1);
     formData.append("xf2", GenCaps.value.xf2);
-    // formData.append("c", "vdvdv");
-    // formData.append("sy", year.value.fromYear + "-" + year.value.toYear);
+    
 
     axios
       .post("/api/add_capstone_project", formData)
@@ -4199,11 +4081,11 @@ const saveCaps = () => {
               (GenCaps.value.panels3 = ""),
               (GenCaps.value.adviser = ""),
               (GenCaps.value.coAdviser = ""),
-              // (GenCaps.value.instructor = ""),
+            
               (GenCaps.value.secretarys = ""),
               (GenCaps.value.xf1 = ""),
               (GenCaps.value.xf2 = ""),
-              // (GenCaps.value.start_date = ""),
+          
               router.push("/capslist");
 
             toast.fire({
@@ -4224,19 +4106,16 @@ const saveCaps = () => {
           (GenCaps.value.panels3 = ""),
           (GenCaps.value.adviser = ""),
           (GenCaps.value.coAdviser = ""),
-          // (GenCaps.value.instructor = ""),
+        
           (GenCaps.value.secretarys = ""),
           (GenCaps.value.xf1 = ""),
           (GenCaps.value.xf2 = ""),
-          // (GenCaps.value.start_date = ""),
+          
           router.push("/capslist");
 
-        // toast.fire({
-        //   icon: "success",
-        //   title: "User Add Successfully",
-        // });
+      
       })
-      // .catch((error = {}));
+     
       .catch(function (error) {
         console.log(error.response.data.errors);
         console.log("ERRRR:: ", error.response.data);
@@ -4245,10 +4124,9 @@ const saveCaps = () => {
           icon: "warning",
           title: "Capstone creation failed!",
         });
-        // (error = {}));
-        // console.log("ERRRR:: ",error.response.data);
+       
       });
-    // console.log("ERRRR:: ",error.response.data);
+    
   }
 };
 
@@ -4277,24 +4155,7 @@ const getInstructor = async () => {
   instructors.value = response.data.instructors;
 };
 
-// const onView1 = () => {
-//   router.push("/capstone1");
-// };
-// const onView2 = () => {
-//   router.push("/capstone2");
-// };
-// const onView3 = () => {
-//   router.push("/capstone3");
-// };
-// const onUpdate1 = () => {
-//   router.push("/caps1edit");
-// };
-// const onUpdate2 = () => {
-//   router.push("/caps2edit");
-// };
-// const onUpdate3 = () => {
-//   router.push("/caps3edit");
-// };
+
 </script>
 
 <style>
@@ -4392,15 +4253,14 @@ hr {
 </style>
 
 <script>
-// import Vue from "vue";
+
 import { ref, defineComponent, onMounted } from "vue";
-// import { onMounted, ref } from "vue";
+
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import Camera from "simple-vue-camera";
 
-// import { useRouter } from "vue-router";
-// const router = useRouter();
+
 
 export default defineComponent({
   name: "RichTextEditor",
@@ -4426,10 +4286,7 @@ export default defineComponent({
       this.status = "initialize";
       var self = this;
 
-      // const canvas = document
-      //   .getElementById("photoTaken")
-      //   .toDataURL("image/jpeg")
-      //   .replace("image/jpeg", "image/octet-stream");
+      
 
       var reader,
         files = e.target.files;
@@ -4465,7 +4322,7 @@ export default defineComponent({
         },
       })
         .then((result) => {
-          // alert(result.data.text);
+          
           this.textcontent = result.data.text;
 
           this.mainAbstract = this.textcontent;
@@ -4486,8 +4343,7 @@ export default defineComponent({
             title: "Succesfully Added",
           });
           location.reload();
-          // this.getCapstone();
-          // $("#success").html(response.data.message);
+         
         });
     },
     saveCapstonee2() {
@@ -4500,9 +4356,7 @@ export default defineComponent({
             icon: "success",
             title: "Abstract successfully saved ",
           });
-          // location.reload();
-          // this.getCapstone();
-          // $("#success").html(response.data.message);
+        
         });
     },
     getCapstone() {

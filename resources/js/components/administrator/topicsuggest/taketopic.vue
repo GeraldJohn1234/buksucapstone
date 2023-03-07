@@ -7,17 +7,6 @@
     </div>
     <h5 class="text-left boldThese">PROJECT DESCRIPTION</h5>
     <p class="contentOfThePage">{{ Topic.abstract }}</p>
-    <!-- <div class="form-floating col">
-      <textarea
-        class="form-control inputColor"
-        placeholder="Leave a comment here"
-        id="floatingTextarea2"
-        style="height: 250px"
-        v-model="abstractne"
-      ></textarea>
-      <label class="ps-4" for="floatingTextarea2">Abstract</label>
-      <br />
-    </div> -->
 
     <br />
     <div class="row">
@@ -56,9 +45,6 @@
     </div>
 
     <br />
-    <!-- <hr /> -->
-
-    <!-- <button type="button" class="m-1 btnSize btn btn-primary disable">GET TOPIC</button> -->
   </div>
 </template>
 
@@ -87,12 +73,7 @@ let uploader = ref({
   mname: "",
   lname: "",
 });
-// const topicUploader = async () => {
-//   let capstoneid = window.location.pathname.split("/")[2];
-//   let response = await axios.get("/api/get_capstone_topic/" + capstoneid);
-//   uploader.value = response.data.uploader;
-//   // console.warn("UPLOADER:", uploader.value);
-// };
+
 const getTopic = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_topic/" + capstoneid);
@@ -114,93 +95,6 @@ const saveCaps = () => {
     icon: "warning",
     title: "DATA: " + Topic.value.title,
   });
-
-  // const formData = new FormData();
-  // formData.append("title", GenCaps.value.title);
-  // formData.append("abstract", caps.value.ocr);
-  // formData.append("groupname", GenCaps.value.groupname);
-
-  // formData.append("students1", GenCaps.value.students1);
-  // formData.append("students2", GenCaps.value.students2);
-  // formData.append("students3", GenCaps.value.students3);
-  // formData.append("students4", GenCaps.value.students4);
-
-  // formData.append("panels1", GenCaps.value.panels1);
-  // formData.append("panels2", GenCaps.value.panels2);
-  // formData.append("panels3", GenCaps.value.panels3);
-
-  // formData.append("adviser", GenCaps.value.adviser);
-  // formData.append("coAdviser", GenCaps.value.coAdviser);
-
-  // formData.append("instructor", GenCaps.value.instructor);
-
-  // formData.append("secretarys", GenCaps.value.secretarys);
-  // formData.append("xf1", GenCaps.value.xf1);
-  // formData.append("xf2", GenCaps.value.xf2);
-  // formData.append("start_date", GenCaps.value.start_date);
-
-  // axios
-  //   .post("/api/add_capstone", formData)
-  //   .then((response) => {
-  //     const removeData = new FormData();
-  //     removeData.append("texttext", ".");
-  //     axios
-  //       .post("/api/add_capstonee1", removeData)
-
-  //       .then((response) => {
-  //         (GenCaps.value.title = ""),
-  //           (caps.value.ocr = ""),
-  //           (GenCaps.value.groupname = ""),
-  //           (GenCaps.value.students1 = ""),
-  //           (GenCaps.value.students2 = ""),
-  //           (GenCaps.value.students3 = ""),
-  //           (GenCaps.value.students4 = ""),
-  //           (GenCaps.value.panels1 = ""),
-  //           (GenCaps.value.panels2 = ""),
-  //           (GenCaps.value.panels3 = ""),
-  //           (GenCaps.value.adviser = ""),
-  //           (GenCaps.value.coAdviser = ""),
-  //           (GenCaps.value.instructor = ""),
-  //           (GenCaps.value.secretarys = ""),
-  //           (GenCaps.value.xf1 = ""),
-  //           (GenCaps.value.xf2 = ""),
-  //           (GenCaps.value.start_date = ""),
-  //           router.push("/capslist");
-
-  //         toast.fire({
-  //           icon: "success",
-  //           title: "Capstone Create Successfully",
-  //         });
-  //       });
-
-  //     (GenCaps.value.title = ""),
-  //       (caps.value.ocr = ""),
-  //       (GenCaps.value.groupname = ""),
-  //       (GenCaps.value.students1 = ""),
-  //       (GenCaps.value.students2 = ""),
-  //       (GenCaps.value.students3 = ""),
-  //       (GenCaps.value.students4 = ""),
-  //       (GenCaps.value.panels1 = ""),
-  //       (GenCaps.value.panels2 = ""),
-  //       (GenCaps.value.panels3 = ""),
-  //       (GenCaps.value.adviser = ""),
-  //       (GenCaps.value.coAdviser = ""),
-  //       (GenCaps.value.instructor = ""),
-  //       (GenCaps.value.secretarys = ""),
-  //       (GenCaps.value.xf1 = ""),
-  //       (GenCaps.value.xf2 = ""),
-  //       (GenCaps.value.start_date = ""),
-  //       router.push("/capslist");
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error.response.data.errors);
-  //     console.log("ERRRR:: ", error.response.data);
-
-  //     toast.fire({
-  //       icon: "warning",
-  //       title: "User Add Unsuccessful",
-  //     });
-  //   });
 };
 </script>
 

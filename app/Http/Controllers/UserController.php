@@ -114,7 +114,10 @@ class UserController extends Controller
 
     public function get_all_student_user()
     {
-        $students = User::whereRoleIs(['student'])->get();
+        $sortdata = 'name';
+        
+        $students = User::orderBy($sortdata, "asc")->whereRoleIs(['student'])->get();
+
         return response()->json(
             [
                 'students'  => $students,
@@ -347,7 +350,11 @@ class UserController extends Controller
     }
     public function get_all_instructor_user()
     {
-        $instructor = User::whereRoleIs(['instructor'])->get();
+        $sortdata= 'name';
+    
+        $instructor = User::orderBy($sortdata, "asc")->whereRoleIs(['instructor'])->get();
+
+
         return response()->json(
             [
                 'instructors'  => $instructor,
@@ -355,6 +362,7 @@ class UserController extends Controller
             200
         );
     }
+
     // public function get_all_panel_user()
     // {
 
@@ -389,14 +397,11 @@ class UserController extends Controller
         //     // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
         //     // 'photo'         =>  'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
         // ]);
-
         // $file_name = time() . '.' . request()->photo->getClientOriginalExtension();
-
         // request()->photo->move(public_path('upload'), $file_name);
 
 
         // $user = User::create([
-
         //     'year' => $request->year,
         //     'name' => $request->name,
         //     'mname' => $request->mname,
@@ -408,18 +413,8 @@ class UserController extends Controller
         //     'photo' => $request->file_name,
         //     // $student->student_gender = $request->student_gender;
         //     // $student->student_image = $file_name;
-
         // ]);
-
         // $user->attachRole('student');
-
-
-
-
-
-
-
-
 
 
 
@@ -428,7 +423,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->mname = $request->mname;
 
-        if ($request->photo != "") {
+        if ($request->photo != '0') {
             $strpos = strpos($request->photo, ';');
             $sub = substr($request->photo, 0, $strpos);
             $ex = explode('/', $sub)[1];
@@ -438,10 +433,10 @@ class UserController extends Controller
             $img->save($upload_path . $name);
             $user->photo = $name;
         } else {
-            $user->photo = "myAvatar.png";
+            $user->photo = "the_avatar.jpeg";
         }
 
-        $user->photo = $name;
+        
 
         $user->lname = $request->lname;
         $user->year = $request->year;
@@ -498,7 +493,6 @@ class UserController extends Controller
     //         'gender' => '',
     //         'companyRole' => '',
     //     ]);
-
     //     $input = $request->all();
     //     $user = User::findOrFail($id);
     //     $user->update($input);

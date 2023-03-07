@@ -7,17 +7,6 @@
     </div>
     <h5 class="boldThese leftPlus">PROJECT DESCRIPTION</h5>
     <p class="contentOfThePage">{{ Topic.abstract }}</p>
-    <!-- <div class="form-floating col">
-      <textarea
-        class="form-control inputColor"
-        placeholder="Leave a comment here"
-        id="floatingTextarea2"
-        style="height: 250px"
-        v-model="abstractne"
-      ></textarea>
-      <label class="ps-4" for="floatingTextarea2">Abstract</label>
-      <br />
-    </div> -->
 
     <br />
     <div class="row">
@@ -56,7 +45,6 @@
     </div>
 
     <br />
-    <!-- <hr /> -->
 
     <button
       type="button"
@@ -117,7 +105,6 @@ onMounted(async () => {
   getTopic();
   topicUploader();
   getNow();
-  // setInterval(value.getNow, 1000);
 });
 const getNow = () => {
   const today = new Date();
@@ -132,12 +119,7 @@ let uploader = ref({
   mname: "",
   lname: "",
 });
-// const topicUploader = async () => {
-//   let capstoneid = window.location.pathname.split("/")[2];
-//   let response = await axios.get("/api/get_capstone_topic/" + capstoneid);
-//   uploader.value = response.data.uploader;
-//   // console.warn("UPLOADER:", uploader.value);
-// };
+
 const getTopic = async () => {
   let capstoneid = getIDfromURL();
   let response = await axios.get("/api/get_topic/" + capstoneid);
@@ -145,9 +127,6 @@ const getTopic = async () => {
 
   let responsed = await axios.get("/api/get_capstone_topic/" + Topic.value.uploader_id);
   uploader.value = responsed.data.uploader;
-
-
-  
 };
 
 const getIDfromURL = () => {
@@ -173,8 +152,6 @@ const rateddd = async () => {
           title: "SOMETHING WRONG",
         });
       });
-
-    // router.push("/editcap/" + checkdata);
   } else {
     router.push("/noproject");
   }
@@ -221,7 +198,6 @@ const saveTopic = async () => {
           removeData.append("texttext", ".");
           axios.post("/api/add_capstonee1", removeData).then((response) => {
             (Topic.value.title = ""), (Topic.value.abstract = "");
-            //  router.push("/capslist");
 
             const takeData = new FormData();
             takeData.append("status", "Taken");

@@ -1,11 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            {{-- <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a> --}}
-            
-            {{-- <h2>Registration</h2> --}}
+           
         </x-slot>
 
         <!-- Validation Errors -->
@@ -69,8 +65,8 @@
                 <x-label for="role_id" value="{{ _('Register as:') }}"/>
                 <select name="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" id="">
                     <option value="student">Student</option>
-                    {{-- <option value="archiver">Archiver</option> --}}
-                    <option value="faculty">Faculty</option>
+                   
+                    {{-- <option value="faculty">Faculty</option> --}}
                 </select>
 
             </div>

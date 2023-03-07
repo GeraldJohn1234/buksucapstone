@@ -4,8 +4,6 @@
       <div class="forInline capsList">FACULTY LIST</div>
 
       <div class="forInline float-end mtop">
-        <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
-
         <router-link class="nav_link" to="/create">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
@@ -14,15 +12,6 @@
     <hr />
 
     <div class="">
-      <!-- <div class="input-group">
-        <input
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          aria-describedby="search-addon"
-        />
-        <button type="button" class="btn btn-outline-primary">search</button>
-      </div> -->
       <div class="input-group">
         <input
           class="inputColor"
@@ -32,8 +21,6 @@
           aria-describedby="search-addon"
           v-model="capslistt.searching"
         />
-
-        <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
       </div>
 
       <div class="float-end topM">
@@ -61,19 +48,16 @@
     >
       <thead>
         <tr>
-          <th>#</th>
+          <th class="col">#</th>
           <th class="text-uppercase">Avatar</th>
-          <th>I.D</th>
-          <th>FULLNAME</th>
-          <!-- <th>YEAR</th> -->
-          <!-- <th>GROUP NAME</th> -->
-          <th class="col-4">ACTION</th>
+          <th class="col">I.D</th>
+          <th class="col">FULLNAME</th>
+
+          <th class="col-2">ACTION</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item, index) in users" :key="item.id">
-          <!-- let capst = ref([]); -->
-          <!-- <td>1</td> -->
           <td>{{ index + 1 }}</td>
 
           <td class="text-center">
@@ -86,92 +70,35 @@
           </td>
           <td>{{ item.uid }}</td>
           <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
-          <!-- <td class="text-uppercase">{{ item.year }}</td> -->
-          <!-- <td>
-            {{ item.groupname }}
-          </td> -->
-          <!-- <td class="">
-            <ul class="nav row">
-              <li class="col">
-             
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
-                  @click="onView(item.id)"
-                >
-                  VIEW
-                </button>
-             
-              </li>
-            </ul>
-          </td> -->
+
           <td class="">
             <ul class="nav row">
-              <li class="col">
-                <!-- <router-link class="nav_link" to="/view"> -->
-                <button
-                  type="button"
-                  class="btn btn-outline-success button1 fw-bold button1 my-1"
-                  @click="onView(item.id)"
-                >
-                  VIEW
-                </button>
-                <!-- </router-link> -->
+              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                <i class="btn btn-outline-dark" @click="onView(item.id)">
+                  <font-awesome-icon icon="fa-solid fa-eye" />
+                </i>
               </li>
-              <li class="col">
-                <!-- <router-link class="nav_link" to="/update"> -->
-                <button
-                  type="button"
-                  class="btn btn-outline-primary button1 fw-bold button1 my-1"
-                  @click="onEdith(item.id)"
-                >
-                  UPDATE
-                </button>
-                <!-- </router-link> -->
+              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                <i class="btn btn-outline-primary" @click="onEdith(item.id)">
+                  <font-awesome-icon icon="fa-solid fa-edit" />
+                </i>
               </li>
-              <li class="col">
-                <!-- <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link> -->
-                <button
-                  type="button"
-                  class="btn btn-outline-warning button1 fw-bold button1 my-1"
-                  @click="deleteUser(item.id)"
-                >
-                  DELETE
-                </button>
+              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                <i class="btn btn-outline-danger" @click="deleteUser(item.id)">
+                  <font-awesome-icon icon="fa-solid fa-trash" />
+                </i>
               </li>
             </ul>
           </td>
         </tr>
       </tbody>
     </table>
-    <!-- <div v-else></div> -->
-    <!-- <div class="">
-      <a href="#" class="previous">&laquo; Previous</a>
-      <a href="#" class="next">Next &raquo;</a>
-
-      <div class="float-end">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Row visible: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script setup>
 import axios from "axios";
-// import { onMounted, ref } from "vue";
+
 import { onMounted, reactive, ref, watch } from "vue";
 import router from "../../routers/administratorRouter";
 
@@ -181,7 +108,6 @@ const capslisttsort = reactive({ sorting: null });
 watch(capslistt, (newValue, oldValue) => {
   console.log(newValue, oldValue);
   dataCapstoneSearch();
-  // dataCapstonesort();
 });
 watch(capslisttsort, (newValue, oldValue) => {
   console.log(newValue, oldValue);
@@ -223,7 +149,6 @@ let users = ref([]);
 let capst = ref([]);
 
 onMounted(async () => {
-  // getUsers();
   getCapstone();
   dataCapstoneSearch();
 });
@@ -231,7 +156,6 @@ onMounted(async () => {
 const getCapstone = async () => {
   let response = await axios.get("/api/get_all");
   capst.value = response.data.capstone;
-  // console.log("users", users.value);
 };
 
 const trry = (id) => {
@@ -246,7 +170,6 @@ const onEdith = (id) => {
   router.push("/update/" + id);
 };
 const onView = (id) => {
-  // router.push("/view/" + id);
   router.push("/viewfaculty/" + id);
 };
 const deleteUser = (id) => {
@@ -263,9 +186,8 @@ const deleteUser = (id) => {
       axios
         .get("/api/delete_user/" + id)
         .then(() => {
-          // Swal.fire("Delete", "Student account, deleted successfully", "success");
           Swal.fire("Delete", "User account, deleted successfully", "success");
-          // getUsers();
+
           dataCapstoneSearch();
         })
         .catch(() => {

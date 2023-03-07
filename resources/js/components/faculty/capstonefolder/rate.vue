@@ -5,7 +5,7 @@
       <hr />
     </h5>
 
-    <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
+   
 
     <table
       class="table tableBorder text-center align-middle table-striped table-bordered border-primary"
@@ -1491,17 +1491,6 @@
       </button>
     </div>
 
-    <!-- <div class="row text-center mt-2 px-2">
-      <button
-        type="button"
-        class="btn btn-success col fw-bold"
-        @click="getStoreRatingRate()"
-      >
-        TRY PREEEEEEEEEE
-      </button>
-    </div> -->
-
-    <!-- </div> -->
   </div>
 </template>
 
@@ -1513,11 +1502,7 @@ import axios from "axios";
 
 let status;
 let rate;
-// let ratistat = ref({
-//   background: "",
-//   backgrounds: "",
 
-// })
 
 let caps1rate = ref({
   background: "",
@@ -1544,7 +1529,7 @@ let caps1rate = ref({
   xf1: "",
   xf2: "",
 });
-// v-model="GenCaps.abstract"
+
 
 const router = useRouter();
 
@@ -1580,19 +1565,10 @@ const approved = () => {
   }
 };
 
-// const getStoreRating = () => {
-//   let capsID = window.location.pathname.split("/")[2];
-//   let response = axios.get("/api/approved_rate_status/" + capsID);
-//   status.value = response.data.ratestatus;
 
-//   toast.fire({
-//     icon: "warning",
-//     title: "Rate Unsuccessful, please fill all field" + status.value,
-//   });
-// };
 
 const temporary = () => {
-  // getStoreRating();
+ 
   if (
     caps1rate.value.background != 0 &&
     caps1rate.value.backgrounds != 0 &&
@@ -1625,14 +1601,9 @@ const temporary = () => {
 };
 onMounted(async () => {
   getCaps1Rate();
-  // getStoreRating();
+
 });
-// const getStoreRating = async () => {
-//   let capsID = window.location.pathname.split("/")[2];
-//   let response = await axios.get("/api/approved_rate_status/" + capsID);
-//   status = response.data.ratestatus;
-//   return status;
-// };
+
 const getStoreRatingRate = async () => {
   let capsID = window.location.pathname.split("/")[2];
   let response = await axios.get("/api/approved_rate/" + capsID);
@@ -1649,10 +1620,7 @@ const getStoreRatingRate = async () => {
     .post("/api/post_approved_rate_status/" + capsID, rateData)
     .then((response) => {
       (rate = ""), (status = "");
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Usser Add Successfully" + status,
-      // });
+   
     })
     .catch(function (error) {
       console.log(error.response.data.errors);
@@ -1665,35 +1633,7 @@ const getStoreRatingRate = async () => {
     });
 };
 
-// const postStoreRating = () => {
-//   let capsID = window.location.pathname.split("/")[2];
-//   let stats = getStoreRating();
-//   let rates = getStoreRatingRate();
 
-//   const rateData = new FormData();
-//   rateData.append("rating", rates);
-//   rateData.append("status", stats);
-
-//   axios
-//     .post("/api/post_approved_rate_status/" + capsID, rateData)
-//     .then((response) => {
-//       (rates = ""),
-//         (stats = ""),
-//         toast.fire({
-//           icon: "success",
-//           title: "Usser Add Successfully",
-//         });
-//     })
-//     .catch(function (error) {
-//       console.log(error.response.data.errors);
-//       console.log("ERRRR:: ", error.response.data);
-
-//       toast.fire({
-//         icon: "warning",
-//         title: "SOMETHING WRONG",
-//       });
-//     });
-// };
 
 const getCaps1Rate = async () => {
   let capsID = window.location.pathname.split("/")[2];
@@ -1787,14 +1727,9 @@ const saveRatinggFinal = () => {
         (caps1rate.value.xf2 = ""),
         (total = ""),
         (xf1 = "");
-      // router.push("/create");
-
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Partial Rate Successfully",
-      // });
+    
     })
-    // .catch((error = {}));
+  
     .catch(function (error) {
       console.log(error.response.data.errors);
       console.log("ERRRR:: ", error.response);
@@ -1803,10 +1738,10 @@ const saveRatinggFinal = () => {
         icon: "warning",
         title: "Rate Unsuccessful",
       });
-      // (error = {}));
+   
       console.log("ERRRR:: ", error.response);
     });
-  // console.log("ERRRR:: ", error.response.data);
+ 
 };
 
 const saveRatingg = () => {
@@ -1894,14 +1829,9 @@ const saveRatingg = () => {
         (caps1rate.value.xf2 = ""),
         (total = ""),
         (xf1 = "");
-      // router.push("/create");
-
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Partial Rate Successfully",
-      // });
+      
     })
-    // .catch((error = {}));
+ 
     .catch(function (error) {
       console.log(error.response.data.errors);
       console.log("ERRRR:: ", error.response);
@@ -1910,10 +1840,10 @@ const saveRatingg = () => {
         icon: "warning",
         title: "Rate Unsuccessful",
       });
-      // (error = {}));
+     
       console.log("ERRRR:: ", error.response);
     });
-  // console.log("ERRRR:: ", error.response.data);
+  
 };
 </script>
 

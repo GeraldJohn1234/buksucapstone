@@ -4,8 +4,6 @@
       <div class="forInline capsList">ARCHIVER LIST</div>
 
       <div class="forInline float-end mtop">
-        <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
-
         <router-link class="nav_link" to="/create">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
@@ -54,7 +52,6 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in users" :key="item.id">
-          <!-- <td>1</td> -->
           <td>{{ index + 1 }}</td>
 
           <td class="text-center">
@@ -70,7 +67,6 @@
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view"> -->
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -78,10 +74,8 @@
                 >
                   VIEW
                 </button>
-                <!-- </router-link> -->
               </li>
               <li class="col">
-                <!-- <router-link class="nav_link" to="/update"> -->
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -89,14 +83,8 @@
                 >
                   UPDATE
                 </button>
-                <!-- </router-link> -->
               </li>
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link> -->
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -110,7 +98,7 @@
         </tr>
       </tbody>
     </table>
-    <!-- <div v-else></div> -->
+
     <div class="">
       <a href="#" class="previous">&laquo; Previous</a>
       <a href="#" class="next">Next &raquo;</a>
@@ -135,9 +123,6 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import router from "../../routers/studentRouter";
-//import {useRouter} from 'vue-router'
-
-//const router = useRouter
 
 let users = ref([]);
 
@@ -145,17 +130,10 @@ onMounted(async () => {
   getUsers();
 });
 
-// const create = () => {
-//   router.push('/create')
-// }
-
 const getUsers = async () => {
-  // let response = await axios.get("/api/get_all_user");
-
   let response = await axios.get("/api/get_all_archiver_user");
-  // get_all_student_user
+
   users.value = response.data.archivers;
-  // console.log("users", users.value);
 };
 const ourImage = (img) => {
   return "/upload/" + img;

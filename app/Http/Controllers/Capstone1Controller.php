@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\DB;
 
 class Capstone1Controller extends Controller
 {
-    //get_capstonee1
+
      public function add_capstonee1(Request $request)
     {
             $capstone1 = Partialstorage::find(1);
-            // $try = 'hahhahah';
-            // $capstone1->capstone_ocr =$try;
+
 
             $capstone1->ocr = $request->texttext;
        
@@ -39,9 +38,6 @@ class Capstone1Controller extends Controller
         $count = 0;
 
         $idAuth = Auth::user()->id;
-        // $idAuth = 1;
-        
-
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
         ->where('capstone_id', $id)->pluck('user_id')->first();
         if($panel1==$idAuth){
@@ -64,12 +60,7 @@ class Capstone1Controller extends Controller
         }else{
             $users = 2;
         }
-        // $userrole = Partialstorage::find($users);
-        // return response()->json([
 
-        //     'userCaps'  => $users,
-
-        // ], 200);
         return $users;
     }
 
@@ -112,14 +103,10 @@ class Capstone1Controller extends Controller
 
 
 
-
-
     public function addcapstone1(Request $request, $id)
     {
             $capstone1 = Capstone::find($id)->capstone1;
-            // $try = 'hahhahah';
-            // $capstone1->capstone_ocr =$try;
-
+ 
             $capstone1->status = $request->status;
             $capstone1->revise_manuscript = $request->revise_manuscript;
             $capstone1->action_done = $request->action_done;
@@ -169,8 +156,6 @@ class Capstone1Controller extends Controller
         $instructor_no = DB::table('capstone1s')
         ->where('capstone_id', $id)->pluck('xf3')->first();
 
-
-        // $capstone = User::find($instructor_no);
         return response()->json([
 
             'instruct'  => $instructor_no,
@@ -184,7 +169,6 @@ class Capstone1Controller extends Controller
         ->where('capstone_id', $id)->pluck('xf3')->first();
 
 
-        // $capstone = User::find($instructor_no);
         return response()->json([
 
             'instruct'  => $instructor_no,
@@ -197,8 +181,6 @@ class Capstone1Controller extends Controller
         $instructor_no = DB::table('capstone3s')
         ->where('capstone_id', $id)->pluck('xf3')->first();
 
-
-        // $capstone = User::find($instructor_no);
         return response()->json([
 
             'instruct'  => $instructor_no,
@@ -208,4 +190,3 @@ class Capstone1Controller extends Controller
 
  
 }
-// 

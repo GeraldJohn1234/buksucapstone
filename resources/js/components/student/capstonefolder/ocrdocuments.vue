@@ -3,7 +3,7 @@
     <h4 class="text-center mt-4">FULL DOCUMENTATION</h4>
     <div class="contentOfThePage my-3">
       <h5 class="text-left boldThese">CONTENT</h5>
-      <!-- {{ caps.capstone_ocr }} -->
+
       <div class="form-floating col">
         <textarea
           class="form-control inputColor"
@@ -15,61 +15,7 @@
         <label class="ps-4" for="floatingTextarea2">Content</label>
         <br />
       </div>
-      <!-- <button
-        type="button"
-        class="m-1 btnSize btn btn-primary W-100"
-        @click="saveCapstonee1()"
-      >
-        Save
-      </button> -->
     </div>
-
-    <!-- <div class="camera">
-      <div class="wrapper">
-        <button @click="this.$parent.showCamera = false" class="button-close">x</button>
-        <button class="button-snap" @click="toggleCamera()">
-          <span v-if="!isCameraOpen">Open Camera</span>
-          <span v-else>Close Camera</span>
-        </button>
-        <div class="video-container">
-          <video
-            v-show="isCameraOpen"
-            class="camera-video"
-            ref="camera"
-            :width="450"
-            :height="337"
-            autoplay
-            playsinline
-          ></video>
-          <canvas
-            id="photoTaken"
-            v-show="isPhotoTaken"
-            class="canvas-photo"
-            ref="canvas"
-            :width="450"
-            :height="337"
-          ></canvas>
-        </div>
-        <button
-          v-if="!isPhotoTaken && isCameraOpen"
-          class="button-snap"
-          @click="takePhoto"
-        >
-          <span>Snap!</span>
-        </button>
-        <button v-show="isPhotoTaken && isCameraOpen" class="camera-download">
-          <a
-            id="downloadPhoto"
-            download="VueRocksPhoto.jpg"
-            class="button"
-            role="button"
-            @click="downloadImage"
-          >
-            Download
-          </a>
-        </button>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -106,11 +52,6 @@ export default defineComponent({
       this.status = "initialize";
       var self = this;
 
-      // const canvas = document
-      //   .getElementById("photoTaken")
-      //   .toDataURL("image/jpeg")
-      //   .replace("image/jpeg", "image/octet-stream");
-
       var reader,
         files = e.target.files;
 
@@ -145,7 +86,6 @@ export default defineComponent({
         },
       })
         .then((result) => {
-          // alert(result.data.text);
           this.textcontent = result.data.text;
           vm.status = "";
         })
@@ -204,9 +144,7 @@ export default defineComponent({
         .replace("image/jpeg", "image/octet-stream");
       download.setAttribute("href", canvas);
     },
-    // getIDfromURL() {
-    //   return window.location.pathname.split("/")[2];
-    // },
+
     saveCapstonee1() {
       let id = window.location.pathname.split("/")[2];
       axios
@@ -219,7 +157,6 @@ export default defineComponent({
             title: "User Capstone Successfully",
           });
           this.getCapstone();
-          // $("#success").html(response.data.message);
         });
     },
     getCapstone() {
@@ -235,10 +172,6 @@ export default defineComponent({
       });
       return this.caps.capstone_ocr;
     },
-
-    // toConcat() {
-    //   return (concatSting = caps.capstone_ocr + textcontent);
-    // },
   },
 
   created() {

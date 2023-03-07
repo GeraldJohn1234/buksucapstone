@@ -4,8 +4,6 @@
       <div class="forInline capsList">PANEL LIST</div>
 
       <div class="forInline float-end mtop">
-        <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
-
         <router-link class="nav_link" to="/create">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
@@ -54,7 +52,6 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in users" :key="item.id">
-          <!-- <td>1</td> -->
           <td>{{ index + 1 }}</td>
 
           <td class="text-center">
@@ -70,7 +67,6 @@
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view"> -->
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -78,10 +74,8 @@
                 >
                   VIEW
                 </button>
-                <!-- </router-link> -->
               </li>
               <li class="col">
-                <!-- <router-link class="nav_link" to="/update"> -->
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -89,14 +83,8 @@
                 >
                   UPDATE
                 </button>
-                <!-- </router-link> -->
               </li>
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link> -->
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 m-1"
@@ -111,24 +99,6 @@
       </tbody>
     </table>
     <hr class="topHi" />
-    <!-- <div v-else></div> -->
-    <!-- <div class="">
-      <a href="#" class="previous">&laquo; Previous</a>
-      <a href="#" class="next">Next &raquo;</a>
-
-      <div class="float-end">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Row visible: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -136,19 +106,12 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import router from "../../routers/administratorRouter";
-//import {useRouter} from 'vue-router'
-
-//const router = useRouter
 
 let users = ref([]);
 
 onMounted(async () => {
   getUsers();
 });
-
-// const create = () => {
-//   router.push('/create')
-// }
 
 const getUsers = async () => {
   let response = await axios.get("/api/get_all_panel_user");

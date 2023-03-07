@@ -1,17 +1,7 @@
 <template>
-  <!-- <div class="card mb-3 boxProfile text-center mx-auto d-block">
-      <img src="/images/buksuBg.jpg" alt="logo" class="boxBg" />
-      <img src="/images/luffy.jfif" alt="logo" class="boxP" />
-      <div class="text-center">
-        <h5>Monkey D. Luffy</h5>
-        <p>College of Technologies</p>
-        <p>Bachelor of Science in Information Technology - 4</p>
-        <p>1801104017@student.buksu.edu.ph</p>
-      </div>
-    </div> -->
   <div class="card mb-3 boxProfile text-center mx-auto d-block contentOfThePage">
     <img src="/images/buksuBg.jpg" alt="logo" class="boxBg" />
-    <!-- <img src="/images/luffy.jfif" alt="logo" class="boxP" /> -->
+
     <img id="" :src="getPhoto()" alt="img" class="boxP" />
     <div class="text-center">
       <h5>{{ form.name }} {{ form.mname }} {{ form.lname }}</h5>
@@ -127,17 +117,6 @@
         />
       </div>
 
-      <!-- <div class="col-2">
-        <label for="lastname" class="form-label">Choose Year</label>
-        <div class="input-group mb-3">
-          <select class="form-select" id="inputGroupSelect01" v-model="form.year">
-            <option selected>Choose...</option>
-            <option value="THIRD YEAR">THIRD YEAR</option>
-            <option value="FOURTH YEAR">FOURTH YEAR</option>
-            <option value="FIFTH YEAR">FIFTH YEAR</option>
-          </select>
-        </div>
-      </div> -->
       <div class="col">
         <label for="gender" class="form-label">Gender</label>
         <input
@@ -149,35 +128,13 @@
         />
       </div>
 
-      <!-- <div class="col pt-4"></div> -->
-
-      <div class="row">
-        <!-- <li>
-            <img id="imgPhoto" :src="getPhoto()" alt="img" />
-          </li> -->
-        <!-- <li>
-            <input
-              type="file"
-              accept="image/*"
-              alt="imgNeh"
-              @change="updatePhoto"
-            />
-          </li> -->
-      </div>
+      <div class="row"></div>
     </div>
     <br />
     <hr />
-    <!-- <div class="container bg-light">
-        <div class="col-md-12 text-center">
-          <button type="button" class="btn btn-primary" @click="updateUser()">
-            UPDATE
-          </button>
-        </div>
-      </div> -->
+
     <h5 class="fw-bold">PROJECT DATA</h5>
-    <!-- <h5 class="mt-5 fw-bold text-center text-warning" v-if="check0.check1 == '0'">
-      STUDENT DOESN'T HAVE A PROJECT
-    </h5> -->
+
     <br />
     <div class="row">
       <div class="form-floating mb-3 col">
@@ -210,7 +167,6 @@
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
           <h4 class="pt-2 text-uppercas fw-bolder boldThese">
-            <!-- {{ adviser.name }} {{ adviser.mname }} {{ adviser.lname }} -->
             {{ pan0.pan1 }}
           </h4>
           <hr class="toTop" />
@@ -218,23 +174,12 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row text-center px-2" v-if="check0.check1 != '0'">
-      <button type="button" class="btn btn-primary col fw-bold" @click="viewCap()">
-        VISIT CAPSTONE PROJECT
-      </button>
-    </div> -->
+
     <br />
   </div>
 </template>
 
 <script setup>
-// import { vue } from 'laravel-mix';
-// import axios from "axios";
-//  import router from "../../routers/administratorRouter";
-// import { error } from "console";
-// import { response } from "express";
-// import axios from "axios";
-// import axios from "axios";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -269,27 +214,21 @@ let checkdata;
 const getAdviserStart = async () => {
   let responsed = await axios.get("/api/advisee_count_not_done/" + props.id);
   adstart0.value.adstart1 = responsed.data.capstones;
-  // console.warn("0000000000000000000", adstart0.value.adstart1);
 };
 const getAdviserEnd = async () => {
   let responsed = await axios.get("/api/advisee_count_done/" + props.id);
   adend0.value.adend1 = responsed.data.capstones;
-  // console.warn("1111111111111111", adend0.value.adend1);
 };
 
 const getSec = async () => {
   let responsed = await axios.get("/api/secretarys_count/" + props.id);
   sec0.value.sec1 = responsed.data.capstones;
-  // console.warn("2222222222222222", sec0.value.sec1);
 };
 const getPanl = async () => {
   let responsed = await axios.get("/api/panels_count/" + props.id);
   pan0.value.pan1 = responsed.data.capstones;
-  // console.warn("33333333333333333", pan0.value.pan1);
 };
 const getcapstone = async () => {
-  // console.warn("Caps", GenCapData.value);
-
   let responsed = await axios.get("/api/get_capstone_check/" + props.id);
   check0.value.check1 = responsed.data.ans;
 
@@ -384,7 +323,7 @@ const updateUser = () => {
 
   formData.append("gender", form.value.gender);
   formData.append("photo", form.value.photo);
-  // ${form.value.id}
+
   axios
     .post("/api/update_user/" + props.id, formData)
 

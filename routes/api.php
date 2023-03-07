@@ -28,7 +28,8 @@ use App\Models\Caps1rating;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }) ;
-// get_one_user
+
+
 Route::get('/get_one_user/{id}', [UserController::class,'get_one_user']);
 Route::get('/get_all_user', [UserController::class,'get_all_user']);
 Route::post('/add_user', [UserController::class,'add_user']);
@@ -75,6 +76,7 @@ Route::get('/get_pie_underdevelop', [CapstoneController::class,'get_pie_underdev
 
 
 Route::get('/get_capstone/{id}', [CapstoneController::class,'get_capstone']);
+Route::get('/get_capstone_adviser_view/{id}', [CapstoneController::class,'get_capstone_adviser_view']);
 
 Route::get('/get_capstonee/{id}', [CapstoneController::class,'get_capstonee']);
 
@@ -105,7 +107,7 @@ Route::get('/get_capstone_inst/{id}', [CapstoneController::class,'get_capstone_i
 Route::post('/add_capstonee1', [Capstone1Controller::class,'add_capstonee1']);
 Route::get('/get_capstonee1', [Capstone1Controller::class,'get_capstonee1']);
 Route::get('/panel_rate_check/{id}', [Capstone1Controller::class,'panel_rate_check']);
-// Route::get('/add_new_capstonee111/{id}', [Capstone1Controller::class,'add_new_capstonee111']); getcaps2
+
 
 Route::post('/addcapstone1/{id}', [Capstone1Controller::class,'addcapstone1']);
 Route::get('/getcapstone1/{id}', [Capstone1Controller::class,'getcapstone1']);
@@ -223,4 +225,3 @@ Route::get('/audit_capstone1', [CapstoneController::class,'audit_capstone1']);
 Route::get('/audit_capstone2', [CapstoneController::class,'audit_capstone2']);
 Route::get('/audit_capstone3', [CapstoneController::class,'audit_capstone3']);
 Route::get('/audit_user', [CapstoneController::class,'audit_user']);
-//     caps2minutes get_topic  get_capstone_topic take_topic    get_all_capstone_advisee get_all_capstone_panel    showpdf  get_all_capstone_instructorr get_all_capstone_secretary

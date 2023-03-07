@@ -3,7 +3,6 @@
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">CREATE TOPIC SUGGESTIONS</h5>
       <hr class="toTop" />
-      <!-- <p class="toTopp boldThese">CREATE TOPIC SUGGESTIONS</p> -->
     </div>
 
     <h5 class="text-left boldThese">TITLE</h5>
@@ -108,9 +107,7 @@ onMounted(async () => {
 });
 
 const saveTopic = () => {
-  //   let capstoneid = window.location.pathname.split("/")[2];
   let capstoneid = getIDfromURL() - 0;
-  //   let capstoneidd = capstoneid + 0;
 
   const formData = new FormData();
   formData.append("title", Topic.value.title);
@@ -130,7 +127,6 @@ const saveTopic = () => {
         (Topic.value.client_location = ""),
         (Topic.value.client_company = ""),
         (Topic.value.xf1 = ""),
-        // router.push("/create");
         getTopic();
 
       toast.fire({
@@ -146,18 +142,14 @@ const saveTopic = () => {
         icon: "warning",
         title: "Topic Add, Unsuccessful" + capstoneid,
       });
-      // (error = {}));
-      // console.log("ERRRR:: ",error.response.data);
     });
-  // console.log("ERRRR:: ",error.response.data);
 };
 
 const getTopic = async () => {
   let capstoneid = getIDfromURL();
-  //   let capstoneid = window.location.pathname.split("/")[2];
+
   let response = await axios.get("/api/get_topic/" + capstoneid);
   Topic.value = response.data.topic;
-  //   console.warn("CAPSTON 1", formcaps1.value);
 };
 
 const getIDfromURL = () => {

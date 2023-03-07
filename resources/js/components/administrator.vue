@@ -1,9 +1,6 @@
 <template>
   <div class="wrapper container-fluid">
     <div class="sidebar" id="scrollAble">
-      <!-- <img class="avatarImg" src="/images/buksu.png" alt="User Avatar">
-      <h2 class="">SideBar</h2> -->
-
       <div class="row logoHeader point" @click="dash()">
         <div class="col-md-4 avatarImg">
           <img src="/images/buksu.png" alt="logo" />
@@ -14,18 +11,6 @@
       </div>
 
       <ul>
-        <!-- <li>
-          <router-link class="a nav_link row" @click="storeDashoard()" to="/dashboard">
-            <i class="col-md-3">
-              <font-awesome-icon
-                icon="fa-solid fa-dashboard"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-            <div class="col-md-8" id="label">DASHBOARD</span>
-          </router-link>
-        </li> -->
-
         <li class="pt-4" @click="active1()">
           <div class="a nav_link row" :class="activehead1">
             <i class="col-md-3">
@@ -48,18 +33,6 @@
             <div class="col-md-8" id="label">PROFILE</div>
           </div>
         </li>
-        <!-- <li>
-          <router-link class="a nav_link row" to="/project">
-            <i class="col-md-3">
-              <font-awesome-icon
-                icon="fa-solid fa-file"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <div class="col-md-8" id="label">CREATE PROJECT</span>
-          </router-link>
-        </li> -->
 
         <li @click="active3()">
           <div class="a nav_link row" :class="activehead3">
@@ -86,19 +59,6 @@
             <div class="col-md-8" id="label">TOPIC SUGGESTION</div>
           </div>
         </li>
-
-        <!-- <li @click="active8()">
-          <div class="a nav_link row" :class="activehead8">
-            <i class="col-md-3">
-              <font-awesome-icon
-                icon="fa-solid fa-history"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <div class="col-md-8" id="label">AUDIT LOG</div>
-          </div>
-        </li> -->
 
         <div class="listOfUser pt-3 ps-2">
           <a id="listOfUser">
@@ -127,7 +87,6 @@
               />
             </i>
 
-            <!-- faFileCirclePlus -->
             <div class="col-md-8" id="label">STUDENT</div>
           </div>
         </li>
@@ -145,7 +104,7 @@
           </div>
         </li>
 
-        <!-- <li id="logout" @click="logout">
+        <li id="logout" class="hideee" @click="logout">
           <div class="row a nav_link">
             <i class="col-md-3">
               <font-awesome-icon
@@ -155,7 +114,7 @@
             </i>
             <div class="col-md-8" id="label">LOGOUT</div>
           </div>
-        </li> -->
+        </li>
       </ul>
     </div>
     <div class="main_content">
@@ -172,28 +131,22 @@
           />
 
           <div class="col text-center mx-2 mt-2">
-            <!-- <span class="topA" id="labelAvatar">
-              {{ form.name }} 
-             
-            </span> -->
             <p class="roleAvatarname fw-bolder mx-2">{{ form.name }}</p>
             <br />
             <p class="roleAvatar mx-2">ADMINISTRATOR</p>
           </div>
-          <i class="col mx-2 marginTop trigger" @click="logout">
+          <i class="col mx-2 marginTop trigger thishideee" @click="logout">
             <font-awesome-icon
               icon="fa-solid fa-right-from-bracket"
               style="width: 24px; height: 24px"
             />
           </i>
           <div class="hidden hoverStyle">Logout</div>
-          <!-- <div class="trigger">Hover here.</div> -->
         </div>
       </div>
 
       <br />
 
-      <!-- CONTENT -->
       <div class="info">
         <router-view></router-view>
       </div>
@@ -345,41 +298,6 @@ const audit = () => {
 const logoutt = () => {
   router.push("/logout");
 };
-// const capslist = () => {
-//   router.push("/capslist");
-// };
-
-// const reload = () => {
-//   location.reload();
-
-// };
-
-// let dashboard = ref({
-//   instructor1: 0,
-//   instructor2: 0,
-//   instructor3: 0,
-//   panelist: 0,
-//   students: 0,
-//   adviser: 0,
-//   co_adviser: 0,
-//   archiver: 0,
-//   secretary: 0,
-//   under_develop: 0,
-//   deploy: 0,
-//   unimplemented: 0,
-//   no_group1: 0,
-//   no_propose_def: 0,
-//   under_revision_1: 0,
-//   approved_panels_1: 0,
-//   no_group2: 0,
-//   no_prototype_def: 0,
-//   under_revision_2: 0,
-//   approved_panels_2: 0,
-//   no_group3: 0,
-//   no_final_def: 0,
-//   under_revision_3: 0,
-//   approved_panels_3: 0,
-// });
 
 let form = ref({
   userId: "",
@@ -398,7 +316,6 @@ let form = ref({
 onMounted(async () => {
   getsingleUser();
   getPhoto();
-  // storeDashoard();
 });
 
 const storeDashoard = () => {
@@ -406,20 +323,9 @@ const storeDashoard = () => {
     .post("/api/store_dashboard")
     .then((response) => {
       dash();
-      // toast.fire({
-      //   icon: "warning",
-      //   title: "SOMETHING GOOD in Dashboard",
-      // });
     })
 
-    .catch(function (error) {
-      // console.log(error.response.data.errors);
-      // console.log("ERRRR:: ", error.response.data);
-      // toast.fire({
-      //   icon: "warning",
-      //   title: "SOMETHING WRONG",
-      // });
-    });
+    .catch(function (error) {});
 };
 
 const getPhoto = () => {
@@ -443,29 +349,8 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/myprofile");
   form.value = response.data.userrs;
   console.warn("userrs", form.value);
-
-  // console.warn(test);
-
-  // test = ("userrs", form.value.name);
 };
-// export default {
-//   mounted() {
-//     console.log("Component mounted.");
-//   },
-//   data() {
-//     return {};
-//   },
-//   methods: {
-//     logout() {
-//       axios
-//         .post("/logout", {})
-//         .then((res) => {
-//           location.href = "/";
-//         })
-//         .catch((err) => {});
-//     },
-//   },
-// <!-- border-bottom: 1px solid rgba(0, 0, 0, 0.05) -->
+
 const logout = () => {
   axios
     .post("/logout", {})
@@ -506,8 +391,6 @@ const logout = () => {
   display: flex;
   position: relative;
 }
-
-/* this is a comment */
 
 @media screen and (min-width: 811px) {
   .logoHeader {
@@ -550,8 +433,16 @@ const logout = () => {
     border-top: 1px solid #d6d2d2;
   }
 }
+@media screen and (min-width: 1019px) {
+  .hideee {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 1019px) {
+  .thishideee {
+    display: none;
+  }
   #labelAvatar,
   .roleAvatar {
     display: none;
@@ -583,6 +474,7 @@ const logout = () => {
     left: 0px;
     width: 80px;
     border-top: 1px solid #d6d2d2;
+    border-right: 0.11px solid #000000;
   }
   .wrapper .main_content {
     width: 100%;

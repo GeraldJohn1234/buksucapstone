@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Caps1rating extends Model
 {
-    // protected $fillable = [
-    //     'xf1',
-    // ];
+ 
     use HasFactory;
     public function capstone1(){
         return $this->belongsTo(Capstone1::class);

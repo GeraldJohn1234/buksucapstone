@@ -111,7 +111,7 @@
             <option selected>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-            <!-- <option value="5th year">5th year</option> -->
+           
           </select>
         </div>
       </div>
@@ -143,7 +143,7 @@
       </div>
 
       <div class="row">
-        <!-- <input type='file' id="getFile" style="display:none">  -->
+      
         <div class="col-4">
           <label for="lastname" class="form-label">User Type</label>
           <div class="input-group mb-3">
@@ -152,7 +152,7 @@
               <option value="administrator">ADMINISTRATOR</option>
               <option value="faculty">FACULTY</option>
               <option value="student">STUDENT</option>
-              <!-- <option value="archiver">ARCHIVER</option> -->
+              
             </select>
           </div>
         </div>
@@ -175,11 +175,7 @@
       </div>
     </div>
     <br />
-    <!-- <div class="container bg-light">
-      <div class="col-md-12 text-center">
-        <button type="button" class="btn btn-primary" @click="saveUser()">SAVE</button>
-      </div>
-    </div> -->
+
 
     <div class="row text-center px-2">
       <button type="button" class="btn btn-primary col fw-bold" @click="saveUser()">
@@ -190,11 +186,7 @@
 </template>
 
 <script setup>
-// import { vue } from 'laravel-mix';
-// import axios from "axios";
-//  import router from "../../routers/administratorRouter";
-// import { error } from "console";
-// import { response } from "express";
+
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 let form = ref({
@@ -206,7 +198,7 @@ let form = ref({
   lname: "",
   year: "",
   gender: "",
-  photo: "",
+  photo: null,
   usertype: "",
 });
 
@@ -248,7 +240,13 @@ const saveUser = () => {
   formData.append("lname", form.value.lname);
 
   formData.append("gender", form.value.gender);
-  formData.append("photo", form.value.photo);
+
+  if (form.value.photo != null) {
+    formData.append("photo", form.value.photo);
+  } else {
+    formData.append("photo", "0");
+  }
+
   formData.append("usertype", form.value.usertype);
 
   axios
@@ -271,7 +269,7 @@ const saveUser = () => {
         title: "User created successfully",
       });
     })
-    // .catch((error = {}));
+    
     .catch(function (error) {
       console.log(error.response.data.errors);
       console.log("ERRRR:: ", error.response.data);
@@ -280,10 +278,9 @@ const saveUser = () => {
         icon: "warning",
         title: "Creating user account, unsuccessful",
       });
-      // (error = {}));
-      // console.log("ERRRR:: ",error.response.data);
+   
     });
-  // console.log("ERRRR:: ",error.response.data);
+  
 };
 
 const type = ref("password");

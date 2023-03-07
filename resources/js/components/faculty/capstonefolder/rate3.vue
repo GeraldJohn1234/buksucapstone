@@ -5,7 +5,7 @@
       <hr />
     </h5>
 
-    <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
+  
     <table
       class="table tableBorder text-center align-middle table-striped table-bordered border-primary"
     >
@@ -15,7 +15,7 @@
           <th scope="col">3-Very Good</th>
           <th scope="col">2-Good</th>
           <th scope="col">1-Poor</th>
-          <!-- <th scope="col">Weight(%)</th> -->
+       
           <th scope="col-3" class="col-2">Rate</th>
           <th scope="col">Score</th>
         </tr>
@@ -670,7 +670,7 @@
       <hr />
     </h5>
 
-    <!-- <div class="contentOfThePage"> v-model="GenCaps.abstract" -->
+
     <table
       class="table tableBorder text-center align-middle table-striped table-bordered border-primary"
     >
@@ -681,7 +681,7 @@
           <th scope="col">3</th>
           <th scope="col">2</th>
           <th scope="col">1</th>
-          <!-- <th scope="col">Weight(%)</th> -->
+       
           <th scope="col-3" class="col-2">Rate</th>
           <th scope="col">Score</th>
         </tr>
@@ -1045,7 +1045,7 @@
         </h5>
       </div>
     </div>
-    <!-- parseFloat(GenCadocu123.xf1).toFixed(2) -->
+    
     <div class="row">
       <div class="col-9"></div>
       <div class="col">
@@ -1077,7 +1077,7 @@
       </button>
     </div>
 
-    <!-- </div> -->
+ 
   </div>
 </template>
 
@@ -1115,7 +1115,7 @@ let caps1rate = ref({
   xf1: "",
   xf2: "",
 });
-// v-model="GenCaps.abstract"
+
 
 const router = useRouter();
 
@@ -1136,17 +1136,9 @@ const approved = () => {
     caps1rate.value.meth2 != null &&
     caps1rate.value.meth3 != null &&
     caps1rate.value.ref1 != null 
-    // &&
-    // caps1rate.value.format != null &&
-    // caps1rate.value.oralCom != null &&
-    // caps1rate.value.ppt != null &&
-    // caps1rate.value.attire != null &&
-    // caps1rate.value.resp != null
+ 
   ) {
-    // toast.fire({
-    //   icon: "success",
-    //   title: "GOOD",
-    // });
+
     saveRatinggFinal();
   } else {
     toast.fire({
@@ -1173,12 +1165,7 @@ const temporary = () => {
     caps1rate.value.meth2 != null &&
     caps1rate.value.meth3 != null &&
     caps1rate.value.ref1 != null
-    //  &&
-    // caps1rate.value.format != null &&
-    // caps1rate.value.oralCom != null &&
-    // caps1rate.value.ppt != null &&
-    // caps1rate.value.attire != null &&
-    // caps1rate.value.resp != null
+  
   ) {
     saveRatingg();
   } else {
@@ -1241,12 +1228,7 @@ const saveRatinggFinal = () => {
       ( caps1rate.value.meth2) / 1 +
       ( caps1rate.value.meth3) / 1 +
       ( caps1rate.value.ref1) / 1)/49)*100
-      // +
-      // (5 * caps1rate.value.format) / 4 +
-      // (5 * caps1rate.value.oralCom) / 4 +
-      // (5 * caps1rate.value.ppt) / 4 +
-      // (5 * caps1rate.value.attire) / 4 +
-      // (10 * caps1rate.value.resp) / 4
+    
   );
   rateData.append("xf1", "APPROVED");
 
@@ -1284,14 +1266,9 @@ const saveRatinggFinal = () => {
         (caps1rate.value.xf2 = ""),
         (total = ""),
         (xf1 = "");
-      // router.push("/create");
-
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Partial Rate Successfully",
-      // });
+    
     })
-    // .catch((error = {}));
+ 
     .catch(function (error) {
       console.log(error.response.data.errors);
 
@@ -1299,7 +1276,7 @@ const saveRatinggFinal = () => {
         icon: "warning",
         title: "Rate Unsuccessful",
       });
-      // (error = {}));
+     
     });
 };
 
@@ -1383,14 +1360,9 @@ const saveRatingg = () => {
         (caps1rate.value.xf2 = ""),
         (total = ""),
         (xf1 = "");
-      // router.push("/create");
-
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Partial Rate Successfully",
-      // });
+     
     })
-    // .catch((error = {}));
+   
     .catch(function (error) {
       console.log(error.response.data.errors);
 
@@ -1398,7 +1370,7 @@ const saveRatingg = () => {
         icon: "warning",
         title: "Rate Unsuccessful",
       });
-      // (error = {}));
+   
     });
 };
 
@@ -1418,10 +1390,7 @@ const getStoreRatingRate3 = async () => {
     .post("/api/post_approved_rate_status3/" + capsID, rateData)
     .then((response) => {
       (rate = ""), (status = "");
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Usser Add Successfully" + status,
-      // });
+ 
     })
     .catch(function (error) {
       console.log(error.response.data.errors);

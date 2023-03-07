@@ -12,13 +12,6 @@ class Capstone1 extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
     public $incrementing = false;
  
-
-    // protected $fillable = [
-    //     'status',
-    //     'capstone_file',
-    //     'capstone_ocr'   
-    // ];
-
     public function capstone(){
         return $this->belongsTo(Capstone::class);
     }

@@ -8,26 +8,14 @@
       <p class="toTopp">TITLE</p>
     </div>
 
-    <!-- <div class="form-floating col">
-      <textarea
-        class="form-control inputColor"
-        placeholder="Leave a comment here"
-        id="floatingTextarea2"
-        style="height: 250px"
-        v-model="GenCapData.abstract"
-      ></textarea>
-      <label class="ps-4" for="floatingTextarea2">Abstract</label>
-      <br />
-    </div> -->
-    <!-- <P class="text-left  ">INFORMATION</P> -->
+ 
     <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
 
     <div class="contentOfThePage bg-light p-2">
       <p class="parag m-3">{{ GenCapData.abstract }}</p>
       <hr />
 
-      <!-- <a href="#" @click.prevent="getFileeee()">tryyyyyyyyyyyyyyyyy</a> -->
-      <!-- <a href="#" @click.prevent="getFileeee()">fsff</a> -->
+      
 
       <div
         v-if="
@@ -84,25 +72,10 @@
           <hr class="toTop" />
           <p class="toTopp">Group Name</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-          v-model="GenCapData.groupname"
-        />
-        <label class="ps-4" for="floatingInput">Group Name</label> -->
+    
       </div>
       <div class="form-floating mb-3 col">
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-          v-model="student1['name'+'mname']"
-
-        />
-        <label class="ps-4" for="floatingInput">Instructor</label> -->
+      
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf3 }}
@@ -141,14 +114,7 @@
           <hr class="toTop" />
           <p class="toTopp">Co-Adviser</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        
-        />
-        <label class="ps-4" for="floatingInput">Co-Adviser</label> -->
+       
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -184,13 +150,7 @@
           <hr class="toTop" />
           <p class="toTopp">Panel 1</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Panel 1</label> -->
+      
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -204,13 +164,7 @@
           <hr class="toTop" />
           <p class="toTopp">Panel 2</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Panel 2</label> -->
+      
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -224,13 +178,7 @@
           <hr class="toTop" />
           <p class="toTopp">Panel 3</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Panel 3</label> -->
+     
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -248,13 +196,7 @@
           <hr class="toTop" />
           <p class="toTopp">Secretary</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Secretary</label> -->
+     
       </div>
     </div>
 
@@ -273,13 +215,7 @@
           <hr class="toTop" />
           <p class="toTopp">Proponent 1</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label> -->
+       
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -295,13 +231,7 @@
           <hr class="toTop" />
           <p class="toTopp">Proponent 2</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label> -->
+       
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -317,13 +247,7 @@
           <hr class="toTop" />
           <p class="toTopp">Proponent 3</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label> -->
+     
       </div>
       <div class="form-floating mb-3 col">
         <div class="" id="titleSize">
@@ -339,20 +263,10 @@
           <hr class="toTop" />
           <p class="toTopp">Proponent 4</p>
         </div>
-        <!-- <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label> -->
+       
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col">
-        <button type="button" class="m-1 btnSize btn btn-primary">Save</button>
-      </div>
-    </div> -->
+
 
     <div class="row paddingSide mt-3">
       <div class="col row mx-2 contentOfThePage text-center">
@@ -360,9 +274,7 @@
           <label for="view" class="m-2">Capstone 1</label>
         </div>
 
-        <!-- <div class="col">
-          <label for="update" class="m-2">Status: Under-revision</label>
-        </div> -->
+    
         <button
           v-if="
             panels1.name != null &&
@@ -395,9 +307,7 @@
           <label for="view" class="m-2">Capstone 2</label>
         </div>
 
-        <!-- <div class="col">
-          <label for="update" class="m-2">Status: Development</label>
-        </div> -->
+   
         <button
           v-if="
             panels1.name != null &&
@@ -430,9 +340,7 @@
           <label for="view" class="m-2">Capstone 3</label>
         </div>
 
-        <!-- <div class="col">
-          <label for="update" class="m-2">Status: Under-revision</label>
-        </div> -->
+    
         <button
           v-if="
             panels1.name != null &&
@@ -464,24 +372,7 @@
 
     <br />
 
-    <!-- <div class="row margin contentOfThePage text-center">
-      <div class="col">
-        <label for="update" class="m-1"
-          >DOUCUMENTS THROUGHT OCTICAL CHARACTER RECOGNITION</label
-        >
-
-        <button
-          type="button"
-          class="m-1 btnSize btn btn-primary"
-          @click="onUpdate3()"
-        >
-          UPDATE
-        </button>
-        <button type="button" class="m-1 btnSize btn btn-primary" @click="viewOcr()">
-          VIEW
-        </button>
-      </div>
-    </div> -->
+ 
   </div>
 </template>
 
@@ -489,23 +380,17 @@
 import router from "../../../routers/facultyRouter";
 import { onMounted } from "vue";
 import { ref } from "vue";
-// import pdf from "vue-pdf";
-// components: {
-//   pdf;
-// }
+
 const getFileeee = () => {
   let link = window.location.pathname.split("/")[0];
-  // window.open(link + "/pdfminutes3/" + caps3.value.minutes1, "_blank");
+ 
 
   window.open(link + "/pdf/" + GenCapData.value.xf5, "_blank");
 };
 let DocumentType = ref({
   file: "",
 });
-// const getfiles = async () => {
-//   let response = await axios.get("/api/showpdf/");
-//   DocumentType.value.file = response.data.file;
-// };
+
 
 let GenCapData = ref({
   title: "",
@@ -593,7 +478,7 @@ onMounted(async () => {
   getsingleUser2();
   getsingleUser4();
   getsingleUser();
-  // getfiles();
+  
   getsingleUser1();
 
   getsingleUser3();
@@ -607,22 +492,13 @@ onMounted(async () => {
   getsingleUser10();
 });
 
-// const manuscript = () => {
-//   // window.open("https://http://127.0.0.1:8000/pdf/" + file, "_blank");
-//   window.open(
-//     "http ://127.0.0.1:8000/pdf/1667409656.HIPONIA-IT136-Final-Module1.pdf",
-//     "_blank"
-//   );
-//   //  showpdf
-//   // let response = axios.get("/api/showpdf");
-//   // GenCapData.value = response.data.capstones;
-// };
+
 
 const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + props.id);
   GenCapData.value = response.data.capstones;
 
-  // GenCaps.value = response.data.userCaps;  1667371804.5. File Containing the Screenshot of the gcash payment to the panel.docx
+  
   console.warn("Caps", GenCapData.value);
 };
 
@@ -635,7 +511,7 @@ const getsingleUser1 = async () => {
     student1.value = response.data.userCaps;
   }
 
-  // console.warn("TRY", student1.value);
+ 
 };
 const getsingleUser2 = async () => {
   let nullneh;
@@ -743,8 +619,7 @@ const getIDfromURL = () => {
 
 const onView1 = () => {
   let id = getIDfromURL();
-  // router.push("/capstone1/" + id);
-  // router.push("/viewcap/" + id);
+  
 
   axios
     .post("/api/create_capstone_proj/" + id)
@@ -821,7 +696,7 @@ const warningNoData = () => {
       "The group " + GenCapData.value.groupname + ", did not submit their manuscript!",
   });
 };
-//
+
 const unavailable = () => {
   toast.fire({
     icon: "warning",

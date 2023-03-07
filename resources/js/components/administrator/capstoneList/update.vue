@@ -1,18 +1,7 @@
 <template>
-  <!-- <div class="card mb-3 boxProfile text-center mx-auto d-block">
-    <img src="/images/buksuBg.jpg" alt="logo" class="boxBg" />
-    <img src="/images/luffy.jfif" alt="logo" class="boxP" />
-    <div class="text-center">
-      <h5>Monkey D. Luffy</h5>
-      <p>College of Technologies</p>
-      <p>Bachelor of Science in Information Technology - 4</p>
-      <p>1801104017@student.buksu.edu.ph</p>
-    </div>
-  </div> -->
-
   <div class="card mb-3 boxProfile text-center mx-auto d-block contentOfThePage">
     <img src="/images/buksuBg.jpg" alt="logo" class="boxBg" />
-    <!-- <img src="/images/luffy.jfif" alt="logo" class="boxP" /> -->
+
     <img id="" :src="getPhoto()" alt="img" class="boxP" />
     <div class="text-center">
       <h5>{{ form.name }} {{ form.mname }} {{ form.lname }}</h5>
@@ -179,13 +168,6 @@
     </div>
     <br />
     <br />
-    <!-- <div class="container bg-light">
-      <div class="col-md-12 text-center">
-        <button type="button" class="btn btn-primary" @click="updateUser()">
-          UPDATE
-        </button>
-      </div>
-    </div> -->
 
     <div class="row text-center px-2">
       <button type="button" class="btn btn-primary col fw-bold" @click="updateUser()">
@@ -196,13 +178,6 @@
 </template>
 
 <script setup>
-// import { vue } from 'laravel-mix';
-// import axios from "axios";
-//  import router from "../../routers/administratorRouter";
-// import { error } from "console";
-// import { response } from "express";
-// import axios from "axios";
-// import axios from "axios";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -224,7 +199,6 @@ const router = useRouter();
 
 onMounted(async () => {
   getsingleUser();
-  // getPhoto();
 });
 
 const props = defineProps({
@@ -266,15 +240,6 @@ const getsingleUser = async () => {
 };
 
 const updateUser = () => {
-  // let photo = "/upload/archiver.png";
-  // if (form.value.photo) {
-  //   if (form.value.photo.indexOf("base64") != -1) {
-  //     photo = form.value.photo;
-  //   } else {
-  //     photo = "/upload/" + form.value.photo;
-  //   }
-  // }
-
   if (form.value.password == "" || form.value.password == null) {
     toast.fire({
       icon: "warning",
@@ -294,28 +259,16 @@ const updateUser = () => {
     formData.append("gender", form.value.gender);
     formData.append("photo", form.value.photo);
 
-    // ${form.value.id}
-
     axios
       .post("/api/update_user/" + props.id, formData)
 
       .then((response) => {
-        // (form.value.uid = ""),
-        //   (form.value.email = ""),
-        //   (form.value.password = ""),
-        //   (form.value.name = ""),
-        //   (form.value.mname = ""),
-        //   (form.value.lname = ""),
-        //   (form.value.year = ""),
-        //   (form.value.gender = ""),
-        //   (form.value.photo = ""),
         router.push("/update/" + props.id);
 
         toast.fire({
           icon: "success",
           title: "User Update Successfully",
         });
-        // location.reload();
       })
       .catch(function (error) {
         console.log(error.response.data.errors);
@@ -325,13 +278,8 @@ const updateUser = () => {
           icon: "warning",
           title: "Update failed, please change the the temporary avatar",
         });
-        // (error = {}));
-        // console.log("ERRRR:: ",error.response.data);
       });
   }
-  // .catch((error) => {
-
-  // });
 };
 
 const type = ref("password");

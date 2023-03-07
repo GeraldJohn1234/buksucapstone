@@ -50,48 +50,28 @@ class CapstonedashboardController extends Controller
         $working1 = $no__capstone - $approve1;
         $working2 = $no__capstone - $approve2;
         $working3 = $no__capstone - $approve3;
-
-
-
-        // $capstoneid2 = DB::table('capstone2s')->where('capstone_id', $id)->count() < 1; capstones 
-        // $capstoneid3 = DB::table('capstone3s')->where('capstone_id', $id)->count() < 1;
-
         $capstonedashboard = Capstonedashboard::find(1);
-
-
-
         $capstonedashboard->instructor1 = $instructor;
-        // $capstonedashboard->instructor2 =
-        // $capstonedashboard->instructor3 =
-
         $capstonedashboard->panelist  = $panel;
         $capstonedashboard->students  = $student;
         $capstonedashboard->adviser  = $adviser;
-        // $capstonedashboard->co_adviser  =
         $capstonedashboard->archiver  = $archiver;
         $capstonedashboard->secretary  = $secretary;
-
-
-
         $capstonedashboard->under_develop  = $under_develop;
         $capstonedashboard->deploy  = $deploy;
         $capstonedashboard->unimplemented  = $unimplemented;
-
         $capstonedashboard->no_group1  = $no__capstone;
         $capstonedashboard->no_propose_def  = $working1;
         $capstonedashboard->under_revision_1  = $defense1;
         $capstonedashboard->approved_panels_1  = $approve1;
-
         $capstonedashboard->no_group2  = $no__capstone;
         $capstonedashboard->no_prototype_def  = $working2;
         $capstonedashboard->under_revision_2  = $defense2;
         $capstonedashboard->approved_panels_2  = $approve2;
-
         $capstonedashboard->no_group3  = $no__capstone;
         $capstonedashboard->no_final_def  = $working3;
         $capstonedashboard->under_revision_3  = $defense3;
         $capstonedashboard->approved_panels_3  = $approve3;
-
         $capstonedashboard->save();
     }
     public function get_dashboard()
@@ -275,16 +255,12 @@ class CapstonedashboardController extends Controller
         $approved = 0;
         $approvedrate = 0;
 
-
-
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
             ->where('capstone_id', $id)->pluck('user_id')->first();
         $panel2 = DB::table('capstone_user')->where('role_person', 'panels2')
             ->where('capstone_id', $id)->pluck('user_id')->first();
         $panel3 = DB::table('capstone_user')->where('role_person', 'panels3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
-
-
         $panelapprove1 = DB::table('caps3ratings')->where('user_id', $panel1)
             ->where('capstone3_id', $id)->pluck('xf1')->first();
         $panelapprove2 = DB::table('caps3ratings')->where('user_id', $panel2)
@@ -347,9 +323,6 @@ class CapstonedashboardController extends Controller
 
         ], 200);
     }
-
-
-
 
 
     public function get_rate_panel1($id)

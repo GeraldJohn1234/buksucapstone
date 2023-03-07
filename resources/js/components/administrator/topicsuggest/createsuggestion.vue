@@ -3,7 +3,6 @@
     <div class="" id="titleSize">
       <h5 class="pt-2 text-uppercase boldThese">CREATE TOPIC SUGGESTIONS</h5>
       <hr class="toTop" />
-      <!-- <p class="toTopp boldThese">CREATE TOPIC SUGGESTIONS</p> -->
     </div>
 
     <h5 class="text-left boldThese">TITLE</h5>
@@ -126,8 +125,6 @@ const saveTopic = () => {
         (Topic.value.client_location = ""),
         (Topic.value.client_company = ""),
         (Topic.value.xf1 = ""),
-        // router.push("/create");
-
         toast.fire({
           icon: "success",
           title: "Topic Successfully, Added! ",
@@ -142,10 +139,7 @@ const saveTopic = () => {
         icon: "warning",
         title: "Topic Add, Unsuccessful",
       });
-      // (error = {}));
-      // console.log("ERRRR:: ",error.response.data);
     });
-  // console.log("ERRRR:: ",error.response.data);
 };
 </script>
 

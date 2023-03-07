@@ -28,12 +28,7 @@
         <span class="marginTop">PANELIST</span>
         <h4>{{ dashboard.panelist }}</h4>
       </div>
-      <!-- <div class="col box text-center">
-        <img class="userImages" src="/images/archiver.png" alt="Student" />
-        <br />
-        <span class="marginTop">ARCHIVER</span>
-        <h4>{{ dashboard.archiver }}</h4>
-      </div> -->
+    
       <div class="col box text-center">
         <img class="userImages" src="/images/secretary.png" alt="Student" />
         <br />
@@ -216,33 +211,22 @@ export default {
       this.age = num + this.age;
     },
     gettDashoard() {
-      // let response = axios.get("/api/get_dashboard");
-      // this.dashboard = response.data.dashboards;
+      
       return axios.get("/api/get_dashboard").then((response) => {
         this.dashboard = response.data.dashboards;
       });
       console.warn("DASHBOARD", this.dashboard.instructor1);
-      // console.warn("DASHBOARD",this.dashboard.instructor1 );
+      
     },
   },
   async mounted() {
     const ctx = document.getElementById("myChart");
 
-    // axios.get("/api/get_dashboard").then((response) => {
-    //     this.dashboard = response.data.dashboards.instructor1;
-    //     // this.tim =this.tim + this.dashboard.instructor1;
-    //   });
-    // let datapie =0;
-    // const timm =axios.get("/api/get_dashboard").then((response) => {
-    //     this.dashboard = response.data.dashboards;
-    //     datapie  = this.dashboard.instructor1;
-    //     // this.tim =this.tim + this.dashboard.instructor1;
-    //   })
-    // this.try = await dashboards.instructor1;
+   
 
     let response = await axios.get("/api/get_dashboard");
     this.dashboard = response.data.dashboards;
-    // let data1 = this.dashboards.instructor1;
+    
 
     const data = {
       labels: ["UNDER-DEVELOPMENT", "DEPLOYED", "UNIMPLEMENTED"],
@@ -271,7 +255,7 @@ export default {
   },
 
   created() {
-    // this.getDataUnimplement();
+    
     this.gettDashoard();
   },
 };

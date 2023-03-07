@@ -4,8 +4,6 @@
       <div class="forInline capsList">ARCHIVER LIST</div>
 
       <div class="forInline float-end mtop">
-        <!-- <button type="button" class="btn btn-primary box1" @click="create">CREATE</button> -->
-
         <router-link class="nav_link" to="/create">
           <button type="button" class="btn btn-primary box1">CREATE</button>
         </router-link>
@@ -31,9 +29,6 @@
             <option selected>Choose...</option>
             <option value="1">FIRST NAME</option>
             <option value="2">LAST NAME</option>
-            <!-- <option value="3">THIRD YEAR</option>
-            <option value="4">FOURTH YEAR</option>
-            <option value="5">FIFTH YEAR</option> -->
           </select>
         </div>
       </div>
@@ -54,7 +49,6 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in users" :key="item.id">
-          <!-- <td>1</td> -->
           <td>{{ index + 1 }}</td>
 
           <td class="text-center">
@@ -67,11 +61,10 @@
           </td>
           <td>{{ item.uid }}</td>
           <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
-          <!-- <td>Buksu Archiving and Monitoring System</td> -->
+
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view"> -->
                 <button
                   type="button"
                   class="btn btn-outline-success button1 fw-bold button1 my-1"
@@ -79,10 +72,8 @@
                 >
                   VIEW
                 </button>
-                <!-- </router-link> -->
               </li>
               <li class="col">
-                <!-- <router-link class="nav_link" to="/update"> -->
                 <button
                   type="button"
                   class="btn btn-outline-primary button1 fw-bold button1 my-1"
@@ -90,14 +81,8 @@
                 >
                   UPDATE
                 </button>
-                <!-- </router-link> -->
               </li>
               <li class="col">
-                <!-- <router-link class="nav_link" to="/view">
-                  <button type="button" class="btn btn-outline-primary button1">
-                    DELETE
-                  </button>
-                </router-link> -->
                 <button
                   type="button"
                   class="btn btn-outline-warning button1 fw-bold button1 my-1"
@@ -111,7 +96,7 @@
         </tr>
       </tbody>
     </table>
-    <!-- <div v-else></div> -->
+
     <div class="">
       <a href="#" class="previous">&laquo; Previous</a>
       <a href="#" class="next">Next &raquo;</a>
@@ -136,9 +121,6 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import router from "../../routers/administratorRouter";
-//import {useRouter} from 'vue-router'
-
-//const router = useRouter
 
 let users = ref([]);
 
@@ -146,17 +128,10 @@ onMounted(async () => {
   getUsers();
 });
 
-// const create = () => {
-//   router.push('/create')
-// }
-
 const getUsers = async () => {
-  // let response = await axios.get("/api/get_all_user");
-
   let response = await axios.get("/api/get_all_archiver_user");
-  // get_all_student_user
+
   users.value = response.data.archivers;
-  // console.log("users", users.value);
 };
 const ourImage = (img) => {
   return "/upload/" + img;

@@ -10,67 +10,13 @@
         <div class="journey">
           <div class="centerne">
             <canvas id="imageCanvas" ref="imageCanvas"></canvas>
-            <!-- <camera
-              :resolution="{ width: 375, height: 812 }"
-              ref="camera"
-              autoplay
-            ></camera>
-            <button @click="snapshot">Create snapshot</button> -->
-            <!-- <camera></camera> -->
+          
           </div>
         </div>
       </div>
-      <!-- v-model="RichTextEditor.content" -->
+     
       <div class="col contentOfThePage ms-1 me-3">
-        <!-- <QuillEditor
-        v-model:content="content" contentType="html"
-          class=""
-          theme="snow"
-          toolbar="#custom-toolbar"
-        > -->
-        <!-- <quill-editor v-model:content="content"  required toolbar="#custom-toolbar" theme="snow">
-          <template #toolbar>
-            <div id="custom-toolbar">
-              <select class="ql-size">
-                <option value="small"></option>
-                <option selected></option>
-                <option value="large"></option>
-                <option value="huge"></option>
-              </select>
-              <select class="ql-header">
-                <option :value="1"></option>
-                <option :value="2"></option>
-                <option :value="3"></option>
-                <option :value="4"></option>
-                <option :value="5"></option>
-                <option :value="6"></option>
-                <option selected></option>
-              </select>
-
-              <button class="ql-bold"></button>
-              <button class="ql-italic"></button>
-              <button class="ql-underline"></button>
-              <button class="ql-strike"></button>
-              <button class="ql-script" value="sub"></button>
-              <button class="ql-script" value="super"></button>
-              <select class="ql-align">
-                <option selected></option>
-                <option value="center"></option>
-                <option value="right"></option>
-                <option value="justify"></option>
-              </select>
-              <button class="ql-list" value="ordered"></button>
-              <button class="ql-list" value="bullet"></button>
-              <button class="ql-blockquote"></button>
-              <button class="ql-code-block"></button>
-              <button class="ql-link"></button>
-              <button class="ql-image"></button>
-
-              <button id="your-button" @click="setContent()">Save</button>
-            </div>
-          </template>
-     </quill-editor> -->
-        <!-- </QuillEditor> -->
+      
 
         <h5 class="text-left boldThese">CONVERTED TEXT</h5>
         <div class="form-floating col">
@@ -97,7 +43,7 @@
     <h4 class="text-center mt-4">FULL DOCUMENTATION</h4>
     <div class="contentOfThePage my-3">
       <h5 class="text-left boldThese">CONTENT</h5>
-      <!-- {{ caps.capstone_ocr }} -->
+      
       <div class="form-floating col">
         <textarea
           class="form-control inputColor"
@@ -200,10 +146,7 @@ export default defineComponent({
       this.status = "initialize";
       var self = this;
 
-      // const canvas = document
-      //   .getElementById("photoTaken")
-      //   .toDataURL("image/jpeg")
-      //   .replace("image/jpeg", "image/octet-stream");
+     
 
       var reader,
         files = e.target.files;
@@ -239,7 +182,7 @@ export default defineComponent({
         },
       })
         .then((result) => {
-          // alert(result.data.text);
+       
           this.textcontent = result.data.text;
           vm.status = "";
         })
@@ -298,9 +241,7 @@ export default defineComponent({
         .replace("image/jpeg", "image/octet-stream");
       download.setAttribute("href", canvas);
     },
-    // getIDfromURL() {
-    //   return window.location.pathname.split("/")[2];
-    // },
+ 
     saveCapstonee1() {
       let id = window.location.pathname.split("/")[2];
       axios
@@ -313,7 +254,7 @@ export default defineComponent({
             title: "User Capstone Successfully",
           });
           this.getCapstone();
-          // $("#success").html(response.data.message);
+         
         });
     },
     getCapstone() {
@@ -330,9 +271,7 @@ export default defineComponent({
       return this.caps.capstone_ocr;
     },
 
-    // toConcat() {
-    //   return (concatSting = caps.capstone_ocr + textcontent);
-    // },
+ 
   },
 
   created() {

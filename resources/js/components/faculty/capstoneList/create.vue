@@ -15,7 +15,7 @@
           aria-label="University ID"
           v-model="form.uid"
         />
-        <!--  -->
+   
       </div>
       <div class="col">
         <label for="emailAddress" class="form-label">Email Address</label>
@@ -27,7 +27,7 @@
           v-model="form.email"
         />
       </div>
-      <!-- -->
+  
 
       <div class="col">
         <label for="password" class="form-label">Password</label>
@@ -41,7 +41,7 @@
             aria-describedby="button-addon2"
             v-model="form.password"
           />
-          <!--  -->
+   
           <button
             class="btn btn-outline-secondary"
             type="button"
@@ -64,7 +64,7 @@
           v-model="form.name"
         />
       </div>
-      <!--  -->
+
       <div class="col">
         <label for="middlename" class="form-label">Middle Name</label>
         <input
@@ -75,7 +75,7 @@
           v-model="form.mname"
         />
       </div>
-      <!--  -->
+  
       <div class="col">
         <label for="lastname" class="form-label">Last Name</label>
         <input
@@ -85,7 +85,7 @@
           aria-label="Last name"
           v-model="form.lname"
         />
-        <!--  -->
+    
       </div>
     </div>
     <div class="row mt-3">
@@ -143,16 +143,13 @@
       </div>
 
       <div class="row">
-        <!-- <input type='file' id="getFile" style="display:none">  -->
+        
         <div class="col-4">
           <label for="lastname" class="form-label">User Type</label>
           <div class="input-group mb-3">
             <select class="form-select" id="inputGroupSelect01" v-model="form.usertype">
               <option selected>Choose...</option>
-              <option value="administrator">ADMINISTRATOR</option>
-              <option value="faculty">FACULTY</option>
               <option value="student">STUDENT</option>
-              <option value="archiver">ARCHIVER</option>
             </select>
           </div>
         </div>
@@ -175,11 +172,7 @@
       </div>
     </div>
     <br />
-    <!-- <div class="container bg-light">
-      <div class="col-md-12 text-center">
-        <button type="button" class="btn btn-primary" @click="saveUser()">SAVE</button>
-      </div>
-    </div> -->
+   
 
     <div class="row text-center px-2">
       <button type="button" class="btn btn-primary col fw-bold" @click="saveUser()">
@@ -190,11 +183,7 @@
 </template>
 
 <script setup>
-// import { vue } from 'laravel-mix';
-// import axios from "axios";
-//  import router from "../../routers/administratorRouter";
-// import { error } from "console";
-// import { response } from "express";
+
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 let form = ref({
@@ -206,7 +195,7 @@ let form = ref({
   lname: "",
   year: "",
   gender: "",
-  photo: "",
+  photo: null,
   usertype: "",
 });
 
@@ -248,7 +237,13 @@ const saveUser = () => {
   formData.append("lname", form.value.lname);
 
   formData.append("gender", form.value.gender);
-  formData.append("photo", form.value.photo);
+
+  if (form.value.photo != null) {
+    formData.append("photo", form.value.photo);
+  } else {
+    formData.append("photo", "0");
+  }
+
   formData.append("usertype", form.value.usertype);
 
   axios
@@ -271,7 +266,7 @@ const saveUser = () => {
         title: "User Add Successfully",
       });
     })
-    // .catch((error = {}));
+ 
     .catch(function (error) {
       console.log(error.response.data.errors);
       console.log("ERRRR:: ", error.response.data);
@@ -280,10 +275,9 @@ const saveUser = () => {
         icon: "warning",
         title: "User Add Unsuccessful",
       });
-      // (error = {}));
-      // console.log("ERRRR:: ",error.response.data);
+  
     });
-  // console.log("ERRRR:: ",error.response.data);
+ 
 };
 
 const type = ref("password");

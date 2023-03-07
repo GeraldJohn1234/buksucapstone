@@ -17,12 +17,10 @@ class Caps3ratingController extends Controller
 
         $panelid = DB::table('Caps3ratings')->where('capstone3_id', $id)
             ->where('user_id', $idauth)->pluck('id')->first();
-           
-            // $checkuser = DB::table('Caps3ratings')->where('user_id', $idauth)->count() < 1;
+        
             $checkuser = DB::table('Caps3ratings')->where('id', $panelid)->count() > 0;
 
         if ($checkuser) {
-            // $rate1 = DB::table('Caps3ratings')->where('capstone3_id', $id)->count() < 1;
 
             $ratecaps11 = Caps3rating::find($panelid);
 
@@ -97,29 +95,4 @@ class Caps3ratingController extends Controller
 
         ], 200);
     }
-    // create_rate
-
-    // public function create_rate3($id)
-    // {
-    //     // $capstoneid1 = DB::table('capstone1s')->where('capstone_id', $id)->count() < 1;
-
-    //     $idauth = Auth::user()->id;
-
-    //     $panelid = DB::table('Caps3ratings')
-    //     ->where('user_id', $idauth)->where('capstone3_id', $id)->pluck('id')->first();
-    //     $checkuser = DB::table('Caps3ratings')->where('id', $panelid)->count() < 1;
-
-
-    //     $status1 = "PENDING";
-
-
-    //     if ($checkuser) {
-    //         $ratecaps1 = new Caps3rating();
-    //         $ratecaps1->capstone3_id = $id;
-    //         $ratecaps1->user_id = $idauth;
-    //         $ratecaps1->xf1 = $status1;
-    //         $ratecaps1->save();
-    //     }
-
-    // }
 }

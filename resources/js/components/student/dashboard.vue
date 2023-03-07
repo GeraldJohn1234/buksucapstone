@@ -20,12 +20,7 @@
         <span class="marginTop">INSTRUCTOR</span>
         <h4>55</h4>
       </div>
-      <!-- <div class="col box text-center">
-        <img class="userImages" src="/images/chair.jpg" alt="Student" />
-        <br />
-        <span class="marginTop">CHAIR</span>
-        <h4>55</h4>
-      </div> -->
+
       <div class="col box text-center">
         <img class="userImages" src="/images/panelist.png" alt="Student" />
         <br />
@@ -214,11 +209,10 @@ export default {
   },
   created() {
     this.getDashoard();
- 
   },
 };
 </script>
-<style >
+<style>
 .pieChartbox {
   height: 300px;
   margin-right: -0.5rem;
@@ -250,8 +244,8 @@ export default {
   box-shadow: 2px 1px 10px #888888;
   border-radius: 5px;
   border-color: #0062ff;
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L",
-    "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue",
+    Helvetica, Arial, sans-serif !important;
 }
 
 .boxStatus {

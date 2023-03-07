@@ -2,12 +2,6 @@
   <div class="contentOfThePage rounded bg-light p-3">
     <div class="">
       <div class="forInline capsList">TOPIC SUGGESTIONS LIST</div>
-
-      <!-- <div class="forInline float-end mtop">
-        <router-link class="nav_link" to="/createsuggestion">
-          <button type="button" class="btn btn-primary box1">CREATE</button>
-        </router-link>
-      </div> -->
     </div>
     <hr />
 
@@ -21,8 +15,6 @@
           aria-describedby="search-addon"
           v-model="capslistt.searching"
         />
-
-        <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
       </div>
 
       <div class="float-end topM">
@@ -61,7 +53,6 @@
           <td class="text-uppercase">{{ item.title }}</td>
           <td>{{ item.created_at }}</td>
           <td>
-            <!-- {{ item.status }} -->
             <p
               v-if="item.status === 'Available'"
               class="text-success fw-bold text-uppercase"
@@ -71,83 +62,25 @@
             <p v-else class="text-warning fw-bold text-uppercase">{{ item.status }}</p>
           </td>
 
-          <!-- 
-          v-if="
-          GenCadocu123.revise_manuscript === null ||
-          GenCadocu123.revise_manuscript === 'null'
-        " -->
-
-          <!-- <td>{{ item.name }} {{ item.mname }} {{ item.lname }}</td>
-          <td>{{ item.year }}</td> -->
-          <!-- <img
-              class="avatarImage1"
-              :src="ourImage(item.photo)"
-              alt="a"
-              v-if="item.photo"
-            /> -->
-          <!-- <td>Buksu Archiving and Monitoring System</td> -->
-
           <td class="">
             <ul class="nav row">
               <li class="col">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary fw-bold button1 my-1"
-                  @click="taketopic(item.id)"
-                >
-                  <!-- @click="viewCap(item.id)" -->
-                  VIEW
-                </button>
+                <i class="btn btn-outline-primary" @click="taketopic(item.id)">
+                  <font-awesome-icon icon="fa-solid fa-eye" />
+                </i>
               </li>
-              <!-- <li class="col">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary fw-bold button1 my-1"
-                  @click="edithtopic(item.id)"
-                >
-                  UPDATE
-                </button>
-              </li>
-              <li class="col">
-                <button
-                  type="button"
-                  class="btn btn-outline-warning fw-bold button1 my-1"
-                  @click="deletetopic(item.id)"
-                >
-                  DELETE
-                </button>
-              </li> -->
             </ul>
           </td>
         </tr>
       </tbody>
     </table>
     <hr class="topHi" />
-    <!-- <div class="">
-      <a href="#" class="previous">&laquo; Previous</a>
-      <a href="#" class="next">Next &raquo;</a>
-
-      <div class="float-end">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Row visible: </span>
-          <select class="form-select inline-block box1" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script setup>
 import router from "../../routers/studentRouter";
 import { onMounted, reactive, ref, watch } from "vue";
-
-// import { reactive, ref, watch } from "vue";
 
 let projects = ref([]);
 
@@ -157,7 +90,6 @@ const capslisttsort = reactive({ sorting: null });
 watch(capslistt, (newValue, oldValue) => {
   console.log(newValue, oldValue);
   dataCapstone();
-  // dataCapstonesort();
 });
 watch(capslisttsort, (newValue, oldValue) => {
   console.log(newValue, oldValue);
@@ -172,10 +104,6 @@ const dataCapstone = async () => {
 
     .then((response) => {
       projects.value = response.data.capstones;
-      // toast.fire({
-      //   icon: "success",
-      //   title: "SOMETHING WRONG",
-      // });
     })
 
     .catch(function (error) {
@@ -190,10 +118,6 @@ const dataCapstonesort = async () => {
 
     .then((response) => {
       projects.value = response.data.capstones;
-      // toast.fire({
-      //   icon: "success",
-      //   title: "SOMETHING WRONG",
-      // });
     })
 
     .catch(function (error) {
@@ -202,35 +126,11 @@ const dataCapstonesort = async () => {
 };
 
 const edithtopic = (id) => {
-  // axios
-  //   .post("/api/create_capstone_proj/" + id)
-  //   .then((response) => {
   router.push("/updatetopic/" + id);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error.response.data.errors);
-  //     console.log("ERRRR:: ", error.response.data);
-  //     toast.fire({
-  //       icon: "warning",
-  //       title: "SOMETHING WRONG",
-  //     });
-  //   });
 };
 
 const taketopic = (id) => {
-  // axios
-  //   .post("/api/create_capstone_proj/" + id)
-  //   .then((response) => {
   router.push("/taketopic/" + id);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error.response.data.errors);
-  //     console.log("ERRRR:: ", error.response.data);
-  //     toast.fire({
-  //       icon: "warning",
-  //       title: "SOMETHING WRONG",
-  //     });
-  //   });
 };
 
 onMounted(async () => {
@@ -252,7 +152,7 @@ const deletetopic = (id) => {
         .get("/api/delete_topic/" + id)
         .then(() => {
           Swal.fire("Delete", "Capstone delete successfully", "success");
-          // getCapstone();
+
           dataCapstone();
         })
         .catch(() => {

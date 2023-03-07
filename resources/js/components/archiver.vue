@@ -1,9 +1,6 @@
 <template>
   <div class="wrapper container-fluid">
     <div class="sidebar" id="scrollAble">
-      <!-- <img class="avatarImg" src="/images/buksu.png" alt="User Avatar">
-      <h2 class="">SideBar</h2> -->
-
       <div class="row logoHeader point" @click="dash()">
         <div class="col-md-4 avatarImg">
           <img src="/images/buksu.png" alt="logo" />
@@ -14,18 +11,6 @@
       </div>
 
       <ul>
-        <!-- <li>
-          <router-link class="a active nav_link" @click="storeDashoard()" to="/dashboard">
-            <i>
-              <font-awesome-icon icon="fa-solid fa-grid-horizontal" size="2x"/>
-              <font-awesome-icon
-                icon="fa-solid fa-dashboard"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-            <span id="label">DASHBOARD</span>
-          </router-link>
-        </li> -->
         <li>
           <router-link class="a nav_link" to="/profile">
             <i>
@@ -37,18 +22,6 @@
             <span id="label">PROFILE</span>
           </router-link>
         </li>
-        <!-- <li>
-          <router-link class="a nav_link" to="/project">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-file"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">CREATE PROJECT</span>
-          </router-link>
-        </li> -->
 
         <li>
           <router-link class="a nav_link" to="/capslist">
@@ -62,71 +35,6 @@
             <span id="label">CAPSTONE LIST</span>
           </router-link>
         </li>
-
-        <!-- <li>
-          <router-link class="a nav_link" to="/topic">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-lightbulb"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">TOPIC SUGGESTION</span>
-          </router-link>
-        </li> -->
-        <!--  -->
-
-        <!-- <li>
-          <router-link class="a nav_link" to="/adviser">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-user"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">ADVISER</span>
-          </router-link>
-        </li> -->
-
-        <!-- <li>
-          <router-link class="a nav_link" to="/panel">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-users-rectangle"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">PANEL</span>
-          </router-link>
-        </li> -->
-        <!-- 
-        <li>
-          <router-link class="a nav_link" to="/secretary">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-user-pen"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">SECRETARY</span>
-          </router-link>
-        </li> -->
-        <!-- <li>
-          <router-link class="a nav_link" to="/archiver">
-            <i>
-              <font-awesome-icon
-                icon="fa-solid fa-user-pen"
-                style="width: 24px; height: 24px"
-              />
-            </i>
-
-            <span id="label">ARCHIVER</span>
-          </router-link>
-        </li> -->
 
         <li id="logout">
           <a href="#" @click="logout">
@@ -144,18 +52,9 @@
     </div>
     <div class="main_content">
       <div class="header">
-        <div class="headerL">
-          Capstone Project Monitoring and Archiving System
-          <!-- {{ authUser.id }} -->
-
-          <!-- <h5 > {{form.name}} {{form.mname}} {{form.lname}}</h5> -->
-        </div>
+        <div class="headerL">Capstone Project Monitoring and Archiving System</div>
         <div class="headerR row">
           <div class="footer content">
-            <!-- <img
-              class="avatarUser rounded-circle border border-dark"
-              src="/images/myAvatar.png"
-            /> -->
             <img
               id="rizal"
               class="avatarUser mt-3 rounded-circle border border-dark"
@@ -164,12 +63,9 @@
             />
             <div class="p">
               <span class="topA ms-1" id="labelAvatar">
-                <!-- Gerald John S. Hiponia -->
                 {{ form.name }} {{ form.mname }} {{ form.lname }}
               </span>
               <br />
-
-              <!-- <span> Administrator </span> -->
             </div>
             <p class="roleAvatar ms-5 me-2">ARCHIVER</p>
           </div>
@@ -194,35 +90,7 @@ import router from "../routers/archiverRouter";
 
 const dash = () => {
   router.push("/profile");
-  // location.reload();
 };
-
-// let dashboard = ref({
-//   instructor1: 0,
-//   instructor2: 0,
-//   instructor3: 0,
-//   panelist: 0,
-//   students: 0,
-//   adviser: 0,
-//   co_adviser: 0,
-//   archiver: 0,
-//   secretary: 0,
-//   under_develop: 0,
-//   deploy: 0,
-//   unimplemented: 0,
-//   no_group1: 0,
-//   no_propose_def: 0,
-//   under_revision_1: 0,
-//   approved_panels_1: 0,
-//   no_group2: 0,
-//   no_prototype_def: 0,
-//   under_revision_2: 0,
-//   approved_panels_2: 0,
-//   no_group3: 0,
-//   no_final_def: 0,
-//   under_revision_3: 0,
-//   approved_panels_3: 0,
-// });
 
 let form = ref({
   userId: "",
@@ -241,27 +109,14 @@ let form = ref({
 onMounted(async () => {
   getsingleUser();
   getPhoto();
-  // storeDashoard();
 });
 
 const storeDashoard = () => {
   axios
     .post("/api/store_dashboard")
-    .then((response) => {
-      // toast.fire({
-      //   icon: "warning",
-      //   title: "SOMETHING GOOD in Dashboard",
-      // });
-    })
+    .then((response) => {})
 
-    .catch(function (error) {
-      // console.log(error.response.data.errors);
-      // console.log("ERRRR:: ", error.response.data);
-      // toast.fire({
-      //   icon: "warning",
-      //   title: "SOMETHING WRONG",
-      // });
-    });
+    .catch(function (error) {});
 };
 
 const getPhoto = () => {
@@ -285,28 +140,8 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/myprofile");
   form.value = response.data.userrs;
   console.warn("userrs", form.value);
-
-  // console.warn(test);
-
-  // test = ("userrs", form.value.name);
 };
-// export default {
-//   mounted() {
-//     console.log("Component mounted.");
-//   },
-//   data() {
-//     return {};
-//   },
-//   methods: {
-//     logout() {
-//       axios
-//         .post("/logout", {})
-//         .then((res) => {
-//           location.href = "/";
-//         })
-//         .catch((err) => {});
-//     },
-//   },
+
 const logout = () => {
   axios
     .post("/logout", {})
@@ -335,8 +170,6 @@ const logout = () => {
   display: flex;
   position: relative;
 }
-
-/* this is a comment */
 
 @media screen and (min-width: 811px) {
   .logoHeader {

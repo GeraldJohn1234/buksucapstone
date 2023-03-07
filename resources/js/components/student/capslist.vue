@@ -15,8 +15,6 @@
           aria-describedby="search-addon"
           v-model="capslistt.searching"
         />
-
-        <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
       </div>
 
       <div class="float-end topM">
@@ -55,7 +53,6 @@
       <tbody class="colorNeh">
         <tr v-for="(item, index) in projects" :key="item.id">
           <template v-if="index <= limitlist">
-            <!-- <template v-if="index > limitlist && index <= limitlist + limitlist"> -->
             <td class="text-center align-middle text-uppercase">{{ index + 1 }}</td>
             <td class="align-middle text-uppercase">{{ item.title }}</td>
             <td class="text-center align-middle text-uppercase">
@@ -68,15 +65,9 @@
             <td class="text-center align-middle">
               <ul class="nav row">
                 <li class="col">
-                  <button
-                    type="button"
-                    class="btn btn-outline-success button1 my-1 fw-bold"
-                    @click="viewCap(item.id)"
-                  >
-                    <!-- @click="onView(item.id)" -->
-                    <!-- <span class="text-dark fw-bold"></span> -->
-                    VIEW
-                  </button>
+                  <i class="btn btn-outline-primary" @click="viewCap(item.id)">
+                    <font-awesome-icon icon="fa-solid fa-eye" />
+                  </i>
                 </li>
               </ul>
             </td>
@@ -85,35 +76,11 @@
       </tbody>
     </table>
     <hr class="topHi" />
-    <!-- <div class="">
-      <a href="#" class="previous">&laquo; Previous</a>
-      <a href="#" class="next">Next &raquo;</a>
-
-      <div class="float-end">
-        <div class="input-group mb-3 inline-block">
-          <span class="inline-block botM" for="">Row visible: </span>
-          <select
-            class="form-select inline-block box1"
-            v-model="limitlist"
-            id="inputGroupSelect01"
-          >
-            <option selected>Choose...</option>
-            <option value="4">5</option>
-            <option value="9">10</option>
-            <option value="14">15</option>
-            <option value="19">20</option>
-            <option value="10000">all</option>
-          </select>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 <script setup>
 import router from "../../routers/studentRouter";
 import { onMounted, reactive, ref, watch } from "vue";
-
-// import { reactive, ref, watch } from "vue";
 
 let projects = ref([]);
 
@@ -123,22 +90,12 @@ let limitlist = 10000;
 const capslistt = reactive({ searching: null });
 const capslisttsort = reactive({ sorting: null });
 
-// const listt = reactive({ limitlist: 9 });
-
-// watch(listt, (newValue, oldValue) => {
-//   console.log(newValue, oldValue);
-//   // dataCapstone();
-//   dataCapstone();
-//   // dataCapstonesort();
-// });
 onMounted(async () => {
-  // getCapstone();
   dataCapstone();
 });
 watch(capslistt, (newValue, oldValue) => {
   console.log(newValue, oldValue);
   dataCapstone();
-  // dataCapstonesort();
 });
 watch(capslisttsort, (newValue, oldValue) => {
   console.log(newValue, oldValue);
@@ -153,10 +110,6 @@ const dataCapstone = async () => {
 
     .then((response) => {
       projects.value = response.data.capstones;
-      // toast.fire({
-      //   icon: "success",
-      //   title: "SOMETHING WRONG",
-      // });
     })
 
     .catch(function (error) {
@@ -171,10 +124,6 @@ const dataCapstonesort = async () => {
 
     .then((response) => {
       projects.value = response.data.capstones;
-      // toast.fire({
-      //   icon: "success",
-      //   title: "SOMETHING WRONG",
-      // });
     })
 
     .catch(function (error) {
@@ -202,41 +151,7 @@ const edithCap = (id) => {
 
 const viewCap = (id) => {
   router.push("/viewcap/" + id);
-
-  // axios
-  //   .post("/api/create_capstone_proj/" + id)
-  //   .then((response) => {
-  //     router.push("/viewcap/" + id);
-  //   })
-
-  //   .catch(function (error) {
-  //     console.log(error.response.data.errors);
-  //     console.log("ERRRR:: ", error.response.data);
-
-  //     toast.fire({
-  //       icon: "warning",
-  //       title: "SOMETHING WRONG",
-  //     });
-  //   });
 };
-
-// const getCapstoneSearch = async () => {
-//   let iddd = window.location.pathname.split("/")[2];
-//   const formData = new FormData();
-//   formData.append("searching");
-//   let response = await axios.get("/api/get_all_capstone_search");
-//   projects.value = response.data.capstones;
-// };
-// const getCapstone = async () => {
-//   const formData = new FormData();
-//   let response = await axios.get("/api/get_all_capstone/" + capslistt.value.searching);
-//   projects.value = response.data.capstones;
-// };
-
-// const getCapstone = async () => {
-//   let response = await axios.get("/api/get_all_capstone");
-//   projects.value = response.data.capstones;
-// };
 
 const deleteCapstone = (id) => {
   Swal.fire({
@@ -253,7 +168,7 @@ const deleteCapstone = (id) => {
         .get("/api/delete_capstone/" + id)
         .then(() => {
           Swal.fire("Delete", "Capstone delete successfully", "success");
-          // getCapstone();
+
           dataCapstone();
         })
         .catch(() => {

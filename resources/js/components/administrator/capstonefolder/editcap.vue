@@ -1,5 +1,4 @@
 <template>
-  <!-- class="modal bg-success contentOfThePage" -->
   <div v-if="modall.open" class="modalist contentOfThePage bg-light p-5">
     <button class="btn btn-danger float" @click="modall.open = false">X</button>
     <br />
@@ -31,7 +30,7 @@
       the study.
     </p>
     <hr />
-    <!-- <br /> -->
+
     <div class="form-check">
       <input
         class="form-check-input"
@@ -77,8 +76,6 @@
     <button v-else class="btnSize btn btn-primary fw-bold" @click="saveCapstone()">
       SUBMIT
     </button>
-    <!-- <button @click="modall.open = false">Close</button> -->
-    <!-- <button class="btn btn-primary" @click="modall.open = false">X</button> -->
 
     <br />
   </div>
@@ -124,21 +121,7 @@
           required
         ></textarea>
       </div>
-      <!-- <div class="col">
-        <label for="instructor" class="form-label">Instructor</label>
-        <label for="" class="float-end colorText"
-          >{{ instructor.name }} {{ instructor.mname }} {{ instructor.lname }}</label
-        >
-        <div class="input-group mb-3">
-          <select class="form-control inputColor" required v-model="GenCaps.instructor">
-           
-            <option selected>Open this select menu</option>
-            <option v-for="item in instructors" :key="item.id" :value="item.id">
-              {{ item.name }} {{ item.mname }} {{ item.lname }}
-            </option>
-          </select>
-        </div>
-      </div> -->
+
       <div class="col-3">
         <label for="lastname" class="form-label">Project Status</label>
         <div class="input-group mb-3">
@@ -184,7 +167,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.adviser">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in advisers" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -204,7 +186,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.coAdviser">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in advisers" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -225,10 +206,9 @@
       </div>
       <div class="col-3">
         <label for="coAdviser" class="form-label">Manuscript (pdf only!)</label>
-        <!-- <input type="file" id="" /> -->
+
         <div class="input-group mb-3 col-12 border border-primary">
           <input type="file" id="" accept=".pdf" class="" @change="onChange" />
-          <!-- @change="updatePhoto" -->
         </div>
       </div>
     </div>
@@ -245,7 +225,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels1">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -264,7 +243,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels2">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -283,7 +261,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels3">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -324,7 +301,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students1">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -342,7 +318,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students2">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -360,7 +335,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students3">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -378,7 +352,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students4">
-            <!-- <option selected disabled>Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -440,24 +413,6 @@
     </div>
     <hr />
 
-    <!-- <div class="row contentOfThePage mx-1">
-      <label for="button" class="fw-bold"
-        >For Uploading Documentation through OCR</label
-      > -->
-    <!-- <div class="row">
-      <div class="col">
-        <button
-          type="button"
-          class="m-1 btnSize btn btn-primary fw-bold"
-          @click="onOCR()"
-        >
-          Uploading Documentation through Octical Character Recognition
-        </button>
-      </div>
-    </div> -->
-
-    <!-- </div> -->
-
     <div class="row">
       <div class="col">
         <button
@@ -467,9 +422,6 @@
         >
           Save
         </button>
-        <!-- <button class="btnSize btn btn-primary" >
-          Open Modal
-        </button> -->
       </div>
     </div>
   </div>
@@ -486,7 +438,6 @@ let advisers = ref({});
 let instructors = ref({});
 let secretarys = ref({});
 
-// let modall = false;
 let modall = ref({
   open: false,
 });
@@ -563,9 +514,6 @@ let caps1Instructor = ref({
 });
 
 let GenCaps = ref({
-  // title: "",
-  // abstract: "",
-  // groupname: "",
   students1: null,
   students2: null,
   students3: null,
@@ -598,18 +546,9 @@ onMounted(async () => {
   getInstructor();
 });
 const onChange = (e) => {
-  // let file = e.target.files[0];
-  // let reader = new FileReader();
-  // let limit = 1024 * 1024 * 20;
-  // if (file["size"] > limit) {
-  //   return false;
-  // }
   console.log("Selected FILE: ", e.target.files[0]);
-  // reader.onloadend = (file) => {
-  // GenCapData.value.file = reader.result;
+
   GenCapData.value.file = e.target.files[0];
-  // };
-  // reader.readAsDataURL(file);
 };
 
 const gettIdfromURL = () => {
@@ -626,14 +565,8 @@ const onOCR = (id) => {
   router.push("/ocrpages/" + capstoneid);
 };
 const saveCapstone = () => {
-  // if(GenCapData.value.name==""||GenCapData.value.name==null){
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Please ",
-  //   });
-  // }
   let capstoneid = gettIdfromURL();
-  // if (GenCapData.value.file != null) {
+
   const formData = new FormData();
   formData.append("title", GenCapData.value.title);
   formData.append("abstract", GenCapData.value.abstract);
@@ -718,7 +651,6 @@ const saveCapstone = () => {
         (GenCaps.value.adviser = null),
         (GenCaps.value.coAdviser = null),
         (GenCaps.value.secretarys = null),
-        // (GenCaps.value.secretarys = null),
         router.push("/editcap/" + props.id);
 
       toast.fire({
@@ -743,57 +675,9 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + props.id);
   GenCapData.value = response.data.capstones;
 
-  // GenCaps.value = response.data.userCaps;
   console.warn("Caps", GenCapData.value);
 };
 
-// const getsingleUser1 = async () => {
-//   let response = await axios.get("/api/get_capstone_student1/" + props.id);
-//   student1.value = response.data.userCaps;
-//   console.warn("TRY", student1.value);
-// };
-// const getsingleUser2 = async () => {
-//   let response = await axios.get("/api/get_capstone_student2/" + props.id);
-//   student2.value = response.data.userCaps;
-// };
-
-// const getsingleUser3 = async () => {
-//   let response = await axios.get("/api/get_capstone_student3/" + props.id);
-//   student3.value = response.data.userCaps;
-// };
-// const getsingleUser11 = async () => {
-//   let response = await axios.get("/api/get_capstone_student4/" + props.id);
-//   student4.value = response.data.userCaps;
-// };
-
-// const getsingleUser4 = async () => {
-//   let response = await axios.get("/api/get_capstone_panels1/" + props.id);
-//   panels1.value = response.data.userCaps;
-// };
-// const getsingleUser5 = async () => {
-//   let response = await axios.get("/api/get_capstone_panels2/" + props.id);
-//   panels2.value = response.data.userCaps;
-// };
-// const getsingleUser6 = async () => {
-//   let response = await axios.get("/api/get_capstone_panels3/" + props.id);
-//   panels3.value = response.data.userCaps;
-// };
-// const getsingleUser7 = async () => {
-//   let response = await axios.get("/api/get_capstone_adviser/" + props.id);
-//   adviser.value = response.data.userCaps;
-// };
-// const getsingleUser8 = async () => {
-//   let response = await axios.get("/api/get_capstone_coAdviser/" + props.id);
-//   coAdviser.value = response.data.userCaps;
-// };
-// const getsingleUser9 = async () => {
-//   let response = await axios.get("/api/get_capstone_instructor/" + props.id);
-//   instructor.value = response.data.userCaps;
-// };
-// const getsingleUser10 = async () => {
-//   let response = await axios.get("/api/get_capstone_secretarys/" + props.id);
-//   secretary.value = response.data.userCaps;
-// };
 const getsingleUser1 = async () => {
   let nullneh;
   let response = await axios.get("/api/get_capstone_student1/" + props.id);
@@ -802,8 +686,6 @@ const getsingleUser1 = async () => {
   if (nullneh != null) {
     student1.value = response.data.userCaps;
   }
-
-  // console.warn("TRY", student1.value);
 };
 const getsingleUser2 = async () => {
   let nullneh;
@@ -926,19 +808,7 @@ const getInstructor = async () => {
 const getIDfromURL = () => {
   return window.location.pathname.split("/")[2];
 };
-// const onView1 = () => {
-//   let id = getIDfromURL();
-//   router.push("/capstone1/" + id);
-// };
 
-// const onView2 = () => {
-//   let id = getIDfromURL();
-//   router.push("/capstone2/" + id);
-// };
-// const onView3 = () => {
-//   let id = getIDfromURL();
-//   router.push("/capstone3/" + id);
-// };
 const onUpdate1 = () => {
   let id = getIDfromURL();
   router.push("/caps1edit/" + id);
@@ -964,100 +834,6 @@ const onView3 = () => {
   let id = getIDfromURL();
   router.push("/capstone3/" + id);
 };
-
-// const onView1 = async () => {
-//   let idd = getIDfromURL();
-//   let response = await axios.get("/api/panel_rate_check/" + idd);
-//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
-//   rated.value = response.data.userCaps;
-//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
-//   if (rated.value.id == 1) {
-//     axios
-//       .post("/api/create_rate/" + idd)
-//       .then((response) => {
-//         // router.push("/rate/" + idd);
-//         router.push("/capstone1/" + id);
-//       })
-//       // router.push("/rate/" + idd);
-
-//       .catch(function (error) {
-//         console.log(error.response.data.errors);
-//         console.log("ERRRR:: ", error.response.data);
-
-//         toast.fire({
-//           icon: "warning",
-//           title: "SOMETHING WRONG",
-//         });
-//       });
-//   } else {
-//     toast.fire({
-//       icon: "warning",
-//       title: "Sorry, You're not one of the Panelist",
-//     });
-//   }
-// };
-// const onView2 = async () => {
-//   let idd = getIDfromURL();
-//   let response = await axios.get("/api/panel_rate_check/" + idd);
-//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
-//   rated.value = response.data.userCaps;
-//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
-//   if (rated.value.id == 1) {
-//     axios
-//       .post("/api/create_rate/" + idd)
-//       .then((response) => {
-//         // router.push("/rate/" + idd);
-//         router.push("/capstone2/" + id);
-//       })
-//       // router.push("/rate/" + idd);
-
-//       .catch(function (error) {
-//         console.log(error.response.data.errors);
-//         console.log("ERRRR:: ", error.response.data);
-
-//         toast.fire({
-//           icon: "warning",
-//           title: "SOMETHING WRONG",
-//         });
-//       });
-//   } else {
-//     toast.fire({
-//       icon: "warning",
-//       title: "Sorry, You're not one of the Panelist",
-//     });
-//   }
-// };
-// const onView3 = async () => {
-//   let idd = getIDfromURL();
-//   let response = await axios.get("/api/panel_rate_check/" + idd);
-//   console.warn("TYTRTYTRYTRYTRY", GenCadocu123.value.xf2);
-//   rated.value = response.data.userCaps;
-//   console.warn("TYTRTYTRYTRYTRY", rated.value.id);
-//   if (rated.value.id == 1) {
-//     axios
-//       .post("/api/create_rate/" + idd)
-//       .then((response) => {
-//         // router.push("/rate/" + idd);
-//         router.push("/capstone3/" + id);
-//       })
-//       // router.push("/rate/" + idd);
-
-//       .catch(function (error) {
-//         console.log(error.response.data.errors);
-//         console.log("ERRRR:: ", error.response.data);
-
-//         toast.fire({
-//           icon: "warning",
-//           title: "SOMETHING WRONG",
-//         });
-//       });
-//   } else {
-//     toast.fire({
-//       icon: "warning",
-//       title: "Sorry, You're not one of the Panelist",
-//     });
-//   }
-// };
 </script>
 
 <style>
@@ -1113,222 +889,3 @@ const onView3 = () => {
   text-align: justify;
 }
 </style>
-<!-- text-align: center;
-  position: fixed;
-  z-index: 999;
-  top: 20%;
-
-  width: 50%;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  width: 50%;
-
-  padding: 10px; -->
-
-<!-- <template>
-  <h5 class="projHead">CREATE PROJECT</h5>
-  <div class="contentOfThePage">
-    <H5 class="projHead">General Information</H5>
-    <div class="row">
-      <div class="form-floating col">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="floatingTextarea2"
-          style="height: 150px"
-        ></textarea>
-        <label class="ps-4" for="floatingTextarea2">TITLE</label>
-        <br />
-      </div>
-      <div class="form-floating col">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="floatingTextarea2"
-          style="height: 150px"
-        ></textarea>
-        <label class="ps-4" for="floatingTextarea2">ABSTRACT</label>
-      </div>
-    </div>
-
-    <br />
-    
-    <div class="row">
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Group Name</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Instructor</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Adviser</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Co-Adviser</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Panel 1</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Panel 2</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Panel 3</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Secretary</label>
-      </div>
-    </div>
-    <h5 class="">Proponents</h5>
-    <div class="row">
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label>
-      </div>
-      <div class="form-floating mb-3 col">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label class="ps-4" for="floatingInput">Member</label>
-      </div>
-    </div>
-
-    <br /><br />
-    <div class="row">
-      <div class="col text-center">
-        <button type="button" class="btn btn-primary buttonStyle" @click="onCaps1()">
-          CAPSTONE 1
-        </button>
-      </div>
-      <div class="col text-center">
-        <button type="button" class="btn btn-primary buttonStyle"  @click="onCaps2()">
-          CAPSTONE 2
-        </button>
-      </div>
-      <div class="col text-center">
-        <button type="button" class="btn btn-primary buttonStyle"  @click="onCaps3()">
-          CAPSTONE 3
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
- import router from "../../routers/administratorRouter";
-
-
-const onCaps1 =() =>{
-  router.push('/capstone1')
-}
-const onCaps2 =() =>{
-  router.push('/capstone2')
-}
-const onCaps3 =() =>{
-  router.push('/capstone3')
-}
-</script>
-
-<style scoped>
-.projContent {
-  height: 100%;
-  width: 100%;
-
-  padding: 10px;
-  background: #fff;
-  box-shadow: 2px 1px 10px #888888;
-  border-radius: 5px;
-}
-.projHead {
-  font-weight: bolder;
-  margin-left: 10px;
-}
-.buttonStyle {
-  height: 60px;
-  width: 100%;
-  font-size: 20px;
-}
-</style>>
- -->

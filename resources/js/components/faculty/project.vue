@@ -43,7 +43,6 @@
         <label for="instructor" class="form-label">Instructor</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.instructor">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -56,7 +55,6 @@
         <label for="adviser" class="form-label">Adviser</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.adviser">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in advisers" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -67,7 +65,6 @@
         <label for="coAdviser" class="form-label">Co-Adviser</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.coAdviser">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in advisers" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -80,7 +77,6 @@
         <label for="panel1" class="form-label">Panel 1</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.panels1">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -92,7 +88,6 @@
         <label for="panel2" class="form-label">Panel 2</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.panels2">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -104,7 +99,6 @@
         <label for="panel3" class="form-label">Panel 3</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.panels3">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -116,7 +110,6 @@
         <label for="secretary" class="form-label">Secretary</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.secretarys">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in secretarys" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -130,7 +123,6 @@
         <label for="students" class="form-label">Proponet</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.students1">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -141,7 +133,6 @@
         <label for="students" class="form-label">Proponet</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.students2">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -152,7 +143,6 @@
         <label for="students" class="form-label">Proponet</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.students3">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -163,7 +153,6 @@
         <label for="students" class="form-label">Proponet</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" v-model="GenCaps.students4">
-            <!-- <option value="0">Select instructor</option> -->
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -228,177 +217,108 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field students1 and students2",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students1 == GenCaps.value.students3) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field students1 and students3",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students1 == GenCaps.value.students4) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field students1 and students4",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students2 == GenCaps.value.students3) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field students2 and students3",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students2 == GenCaps.value.students4) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field students2 and students4",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.students3 == GenCaps.value.students4) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field students3 and students4",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.panels2) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels1 and panels2",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.panels3) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels1 and panels3",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.adviser) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels1 and adviser",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.coAdviser) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels1 and coAdviser",
-      // title: GenCaps.value.panels1,
     });
-  }
-  // else if (GenCaps.value.panels1 == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role for field panels1 and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
-  else if (GenCaps.value.panels1 == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.panels1 == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels1 and secretarys",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels2 == GenCaps.value.panels3) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels2 and panels3",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels2 == GenCaps.value.adviser) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels2 and adviser",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels2 == GenCaps.value.coAdviser) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels2 and coAdviser",
-      // title: GenCaps.value.panels1,
     });
-  }
-  // else if (GenCaps.value.panels2 == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role for field panels2 and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
-  else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels2 and secretarys",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels3 == GenCaps.value.adviser) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels3 and adviser",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.panels3 == GenCaps.value.coAdviser) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels3 and coAdviser",
-      // title: GenCaps.value.panels1,
     });
-  }
-  //  else if (GenCaps.value.panels3 == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role for field panels3 and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
-  else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field panels3 and secretarys",
-      // title: GenCaps.value.panels1,
     });
   } else if (GenCaps.value.adviser == GenCaps.value.coAdviser) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field adviser and coAdviser",
-      // title: GenCaps.value.panels1,
     });
-  }
-  // else if (GenCaps.value.adviser == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role for field adviser and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
-  else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field adviser and secretarys",
-      // title: GenCaps.value.panels1,
     });
-  }
-  //  else if (GenCaps.value.coAdviser == GenCaps.value.instructor) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role for field coAdviser and instructor",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
-  else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role for field coAdviser and secretarys",
-      // title: GenCaps.value.panels1,
     });
-  }
-  // else if (GenCaps.value.instructor == GenCaps.value.secretarys) {
-  //   toast.fire({
-  //     icon: "warning",
-  //     title: "Invalid, duplicate role for field instructor and secretarys",
-  //     // title: GenCaps.value.panels1,
-  //   });
-  // }
-  else {
+  } else {
     const formData = new FormData();
     formData.append("title", GenCaps.value.title);
     formData.append("abstract", GenCaps.value.abstract);
@@ -415,8 +335,6 @@ const saveCaps = () => {
 
     formData.append("adviser", GenCaps.value.adviser);
     formData.append("coAdviser", GenCaps.value.coAdviser);
-
-    // formData.append("instructor", GenCaps.value.instructor);
 
     formData.append("secretarys", GenCaps.value.secretarys);
 
@@ -435,7 +353,6 @@ const saveCaps = () => {
           (GenCaps.value.panels3 = ""),
           (GenCaps.value.adviser = ""),
           (GenCaps.value.coAdviser = ""),
-          // (GenCaps.value.instructor = ""),
           (GenCaps.value.secretarys = ""),
           router.push("/capslist");
 
@@ -444,7 +361,7 @@ const saveCaps = () => {
           title: "User Add Successfully",
         });
       })
-      // .catch((error = {}));
+
       .catch(function (error) {
         console.log(error.response.data.errors);
         console.log("ERRRR:: ", error.response.data);
@@ -453,10 +370,7 @@ const saveCaps = () => {
           icon: "warning",
           title: "User Add Unsuccessful",
         });
-        // (error = {}));
-        // console.log("ERRRR:: ",error.response.data);
       });
-    // console.log("ERRRR:: ",error.response.data);
   }
 };
 
@@ -484,25 +398,6 @@ const getInstructor = async () => {
   let response = await axios.get("/api/get_all_instructor_user");
   instructors.value = response.data.instructors;
 };
-
-// const onView1 = () => {
-//   router.push("/capstone1");
-// };
-// const onView2 = () => {
-//   router.push("/capstone2");
-// };
-// const onView3 = () => {
-//   router.push("/capstone3");
-// };
-// const onUpdate1 = () => {
-//   router.push("/caps1edit");
-// };
-// const onUpdate2 = () => {
-//   router.push("/caps2edit");
-// };
-// const onUpdate3 = () => {
-//   router.push("/caps3edit");
-// };
 </script>
 
 <style>

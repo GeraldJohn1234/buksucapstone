@@ -30,7 +30,7 @@ class Capstone extends Model implements Auditable
 
     public function user(){
         return $this->belongsToMany(User::class)->withPivot('role_person');
-        // return $this->belongsToMany(User::class,'capstone_user','capstone_id','user_id' );
+        
     }
     public function toSearchableArray()
     {
@@ -56,14 +56,7 @@ class Capstone extends Model implements Auditable
 
         ];
     }
-    // public $sortable = ['id', 'groupname', 'title', 'abstract','start_date','xf1','created_at', 'updated_at'];
-
-    
-// Full texts
-// id	
-// groupname Descending 1	  SCHOOL YEAR 
-// title	 
-// abstract
+ 
 
 
 
@@ -76,11 +69,6 @@ class Capstone extends Model implements Auditable
     public function capstone3(){
         return $this->hasOne(Capstone3::class,'capstone_id');
     }
-    // protected function name(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn ($value) => url('/upload/'.$value),
-    //     );
-    // }
+   
 
 }

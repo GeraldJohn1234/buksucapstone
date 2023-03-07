@@ -11,9 +11,7 @@ class Topic extends Model
 {
     use HasFactory, Searchable, Sortable;
 
-    //  protected $fillable = [
-    //     'title','abstract',
-    // ];
+ 
 
      public function toSearchableArray()
     {

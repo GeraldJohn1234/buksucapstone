@@ -13,8 +13,6 @@ class Capstone3Controller extends Controller
     public function addcapstone3(Request $request, $id)
     {
             $capstone3 = Capstone::find($id)->capstone3;
-            // $try = 'hahhahah';
-            // $capstone3->capstone_ocr =$try;
 
             $capstone3->status = $request->status;
             $capstone3->final_docu = $request->final_docu;
@@ -30,16 +28,6 @@ class Capstone3Controller extends Controller
    
             $capstone3->save();
     }
-    
-    // $table->string('');
-    // $table->string('')->nullable();
-    // $table->string('')->nullable();
-    // $table->string('')->nullable();
-    // $table->string('')->nullable();
-    // $table->string('')->nullable();
-    // $table->string('')->nullable();
-    // $table->longText('')->nullable(); 
-
 
     public function get_capstonee3($id)
     {
