@@ -1,14 +1,13 @@
 <template>
-
-   <div class="card mb-3 boxProfile text-center mx-auto d-block contentOfThePage">
+  <div class="card mb-3 boxProfile text-center mx-auto d-block contentOfThePage">
     <img src="/images/buksuBg.jpg" alt="logo" class="boxBg" />
-    
+
     <img id="" :src="getPhoto()" alt="img" class="boxP" />
     <div class="text-center">
-      <h5 > {{form.name}} {{form.mname}} {{form.lname}}</h5>
+      <h5>{{ form.name }} {{ form.mname }} {{ form.lname }}</h5>
       <p>College of Technologies</p>
-      <p>Bachelor of Science in Information Technology -  {{form.year}}</p>
-      <p>{{form.email}}</p>
+      <p>Bachelor of Science in Information Technology - {{ form.year }}</p>
+      <p>{{ form.email }}</p>
     </div>
   </div>
   <div class="formProfile pe-3 ms-1 shadow p-3 mb-5 bg-light">
@@ -41,11 +40,9 @@
           <input
             :type="type"
             class="form-control"
-            
             aria-label="Recipient's username"
             aria-describedby="button-addon2"
             v-model="form.password"
-         
           />
           <button
             class="btn btn-outline-secondary"
@@ -72,7 +69,7 @@
       <div class="col">
         <label for="middlename" class="form-label">Middle Name</label>
         <input
-        disabled
+          disabled
           type="text"
           class="form-control"
           placeholder="MIDDLE NAME"
@@ -99,7 +96,6 @@
           class="form-control"
           placeholder="COLLEGE OF TECHNOLOGY"
           aria-label="COLLEGE OF TECHNOLOGY"
-          
         />
       </div>
 
@@ -117,11 +113,7 @@
       <div class="col-2">
         <label for="lastname" class="form-label">Choose Year</label>
         <div class="input-group mb-3">
-          <select
-            class="form-select"
-            id="inputGroupSelect01"
-            v-model="form.year"
-          >
+          <select class="form-select" id="inputGroupSelect01" v-model="form.year">
             <option selected>Choose...</option>
             <option value="THIRD YEAR">THIRD YEAR</option>
             <option value="FOURTH YEAR">FOURTH YEAR</option>
@@ -161,24 +153,18 @@
             id="Female"
             v-model="form.gender"
           />
-          <label class="form-check-label" for="flexRadioDefault2">
-            Female
-          </label>
+          <label class="form-check-label" for="flexRadioDefault2"> Female </label>
         </div>
       </div>
 
-      <div class="row">
-      </div>
+      <div class="row"></div>
     </div>
     <br />
     <br />
-   
   </div>
 </template>
 
-
 <script setup>
-
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -253,10 +239,10 @@ const updateUser = () => {
 
   formData.append("gender", form.value.gender);
   formData.append("photo", form.value.photo);
- 
+
   axios
     .post("/api/update_user/" + props.id, formData)
-    
+
     .then((response) => {
       (form.value.uid = ""),
         (form.value.email = ""),
@@ -289,7 +275,6 @@ const showPassword = () => {
   }
 };
 </script>
-
 
 <style>
 .boxProfile {

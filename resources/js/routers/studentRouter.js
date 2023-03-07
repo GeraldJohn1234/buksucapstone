@@ -4,20 +4,19 @@ import Dashboard from "../components/student/dashboard.vue";
 import Profile from "../components/student/profile.vue";
 import CapsList from "../components/student/capslist.vue";
 import Topic from "../components/student/topic.vue";
-import Student from "../components/student/student.vue";
+// import Student from "../components/student/student.vue";
 import Instructor from "../components/student/instructor.vue";
-import Adviser from "../components/student/adviser.vue";
-import Panel from "../components/student/panel.vue";
-import Secretary from "../components/student/secretary.vue";
-import Admin from "../components/student/admin.vue";
-import Archiver from "../components/student/archiver.vue";
+// import Adviser from "../components/student/adviser.vue";
+// import Panel from "../components/student/panel.vue";
+// import Secretary from "../components/student/secretary.vue";
+
 import Project from "../components/student/project.vue";
 import Noproject from "../components/student/noproject.vue";
 
 
-import Create from "../components/student/capstoneList/create.vue";
+
 import View from "../components/student/capstoneList/view.vue";
-import Update from "../components/student/capstoneList/update.vue";
+
 
 import Capstone1 from "../components/student/capstonefolder/capstone1.vue";
 import Capstone2 from "../components/student/capstonefolder/capstone2.vue";
@@ -62,6 +61,7 @@ import Ssfile3 from "../components/student/capstonefolder/caps3/ssfile3.vue";
 
 import Ocrdocuments from "../components/student/capstonefolder/ocrdocuments.vue";
 import Taketopic from "../components/student/topicsuggest/taketopic.vue";
+import Viewfaculty from "../components/student/capstoneList/viewfaculty.vue";
 
 
 // import Createsuggestion from "../components/student/topicsuggest/createsuggestion.vue";
@@ -108,57 +108,20 @@ const routes = [
     component: Topic,
   },
   {
-    path: "/student",
-    name: "Student",
-    component: Student,
-  },
-  {
     path: "/instructor",
     name: "Instructor",
     component: Instructor,
   },
-  {
-    path: "/adviser",
-    name: "Adviser",
-    component: Adviser,
-  },
-  {
-    path: "/panel",
-    name: "Panel",
-    component: Panel,
-  },
-  {
-    path: "/secretary",
-    name: "Secretary",
-    component: Secretary,
-  },
-  {
-    path: "/admin",
-    name: "Admin",
-    component: Admin,
-  },
-  {
-    path: "/archiver",
-    name: "Archiver",
-    component: Archiver,
-  },
-  {
-    path: "/create",
-    name: "Create",
-    component: Create,
-  },
+ 
+ 
+  
   {
     path: "/view/:id",
     name: "View",
     component: View,
     props:true
   },
-  {
-    path: "/update/:id",
-    name: "Update",
-    component: Update,
-    props:true
-  },
+ 
 
 
 
@@ -347,6 +310,12 @@ const routes = [
     path: "/actiondone3/:id",
     name: "Actiondone3",
     component: Actiondone3,
+  },
+  {
+    path: "/viewfaculty/:id",
+    name: "Viewfaculty",
+    component: Viewfaculty,
+    props:true
   },
 ];
 

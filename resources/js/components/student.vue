@@ -61,6 +61,18 @@
             <div class="col-md-8" id="label">TOPIC SUGGESTION</div>
           </div>
         </li>
+        <li @click="active5()">
+          <div class="a nav_link row" :class="activehead5">
+            <i class="col-md-3">
+              <font-awesome-icon
+                icon="fa-solid fa-user-tie"
+                style="width: 24px; height: 24px"
+              />
+            </i>
+
+            <div class="col-md-8" id="label">INSTRUCTOR</div>
+          </div>
+        </li>
 
         <li id="logout" class="hideee" @click="logout">
           <div class="row a nav_link">
@@ -240,7 +252,7 @@ const panel = () => {
   router.push("/panel");
 };
 const advisee = () => {
-  router.push("/advisee");
+  router.push("/instructor");
 };
 
 const profile = () => {

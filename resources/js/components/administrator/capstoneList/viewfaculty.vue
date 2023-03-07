@@ -5,7 +5,7 @@
     <img id="" :src="getPhoto()" alt="img" class="boxP" />
     <div class="text-center">
       <h5>{{ form.name }} {{ form.mname }} {{ form.lname }}</h5>
-      <p>1234567876543College of Technologies</p>
+      <p>College of Technologies</p>
       <p>Bachelor of Science in Information Technology - {{ form.year }}</p>
       <p>{{ form.email }}</p>
     </div>
