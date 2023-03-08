@@ -1,4 +1,5 @@
 <template>
+  <!-- STUDENT INTERFACE  -->
   <div class="wrapper container-fluid">
     <div class="sidebar" id="scrollAble">
       <div class="row logoHeader point" @click="dash()">
@@ -308,7 +309,7 @@ const rateddd = async () => {
 
         toast.fire({
           icon: "warning",
-          title: "SOMETHING WRONG",
+          title: "SOMETHING WRONG" + checkdata,
         });
       });
   } else {

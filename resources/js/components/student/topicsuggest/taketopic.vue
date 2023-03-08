@@ -172,21 +172,21 @@ const saveTopic = async () => {
       formData.append("abstract", Topic.value.abstract);
       formData.append("groupname", "not set");
 
-      formData.append("students1", 15);
-      formData.append("students2", 15);
-      formData.append("students3", 15);
-      formData.append("students4", 15);
+      formData.append("students1", 168);
+      formData.append("students2", 168);
+      formData.append("students3", 168);
+      formData.append("students4", 168);
 
-      formData.append("panels1", 16);
-      formData.append("panels2", 16);
-      formData.append("panels3", 16);
+      formData.append("panels1", 167);
+      formData.append("panels2", 167);
+      formData.append("panels3", 167);
 
-      formData.append("adviser", 16);
-      formData.append("coAdviser", 16);
+      formData.append("adviser", 167);
+      formData.append("coAdviser", 167);
 
-      formData.append("instructor", 16);
+      formData.append("instructor", 167);
 
-      formData.append("secretarys", 16);
+      formData.append("secretarys", 167);
       formData.append("xf1", "not set");
       formData.append("xf2", "UNDER DEVELOPMENT");
       formData.append("start_date", getNow());

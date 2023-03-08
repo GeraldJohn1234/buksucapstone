@@ -3,7 +3,7 @@
         <x-slot name="logo">
            
         </x-slot>
-
+        {{-- REGISTRATION --}}
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 

@@ -13,6 +13,7 @@ use phpDocumentor\Reflection\PseudoTypes\True_;
 class Caps1ratingController extends Controller
 {
 
+    // PANELIST RATE A PROJECT CAPSTONE 1
     public function add_rating(Request $request, $id)
     {
         $idauth = Auth::user()->id;
@@ -20,7 +21,6 @@ class Caps1ratingController extends Controller
 
         $panelid = DB::table('caps1ratings')->where('capstone1_id', $id)
             ->where('user_id', $idauth)->pluck('id')->first();
-
 
         $checkuser = DB::table('caps1ratings')->where('id', $panelid)->count() > 0;
 
@@ -100,18 +100,13 @@ class Caps1ratingController extends Controller
         ], 200);
     }
 
-
+    // CHECK IF TE CAPSTONE HAS RATING OR ELSE CREATE A CAPSTONE RATING  
     public function create_rate($id)
     {
 
 
         $status1 = "PENDING";
         $total = 0;
-
-
-
-
-
 
         $panel1 = DB::table('capstone_user')->where('role_person', 'panels1')
             ->where('capstone_id', $id)->pluck('user_id')->first();
@@ -132,13 +127,6 @@ class Caps1ratingController extends Controller
         $check13 = DB::table('caps3ratings')->where('capstone3_id', $id)->where('user_id', $panel1)->count() < 1;
         $check23 = DB::table('caps3ratings')->where('capstone3_id', $id)->where('user_id', $panel2)->count() < 1;
         $check33 = DB::table('caps3ratings')->where('capstone3_id', $id)->where('user_id', $panel3)->count() < 1;
-
-
-
-
-
-
-
 
 
         if ($check1) {

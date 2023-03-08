@@ -111,7 +111,6 @@
             <option selected>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-           
           </select>
         </div>
       </div>
@@ -143,7 +142,6 @@
       </div>
 
       <div class="row">
-      
         <div class="col-4">
           <label for="lastname" class="form-label">User Type</label>
           <div class="input-group mb-3">
@@ -152,7 +150,6 @@
               <option value="administrator">ADMINISTRATOR</option>
               <option value="faculty">FACULTY</option>
               <option value="student">STUDENT</option>
-              
             </select>
           </div>
         </div>
@@ -176,7 +173,6 @@
     </div>
     <br />
 
-
     <div class="row text-center px-2">
       <button type="button" class="btn btn-primary col fw-bold" @click="saveUser()">
         SAVE USER
@@ -186,7 +182,6 @@
 </template>
 
 <script setup>
-
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 let form = ref({
@@ -199,7 +194,7 @@ let form = ref({
   year: "",
   gender: "",
   photo: null,
-  usertype: "",
+  usertype: null,
 });
 
 const router = useRouter();
@@ -229,58 +224,63 @@ const updatePhoto = (e) => {
 };
 
 const saveUser = () => {
-  const formData = new FormData();
-  formData.append("uid", form.value.uid);
-  formData.append("email", form.value.email);
-  formData.append("password", form.value.password);
-
-  formData.append("name", form.value.name);
-  formData.append("mname", form.value.mname);
-  formData.append("year", form.value.year);
-  formData.append("lname", form.value.lname);
-
-  formData.append("gender", form.value.gender);
-
-  if (form.value.photo != null) {
-    formData.append("photo", form.value.photo);
-  } else {
-    formData.append("photo", "0");
-  }
-
-  formData.append("usertype", form.value.usertype);
-
-  axios
-    .post("/api/add_user", formData)
-    .then((response) => {
-      (form.value.uid = ""),
-        (form.value.email = ""),
-        (form.value.password = ""),
-        (form.value.name = ""),
-        (form.value.mname = ""),
-        (form.value.lname = ""),
-        (form.value.year = ""),
-        (form.value.gender = ""),
-        (form.value.photo = ""),
-        (form.value.usertype = ""),
-        router.push("/create");
-
-      toast.fire({
-        icon: "success",
-        title: "User created successfully",
-      });
-    })
-    
-    .catch(function (error) {
-      console.log(error.response.data.errors);
-      console.log("ERRRR:: ", error.response.data);
-
-      toast.fire({
-        icon: "warning",
-        title: "Creating user account, unsuccessful",
-      });
-   
+  if (form.value.usertype == null) {
+    toast.fire({
+      icon: "warning",
+      title: "Unsuccessful, Please fill-out the User type field",
     });
-  
+  } else {
+    const formData = new FormData();
+    formData.append("uid", form.value.uid);
+    formData.append("email", form.value.email);
+    formData.append("password", form.value.password);
+
+    formData.append("name", form.value.name);
+    formData.append("mname", form.value.mname);
+    formData.append("year", form.value.year);
+    formData.append("lname", form.value.lname);
+
+    formData.append("gender", form.value.gender);
+
+    if (form.value.photo != null) {
+      formData.append("photo", form.value.photo);
+    } else {
+      formData.append("photo", "0");
+    }
+
+    formData.append("usertype", form.value.usertype);
+
+    axios
+      .post("/api/add_user", formData)
+      .then((response) => {
+        (form.value.uid = ""),
+          (form.value.email = ""),
+          (form.value.password = ""),
+          (form.value.name = ""),
+          (form.value.mname = ""),
+          (form.value.lname = ""),
+          (form.value.year = ""),
+          (form.value.gender = ""),
+          (form.value.photo = ""),
+          (form.value.usertype = ""),
+          router.push("/create");
+
+        toast.fire({
+          icon: "success",
+          title: "User created successfully",
+        });
+      })
+
+      .catch(function (error) {
+        console.log(error.response.data.errors);
+        console.log("ERRRR:: ", error.response.data);
+
+        toast.fire({
+          icon: "warning",
+          title: "Creating user account, unsuccessful",
+        });
+      });
+  }
 };
 
 const type = ref("password");

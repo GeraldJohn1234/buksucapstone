@@ -1,4 +1,5 @@
 <template>
+  <!-- ARCHIVER INTERFACE  -->
   <div class="wrapper container-fluid">
     <div class="sidebar" id="scrollAble">
       <div class="row logoHeader point" @click="dash()">

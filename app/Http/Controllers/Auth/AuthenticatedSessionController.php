@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
-    
+
     /**
      * Display the login view.
      *
@@ -20,7 +20,7 @@ class AuthenticatedSessionController extends Controller
     // {
     //   $this->middleware('auth');      
     // }
-    
+
     public function create()
     {
         return view('auth.login');
@@ -38,34 +38,25 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        // return redirect()->intended(RouteServiceProvider::DASH);
 
 
-        if(Auth::user()->hasRole('student')){
-            // return view('studentDashboard');
-            // return redirect(RouteServiceProvider::HOME);
+        //CHECK ROLE WHERE TO REDIRECT
+        if (Auth::user()->hasRole('student')) {
+
             return redirect()->intended(RouteServiceProvider::HOME);
-  
-        }
-        elseif(Auth::user()->hasRole('archiver')){
-            // return view('archiverDashboard');
-            // return redirect(RouteServiceProvider::HOME);
+        } elseif (Auth::user()->hasRole('archiver')) {
+
             return redirect()->intended(RouteServiceProvider::HOME);
-  
-        }elseif(Auth::user()->hasRole('faculty')){
-            
-            // return view('facultyDashboard');
-            // return redirect(RouteServiceProvider::DASH);
+        } elseif (Auth::user()->hasRole('faculty')) {
+
+
             return redirect()->intended(RouteServiceProvider::DASH);
-  
-        }elseif(Auth::user()->hasRole('administrator')){
-            // return view('administratorDashboard');
-            // return redirect(RouteServiceProvider::DASH);
+        } elseif (Auth::user()->hasRole('administrator')) {
+
             return redirect()->intended(RouteServiceProvider::DASH);
-  
         }
     }
- 
+
 
     /**
      * Destroy an authenticated session.

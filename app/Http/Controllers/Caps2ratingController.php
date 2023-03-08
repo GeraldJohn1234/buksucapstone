@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class Caps2ratingController extends Controller
 {
-    //
+    // PANELIST RATE A PROJECT CAPSTONE 2
     public function add_rating2(Request $request, $id)
     {
         $idauth = Auth::user()->id;

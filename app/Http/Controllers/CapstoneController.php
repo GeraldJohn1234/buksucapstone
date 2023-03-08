@@ -19,20 +19,34 @@ use Illuminate\Support\Facades\Validator;
 
 class CapstoneController extends Controller
 {
-   
+
 
     public function project_check()
     {
         $id = Auth::user()->id;
 
         $checkU = DB::table('capstone_user')->where('user_id',  $id)->count() > 0;
+
+        // $checkU = DB::table('capstones')->where('user_id',  $id)->count() > 0;
+
+
         if ($checkU) {
             $users = DB::table('capstone_user')->where('user_id', $id)->pluck('capstone_id')->first();
-            return response()->json([
 
-                'ans'  => $users,
+            $checkCaps = DB::table('capstones')->where('id',  $users)->count() > 0;
+            if ($checkCaps) {
+                return response()->json([
 
-            ], 200);
+                    'ans'  => $users,
+
+                ], 200);
+            } else {
+                return response()->json([
+
+                    'ans'  => 0,
+
+                ], 200);
+            }
         } else {
             return response()->json([
 
@@ -52,10 +66,10 @@ class CapstoneController extends Controller
         $capstone->xf3 = $request->instructor;
         $capstone->xf1 = $request->xf1;
         $capstone->xf2 = $request->xf2;
-      
+
         $capstone->save();
 
-      
+
         if ($request->students1 != null) {
             $capstone->user()->attach($request->students1, ['role_person' => 'student1']);
         }
@@ -74,9 +88,8 @@ class CapstoneController extends Controller
         $capstone->user()->attach($request->panels3, ['role_person' => 'panels3']);
         $capstone->user()->attach($request->adviser, ['role_person' => 'adviser']);
         $capstone->user()->attach($request->coAdviser, ['role_person' => 'coAdviser']);
-   
-        $capstone->user()->attach($request->secretarys, ['role_person' => 'secretarys']);
 
+        $capstone->user()->attach($request->secretarys, ['role_person' => 'secretarys']);
     }
 
 
@@ -113,18 +126,17 @@ class CapstoneController extends Controller
         if ($request->file == null) {
             $name = $capstone->xf5;
         } else if (($capstone->xf5 != $request->file)) {
-            
+
             $filee = $request->file('file');
             $name = time() . '.' . $filee->getClientOriginalName();
-         
+
             $upload_path = public_path() . "/pdf/";
             $files = $upload_path . $capstone->xf5;
-          
+
             $filee->move(public_path('pdf'), $name);
             if (file_exists($files)) {
                 @unlink($files);
             }
-   
         } else {
             $name = $capstone->xf5;
         }
@@ -576,7 +588,7 @@ class CapstoneController extends Controller
         $xf1 = 0;
         $xf2 = "PENDING";
         $xf3 = "NOT YET, SET";
-    
+
         $total  = 0;
 
 
@@ -778,7 +790,7 @@ class CapstoneController extends Controller
             );
         }
     }
- 
+
 
     public function get_all_capstone_search()
     {
@@ -810,9 +822,8 @@ class CapstoneController extends Controller
 
             ], 200);
         }
-
     }
-  
+
     public function get_capstone($id)
     {
         $capstone = Capstone::find($id);
@@ -825,7 +836,7 @@ class CapstoneController extends Controller
     public function get_capstone_adviser_view($id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'adviser')
-        ->where('capstone_id', $id)->pluck('user_id')->first();
+            ->where('capstone_id', $id)->pluck('user_id')->first();
 
         $userrole = User::find($users);
         return response()->json(
@@ -849,20 +860,20 @@ class CapstoneController extends Controller
         $users = DB::table('capstone_user')->where('role_person', 'student1')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
 
     public function get_capstone_student2(Request $request, $id)
@@ -878,7 +889,7 @@ class CapstoneController extends Controller
                 'userCaps'  => $userrole,
 
             ], 200);
-        }else{
+        } else {
             return response()->json([
 
                 'userCaps'  => null,
@@ -891,40 +902,40 @@ class CapstoneController extends Controller
         $users = DB::table('capstone_user')->where('role_person', 'students3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
     public function get_capstone_student4(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'students4')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
 
 
@@ -947,140 +958,140 @@ class CapstoneController extends Controller
         $users = DB::table('capstone_user')->where('role_person', 'panels1')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
     public function get_capstone_panels2(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'panels2')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
     public function get_capstone_panels3(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'panels3')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
     public function get_capstone_adviser(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'adviser')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
     public function get_capstone_coAdviser(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'coAdviser')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
     public function get_capstone_instructor(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'instructor')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
     public function get_capstone_secretarys(Request $request, $id)
     {
         $users = DB::table('capstone_user')->where('role_person', 'secretarys')
             ->where('capstone_id', $id)->pluck('user_id')->first();
 
-            if ($users != null) {
-                $userrole = User::find($users);
-                return response()->json([
-    
-                    'userCaps'  => $userrole,
-    
-                ], 200);
-            }else{
-                return response()->json([
-    
-                    'userCaps'  => null,
-    
-                ], 200);
-            }
+        if ($users != null) {
+            $userrole = User::find($users);
+            return response()->json([
+
+                'userCaps'  => $userrole,
+
+            ], 200);
+        } else {
+            return response()->json([
+
+                'userCaps'  => null,
+
+            ], 200);
+        }
     }
 
     public function get_pie_unimplement()
@@ -1088,7 +1099,6 @@ class CapstoneController extends Controller
         $unimplement = DB::table('capstones')->where('xf2', 'UNIMPLEMENTED')->count();
 
         return $unimplement;
-
     }
 
 

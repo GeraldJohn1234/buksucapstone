@@ -541,7 +541,8 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $image_path = public_path() . "/upload/";
         $image = $image_path . $user->photo;
-        if (file_exists($image)) {
+        
+        if (file_exists($image)&&$user->photo !='the_avatar.jpeg') {
             @unlink($image);
         }
         $user->delete();

@@ -35,7 +35,10 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+
+
+    // STORE REGISTER ACCOUNT
+     public function store(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -93,14 +96,9 @@ class RegisteredUserController extends Controller
 
         $user->save();
 
-        // if ($request->usertype == 'faculty') {
-        //     $user->attachRoles(['secretary', 'panel', 'faculty', 'instructor', 'adviser']);
-        // } else {
-        //     $user->attachRole($request->usertype);
-        // }
+      
 
         if ($request->usertype == 'faculty') {
-            // $user->attachRoles(['administrator', 'student', 'faculty', 'archiver']);
             $user->role_num = 2;
             $user->attachRoles(['secretary', 'panel', 'faculty', 'instructor', 'adviser']);
         } else if($request->usertype == 'student'){
@@ -113,10 +111,7 @@ class RegisteredUserController extends Controller
         }
         $user->attachRole($request->role_id);
 
-
-
-
-        // $user->attachRole('administrator');
+        // $user->attachRole('administrator'); UNCOMMENT TO CREATE ADMIN ACCOUNT
         event(new Registered($user));
 
         Auth::login($user);

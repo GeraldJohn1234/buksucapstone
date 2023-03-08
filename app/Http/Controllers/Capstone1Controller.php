@@ -18,8 +18,6 @@ class Capstone1Controller extends Controller
      public function add_capstonee1(Request $request)
     {
             $capstone1 = Partialstorage::find(1);
-
-
             $capstone1->ocr = $request->texttext;
        
             $capstone1->save();
