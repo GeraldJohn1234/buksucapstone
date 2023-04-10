@@ -69,7 +69,7 @@
         required
       ></textarea>
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
-      <p class="text-danger hidedd" :class="abstrctRedText">
+      <p class="text-danger hidedd fw-bold" :class="abstrctRedText">
         Invalid, Please fill out the abstract field
       </p>
 
@@ -95,7 +95,7 @@
         required
       ></textarea>
       <label class="ps-4" for="floatingTextarea2">Title</label>
-      <p class="text-danger hidedd" :class="titleRedText">
+      <p class="text-danger hidedd fw-bold" :class="titleRedText">
         Invalid, Please fill out the title field
       </p>
     </div>
@@ -111,7 +111,7 @@
           rows="1"
           placeholder="Input Groupname"
         ></textarea>
-        <p class="text-danger hidedd" :class="groupRedText">
+        <p class="text-danger hidedd fw-bold" :class="groupRedText">
           Invalid, Please fill out the groupname field
         </p>
       </div>
@@ -131,7 +131,7 @@
             <option value="UNIMPLEMENTED">UNIMPLEMENTED</option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="statusRedText">
+        <p class="text-danger hidedd fw-bold" :class="statusRedText">
           Invalid, Please fill out the status field
         </p>
       </div>
@@ -152,7 +152,7 @@
             <option value="Graduated">Graduated</option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="yearRedText">
+        <p class="text-danger hidedd fw-bold" :class="yearRedText">
           Invalid, Please fill out the year field
         </p>
       </div>
@@ -195,22 +195,22 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="panel1RedText">
+        <p class="text-danger hidedd fw-bold" :class="panel1RedText">
           Invalid, Please fill out the panelist 1 field
         </p>
-        <p class="text-danger hidedd" :class="p1p2RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p2RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1secRedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -242,22 +242,22 @@
           </select>
         </div>
 
-        <p class="text-danger hidedd" :class="panel2RedText">
+        <p class="text-danger hidedd fw-bold" :class="panel2RedText">
           Invalid, Please fill out the panelist 1 field
         </p>
-        <p class="text-danger hidedd" :class="p2p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p2p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1p2RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p2RedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -288,22 +288,22 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="panel3RedText">
+        <p class="text-danger hidedd fw-bold" :class="panel3RedText">
           Invalid, Please fill out the panelist3 field
         </p>
-        <p class="text-danger hidedd" :class="p1p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p2p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3secRedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -334,22 +334,22 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="secRedText">
+        <p class="text-danger hidedd fw-bold" :class="secRedText">
           Invalid, Please fill out the secretary field
         </p>
-        <p class="text-danger hidedd" :class="p1secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="adsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="adsecRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="coadsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="coadsecRedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -380,16 +380,16 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s2RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s2RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s1s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s1s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -418,16 +418,16 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s2RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s2RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -456,16 +456,16 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s3s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s3s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -494,16 +494,16 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s4RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s4RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s3s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s3s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -534,19 +534,19 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="adviserText">
+        <p class="text-danger hidedd fw-bold" :class="adviserText">
           Invalid, Please fill out the adviser field
         </p>
-        <p class="text-danger hidedd" :class="p1adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="adsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="adsecRedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -574,16 +574,16 @@
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="p1coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="coadsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="coadsecRedText">
           Invalid, Duplication of role
         </p>
       </div>

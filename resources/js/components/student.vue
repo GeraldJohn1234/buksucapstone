@@ -1,6 +1,6 @@
 <template>
   <!-- STUDENT INTERFACE  -->
-  <div class="wrapper container-fluid">
+  <div class="wrapper container-fluid mainIndex">
     <div class="sidebar" id="scrollAble">
       <div class="row logoHeader point" @click="dash()">
         <div class="col-md-4 avatarImg">

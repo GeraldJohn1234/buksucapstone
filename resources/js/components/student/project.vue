@@ -12,7 +12,7 @@
         required
       ></textarea>
       <label class="ps-4" for="floatingTextarea2">Abstract</label>
-      <p class="text-danger hidedd" :class="abstrctRedText">
+      <p class="text-danger hidedd fw-bold" :class="abstrctRedText">
         Invalid, Please fill out the abstract field
       </p>
 
@@ -38,7 +38,7 @@
         required
       ></textarea>
       <label class="ps-4" for="floatingTextarea2">Title</label>
-      <p class="text-danger hidedd" :class="titleRedText">
+      <p class="text-danger hidedd fw-bold" :class="titleRedText">
         Invalid, Please fill out the title field
       </p>
     </div>
@@ -54,11 +54,11 @@
           rows="1"
           placeholder="Input Groupname"
         ></textarea>
-        <p class="text-danger hidedd" :class="groupRedText">
+        <p class="text-danger hidedd fw-bold" :class="groupRedText">
           Invalid, Please fill out the groupname field
         </p>
       </div>
-     
+
       <div class="col-3">
         <label for="lastname" class="form-label">Project Status</label>
         <div class="input-group mb-3">
@@ -74,7 +74,7 @@
             <option value="UNIMPLEMENTED">UNIMPLEMENTED</option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="statusRedText">
+        <p class="text-danger hidedd fw-bold" :class="statusRedText">
           Invalid, Please fill out the status field
         </p>
       </div>
@@ -91,24 +91,23 @@
             <option selected disabled>Choose...</option>
             <option value="3rd year">3rd year</option>
             <option value="4th year">4th year</option>
-      
+
             <option value="Graduated">Graduated</option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="yearRedText">
+        <p class="text-danger hidedd fw-bold" :class="yearRedText">
           Invalid, Please fill out the year field
         </p>
       </div>
       <div class="col">
         <label for="date" class="form-label">Capstone From:</label>
-   
+
         <Datepicker class="inputColor" v-model="year.fromYear" yearPicker />
       </div>
       <div class="col">
         <label for="date" class="form-label">Capstone To:</label>
-       
+
         <Datepicker class="inputColor" v-model="year.toYear" yearPicker />
-    
       </div>
     </div>
 
@@ -127,7 +126,6 @@
               p1secRed.redColor,
           }"
         >
-       
           <select
             class="form-control inputColor"
             onfocus="this.size=8;"
@@ -135,33 +133,31 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.panels1"
           >
-         
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
-        
         </div>
-        <p class="text-danger hidedd" :class="panel1RedText">
+        <p class="text-danger hidedd fw-bold" :class="panel1RedText">
           Invalid, Please fill out the panelist 1 field
         </p>
-        <p class="text-danger hidedd" :class="p1p2RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p2RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1secRedText">
           Invalid, Duplication of role
         </p>
       </div>
-     
+
       <div class="col">
         <label for="panel2" class="form-label">Panel 2</label>
         <div
@@ -183,29 +179,28 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.panels2"
           >
-          
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
 
-        <p class="text-danger hidedd" :class="panel2RedText">
+        <p class="text-danger hidedd fw-bold" :class="panel2RedText">
           Invalid, Please fill out the panelist 1 field
         </p>
-        <p class="text-danger hidedd" :class="p2p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p2p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p1p2RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p2RedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -231,28 +226,27 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.panels3"
           >
-        
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="panel3RedText">
+        <p class="text-danger hidedd fw-bold" :class="panel3RedText">
           Invalid, Please fill out the panelist3 field
         </p>
-        <p class="text-danger hidedd" :class="p1p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p1p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2p3RedText">
+        <p class="text-danger hidedd fw-bold" :class="p2p3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3secRedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -278,28 +272,27 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.secretarys"
           >
-          
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="secRedText">
+        <p class="text-danger hidedd fw-bold" :class="secRedText">
           Invalid, Please fill out the secretary field
         </p>
-        <p class="text-danger hidedd" :class="p1secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3secRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3secRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="adsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="adsecRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="coadsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="coadsecRedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -325,26 +318,25 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students1"
           >
-        
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s2RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s2RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s1s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s1s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
-     
+
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div
@@ -364,26 +356,25 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students2"
           >
-      
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s2RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s2RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
-   
+
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div
@@ -403,26 +394,25 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students3"
           >
-          
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s3RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s3RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s3s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s3s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
-    
+
       <div class="col">
         <label for="students" class="form-label">Proponent</label>
         <div
@@ -442,22 +432,21 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.students4"
           >
-          
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="proponentsRedText">
+        <p class="text-danger hidedd fw-bold" :class="proponentsRedText">
           Invalid, Please fill out atleast one proponents
         </p>
-        <p class="text-danger hidedd" :class="s1s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s1s4RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s2s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s2s4RedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="s3s4RedText">
+        <p class="text-danger hidedd fw-bold" :class="s3s4RedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -483,25 +472,24 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.adviser"
           >
-        
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="adviserText">
+        <p class="text-danger hidedd fw-bold" :class="adviserText">
           Invalid, Please fill out the adviser field
         </p>
-        <p class="text-danger hidedd" :class="p1adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3adRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3adRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="adsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="adsecRedText">
           Invalid, Duplication of role
         </p>
       </div>
@@ -524,27 +512,26 @@
             onchange="this.size=1; this.blur();"
             v-model="GenCaps.coAdviser"
           >
-    
             <option v-for="item in instructors" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
           </select>
         </div>
-        <p class="text-danger hidedd" :class="p1coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p1coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p2coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p2coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="p3coadRedText">
+        <p class="text-danger hidedd fw-bold" :class="p3coadRedText">
           Invalid, Duplication of role
         </p>
-        <p class="text-danger hidedd" :class="coadsecRedText">
+        <p class="text-danger hidedd fw-bold" :class="coadsecRedText">
           Invalid, Duplication of role
         </p>
       </div>
     </div>
-    
+
     <hr />
     <div class="row">
       <div class="col">
@@ -773,7 +760,6 @@ let coadsecRedText = ref({
   redText: false,
 });
 
-
 const year = ref({
   toYear: ref(new Date().getFullYear()),
   fromYear: ref(new Date().getFullYear()),
@@ -821,14 +807,12 @@ onMounted(async () => {
   datato();
 });
 
-
 const datato = async () => {
   let response = await axios.get("/api/get_capstonee1");
   caps.value = response.data.capstone11111;
 };
 
 const saveCaps = () => {
-  
   if (caps.value.ocr == null || caps.value.ocr == "") {
     abstrctRed.value.redColor = true;
     abstrctRedText.value.redText = true;
@@ -1129,8 +1113,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the groupname field",
-
-      
     });
   } else if (GenCaps.value.xf2 == null || GenCaps.value.xf2 == "") {
     abstrctRed.value.redColor = false;
@@ -1232,7 +1214,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the status field",
-      
     });
   } else if (GenCaps.value.xf1 == null || GenCaps.value.xf1 == "") {
     abstrctRed.value.redColor = false;
@@ -1334,7 +1315,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the year field",
-      
     });
   } else if (GenCaps.value.panels1 == null || GenCaps.value.panels1 == "") {
     abstrctRed.value.redColor = false;
@@ -1436,7 +1416,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the panel 1 field",
-      
     });
   } else if (GenCaps.value.panels2 == null || GenCaps.value.panels2 == "") {
     abstrctRed.value.redColor = false;
@@ -1538,7 +1517,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the panel 2 field",
-      
     });
   } else if (GenCaps.value.panels3 == null || GenCaps.value.panels3 == "") {
     abstrctRed.value.redColor = false;
@@ -1640,7 +1618,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the panel 3 field",
-      
     });
   } else if (GenCaps.value.secretarys == null || GenCaps.value.secretarys == "") {
     abstrctRed.value.redColor = false;
@@ -1742,9 +1719,7 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the secretarys field",
-      
     });
-    
   } else if (
     GenCaps.value.students1 == null &&
     GenCaps.value.students2 == null &&
@@ -1951,11 +1926,8 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, Please fill out the adviser field",
-      
     });
-  }
- 
-  else if (GenCaps.value.panels1 == GenCaps.value.panels2) {
+  } else if (GenCaps.value.panels1 == GenCaps.value.panels2) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
 
@@ -2055,7 +2027,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and panels2",
-      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.panels3) {
     abstrctRed.value.redColor = false;
@@ -2157,7 +2128,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and panels3",
-      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
@@ -2259,7 +2229,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and secretarys",
-      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.adviser) {
     abstrctRed.value.redColor = false;
@@ -2360,7 +2329,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and adviser",
-      
     });
   } else if (GenCaps.value.panels1 == GenCaps.value.coAdviser) {
     abstrctRed.value.redColor = false;
@@ -2462,11 +2430,8 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels1 and coAdviser",
-      
     });
-  }
- 
-  else if (GenCaps.value.panels2 == GenCaps.value.panels3) {
+  } else if (GenCaps.value.panels2 == GenCaps.value.panels3) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
 
@@ -2566,7 +2531,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and panels3",
-      
     });
   } else if (GenCaps.value.panels2 == GenCaps.value.adviser) {
     abstrctRed.value.redColor = false;
@@ -2667,7 +2631,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and adviser",
-      
     });
   } else if (GenCaps.value.panels2 == GenCaps.value.coAdviser) {
     abstrctRed.value.redColor = false;
@@ -2769,11 +2732,8 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and coAdviser",
-      
     });
-  }
- 
-  else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.panels2 == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
 
@@ -2873,7 +2833,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels2 and secretarys",
-      
     });
   } else if (GenCaps.value.panels3 == GenCaps.value.adviser) {
     abstrctRed.value.redColor = false;
@@ -2954,8 +2913,6 @@ const saveCaps = () => {
     p2secRed.value.redColor = false;
     p2secRedText.value.redText = false;
 
-  
-
     p3adRed.value.redColor = true;
     p3adRedText.value.redText = true;
 
@@ -2974,7 +2931,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels3 and adviser",
-      
     });
   } else if (GenCaps.value.panels3 == GenCaps.value.coAdviser) {
     abstrctRed.value.redColor = false;
@@ -3076,11 +3032,8 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels3 and coAdviser",
-      
     });
-  }
- 
-  else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.panels3 == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
 
@@ -3180,11 +3133,8 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field panels3 and secretarys",
-      
     });
-  }
- 
-  else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.adviser == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
 
@@ -3283,11 +3233,8 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field adviser and secretarys",
-      
     });
-  }
- 
-  else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
+  } else if (GenCaps.value.coAdviser == GenCaps.value.secretarys) {
     abstrctRed.value.redColor = false;
     abstrctRedText.value.redText = false;
 
@@ -3386,7 +3333,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field coAdviser and secretarys",
-      
     });
   } else if (
     GenCaps.value.students1 == GenCaps.value.students2 &&
@@ -3492,7 +3438,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students1 and students2",
-      
     });
   } else if (
     GenCaps.value.students1 == GenCaps.value.students3 &&
@@ -3598,7 +3543,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students1 and students3",
-      
     });
   } else if (
     GenCaps.value.students1 == GenCaps.value.students4 &&
@@ -3703,7 +3647,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students1 and students4",
-      
     });
   } else if (
     GenCaps.value.students2 == GenCaps.value.students3 &&
@@ -3809,7 +3752,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students2 and students3",
-      
     });
   } else if (
     GenCaps.value.students2 == GenCaps.value.students4 &&
@@ -3914,7 +3856,6 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students2 and students4",
-      
     });
   } else if (
     GenCaps.value.students3 == GenCaps.value.students4 &&
@@ -4019,13 +3960,11 @@ const saveCaps = () => {
     toast.fire({
       icon: "warning",
       title: "Invalid, duplicate role in field students3 and students4",
-      
     });
   } else {
     axios.get("/api/get_capstonee1").then((response) => {
       caps.value = response.data.capstone11111;
     });
-
 
     const formData = new FormData();
     formData.append("title", GenCaps.value.title);
@@ -4058,7 +3997,6 @@ const saveCaps = () => {
     formData.append("secretarys", GenCaps.value.secretarys);
     formData.append("xf1", GenCaps.value.xf1);
     formData.append("xf2", GenCaps.value.xf2);
-    
 
     axios
       .post("/api/add_capstone_project", formData)
@@ -4081,11 +4019,9 @@ const saveCaps = () => {
               (GenCaps.value.panels3 = ""),
               (GenCaps.value.adviser = ""),
               (GenCaps.value.coAdviser = ""),
-            
               (GenCaps.value.secretarys = ""),
               (GenCaps.value.xf1 = ""),
               (GenCaps.value.xf2 = ""),
-          
               router.push("/capslist");
 
             toast.fire({
@@ -4106,16 +4042,12 @@ const saveCaps = () => {
           (GenCaps.value.panels3 = ""),
           (GenCaps.value.adviser = ""),
           (GenCaps.value.coAdviser = ""),
-        
           (GenCaps.value.secretarys = ""),
           (GenCaps.value.xf1 = ""),
           (GenCaps.value.xf2 = ""),
-          
           router.push("/capslist");
-
-      
       })
-     
+
       .catch(function (error) {
         console.log(error.response.data.errors);
         console.log("ERRRR:: ", error.response.data);
@@ -4124,9 +4056,7 @@ const saveCaps = () => {
           icon: "warning",
           title: "Capstone creation failed!",
         });
-       
       });
-    
   }
 };
 
@@ -4154,8 +4084,6 @@ const getInstructor = async () => {
   let response = await axios.get("/api/get_all_instructor_user");
   instructors.value = response.data.instructors;
 };
-
-
 </script>
 
 <style>
@@ -4253,14 +4181,11 @@ hr {
 </style>
 
 <script>
-
 import { ref, defineComponent, onMounted } from "vue";
 
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import Camera from "simple-vue-camera";
-
-
 
 export default defineComponent({
   name: "RichTextEditor",
@@ -4285,8 +4210,6 @@ export default defineComponent({
     updateCanvasImage(e) {
       this.status = "initialize";
       var self = this;
-
-      
 
       var reader,
         files = e.target.files;
@@ -4322,7 +4245,6 @@ export default defineComponent({
         },
       })
         .then((result) => {
-          
           this.textcontent = result.data.text;
 
           this.mainAbstract = this.textcontent;
@@ -4343,7 +4265,6 @@ export default defineComponent({
             title: "Succesfully Added",
           });
           location.reload();
-         
         });
     },
     saveCapstonee2() {
@@ -4356,7 +4277,6 @@ export default defineComponent({
             icon: "success",
             title: "Abstract successfully saved ",
           });
-        
         });
     },
     getCapstone() {

@@ -8,60 +8,15 @@
       <p class="toTopp">TITLE</p>
     </div>
 
-    <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACT</p>
+    <p class="text-left boldThese">PROJECT DESCRIPTION/ABSTRACTtttt</p>
 
     <div class="contentOfThePage bg-light p-2">
       <p class="parag m-3">{{ GenCapData.abstract }}</p>
-      <hr />
-
-      <div
-        v-if="
-          GenCapData.name === 'AGREE' &&
-          GenCapData.xf5 != null &&
-          GenCapData.xf5 != 'null' &&
-          GenCapData.xf5 != 'null'
-        "
-        class="row text-center px-2"
-      >
-        <button
-          type="button"
-          href="#"
-          class="btn btn-primary col fw-bold"
-          @click.prevent="getFileeee()"
-        >
-          OPEN MANUSCRIPT
-        </button>
-      </div>
-      <div
-        v-else-if="
-          GenCapData.xf5 === null ||
-          GenCapData.xf5 === 'null' ||
-          GenCapData.xf5 === 'NULL'
-        "
-        class="row text-center px-2"
-      >
-        <button
-          type="button"
-          class="btn btn-warning col fw-bold border border-dark"
-          @click="warningNoData()"
-        >
-          EMPTY MANUSCRIPT
-        </button>
-      </div>
-      <div v-else class="row text-center px-2">
-        <button
-          type="button"
-          class="btn btn-warning col fw-bold border border-dark"
-          @click="warning()"
-        >
-          OPEN MANUSCRIPT
-        </button>
-      </div>
     </div>
-
+    <hr />
     <br />
     <div class="row">
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-6 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.groupname }}
@@ -70,7 +25,7 @@
           <p class="toTopp">Group Name</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-6 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf3 }}
@@ -81,7 +36,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="adviser.name != null && adviser.mname != null && adviser.lname != null"
@@ -95,7 +50,7 @@
           <p class="toTopp">Adviser</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="
@@ -110,7 +65,7 @@
           <p class="toTopp">Co-Adviser</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p v-if="GenCapData.xf4 != null" class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf4 }}
@@ -120,7 +75,7 @@
           <p class="toTopp">Client</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p class="pt-2 text-uppercas fw-bolder boldThese">
             {{ GenCapData.xf2 }}
@@ -131,7 +86,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="panels1.name != null && panels1.mname != null && panels1.lname != null"
@@ -145,7 +100,7 @@
           <p class="toTopp">Panel 1</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="panels2.name != null && panels2.mname != null && panels2.lname != null"
@@ -158,7 +113,7 @@
           <p class="toTopp">Panel 2</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="panels3.name != null && panels3.mname != null && panels3.lname != null"
@@ -171,7 +126,7 @@
           <p class="toTopp">Panel 3</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="
@@ -191,7 +146,7 @@
     </div>
 
     <div class="row">
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="
@@ -206,7 +161,7 @@
           <p class="toTopp">Proponent 1</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="
@@ -221,7 +176,7 @@
           <p class="toTopp">Proponent 2</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="
@@ -236,7 +191,7 @@
           <p class="toTopp">Proponent 3</p>
         </div>
       </div>
-      <div class="form-floating mb-3 col">
+      <div class="form-floating mb-3 col-lg-3 col-md-6 col-sm-12">
         <div class="" id="titleSize">
           <p
             v-if="
@@ -253,104 +208,110 @@
       </div>
     </div>
 
-    <div class="row paddingSide mt-3">
-      <div class="col row mx-2 contentOfThePage text-center">
-        <div class="col">
-          <label for="view" class="m-2">Capstone 1</label>
-        </div>
+    <!-- <div class="row paddingSide mt-3">
+      <div class="col-lg-4 col-md-4 col-sm-12 text-center my-1">
+        <div class="contentOfThePage m-1">
+          <div class="col">
+            <label for="view" class="m-2">Capstone 1</label>
+          </div>
 
-        <button
-          v-if="
-            panels1.name != null &&
-            panels1.mname != null &&
-            panels1.lname != null &&
-            panels2.name != null &&
-            panels2.mname != null &&
-            panels2.lname != null &&
-            panels3.name != null &&
-            panels3.mname != null &&
-            panels3.lname != null
-          "
-          type="button"
-          class="m-1 btnSize btn btn-primary boldThese"
-          @click="onView1()"
-        >
-          VIEW
-        </button>
-        <button
-          v-else
-          type="button"
-          class="m-1 btnSize btn btn-warning boldThese"
-          @click="unavailable()"
-        >
-          UNAVAILABLE
-        </button>
-      </div>
-      <div class="col row mx-2 contentOfThePage text-center">
-        <div class="col">
-          <label for="view" class="m-2">Capstone 2</label>
+          <button
+            v-if="
+              panels1.name != null &&
+              panels1.mname != null &&
+              panels1.lname != null &&
+              panels2.name != null &&
+              panels2.mname != null &&
+              panels2.lname != null &&
+              panels3.name != null &&
+              panels3.mname != null &&
+              panels3.lname != null
+            "
+            type="button"
+            class="m-1 btnSize btn btn-primary boldThese"
+            @click="onView1()"
+          >
+            VIEW
+          </button>
+          <button
+            v-else
+            type="button"
+            class="m-1 btnSize btn btn-warning boldThese"
+            @click="unavailable()"
+          >
+            UNAVAILABLE
+          </button>
         </div>
-
-        <button
-          v-if="
-            panels1.name != null &&
-            panels1.mname != null &&
-            panels1.lname != null &&
-            panels2.name != null &&
-            panels2.mname != null &&
-            panels2.lname != null &&
-            panels3.name != null &&
-            panels3.mname != null &&
-            panels3.lname != null
-          "
-          type="button"
-          class="m-1 btnSize btn btn-primary boldThese"
-          @click="onView2()"
-        >
-          VIEW
-        </button>
-        <button
-          v-else
-          type="button"
-          class="m-1 btnSize btn btn-warning boldThese"
-          @click="unavailable()"
-        >
-          UNAVAILABLE
-        </button>
       </div>
-      <div class="col row mx-2 contentOfThePage text-center">
-        <div class="col">
-          <label for="view" class="m-2">Capstone 3</label>
+      <div class="col-lg-4 col-md-4 col-sm-12 text-center my-1">
+        <div class="contentOfThePage m-1">
+          <div class="col">
+            <label for="view" class="m-2">Capstone 2</label>
+          </div>
+
+          <button
+            v-if="
+              panels1.name != null &&
+              panels1.mname != null &&
+              panels1.lname != null &&
+              panels2.name != null &&
+              panels2.mname != null &&
+              panels2.lname != null &&
+              panels3.name != null &&
+              panels3.mname != null &&
+              panels3.lname != null
+            "
+            type="button"
+            class="m-1 btnSize btn btn-primary boldThese"
+            @click="onView2()"
+          >
+            VIEW
+          </button>
+          <button
+            v-else
+            type="button"
+            class="m-1 btnSize btn btn-warning boldThese"
+            @click="unavailable()"
+          >
+            UNAVAILABLE
+          </button>
         </div>
-
-        <button
-          v-if="
-            panels1.name != null &&
-            panels1.mname != null &&
-            panels1.lname != null &&
-            panels2.name != null &&
-            panels2.mname != null &&
-            panels2.lname != null &&
-            panels3.name != null &&
-            panels3.mname != null &&
-            panels3.lname != null
-          "
-          type="button"
-          class="m-1 btnSize btn btn-primary boldThese"
-          @click="onView3()"
-        >
-          VIEW
-        </button>
-        <button
-          v-else
-          type="button"
-          class="m-1 btnSize btn btn-warning boldThese"
-          @click="unavailable()"
-        >
-          UNAVAILABLE
-        </button>
       </div>
-    </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 text-center my-1">
+        <div class="contentOfThePage m-1">
+          <div class="col">
+            <label for="view" class="m-2">Capstone 3</label>
+          </div>
+
+          <button
+            v-if="
+              panels1.name != null &&
+              panels1.mname != null &&
+              panels1.lname != null &&
+              panels2.name != null &&
+              panels2.mname != null &&
+              panels2.lname != null &&
+              panels3.name != null &&
+              panels3.mname != null &&
+              panels3.lname != null
+            "
+            type="button"
+            class="m-1 btnSize btn btn-primary boldThese"
+            @click="onView3()"
+          >
+            VIEW
+          </button>
+          <button
+            v-else
+            type="button"
+            class="m-1 btnSize btn btn-warning boldThese"
+            @click="unavailable()"
+          >
+            UNAVAILABLE
+          </button>
+        </div>
+      </div>
+    </div> -->
 
     <br />
   </div>
@@ -702,3 +663,46 @@ const unavailable = () => {
   margin-right: 0.1px;
 }
 </style>
+<!-- <div
+        v-if="
+          GenCapData.name === 'AGREE' &&
+          GenCapData.xf5 != null &&
+          GenCapData.xf5 != 'null' &&
+          GenCapData.xf5 != 'null'
+        "
+        class="row text-center px-2"
+      >
+        <button
+          type="button"
+          href="#"
+          class="btn btn-primary col fw-bold"
+          @click.prevent="getFileeee()"
+        >
+          OPEN MANUSCRIPT
+        </button>
+      </div>
+      <div
+        v-else-if="
+          GenCapData.xf5 === null ||
+          GenCapData.xf5 === 'null' ||
+          GenCapData.xf5 === 'NULL'
+        "
+        class="row text-center px-2"
+      >
+        <button
+          type="button"
+          class="btn btn-warning col fw-bold border border-dark"
+          @click="warningNoData()"
+        >
+          EMPTY MANUSCRIPT
+        </button>
+      </div>
+      <div v-else class="row text-center px-2">
+        <button
+          type="button"
+          class="btn btn-warning col fw-bold border border-dark"
+          @click="warning()"
+        >
+          OPEN MANUSCRIPT
+        </button>
+      </div> -->
