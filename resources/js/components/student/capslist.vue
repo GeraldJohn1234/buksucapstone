@@ -1,12 +1,12 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-3">
+  <div class="rounded bg-light p-3 contentOfThePage table-wrapper">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
     </div>
-    <hr />
+    <hr class="zindexx" />
 
     <div class="">
-      <div class="input-group">
+      <div class="">
         <input
           class="inputColor"
           type="search"
@@ -37,7 +37,7 @@
     </div>
 
     <br />
-    <table class="table table-hover table-bordered table-striped">
+    <table class="table table-hover table-lg-4 table-bordered table-striped responsive">
       <thead class="colorNeh">
         <tr>
           <th class="text-center">#</th>
@@ -248,5 +248,17 @@ a:hover {
 
 .topHi {
   margin-top: -15px;
+}
+.table-wrapper {
+  min-width: 900px;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.table-wrapper * {
+  box-sizing: border-box;
+}
+.zindexx {
+  z-index: 1 !important;
 }
 </style>

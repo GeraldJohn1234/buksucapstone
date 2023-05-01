@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-2">
+  <div class="contentOfThePage rounded bg-light p-2 m-2 table-wrapper">
     <div class="">
       <div class="forInline capsList">TOPIC SUGGESTIONS LIST</div>
 
@@ -12,7 +12,7 @@
     <hr />
 
     <div class="">
-      <div class="input-group">
+      <div class="">
         <input
           class="inputColor"
           type="search"
@@ -70,17 +70,17 @@
 
           <td class="">
             <ul class="nav row">
-              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+              <li class="col-4 my-1">
                 <i class="btn btn-outline-dark" @click="taketopic(item.id)">
                   <font-awesome-icon icon="fa-solid fa-eye" />
                 </i>
               </li>
-              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+              <li class="col-4 my-1">
                 <i class="btn btn-outline-primary" @click="edithtopic(item.id)">
                   <font-awesome-icon icon="fa-solid fa-edit" />
                 </i>
               </li>
-              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+              <li class="col-4 my-1">
                 <i class="btn btn-outline-danger" @click="deletetopic(item.id)">
                   <font-awesome-icon icon="fa-solid fa-trash" />
                 </i>

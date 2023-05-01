@@ -1,5 +1,5 @@
 <template>
-  <div class="card mb-3 boxProfile text-center mx-auto d-block contentOfThePage">
+  <div class="card m-3 boxProfilee text-center mx-auto d-block col-md-6 contentOfThePage">
     <img src="/images/buksuBg.jpg" alt="logo" class="boxBg" />
 
     <img id="" :src="getPhoto()" alt="img" class="boxP" />
@@ -14,7 +14,7 @@
     <h5 class="fw-bold">PROFILE</h5>
     <br />
     <div class="row">
-      <div class="col">
+      <div class="col-lg-4">
         <label for="universityID" class="form-label">University ID</label>
         <input
           type="text"
@@ -23,7 +23,7 @@
           aria-label="University ID"
         />
       </div>
-      <div class="col">
+      <div class="col-lg-4">
         <label for="emailAddress" class="form-label">Email Address</label>
         <input
           type="text"
@@ -33,7 +33,7 @@
         />
       </div>
 
-      <div class="col">
+      <div class="col-lg-4">
         <label for="password" class="form-label">Password</label>
 
         <div class="input-group mb-3">
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="row pt-2">
-      <div class="col">
+      <div class="col-lg-4">
         <label for="firstname" class="form-label">First Name</label>
         <input
           type="text"
@@ -67,7 +67,7 @@
           v-model="form.name"
         />
       </div>
-      <div class="col">
+      <div class="col-lg-4">
         <label for="middlename" class="form-label">Middle Initial</label>
         <input
           type="text"
@@ -77,7 +77,7 @@
           v-model="form.mname"
         />
       </div>
-      <div class="col">
+      <div class="col-lg-4">
         <label for="lastname" class="form-label">Last Name</label>
         <input
           type="text"
@@ -89,7 +89,7 @@
       </div>
     </div>
     <div class="row pt-3">
-      <div class="col-4">
+      <div class="col-lg-4">
         <label for="college" class="form-label">College (disabled)</label>
         <input
           type="text"
@@ -100,7 +100,7 @@
         />
       </div>
 
-      <div class="col-4">
+      <div class="col-lg-4">
         <label for="lastname" class="form-label">Choose Year (Student)</label>
         <div class="input-group mb-3">
           <select
@@ -116,7 +116,7 @@
         </div>
       </div>
 
-      <div class="col">
+      <div class="col-lg-4">
         <div class="form-check twoSides">
           <input
             class="form-check-input"

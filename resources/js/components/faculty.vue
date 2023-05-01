@@ -496,8 +496,23 @@ const logout = () => {
     display: none;
   }
 }
+@media screen and (max-width: 630px) {
+  .wrapper .main_content .headerL {
+    padding-left: 15px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    font-size: 15px !important;
+    background: #fff;
+    color: #000000;
+    float: left;
+  }
+}
 
 @media screen and (max-width: 1019px) {
+  .wrapper .main_content .headerR {
+    position: absolute;
+    right: 80px !important;
+  }
   .thishideee {
     display: none;
   }
@@ -540,17 +555,25 @@ const logout = () => {
 }
 
 @media screen and (max-width: 731px) {
-  #rizal {
+  /** #rizal {
     display: none;
+  }**/
+  .wrapper .main_content .headerL {
+    padding-left: 15px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    font-size: 15px !important;
+    background: #fff;
+    color: #000000;
+    float: left;
   }
 }
 
 .wrapper .sidebar .row .row1 h2 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: bolder;
   margin-bottom: 15px;
   margin-top: 15px;
-
   padding-left: 2px;
   padding-top: 18;
   padding-bottom: 18;
@@ -558,7 +581,7 @@ const logout = () => {
   color: #000000;
 }
 .wrapper .sidebar ul li {
-  padding: 15px;
+  padding: 16px;
   padding-top: 13px;
   padding-bottom: 13px;
   cursor: pointer;
@@ -591,12 +614,18 @@ const logout = () => {
 .info {
   margin-left: 10px;
   margin-right: 20px;
+  margin-top: 67px;
+  position: inherit;
+  width: 100%;
 }
 .wrapper .main_content .header {
   height: 67px;
   border-bottom: 1px solid #3b3b3b;
   box-shadow: 2px 1px 10px #888888;
   background: #ffffff;
+  position: fixed;
+  width: 100% !important;
+  z-index: 100;
 }
 .wrapper .main_content .headerL {
   padding: 11px;
@@ -608,8 +637,9 @@ const logout = () => {
 .wrapper .main_content .headerR {
   background: #fff;
   color: #717171;
-  float: right;
   font-size: 10px;
+  position: absolute;
+  right: 250px;
 }
 
 #r {
@@ -708,5 +738,8 @@ div .activeStyle1 i {
   color: red;
   font-weight: bold;
   cursor: pointer;
+}
+.zindexx_front1 {
+  z-index: 1000000 !important;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-3">
+  <div class="contentOfThePage rounded bg-light p-3 table-wrapper">
     <div class="">
       <div class="forInline capsList">TOPIC SUGGESTIONS LIST</div>
     </div>
     <hr />
 
     <div class="">
-      <div class="input-group">
+      <div class="">
         <input
           class="inputColor"
           type="search"

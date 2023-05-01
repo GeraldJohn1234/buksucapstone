@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-3 col-12 scrollme">
+  <div class="contentOfThePage rounded bg-light p-3 col-12 scrollme table-wrapper m-2">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
 
@@ -12,7 +12,7 @@
     <hr />
 
     <div class="">
-      <div class="input-group">
+      <div class="">
         <input
           class="inputColor"
           type="search"
@@ -76,17 +76,17 @@
 
             <td class="text-center align-middle">
               <ul class="nav row">
-                <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                <li class="col-4 my-1">
                   <i class="btn btn-outline-dark" @click="viewCap(item.id)">
                     <font-awesome-icon icon="fa-solid fa-eye" />
                   </i>
                 </li>
-                <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                <li class="col-4 my-1">
                   <i class="btn btn-outline-primary" @click="edithCap(item.id)">
                     <font-awesome-icon icon="fa-solid fa-edit" />
                   </i>
                 </li>
-                <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+                <li class="col-4 my-1">
                   <i class="btn btn-outline-danger" @click="deleteCapstone(item.id)">
                     <font-awesome-icon icon="fa-solid fa-trash" />
                   </i>
@@ -295,5 +295,17 @@ a:hover {
 
 .topHi {
   margin-top: -15px;
+}
+.table-wrapper {
+  min-width: 900px;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.table-wrapper * {
+  box-sizing: border-box;
+}
+.zindexx {
+  z-index: 1 !important;
 }
 </style>

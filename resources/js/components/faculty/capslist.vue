@@ -1,12 +1,12 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-3">
+  <div class="contentOfThePage table-wrapper rounded bg-light p-3 m-2">
     <div class="">
       <div class="forInline capsList">CAPSTONE LIST</div>
     </div>
     <hr />
 
     <div class="">
-      <div class="input-group">
+      <div class="">
         <input
           class="inputColor"
           type="search"
@@ -209,5 +209,17 @@ a:hover {
 }
 .upper {
   text-transform: uppercase;
+}
+.table-wrapper {
+  min-width: 900px;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.table-wrapper * {
+  box-sizing: border-box;
+}
+.zindexx {
+  z-index: 1 !important;
 }
 </style>

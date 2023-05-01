@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-3">
+  <div class="contentOfThePage rounded bg-light p-3 table-wrapper">
     <div class="">
       <div class="forInline capsList">FACULTY LIST</div>
 
@@ -9,10 +9,11 @@
         </router-link>
       </div>
     </div>
-    <hr />
+
+    <hr class="index1" />
 
     <div class="">
-      <div class="input-group">
+      <div class="">
         <input
           class="inputColor"
           type="search"

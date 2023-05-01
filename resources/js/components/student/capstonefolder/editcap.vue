@@ -1,5 +1,4 @@
 <template>
- 
   <div v-if="modall.open" class="modalist modal contentOfThePage bg-light p-5">
     <button class="btn btn-danger float" @click="modall.open = false">X</button>
     <br />
@@ -31,7 +30,7 @@
       the study.
     </p>
     <hr />
-  
+
     <div class="form-check">
       <input
         class="form-check-input"
@@ -77,7 +76,6 @@
     <button v-else class="btnSize btn btn-primary fw-bold" @click="saveCapstone()">
       SUBMIT
     </button>
-   
 
     <br />
   </div>
@@ -169,7 +167,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.adviser">
-            
             <option v-for="item in advisers" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -189,7 +186,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.coAdviser">
-            
             <option v-for="item in advisers" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -213,7 +209,6 @@
 
         <div class="input-group mb-3 col-12 border border-primary">
           <input type="file" id="" accept=".pdf" class="" @change="onChange" />
-        
         </div>
       </div>
     </div>
@@ -230,7 +225,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels1">
-            
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -249,7 +243,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels2">
-            
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -268,7 +261,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.panels3">
-            
             <option v-for="item in panels" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -309,7 +301,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students1">
-          
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -327,7 +318,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students2">
-            
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -345,7 +335,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students3">
-          
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -363,7 +352,6 @@
         <label v-else for="" class="float-end colorText">no data</label>
         <div class="input-group mb-3">
           <select class="form-control inputColor" required v-model="GenCaps.students4">
-           
             <option v-for="item in students" :key="item.id" :value="item.id">
               {{ item.name }} {{ item.mname }} {{ item.lname }}
             </option>
@@ -374,7 +362,7 @@
     <hr />
 
     <div class="row paddingSide mt-3">
-      <div class="col row mx-2 contentOfThePage text-center">
+      <div class="col row mx-2 my-1 contentOfThePage text-center">
         <label for="view" class="m-2">Capstone 1</label>
         <div class="col">
           <button type="button" class="m-1 btnSize btn btn-primary" @click="onView1()">
@@ -383,14 +371,12 @@
         </div>
 
         <div class="col">
-         
-
           <button type="button" class="m-1 btnSize btn btn-primary" @click="onUpdate1()">
             UPDATE
           </button>
         </div>
       </div>
-      <div class="col row mx-2 contentOfThePage text-center">
+      <div class="col row mx-2 my-1 contentOfThePage text-center">
         <label for="view" class="m-2">Capstone 2</label>
         <div class="col">
           <button type="button" class="m-1 btnSize btn btn-primary" @click="onView2()">
@@ -399,14 +385,12 @@
         </div>
 
         <div class="col">
-         
-
           <button type="button" class="m-1 btnSize btn btn-primary" @click="onUpdate2()">
             UPDATE
           </button>
         </div>
       </div>
-      <div class="col row mx-2 contentOfThePage text-center">
+      <div class="col row mx-2 my-1 contentOfThePage text-center">
         <label for="view" class="m-2">Capstone 3</label>
         <div class="col">
           <button type="button" class="m-1 btnSize btn btn-primary" @click="onView3()">
@@ -415,8 +399,6 @@
         </div>
 
         <div class="col">
-          
-
           <button type="button" class="m-1 btnSize btn btn-primary" @click="onUpdate3()">
             UPDATE
           </button>
@@ -424,8 +406,6 @@
       </div>
     </div>
     <hr />
-
-   
 
     <div class="row">
       <div class="col">
@@ -436,7 +416,6 @@
         >
           Save
         </button>
-     
       </div>
     </div>
   </div>
@@ -452,7 +431,6 @@ let panels = ref({});
 let advisers = ref({});
 let instructors = ref({});
 let secretarys = ref({});
-
 
 let modall = ref({
   open: false,
@@ -530,7 +508,6 @@ let caps1Instructor = ref({
 });
 
 let GenCaps = ref({
-  
   students1: null,
   students2: null,
   students3: null,
@@ -563,11 +540,9 @@ onMounted(async () => {
   getInstructor();
 });
 const onChange = (e) => {
-
   console.log("Selected FILE: ", e.target.files[0]);
- 
-  GenCapData.value.file = e.target.files[0];
 
+  GenCapData.value.file = e.target.files[0];
 };
 
 const gettIdfromURL = () => {
@@ -584,7 +559,6 @@ const onOCR = (id) => {
   router.push("/ocrpages/" + capstoneid);
 };
 const saveCapstone = () => {
- 
   let capstoneid = gettIdfromURL();
 
   const formData = new FormData();
@@ -671,7 +645,6 @@ const saveCapstone = () => {
         (GenCaps.value.adviser = null),
         (GenCaps.value.coAdviser = null),
         (GenCaps.value.secretarys = null),
-      
         router.push("/editcap/" + props.id);
 
       toast.fire({
@@ -696,10 +669,8 @@ const getsingleUser = async () => {
   let response = await axios.get("/api/get_capstone/" + props.id);
   GenCapData.value = response.data.capstones;
 
-
   console.warn("Caps", GenCapData.value);
 };
-
 
 const getsingleUser1 = async () => {
   let nullneh;
@@ -709,8 +680,6 @@ const getsingleUser1 = async () => {
   if (nullneh != null) {
     student1.value = response.data.userCaps;
   }
-
-
 };
 const getsingleUser2 = async () => {
   let nullneh;
@@ -859,8 +828,6 @@ const onView3 = () => {
   let id = getIDfromURL();
   router.push("/capstone3/" + id);
 };
-
-
 </script>
 
 <style>

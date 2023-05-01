@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-3">
+  <div class="contentOfThePage rounded bg-light p-3 table-wrapper m-2">
     <div class="">
       <div class="forInline capsList">FACULTY LIST</div>
 
@@ -12,7 +12,7 @@
     <hr />
 
     <div class="">
-      <div class="input-group">
+      <div class="">
         <input
           class="inputColor"
           type="search"
@@ -53,7 +53,7 @@
           <th class="col">I.D</th>
           <th class="col">FULLNAME</th>
 
-          <th class="col-2">ACTION</th>
+          <th class="col">ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -73,17 +73,17 @@
 
           <td class="">
             <ul class="nav row">
-              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+              <li class="col-4 my-1">
                 <i class="btn btn-outline-dark" @click="onView(item.id)">
                   <font-awesome-icon icon="fa-solid fa-eye" />
                 </i>
               </li>
-              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+              <li class="col-4 my-1">
                 <i class="btn btn-outline-primary" @click="onEdith(item.id)">
                   <font-awesome-icon icon="fa-solid fa-edit" />
                 </i>
               </li>
-              <li class="col-lg-4 my-1 col-sm-12 col-md-12">
+              <li class="col-4 my-1">
                 <i class="btn btn-outline-danger" @click="deleteUser(item.id)">
                   <font-awesome-icon icon="fa-solid fa-trash" />
                 </i>

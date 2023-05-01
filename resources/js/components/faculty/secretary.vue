@@ -1,5 +1,5 @@
 <template>
-  <div class="contentOfThePage rounded bg-light p-2">
+  <div class="contentOfThePage rounded bg-light p-3 m-2 table-wrapper">
     <div class="">
       <div class="forInline capsList">LIST OF CAPSTONE AS A SECRETARY</div>
     </div>
